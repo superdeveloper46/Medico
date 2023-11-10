@@ -1,0 +1,1154 @@
+{
+    "id": "8c980622-4181-48d3-ab0a-f602b66caf5f",
+    "name": "patientChart",
+    "title": "Patient Chart",
+    "type": 1,
+    "value": null,
+    "attributes": {
+        "order": 1,
+        "isActive": true,
+        "isPredefined": true,
+        "isNotShownInReport": false,
+        "signedOffOnly": false,
+        "nodeSpecificAttributes": null
+    },
+    "children": [
+        {
+            "id": "882e8831-cefa-41ee-b8fb-3035bfd5d53f",
+            "name": "historyAndPhysical",
+            "title": "History And Physical",
+            "type": 2,
+            "value": null,
+            "attributes": {
+                "order": 1,
+                "isActive": true,
+                "isPredefined": true,
+                "isNotShownInReport": false,
+                "signedOffOnly": false,
+                "nodeSpecificAttributes": null
+            },
+            "children": [
+                {
+                    "id": "49069700-9799-4eba-b24e-8aefb0ff5b64",
+                    "name": "Statement of Examination",
+                    "title": "Statement of Examination",
+                    "type": 4,
+                    "value": {
+                        "defaultTemplateHtml": "",
+                        "detailedTemplateHtml": "<p>UPDATED Claimant was advised prior to exam that this is not a complete physical but is an administrative exam and a physician patient relationship has not been established and according to DDS requirements the claimant is not required to perform any maneuvers that cause pain or discomfort. Findings related to this examination were discussed with the claimant prior to termination of the exam and that the physician does not make determination of disability, this determination is made by DDS. Additionally, the physical exam and paperwork take 30 minutes. Identification verified with a&nbsp; &nbsp;<label id=\"8c45bb91-2ae9-0e8b-a1f3-f31221f96993\" metadata=\"049a84ec-911c-ea11-828b-281878072c42\" selectable-type=\"list\" contenteditable=\"false\" initial-value=\"Drivers License\">Drivers License</label>&nbsp;</p>",
+                        "isDetailedTemplateUsed": true
+                    },
+                    "attributes": {
+                        "order": 1,
+                        "isActive": true,
+                        "isPredefined": true,
+                        "isNotShownInReport": false,
+                        "signedOffOnly": false,
+                        "nodeSpecificAttributes": {
+                            "templateId": "9c3dae22-2c5b-ea11-a94c-28187804dcad",
+                            "templateTypeId": null
+                        }
+                    },
+                    "children": null,
+                    "parentId": "882e8831-cefa-41ee-b8fb-3035bfd5d53f",
+                    "template": "<patient-chart-template [admissionId]='admissionId' [companyId]='companyId' [isSignedOff]='isSignedOff' [patientChartNode]='patientChartNode' [templateType]='common' [templateId]='\"917f532d-0dfc-43eb-ae8d-47e4b71b5287\"' [patientChartDocumentNode]='patientChartDocumentNode'></patient-chart-template>"
+                },
+                {
+                    "id": "4e101d8d-fe2d-465b-a39b-9562ac26fe1c",
+                    "name": "claimantHistory",
+                    "title": "Claimant History",
+                    "type": 3,
+                    "value": {},
+                    "attributes": {
+                        "order": 2,
+                        "isActive": true,
+                        "isPredefined": true,
+                        "isNotShownInReport": false,
+                        "signedOffOnly": false,
+                        "nodeSpecificAttributes": null
+                    },
+                    "children": [
+                        {
+                            "id": "b7f55cee-f0b0-4f49-87bc-67c77836d51f",
+                            "name": "reviewedMedicalRecords",
+                            "title": "Patient Medical Records Reviewed",
+                            "type": 19,
+                            "value": {},
+                            "attributes": {
+                                "order": 1,
+                                "isActive": true,
+                                "isPredefined": true,
+                                "isNotShownInReport": false,
+                                "signedOffOnly": false,
+                                "nodeSpecificAttributes": null
+                            },
+                            "children": null,
+                            "parentId": "4e101d8d-fe2d-465b-a39b-9562ac26fe1c",
+                            "template": "<reviewed-medical-records [companyId]='companyId' [isSignedOff]='isSignedOff' [patientId]='patientId'></reviewed-medical-records>"
+                        },
+                        {
+                            "id": "2a5b173c-5019-4aee-9de2-bd62bbee4691",
+                            "name": "tobaccoHistory",
+                            "title": "Tobacco History",
+                            "type": 6,
+                            "value": {},
+                            "attributes": {
+                                "order": 2,
+                                "isActive": true,
+                                "isPredefined": true,
+                                "isNotShownInReport": false,
+                                "signedOffOnly": false,
+                                "nodeSpecificAttributes": null
+                            },
+                            "children": null,
+                            "parentId": "4e101d8d-fe2d-465b-a39b-9562ac26fe1c",
+                            "template": "<tobacco-history [companyId]='companyId' [isSignedOff]='isSignedOff' [patientId]='patientId'></tobacco-history>"
+                        },
+                        {
+                            "id": "8e818fd1-8b42-4a10-8309-52e91bfb0f27",
+                            "name": "drugHistory",
+                            "title": "Drug History",
+                            "type": 8,
+                            "value": {},
+                            "attributes": {
+                                "order": 3,
+                                "isActive": true,
+                                "isPredefined": true,
+                                "isNotShownInReport": false,
+                                "signedOffOnly": false,
+                                "nodeSpecificAttributes": null
+                            },
+                            "children": null,
+                            "parentId": "4e101d8d-fe2d-465b-a39b-9562ac26fe1c",
+                            "template": "<drug-history [companyId]='companyId' [isSignedOff]='isSignedOff' [patientId]='patientId'></drug-history>"
+                        },
+                        {
+                            "id": "2986d6bd-5032-485a-881e-6553db0553f9",
+                            "name": "alcoholHistory",
+                            "title": "Alcohol History",
+                            "type": 9,
+                            "value": {},
+                            "attributes": {
+                                "order": 4,
+                                "isActive": true,
+                                "isPredefined": true,
+                                "isNotShownInReport": false,
+                                "signedOffOnly": false,
+                                "nodeSpecificAttributes": null
+                            },
+                            "children": null,
+                            "parentId": "4e101d8d-fe2d-465b-a39b-9562ac26fe1c",
+                            "template": "<alcohol-history [companyId]='companyId' [isSignedOff]='isSignedOff' [patientId]='patientId'></alcohol-history>"
+                        },
+                        {
+                            "id": "29328b6b-2cb8-4d34-8e7e-3fe08d741d53",
+                            "name": "previousMedicalHistory",
+                            "title": "Previous Medical History",
+                            "type": 10,
+                            "value": {},
+                            "attributes": {
+                                "order": 5,
+                                "isActive": true,
+                                "isPredefined": true,
+                                "isNotShownInReport": false,
+                                "signedOffOnly": false,
+                                "nodeSpecificAttributes": null
+                            },
+                            "children": null,
+                            "parentId": "4e101d8d-fe2d-465b-a39b-9562ac26fe1c",
+                            "template": "<medical-history [companyId]='companyId' [isSignedOff]='isSignedOff' [patientId]='patientId'></medical-history>"
+                        },
+                        {
+                            "id": "8c032154-319a-41fb-ac64-26ee988e167a",
+                            "name": "previousSurgicalHistory",
+                            "title": "Previous Surgical History",
+                            "type": 11,
+                            "value": {},
+                            "attributes": {
+                                "order": 6,
+                                "isActive": true,
+                                "isPredefined": true,
+                                "isNotShownInReport": false,
+                                "signedOffOnly": false,
+                                "nodeSpecificAttributes": null
+                            },
+                            "children": null,
+                            "parentId": "4e101d8d-fe2d-465b-a39b-9562ac26fe1c",
+                            "template": "<surgical-history [companyId]='companyId' [isSignedOff]='isSignedOff' [patientId]='patientId'></surgical-history>"
+                        },
+                        {
+                            "id": "a593bc48-34ce-41c9-a6ca-58d81f7c25ea",
+                            "name": "familyHistory",
+                            "title": "Family History",
+                            "type": 12,
+                            "value": {},
+                            "attributes": {
+                                "order": 7,
+                                "isActive": true,
+                                "isPredefined": true,
+                                "isNotShownInReport": false,
+                                "signedOffOnly": false,
+                                "nodeSpecificAttributes": null
+                            },
+                            "children": null,
+                            "parentId": "4e101d8d-fe2d-465b-a39b-9562ac26fe1c",
+                            "template": "<family-history [companyId]='companyId' [isSignedOff]='isSignedOff' [patientId]='patientId'></family-history>"
+                        },
+                        {
+                            "id": "c9020f23-34d7-475d-92ee-71ed3e45f7af",
+                            "name": "education",
+                            "title": "Education",
+                            "type": 13,
+                            "value": {},
+                            "attributes": {
+                                "order": 8,
+                                "isActive": true,
+                                "isPredefined": true,
+                                "isNotShownInReport": false,
+                                "signedOffOnly": false,
+                                "nodeSpecificAttributes": null
+                            },
+                            "children": null,
+                            "parentId": "4e101d8d-fe2d-465b-a39b-9562ac26fe1c",
+                            "template": "<education-history [companyId]='companyId' [isSignedOff]='isSignedOff' [patientId]='patientId'></education-history>"
+                        },
+                        {
+                            "id": "2538ca20-55e5-4231-809c-f63595b7148f",
+                            "name": "occupationalHistory",
+                            "title": "Occupational History",
+                            "type": 14,
+                            "value": {},
+                            "attributes": {
+                                "order": 9,
+                                "isActive": true,
+                                "isPredefined": true,
+                                "isNotShownInReport": false,
+                                "signedOffOnly": false,
+                                "nodeSpecificAttributes": null
+                            },
+                            "children": null,
+                            "parentId": "4e101d8d-fe2d-465b-a39b-9562ac26fe1c",
+                            "template": "<occupational-history [companyId]='companyId' [isSignedOff]='isSignedOff' [patientId]='patientId'></occupational-history>"
+                        },
+                        {
+                            "id": "c4856662-b424-496a-bfc8-70b9ec57faac",
+                            "name": "allergies",
+                            "title": "Allergies",
+                            "type": 15,
+                            "value": {},
+                            "attributes": {
+                                "order": 10,
+                                "isActive": true,
+                                "isPredefined": true,
+                                "isNotShownInReport": false,
+                                "signedOffOnly": false,
+                                "nodeSpecificAttributes": null
+                            },
+                            "children": null,
+                            "parentId": "4e101d8d-fe2d-465b-a39b-9562ac26fe1c",
+                            "template": "<allergy [companyId]='companyId' [isSignedOff]='isSignedOff' [patientId]='patientId'></allergy>"
+                        },
+                        {
+                            "id": "c64ff816-2502-40c8-bc0b-9adfda94d791",
+                            "name": "medications",
+                            "title": "Medications",
+                            "type": 16,
+                            "value": {},
+                            "attributes": {
+                                "order": 11,
+                                "isActive": true,
+                                "isPredefined": true,
+                                "isNotShownInReport": false,
+                                "signedOffOnly": false,
+                                "nodeSpecificAttributes": null
+                            },
+                            "children": null,
+                            "parentId": "4e101d8d-fe2d-465b-a39b-9562ac26fe1c",
+                            "template": "<medication-history [companyId]='companyId' [isSignedOff]='isSignedOff' [patientId]='patientId'></medication-history>"
+                        }
+                    ],
+                    "parentId": "882e8831-cefa-41ee-b8fb-3035bfd5d53f",
+                    "template": null
+                },
+                {
+                    "id": "077cb6f6-1705-4b5b-8d8b-d0813cd1a433",
+                    "name": "chiefComplaint",
+                    "title": "Chief Complaint",
+                    "type": 7,
+                    "value": {
+                        "patientAllegationsSets": [
+                            {
+                                "id": "68591e61-95db-daac-b2bc-a80a87ddbaa4",
+                                "allegations": "back Pain",
+                                "peTemplates": [],
+                                "hpiTemplates": [
+                                    {
+                                        "libraryTemplateId": null,
+                                        "companyId": "0084add6-3fda-e911-b5e9-0003ff1726dd",
+                                        "libraryTemplateVersion": null,
+                                        "templateTypeId": "8dc81e6a-931c-ea11-828b-281878072c42",
+                                        "templateTypeName": "hpi",
+                                        "templateOrder": 13,
+                                        "reportTitle": "Musculoskeletal Pain",
+                                        "title": "HPI Musculoskeletal Pain HPI",
+                                        "isRequired": false,
+                                        "isActive": true,
+                                        "isHistorical": false,
+                                        "version": null,
+                                        "id": "4e0256d4-981c-ea11-828b-281878072c42"
+                                    }
+                                ],
+                                "rosTemplates": [],
+                                "sectionIds": []
+                            }
+                        ]
+                    },
+                    "attributes": {
+                        "order": 3,
+                        "isActive": true,
+                        "isPredefined": true,
+                        "isNotShownInReport": false,
+                        "signedOffOnly": false,
+                        "nodeSpecificAttributes": null
+                    },
+                    "children": null,
+                    "parentId": "882e8831-cefa-41ee-b8fb-3035bfd5d53f",
+                    "template": "<chief-complaint [companyId]='companyId' [appointmentId]='appointmentId' [isSignedOff]='isSignedOff' [patientChartNode]='patientChartNode' [patientChartDocumentNode]='patientChartDocumentNode'></chief-complaint>"
+                },
+                {
+                    "id": "42516c54-9098-41a2-b0cf-8cf607a3c1a3",
+                    "name": "hpi",
+                    "title": "History of Present Illness",
+                    "type": 5,
+                    "value": [
+                        {
+                            "id": "710256d4-981c-ea11-828b-281878072c42",
+                            "order": 6,
+                            "title": "General History of Present Illness",
+                            "sectionId": "ff36597b-c07d-4b8e-88c8-d8dcde1f84d1"
+                        },
+                        {
+                            "id": "4e0256d4-981c-ea11-828b-281878072c42",
+                            "title": "Musculoskeletal Pain",
+                            "order": 13,
+                            "sectionId": "3b3b91f6-9d28-80ae-c9ed-af0f5f8eb209"
+                        }
+                    ],
+                    "attributes": {
+                        "order": 4,
+                        "isActive": true,
+                        "isPredefined": true,
+                        "isNotShownInReport": false,
+                        "signedOffOnly": false,
+                        "nodeSpecificAttributes": {
+                            "templateId": null,
+                            "templateTypeId": "8dc81e6a-931c-ea11-828b-281878072c42"
+                        }
+                    },
+                    "children": [
+                        {
+                            "id": "ff36597b-c07d-4b8e-88c8-d8dcde1f84d1",
+                            "name": "General History of Present Illness",
+                            "title": "General History of Present Illness",
+                            "type": 4,
+                            "value": {
+                                "defaultTemplateHtml": "",
+                                "detailedTemplateHtml": "<p><label contenteditable='false' id='963c2252-ae84-fb42-dccf-7cbb1ee4edfb' selectable-type='list' initial-value='denies' metadata='009a84ec-911c-ea11-828b-281878072c42'>denies</label>&nbsp;<label contenteditable='false' id='3997cd57-4c55-910e-986d-fd7e2eb680df' selectable-type='list' initial-value='Pain' metadata='289a84ec-911c-ea11-828b-281878072c42'>Pain</label> onset <label contenteditable='false' id='7c673627-c929-81c5-7014-fd3f6218ad10' selectable-type='range' initial-value='1' metadata='1::60'>1</label> <label contenteditable='false' id='14ff5a68-3e09-f9e2-706f-85ee134dee03' selectable-type='list' initial-value='Second(s)' metadata='299a84ec-911c-ea11-828b-281878072c42'>Second(s)</label> <label contenteditable='false' id='c5cc6e74-3c4e-3ff3-2116-869b92b4452d' selectable-type='list' initial-value='acute' metadata='2a9a84ec-911c-ea11-828b-281878072c42'>acute</label> describes pain as <label contenteditable='false' id='116ec573-d419-5288-82ce-1554547154fa' selectable-type='list' initial-value='sharp' metadata='2d9a84ec-911c-ea11-828b-281878072c42'>sharp</label> and <label contenteditable='false' id='b0f7cc91-e7c1-e672-0519-14a072622817' selectable-type='list' initial-value='mild' metadata='e29984ec-911c-ea11-828b-281878072c42'>mild</label> with <label contenteditable='false' id='44c11f47-102b-1fcb-0914-ee7eb91ad537' selectable-type='list' initial-value='acute' metadata='2a9a84ec-911c-ea11-828b-281878072c42'>acute</label> pain in the <label contenteditable='false' id='c8041c88-ccfb-cada-b419-9ed71181dd50' selectable-type='list' initial-value='acute' metadata='2a9a84ec-911c-ea11-828b-281878072c42'>acute</label> <label contenteditable='false' id='3c96d9e7-3aaf-5449-6821-7f55707131ed' selectable-type='range' initial-value='1' metadata='1::60'>1</label> <label contenteditable='false' id='88db63b8-6720-77d3-b4b0-f05d3b38e679' selectable-type='list' initial-value='acute' metadata='2a9a84ec-911c-ea11-828b-281878072c42'>acute</label> <label contenteditable='false' id='02252550-dd5e-beb0-f223-8909d91572be' selectable-type='list' initial-value='rest' metadata='2b9a84ec-911c-ea11-828b-281878072c42'>rest</label> worsened by <label contenteditable='false' id='fe724d63-2962-607c-2e05-459116eab227' selectable-type='list' initial-value='movement' metadata='2c9a84ec-911c-ea11-828b-281878072c42'>movement</label> with associated <label contenteditable='false' id='3a95f450-f651-7349-508f-60ddd4af499d' selectable-type='list' initial-value='Pain' metadata='289a84ec-911c-ea11-828b-281878072c42'>Pain</label></p>",
+                                "isDetailedTemplateUsed": true
+                            },
+                            "attributes": {
+                                "order": 6,
+                                "isActive": true,
+                                "isPredefined": false,
+                                "isNotShownInReport": false,
+                                "signedOffOnly": false,
+                                "nodeSpecificAttributes": {
+                                    "templateId": "710256d4-981c-ea11-828b-281878072c42",
+                                    "templateTypeId": null
+                                }
+                            },
+                            "children": null,
+                            "parentId": "42516c54-9098-41a2-b0cf-8cf607a3c1a3",
+                            "template": "<patient-chart-template [admissionId]='admissionId' [companyId]='companyId' [isSignedOff]='isSignedOff' [patientChartNode]='patientChartNode' [templateType]='$hpi' [templateId]='\"$710256d4-981c-ea11-828b-281878072c42\"' [patientChartDocumentNode]='patientChartDocumentNode'></patient-chart-template>"
+                        },
+                        {
+                            "id": "3b3b91f6-9d28-80ae-c9ed-af0f5f8eb209",
+                            "name": "Musculoskeletal Pain",
+                            "title": "Musculoskeletal Pain",
+                            "type": 4,
+                            "value": {
+                                "defaultTemplateHtml": "",
+                                "detailedTemplateHtml": "<p>Claimant complains of <label contenteditable='false' id='5a99572b-b4f1-2c9c-512d-44676b1b0878' selectable-type='list' initial-value='head' metadata='239a84ec-911c-ea11-828b-281878072c42'>head</label> pain onset <label contenteditable='false' id='2a3186af-9230-8765-717e-42fd2c2da62e' selectable-type='date' initial-value='05/2020' metadata='MM/YYYY'>05/2020</label>.&nbsp; Pain is <span>&nbsp;</span><label contenteditable='false' id='92dc6a90-3bc0-9036-9b5d-e2b78fd88a5e' selectable-type='list' initial-value='acute' metadata='2a9a84ec-911c-ea11-828b-281878072c42'>acute</label><span> with </span><span>&nbsp;</span><label contenteditable='false' id='b5222a17-18c0-597f-38b6-cba12e18c083' selectable-type='list' initial-value='mild' metadata='e29984ec-911c-ea11-828b-281878072c42'>mild</label><span> </span><span> <span>&nbsp;severity.&nbsp; Pain</span></span>&nbsp;described as <span>&nbsp;</span><label contenteditable='false' id='d17bcab7-050f-89c9-a680-c759b60ad323' selectable-type='list' initial-value='sharp' metadata='2d9a84ec-911c-ea11-828b-281878072c42'>sharp</label><span> with associated <span>&nbsp;</span><label contenteditable='false' id='c49bd414-10e8-ed2e-81be-7d2a292d9a72' selectable-type='list' initial-value='Pain' metadata='289a84ec-911c-ea11-828b-281878072c42'>Pain</label><span>&nbsp;</span>.&nbsp; </span>&nbsp;Pain can last <label contenteditable='false' id='551e2f76-2186-18d9-1a3a-625aa0cf6f5e' selectable-type='range' initial-value='1' metadata='1::60'>1</label> <label contenteditable='false' id='b8901a41-9be9-7840-b223-e6b5d311b37e' selectable-type='list' initial-value='Second(s)' metadata='299a84ec-911c-ea11-828b-281878072c42'>Second(s)</label> occuring every <label contenteditable='false' id='2c850e5d-abb3-e1e1-84ec-1de8cd06c8e5' selectable-type='range' initial-value='1' metadata='1::60'>1</label>&nbsp;<label contenteditable='false' id='1de75547-a8b5-20ca-58eb-b5636e10ffb0' selectable-type='list' initial-value='Second(s)' metadata='299a84ec-911c-ea11-828b-281878072c42'>Second(s)</label> . The symptoms <label contenteditable='false' id='09164174-4c69-f106-0bae-9c3888d530fe' selectable-type='list' initial-value='do' metadata='5c9a84ec-911c-ea11-828b-281878072c42'>do</label> radiate to the <label contenteditable='false' id='e318e833-a46b-b3e2-4578-999b5dca4986' selectable-type='list' initial-value='bilateral' metadata='229a84ec-911c-ea11-828b-281878072c42'>bilateral</label> <label contenteditable='false' id='5483b910-2f74-a9c8-d4ed-18fc50b1971e' selectable-type='list' initial-value='head' metadata='239a84ec-911c-ea11-828b-281878072c42'>head</label> . Pain is improved with <label contenteditable='false' id='b32f2090-1e6e-bd6e-194b-6ab2e892d79e' selectable-type='list' initial-value='rest' metadata='2b9a84ec-911c-ea11-828b-281878072c42'>rest</label> and worsened by <label contenteditable='false' id='6fd026d8-168a-fff1-9da0-36e3e4dad4ee' selectable-type='list' initial-value='movement' metadata='2c9a84ec-911c-ea11-828b-281878072c42'>movement</label> . Claimant has had additianal evaluations including <span>&nbsp;</span><label contenteditable='false' id='74a68c3e-225d-427d-7d9f-99945558ec1b' selectable-type='list' initial-value='no documentation' metadata='129a84ec-911c-ea11-828b-281878072c42'>no documentation</label><span> .</span></p>",
+                                "isDetailedTemplateUsed": true
+                            },
+                            "attributes": {
+                                "order": 13,
+                                "isActive": true,
+                                "isPredefined": false,
+                                "isNotShownInReport": false,
+                                "signedOffOnly": false,
+                                "nodeSpecificAttributes": {
+                                    "templateId": "4e0256d4-981c-ea11-828b-281878072c42",
+                                    "templateTypeId": null
+                                }
+                            },
+                            "children": null,
+                            "parentId": "42516c54-9098-41a2-b0cf-8cf607a3c1a3",
+                            "template": "<patient-chart-template [admissionId]='admissionId' [companyId]='companyId' [isSignedOff]='isSignedOff' [patientChartNode]='patientChartNode' [templateType]='hpi' [templateId]='\"4e0256d4-981c-ea11-828b-281878072c42\"' [patientChartDocumentNode]='patientChartDocumentNode'></patient-chart-template>"
+                        }
+                    ],
+                    "parentId": "882e8831-cefa-41ee-b8fb-3035bfd5d53f",
+                    "template": "<template-list [companyId]='companyId' [isSignedOff]='isSignedOff' [patientChartNode]='patientChartNode' templateType='hpi'></template-list>"
+                },
+                {
+                    "id": "b9c41c03-3c50-4ef9-ad23-2248dfe0827a",
+                    "name": "ros",
+                    "title": "Review Of Systems",
+                    "type": 5,
+                    "value": [
+                        {
+                            "id": "530256d4-981c-ea11-828b-281878072c42",
+                            "order": 2,
+                            "title": "General Review Of Systems",
+                            "sectionId": "ae1160d8-1f6b-41b3-a853-c447d64e9a66"
+                        }
+                    ],
+                    "attributes": {
+                        "order": 5,
+                        "isActive": true,
+                        "isPredefined": true,
+                        "isNotShownInReport": false,
+                        "signedOffOnly": false,
+                        "nodeSpecificAttributes": {
+                            "templateId": null,
+                            "templateTypeId": "8bc81e6a-931c-ea11-828b-281878072c42"
+                        }
+                    },
+                    "children": [
+                        {
+                            "id": "ae1160d8-1f6b-41b3-a853-c447d64e9a66",
+                            "name": "General Review Of Systems",
+                            "title": "General Review Of Systems",
+                            "type": 4,
+                            "value": {
+                                "defaultTemplateHtml": "<ul>\r\n<li>Denies fever, chills, nausea, vomiting, diarrhea, chest pain, shortness of breath, abdominal pain, other back pain, other myalgias, weakness, visual changes or any other concerning neurological symptoms.</li>\r\n<li>All other systems are negative other than those documented in the history of present illness.</li>\r\n</ul>",
+                                "detailedTemplateHtml": "<ul>\r\n<li>Claimant&nbsp;<label contenteditable='false' id='d4f0f069-ed6e-4ac7-1829-cfc8dc738216' selectable-type='list' initial-value='denies' metadata='009a84ec-911c-ea11-828b-281878072c42'>denies</label> <label contenteditable='false' id='1c3c25f5-670d-7e16-9e0d-3ed9ec5cbe32' selectable-type='list' initial-value='Fever' metadata='f19984ec-911c-ea11-828b-281878072c42'>Fever</label></li>\r\n<li>All other systems are negative, except as stated in the history of present illness.</li>\r\n</ul>",
+                                "isDetailedTemplateUsed": false
+                            },
+                            "attributes": {
+                                "order": 2,
+                                "isActive": true,
+                                "isPredefined": false,
+                                "isNotShownInReport": false,
+                                "signedOffOnly": false,
+                                "nodeSpecificAttributes": {
+                                    "templateId": "530256d4-981c-ea11-828b-281878072c42",
+                                    "templateTypeId": null
+                                }
+                            },
+                            "children": null,
+                            "parentId": "b9c41c03-3c50-4ef9-ad23-2248dfe0827a",
+                            "template": "<patient-chart-template [admissionId]='admissionId' [companyId]='companyId' [isSignedOff]='isSignedOff' [patientChartNode]='patientChartNode' [templateType]='$ros' [templateId]='\"$530256d4-981c-ea11-828b-281878072c42\"' [patientChartDocumentNode]='patientChartDocumentNode'></patient-chart-template>"
+                        }
+                    ],
+                    "parentId": "882e8831-cefa-41ee-b8fb-3035bfd5d53f",
+                    "template": "<template-list [companyId]='companyId' [isSignedOff]='isSignedOff' [patientChartNode]='patientChartNode' templateType='ros'></template-list>"
+                },
+                {
+                    "id": "315f412c-dca9-414c-b0f0-9ad54f4b90d0",
+                    "name": "Activities of Daily Living",
+                    "title": "Activities of Daily Living",
+                    "type": 4,
+                    "value": {
+                        "defaultTemplateHtml": "<p>The claimant denies significant impact on activities of daily living. The claimant is able to complete self-care activities including meals, hygiene, and light house work. The claimant is able to ambulate without assistance and without difficulty. The claimant is not confined to bed, and gets adequate sleep. The claimant is able to drive a vehicle.</p>",
+                        "detailedTemplateHtml": "<p>The claimant <label contenteditable='false' id='fbf5afea-476a-7ff5-8c35-6db494510011' selectable-type='list' initial-value='denies' metadata='009a84ec-911c-ea11-828b-281878072c42'>denies</label> <label contenteditable='false' id='1d519e30-4d42-7912-72e4-3489ed5ac25c' selectable-type='list' initial-value='mild' metadata='e29984ec-911c-ea11-828b-281878072c42'>mild</label> significant impact on activities of daily living. The claimant <label contenteditable='false' id='ccf891dc-9bdd-87e3-7d6e-cb7f83a263e0' selectable-type='list' initial-value='is' metadata='0c9a84ec-911c-ea11-828b-281878072c42'>is</label> able to complete self-care activities including <label contenteditable='false' id='49f7c84c-b233-ae11-b3b4-477e5aa4cb3c' selectable-type='list' initial-value='activities of daily living' metadata='409a84ec-911c-ea11-828b-281878072c42'>activities of daily living</label>​​​​​​​ . The claimant <label contenteditable='false' id='f0500fde-251b-4c82-1f35-1c0dc4911abc' selectable-type='list' initial-value='is' metadata='0c9a84ec-911c-ea11-828b-281878072c42'>is</label> able to ambulate <label contenteditable='false' id='be2cdcc4-c405-02db-1265-892ec90eb94a' selectable-type='list' initial-value='without' metadata='fb9984ec-911c-ea11-828b-281878072c42'>without</label> assistance and <label contenteditable='false' id='83b69b91-2d87-38f9-43f0-4eeed505d5fa' selectable-type='list' initial-value='without' metadata='fb9984ec-911c-ea11-828b-281878072c42'>without</label> difficulty. The claimant <label contenteditable='false' id='69b704b4-3069-556d-11de-091e5ed1bf69' selectable-type='list' initial-value='is' metadata='0c9a84ec-911c-ea11-828b-281878072c42'>is</label>&nbsp;not confined to bed, and <label contenteditable='false' id='5ec07132-9e31-b2fa-a7a7-d060363f8294' selectable-type='list' initial-value='does' metadata='199a84ec-911c-ea11-828b-281878072c42'>does</label> get adequate sleep. The claimant <label contenteditable='false' id='153a95fc-097a-645d-947e-abb7eecfd2df' selectable-type='list' initial-value='can' metadata='1e9a84ec-911c-ea11-828b-281878072c42'>can</label> drive a vehicle.</p>",
+                        "isDetailedTemplateUsed": false
+                    },
+                    "attributes": {
+                        "order": 6,
+                        "isActive": true,
+                        "isPredefined": true,
+                        "isNotShownInReport": false,
+                        "signedOffOnly": false,
+                        "nodeSpecificAttributes": {
+                            "templateId": "620256d4-981c-ea11-828b-281878072c42",
+                            "templateTypeId": null
+                        }
+                    },
+                    "children": null,
+                    "parentId": "882e8831-cefa-41ee-b8fb-3035bfd5d53f",
+                    "template": "<patient-chart-template [admissionId]='admissionId' [companyId]='companyId' [isSignedOff]='isSignedOff' [patientChartNode]='patientChartNode' [templateType]='common' [templateId]='\"2ed1290b-8379-4f23-a91b-0556d3023094\"' [patientChartDocumentNode]='patientChartDocumentNode'></patient-chart-template>"
+                },
+                {
+                    "id": "3eb235c0-b6e4-4307-bafc-0a538f3278c7",
+                    "name": "physicalExams",
+                    "title": "Physical Exams",
+                    "type": 3,
+                    "value": [],
+                    "attributes": {
+                        "order": 7,
+                        "isActive": true,
+                        "isPredefined": true,
+                        "isNotShownInReport": false,
+                        "signedOffOnly": false,
+                        "nodeSpecificAttributes": null
+                    },
+                    "children": [
+                        {
+                            "id": "0075b0d9-e2ce-42c8-be36-3dcb5c13b030",
+                            "name": "vitalSigns",
+                            "title": "Vital Signs",
+                            "type": 17,
+                            "value": {},
+                            "attributes": {
+                                "order": 1,
+                                "isActive": true,
+                                "isPredefined": true,
+                                "isNotShownInReport": false,
+                                "signedOffOnly": false,
+                                "nodeSpecificAttributes": null
+                            },
+                            "children": null,
+                            "parentId": "3eb235c0-b6e4-4307-bafc-0a538f3278c7",
+                            "template": "<vital-signs [companyId]='companyId' [isSignedOff]='isSignedOff' [admissionId]='admissionId' [patientId]='patientId'></vital-signs>"
+                        },
+                        {
+                            "id": "c8ad2026-b548-4b3b-ba0b-647153b96934",
+                            "name": "physicalExam",
+                            "title": "Physical Exam",
+                            "type": 5,
+                            "value": [
+                                {
+                                    "id": "740256d4-981c-ea11-828b-281878072c42",
+                                    "order": 1,
+                                    "title": "General",
+                                    "sectionId": "22146a3f-99c8-463b-9e4d-6272e5635b51"
+                                },
+                                {
+                                    "id": "870256d4-981c-ea11-828b-281878072c42",
+                                    "order": 2,
+                                    "title": "Assistive Device",
+                                    "sectionId": "db101985-78e6-43a4-a8a1-1967b168e719"
+                                },
+                                {
+                                    "id": "820256d4-981c-ea11-828b-281878072c42",
+                                    "order": 3,
+                                    "title": "Gait and Station",
+                                    "sectionId": "d4471f27-fca8-4381-8a4d-7c94bba68bb0"
+                                },
+                                {
+                                    "id": "510256d4-981c-ea11-828b-281878072c42",
+                                    "order": 4,
+                                    "title": "Neurological",
+                                    "sectionId": "9d33dc29-f4de-4a8e-b4da-3d3a4a0fa5ab"
+                                },
+                                {
+                                    "id": "690256d4-981c-ea11-828b-281878072c42",
+                                    "order": 6,
+                                    "title": "Head, Ears, Eyes, Nose, and Throat Exam",
+                                    "sectionId": "2af49a61-7128-48ab-baa6-5441ce29c988"
+                                },
+                                {
+                                    "id": "8c0256d4-981c-ea11-828b-281878072c42",
+                                    "order": 11,
+                                    "title": "Pulmonary",
+                                    "sectionId": "719d7432-47b1-4889-8278-37dfd739cf4f"
+                                },
+                                {
+                                    "id": "600256d4-981c-ea11-828b-281878072c42",
+                                    "order": 12,
+                                    "title": "Cardiovascular",
+                                    "sectionId": "44bdf2c0-3878-4059-b39b-34721d776a56"
+                                },
+                                {
+                                    "id": "6e0256d4-981c-ea11-828b-281878072c42",
+                                    "order": 13,
+                                    "title": "Gastrointestinal",
+                                    "sectionId": "3dec769c-09f7-4146-8da8-391edd4d71a1"
+                                },
+                                {
+                                    "id": "660256d4-981c-ea11-828b-281878072c42",
+                                    "order": 14,
+                                    "title": "Pulses",
+                                    "sectionId": "11705bef-fc25-4de5-9197-e07448959a4f"
+                                },
+                                {
+                                    "id": "6a0256d4-981c-ea11-828b-281878072c42",
+                                    "order": 15,
+                                    "title": "Strength and Tone",
+                                    "sectionId": "9dfc9891-3c27-4f4c-b049-6e86b07d8775"
+                                },
+                                {
+                                    "id": "6c0256d4-981c-ea11-828b-281878072c42",
+                                    "order": 16,
+                                    "title": "Sensory",
+                                    "sectionId": "95c216fe-5e13-40bf-a15b-ce0b305a365d"
+                                },
+                                {
+                                    "id": "570256d4-981c-ea11-828b-281878072c42",
+                                    "order": 17,
+                                    "title": "Deep Tendon Reflexs",
+                                    "sectionId": "888f5aa4-1367-49ad-b030-abc6258824f8"
+                                },
+                                {
+                                    "id": "6b0256d4-981c-ea11-828b-281878072c42",
+                                    "order": 18,
+                                    "title": "Fine Motor Skills",
+                                    "sectionId": "e25f4670-50d6-4671-b57a-ca178d24af5a"
+                                },
+                                {
+                                    "id": "700256d4-981c-ea11-828b-281878072c42",
+                                    "order": 19,
+                                    "title": "Skin",
+                                    "sectionId": "4b16bcf6-4f54-4eea-89e6-cdb78f5795ef"
+                                },
+                                {
+                                    "id": "8b0256d4-981c-ea11-828b-281878072c42",
+                                    "order": 20,
+                                    "title": "Range of Motion",
+                                    "sectionId": "49d858d4-5490-4427-8a64-6e8ce7ad3885"
+                                }
+                            ],
+                            "attributes": {
+                                "order": 2,
+                                "isActive": true,
+                                "isPredefined": true,
+                                "isNotShownInReport": false,
+                                "signedOffOnly": false,
+                                "nodeSpecificAttributes": {
+                                    "templateId": null,
+                                    "templateTypeId": "8ac81e6a-931c-ea11-828b-281878072c42"
+                                }
+                            },
+                            "children": [
+                                {
+                                    "id": "22146a3f-99c8-463b-9e4d-6272e5635b51",
+                                    "name": "General",
+                                    "title": "General",
+                                    "type": 4,
+                                    "value": {
+                                        "defaultTemplateHtml": "<ul>\r\n<li>Claimant is cooperative, in no acute distress.</li>\r\n</ul>",
+                                        "detailedTemplateHtml": "<ul>\r\n<li>The Claimant is&nbsp;<label contenteditable='false' id='ec69879e-3fa9-31b8-f3cb-8ed0f58cdb3b' selectable-type='list' initial-value='cooperative' metadata='0d9a84ec-911c-ea11-828b-281878072c42'>cooperative</label>, <label contenteditable='false' id='0d50abbb-cd2a-7bed-ddd9-5410d5f93773' selectable-type='list' initial-value='in no' metadata='1f9a84ec-911c-ea11-828b-281878072c42'>in no</label> acute distress.</li>\r\n</ul>",
+                                        "isDetailedTemplateUsed": false
+                                    },
+                                    "attributes": {
+                                        "order": 1,
+                                        "isActive": true,
+                                        "isPredefined": false,
+                                        "isNotShownInReport": false,
+                                        "signedOffOnly": false,
+                                        "nodeSpecificAttributes": {
+                                            "templateId": "740256d4-981c-ea11-828b-281878072c42",
+                                            "templateTypeId": null
+                                        }
+                                    },
+                                    "children": null,
+                                    "parentId": "c8ad2026-b548-4b3b-ba0b-647153b96934",
+                                    "template": "<patient-chart-template [admissionId]='admissionId' [companyId]='companyId' [isSignedOff]='isSignedOff' [patientChartNode]='patientChartNode' [templateType]='$physicalExam' [templateId]='\"$740256d4-981c-ea11-828b-281878072c42\"' [patientChartDocumentNode]='patientChartDocumentNode'></patient-chart-template>"
+                                },
+                                {
+                                    "id": "db101985-78e6-43a4-a8a1-1967b168e719",
+                                    "name": "Assistive Device",
+                                    "title": "Assistive Device",
+                                    "type": 4,
+                                    "value": {
+                                        "defaultTemplateHtml": "<ul>\r\n<li>The claimant does not use any assistive devices.</li>\r\n</ul>",
+                                        "detailedTemplateHtml": "<ul>\r\n<li>The claimant came to the exam with an assistive device, <label contenteditable='false' id='ce2c77a5-ad05-7810-0b20-3188e0068304' selectable-type='list' initial-value='cane' metadata='419a84ec-911c-ea11-828b-281878072c42'>cane</label> . The claimant's assistive device <label contenteditable='false' id='4e359087-e5ee-562f-a436-6859f18033b6' selectable-type='list' initial-value='is' metadata='0c9a84ec-911c-ea11-828b-281878072c42'>is</label><span> medically necessary. The assistive device&nbsp;<label contenteditable='false' id='1aa8afc7-f63b-0a96-780e-d786b6c1b42b' selectable-type='list' initial-value='was' metadata='fd9984ec-911c-ea11-828b-281878072c42'>was</label><span> prescribed.&nbsp; Prescribed by (name of physician). The exam was performed&nbsp;<label contenteditable='false' id='b7061084-6f3f-b3ae-7383-09019894a9d5' selectable-type='list' initial-value='without' metadata='fb9984ec-911c-ea11-828b-281878072c42'>without</label><span> the assistive device. </span>The claimant's assistive device is utilized for </span></span><label contenteditable='false' id='1fc3ae58-1dc6-fec2-88b6-2d984abe0da5' selectable-type='list' initial-value='balance' metadata='429a84ec-911c-ea11-828b-281878072c42'>balance</label></li>\r\n</ul>",
+                                        "isDetailedTemplateUsed": false
+                                    },
+                                    "attributes": {
+                                        "order": 2,
+                                        "isActive": true,
+                                        "isPredefined": false,
+                                        "isNotShownInReport": false,
+                                        "signedOffOnly": false,
+                                        "nodeSpecificAttributes": {
+                                            "templateId": "870256d4-981c-ea11-828b-281878072c42",
+                                            "templateTypeId": null
+                                        }
+                                    },
+                                    "children": null,
+                                    "parentId": "c8ad2026-b548-4b3b-ba0b-647153b96934",
+                                    "template": "<patient-chart-template [admissionId]='admissionId' [companyId]='companyId' [isSignedOff]='isSignedOff' [patientChartNode]='patientChartNode' [templateType]='$physicalExam' [templateId]='\"$870256d4-981c-ea11-828b-281878072c42\"' [patientChartDocumentNode]='patientChartDocumentNode'></patient-chart-template>"
+                                },
+                                {
+                                    "id": "d4471f27-fca8-4381-8a4d-7c94bba68bb0",
+                                    "name": "Gait and Station",
+                                    "title": "Gait and Station",
+                                    "type": 4,
+                                    "value": {
+                                        "defaultTemplateHtml": "<ul>\r\n<li>The claimant can stand, walk to the examination table, get onto and sit on the examination table.</li>\r\n<li>The claimant has a normal gait.</li>\r\n<li>The claimant can stoop without difficulty.</li>\r\n<li>The claimant can lift each foot off the ground and stand without assistance.</li>\r\n<li>The claimant demonstrated normal balance including walking on heels, toes and tandem walking.</li>\r\n</ul>",
+                                        "detailedTemplateHtml": "<ul>\r\n<li>The claimant <label contenteditable='false' id='8a2141fd-8f51-ba62-b98b-8df5099e0fd0' selectable-type='list' initial-value='can' metadata='1e9a84ec-911c-ea11-828b-281878072c42'>can</label> stand, walk to the examination table, get onto and sit on the examination table.</li>\r\n<li>The claimant has <span><label contenteditable='false' id='efa6c7f4-0196-3771-2eec-4f6208d885e5' selectable-type='list' initial-value='a normal gait' metadata='e59984ec-911c-ea11-828b-281878072c42'>a normal gait</label></span></li>\r\n<li>The claimant <label contenteditable='false' id='71d58318-178c-4ffe-7b7f-29c8706d14e0' selectable-type='list' initial-value='can' metadata='1e9a84ec-911c-ea11-828b-281878072c42'>can</label> stoop <label contenteditable='false' id='e1454520-3583-cc1e-0a98-b4af0efa7ea1' selectable-type='list' initial-value='without' metadata='fb9984ec-911c-ea11-828b-281878072c42'>without</label> difficulty.</li>\r\n<li>The claimant <label contenteditable='false' id='6d002c8f-888c-f8b9-fcd1-050479534005' selectable-type='list' initial-value='can' metadata='1e9a84ec-911c-ea11-828b-281878072c42'>can</label> lift each foot off the ground and stand <label contenteditable='false' id='683cf9c0-cd46-6fe6-f1c0-24cd627c713b' selectable-type='list' initial-value='without' metadata='fb9984ec-911c-ea11-828b-281878072c42'>without</label> assistance.</li>\r\n<li>The claimant demonstrated <label contenteditable='false' id='ab2d1817-daf3-0dfd-fc13-9bf173228883' selectable-type='list' initial-value='normal' metadata='0f9a84ec-911c-ea11-828b-281878072c42'>normal</label> balance including walking on heels, toes and tandem walking.</li>\r\n</ul>",
+                                        "isDetailedTemplateUsed": false
+                                    },
+                                    "attributes": {
+                                        "order": 3,
+                                        "isActive": true,
+                                        "isPredefined": false,
+                                        "isNotShownInReport": false,
+                                        "signedOffOnly": false,
+                                        "nodeSpecificAttributes": {
+                                            "templateId": "820256d4-981c-ea11-828b-281878072c42",
+                                            "templateTypeId": null
+                                        }
+                                    },
+                                    "children": null,
+                                    "parentId": "c8ad2026-b548-4b3b-ba0b-647153b96934",
+                                    "template": "<patient-chart-template [admissionId]='admissionId' [companyId]='companyId' [isSignedOff]='isSignedOff' [patientChartNode]='patientChartNode' [templateType]='$physicalExam' [templateId]='\"$820256d4-981c-ea11-828b-281878072c42\"' [patientChartDocumentNode]='patientChartDocumentNode'></patient-chart-template>"
+                                },
+                                {
+                                    "id": "9d33dc29-f4de-4a8e-b4da-3d3a4a0fa5ab",
+                                    "name": "Neurological",
+                                    "title": "Neurological",
+                                    "type": 4,
+                                    "value": {
+                                        "defaultTemplateHtml": "<ul>\r\n<li>The claimant is alert and oriented to person, place, time, and event, affect and speech is congruent, and thought process is cogent.</li>\r\n<li>The claimant&rsquo;s cranial nerves II - XII are grossly intact with no focal neurological deficits.</li>\r\n</ul>",
+                                        "detailedTemplateHtml": "<ul>\r\n<li>The Claimant <label contenteditable='false' id='e8723195-e6ca-40a9-425a-ac0cff61442d' selectable-type='list' initial-value='is' metadata='0c9a84ec-911c-ea11-828b-281878072c42'>is</label>&nbsp;<label contenteditable='false' id='19c41ba5-0e54-d543-0f63-49c874d7b94e' selectable-type='list' initial-value='Alert and Oriented' metadata='e79984ec-911c-ea11-828b-281878072c42'>Alert and Oriented</label> <span>&nbsp;</span><label contenteditable='false' id='f2b8572a-620c-6fad-2242-f772299969d1' selectable-type='list' initial-value='Person' metadata='2e9a84ec-911c-ea11-828b-281878072c42'>Person</label><span>&nbsp;</span><span>.</span></li>\r\n<li>Cranial nerves are assessed and are normal except for <label contenteditable='false' id='489bd563-54b5-3878-7fc3-eeaea4d5c966' selectable-type='list' initial-value='I Olfactory ' metadata='0b9a84ec-911c-ea11-828b-281878072c42'>I Olfactory </label></li>\r\n<li>Romberg test was assessed and is <label contenteditable='false' id='f328360a-5b6b-4eb3-cb50-687d7f392ffb' selectable-type='list' initial-value='normal' metadata='0f9a84ec-911c-ea11-828b-281878072c42'>normal</label></li>\r\n<li>Pronator drift was assessed and is <label contenteditable='false' id='415c6dc3-da19-1728-7464-c1eb4f6ca8f8' selectable-type='list' initial-value='normal' metadata='0f9a84ec-911c-ea11-828b-281878072c42'>normal</label></li>\r\n</ul>",
+                                        "isDetailedTemplateUsed": false
+                                    },
+                                    "attributes": {
+                                        "order": 4,
+                                        "isActive": true,
+                                        "isPredefined": false,
+                                        "isNotShownInReport": false,
+                                        "signedOffOnly": false,
+                                        "nodeSpecificAttributes": {
+                                            "templateId": "510256d4-981c-ea11-828b-281878072c42",
+                                            "templateTypeId": null
+                                        }
+                                    },
+                                    "children": null,
+                                    "parentId": "c8ad2026-b548-4b3b-ba0b-647153b96934",
+                                    "template": "<patient-chart-template [admissionId]='admissionId' [companyId]='companyId' [isSignedOff]='isSignedOff' [patientChartNode]='patientChartNode' [templateType]='$physicalExam' [templateId]='\"$510256d4-981c-ea11-828b-281878072c42\"' [patientChartDocumentNode]='patientChartDocumentNode'></patient-chart-template>"
+                                },
+                                {
+                                    "id": "2af49a61-7128-48ab-baa6-5441ce29c988",
+                                    "name": "Head, Ears, Eyes, Nose, and Throat Exam",
+                                    "title": "Head, Ears, Eyes, Nose, and Throat Exam",
+                                    "type": 4,
+                                    "value": {
+                                        "defaultTemplateHtml": "<ul>\r\n<li>The head is normocephalic and atraumatic.</li>\r\n<li>Tympanic membranes are normal.</li>\r\n<li>The claimant was able to hear normal conversation.</li>\r\n<li>Speech was understandable, able to manage secretions.</li>\r\n<li>Eyes have a conjugate gaze, pupils are equal and reactive to light and extraocular movement is intact and there are no visual field abnormalities.</li>\r\n<li>The nose is atraumatic and the mucosa intact with no lesions or discharge noted. &middot;</li>\r\n<li>Oral pharyngeal mucosa was inspected, and no tonsillar hypertrophy, lesions, or erythema noted.</li>\r\n<li>No lymphadenopathy noted.</li>\r\n</ul>",
+                                        "detailedTemplateHtml": "<ul>\r\n<li>The head <label contenteditable='false' id='3e664a38-adc4-8da2-9fdb-44f69482151c' selectable-type='list' initial-value='is' metadata='0c9a84ec-911c-ea11-828b-281878072c42'>is</label> normocephalic and atraumatic.</li>\r\n<li>Tympanic membranes are <label contenteditable='false' id='c038e094-381d-7002-a4b0-89f31c74b68c' selectable-type='list' initial-value='normal' metadata='0f9a84ec-911c-ea11-828b-281878072c42'>normal</label>&nbsp;<label contenteditable='false' id='cc099f11-8d6a-a933-4a96-9c287e6ca962' selectable-type='list' initial-value='without' metadata='fb9984ec-911c-ea11-828b-281878072c42'>without</label>&nbsp;<label contenteditable='false' id='33b95604-6997-de62-9aff-796dc0de9ab9' selectable-type='list' initial-value='erythemia' metadata='099a84ec-911c-ea11-828b-281878072c42'>erythemia</label> noted.</li>\r\n<li>The claimant <label contenteditable='false' id='cd6f5e63-8fbc-1889-8af3-dafd14c3364e' selectable-type='list' initial-value='was' metadata='fd9984ec-911c-ea11-828b-281878072c42'>was</label> able to hear normal conversation.&nbsp;</li>\r\n<li>Weber test claimant <label contenteditable='false' id='2587dc6c-eb89-4943-fca7-679e73ce64f5' selectable-type='list' initial-value='was' metadata='fd9984ec-911c-ea11-828b-281878072c42'>was</label> able to hear the tuning fork <label contenteditable='false' id='e1084904-d7ba-0db7-d2a2-224894d686a4' selectable-type='list' initial-value='bilateral' metadata='229a84ec-911c-ea11-828b-281878072c42'>bilateral</label></li>\r\n<li>Rhine test claimant <label contenteditable='false' id='8f914243-04bc-5108-8c89-3f03f90bd375' selectable-type='list' initial-value='was' metadata='fd9984ec-911c-ea11-828b-281878072c42'>was</label> able to hear sound <label contenteditable='false' id='8624975f-6490-769d-6882-9dcf375f5f92' selectable-type='list' initial-value='bilateral' metadata='229a84ec-911c-ea11-828b-281878072c42'>bilateral</label>\r\n<ul>\r\n<li>AC <label contenteditable='false' id='e40fc2e0-a9b1-acba-0c45-1ce6a159caeb' selectable-type='list' initial-value='greater than' metadata='639a84ec-911c-ea11-828b-281878072c42'>greater than</label> BC</li>\r\n<li>AC <label contenteditable='false' id='0ac93cc9-1f84-20a9-41cf-8c932e079d5c' selectable-type='list' initial-value='greater than' metadata='639a84ec-911c-ea11-828b-281878072c42'>greater than</label> BC</li>\r\n</ul>\r\n</li>\r\n<li>Speech <label contenteditable='false' id='9b2951aa-7068-fec8-19b1-95a7afc9b328' selectable-type='list' initial-value='was' metadata='fd9984ec-911c-ea11-828b-281878072c42'>was</label> understandable, <label contenteditable='false' id='3e3d0da4-af21-70c9-bf46-a7b08d3519e6' selectable-type='list' initial-value='is' metadata='0c9a84ec-911c-ea11-828b-281878072c42'>is</label> able to manage secretions.</li>\r\n<li>Eyes <label contenteditable='false' id='4f5180b5-8980-3a64-e6ad-a3199308a311' selectable-type='list' initial-value='have' metadata='069a84ec-911c-ea11-828b-281878072c42'>have</label> a conjugate gaze, pupils <label contenteditable='false' id='ab0d9ef6-73c9-5662-1adc-674baaa9734b' selectable-type='list' initial-value='are not' metadata='149a84ec-911c-ea11-828b-281878072c42'>are not</label> equal and reactive to light and extraocular movement <label contenteditable='false' id='2d2cd25f-f7f2-c4e8-82b9-6b6ef10132e1' selectable-type='list' initial-value='is' metadata='0c9a84ec-911c-ea11-828b-281878072c42'>is</label> intact and there <label contenteditable='false' id='054960ca-3ff0-b15b-105b-1b43e43d1cc6' selectable-type='list' initial-value='are not' metadata='149a84ec-911c-ea11-828b-281878072c42'>are not</label> visual field abnormalities.</li>\r\n<li>The nose <label contenteditable='false' id='3213bb3d-4cfd-fb91-700e-616b039ec9a8' selectable-type='list' initial-value='is' metadata='0c9a84ec-911c-ea11-828b-281878072c42'>is</label> atraumatic and the mucosa <label contenteditable='false' id='1f41456e-5f98-3ea4-2282-785ee9586b07' selectable-type='list' initial-value='is' metadata='0c9a84ec-911c-ea11-828b-281878072c42'>is</label> intact <label contenteditable='false' id='d6a6624c-f306-f74f-d436-214df00b0914' selectable-type='list' initial-value='without' metadata='fb9984ec-911c-ea11-828b-281878072c42'>without</label> lesions or discharge noted.</li>\r\n<li>Oral pharyngeal mucosa was inspected, and <label contenteditable='false' id='e2bcf3ee-3742-c4bc-2420-7a734c11e6b0' selectable-type='list' initial-value='is' metadata='0c9a84ec-911c-ea11-828b-281878072c42'>is</label>&nbsp;&nbsp;<label contenteditable='false' id='69c57889-61af-bfef-1229-89ca3d0d444a' selectable-type='list' initial-value='within normal limits' metadata='629a84ec-911c-ea11-828b-281878072c42'>within normal limits</label></li>\r\n<li>There <label contenteditable='false' id='c23d25c3-c69c-e3f4-2b37-4b6f494518da' selectable-type='list' initial-value='is' metadata='0c9a84ec-911c-ea11-828b-281878072c42'>is</label> lymphadenopathy noted.</li>\r\n</ul>",
+                                        "isDetailedTemplateUsed": false
+                                    },
+                                    "attributes": {
+                                        "order": 6,
+                                        "isActive": true,
+                                        "isPredefined": false,
+                                        "isNotShownInReport": false,
+                                        "signedOffOnly": false,
+                                        "nodeSpecificAttributes": {
+                                            "templateId": "690256d4-981c-ea11-828b-281878072c42",
+                                            "templateTypeId": null
+                                        }
+                                    },
+                                    "children": null,
+                                    "parentId": "c8ad2026-b548-4b3b-ba0b-647153b96934",
+                                    "template": "<patient-chart-template [admissionId]='admissionId' [companyId]='companyId' [isSignedOff]='isSignedOff' [patientChartNode]='patientChartNode' [templateType]='$physicalExam' [templateId]='\"$690256d4-981c-ea11-828b-281878072c42\"' [patientChartDocumentNode]='patientChartDocumentNode'></patient-chart-template>"
+                                },
+                                {
+                                    "id": "719d7432-47b1-4889-8278-37dfd739cf4f",
+                                    "name": "Pulmonary",
+                                    "title": "Pulmonary",
+                                    "type": 4,
+                                    "value": {
+                                        "defaultTemplateHtml": "<ul>\r\n<li>Upper and lower lobes are clear to auscultation bilaterally with full chest excursion and normal breath sounds noted.</li>\r\n</ul>",
+                                        "detailedTemplateHtml": "<ul>\r\n<li>The <label contenteditable='false' id='e8a536ea-38c4-f3d1-18d2-5c65a5b5799e' selectable-type='list' initial-value='bilateral' metadata='229a84ec-911c-ea11-828b-281878072c42'>bilateral</label>&nbsp;<label contenteditable='false' id='9969d137-3c08-c64d-1c1a-f5fc3206d58b' selectable-type='list' initial-value='Lungs' metadata='d79984ec-911c-ea11-828b-281878072c42'>Lungs</label> were auscultated and the following breath sounds were noted <label contenteditable='false' id='c5dedf7d-6775-7132-6b9e-969d89238f56' selectable-type='list' initial-value='normal respirations ' metadata='479a84ec-911c-ea11-828b-281878072c42'>normal respirations </label></li>\r\n</ul>",
+                                        "isDetailedTemplateUsed": false
+                                    },
+                                    "attributes": {
+                                        "order": 11,
+                                        "isActive": true,
+                                        "isPredefined": false,
+                                        "isNotShownInReport": false,
+                                        "signedOffOnly": false,
+                                        "nodeSpecificAttributes": {
+                                            "templateId": "8c0256d4-981c-ea11-828b-281878072c42",
+                                            "templateTypeId": null
+                                        }
+                                    },
+                                    "children": null,
+                                    "parentId": "c8ad2026-b548-4b3b-ba0b-647153b96934",
+                                    "template": "<patient-chart-template [admissionId]='admissionId' [companyId]='companyId' [isSignedOff]='isSignedOff' [patientChartNode]='patientChartNode' [templateType]='$physicalExam' [templateId]='\"$8c0256d4-981c-ea11-828b-281878072c42\"' [patientChartDocumentNode]='patientChartDocumentNode'></patient-chart-template>"
+                                },
+                                {
+                                    "id": "44bdf2c0-3878-4059-b39b-34721d776a56",
+                                    "name": "Cardiovascular",
+                                    "title": "Cardiovascular",
+                                    "type": 4,
+                                    "value": {
+                                        "defaultTemplateHtml": "<ul>\r\n<li>Heart assessed, regular rate and rhythm noted, S1 S2 normal, without murmurs, clicks, rubs, or gallops noted.</li>\r\n</ul>",
+                                        "detailedTemplateHtml": "<ul>\r\n<li>The heart assessed and a <label contenteditable='false' id='ddbb632d-ec1b-acba-a2eb-59bee2a4926e' selectable-type='list' initial-value='normal rhythm S1 S2' metadata='e39984ec-911c-ea11-828b-281878072c42'>normal rhythm S1 S2</label>&nbsp;noted. There&nbsp;<label contenteditable='false' id='9c10fbd0-0ff1-690e-f2e9-c839e193e15a' selectable-type='list' initial-value='are not' metadata='149a84ec-911c-ea11-828b-281878072c42'>are not</label>&nbsp;any cardiovascular symptoms including&nbsp;<label contenteditable='false' id='91aaeeca-2a07-ecc3-b8db-8ddf5dd76a1d' selectable-type='list' initial-value='breathlessness or shortness of breath' metadata='609a84ec-911c-ea11-828b-281878072c42'>breathlessness or shortness of breath</label></li>\r\n</ul>",
+                                        "isDetailedTemplateUsed": false
+                                    },
+                                    "attributes": {
+                                        "order": 12,
+                                        "isActive": true,
+                                        "isPredefined": false,
+                                        "isNotShownInReport": false,
+                                        "signedOffOnly": false,
+                                        "nodeSpecificAttributes": {
+                                            "templateId": "600256d4-981c-ea11-828b-281878072c42",
+                                            "templateTypeId": null
+                                        }
+                                    },
+                                    "children": null,
+                                    "parentId": "c8ad2026-b548-4b3b-ba0b-647153b96934",
+                                    "template": "<patient-chart-template [admissionId]='admissionId' [companyId]='companyId' [isSignedOff]='isSignedOff' [patientChartNode]='patientChartNode' [templateType]='$physicalExam' [templateId]='\"$600256d4-981c-ea11-828b-281878072c42\"' [patientChartDocumentNode]='patientChartDocumentNode'></patient-chart-template>"
+                                },
+                                {
+                                    "id": "3dec769c-09f7-4146-8da8-391edd4d71a1",
+                                    "name": "Gastrointestinal",
+                                    "title": "Gastrointestinal",
+                                    "type": 4,
+                                    "value": {
+                                        "defaultTemplateHtml": "<ul>\n<li>&middot; Soft, non-tender, bowel sounds present without hepatosplenomegaly.</li>\n</ul>",
+                                        "detailedTemplateHtml": "<ul>\n<li><label contenteditable='false' id='73e764ca-658f-28a6-b79a-8e13a4881137' selectable-type='list' initial-value='soft and non tender' metadata='449a84ec-911c-ea11-828b-281878072c42'>soft and non tender</label> , bowel sounds are <label contenteditable='false' id='1fd6115f-71dc-35a8-a60d-5f770192bf16' selectable-type='list' initial-value='present' metadata='079a84ec-911c-ea11-828b-281878072c42'>present</label> , <label contenteditable='false' id='cf150c50-789f-0669-6940-084ce6407445' selectable-type='list' initial-value='without' metadata='fb9984ec-911c-ea11-828b-281878072c42'>without</label> hepatosplenomegaly.</li>\n</ul>",
+                                        "isDetailedTemplateUsed": false
+                                    },
+                                    "attributes": {
+                                        "order": 13,
+                                        "isActive": true,
+                                        "isPredefined": false,
+                                        "isNotShownInReport": false,
+                                        "signedOffOnly": false,
+                                        "nodeSpecificAttributes": {
+                                            "templateId": "6e0256d4-981c-ea11-828b-281878072c42",
+                                            "templateTypeId": null
+                                        }
+                                    },
+                                    "children": null,
+                                    "parentId": "c8ad2026-b548-4b3b-ba0b-647153b96934",
+                                    "template": "<patient-chart-template [admissionId]='admissionId' [companyId]='companyId' [isSignedOff]='isSignedOff' [patientChartNode]='patientChartNode' [templateType]='$physicalExam' [templateId]='\"$6e0256d4-981c-ea11-828b-281878072c42\"' [patientChartDocumentNode]='patientChartDocumentNode'></patient-chart-template>"
+                                },
+                                {
+                                    "id": "11705bef-fc25-4de5-9197-e07448959a4f",
+                                    "name": "Pulses",
+                                    "title": "Pulses",
+                                    "type": 4,
+                                    "value": {
+                                        "defaultTemplateHtml": "<ul>\r\n<li>Radial pulses are 2/4 bilaterally. &middot; Pedal pulses are 2/4 bilaterally.</li>\r\n</ul>",
+                                        "detailedTemplateHtml": "<ul>\r\n<li>Radial pulses are assessed the right is <label contenteditable='false' id='f99d160a-6cb0-8800-f538-4d12a7c5e8e4' selectable-type='range' initial-value='0' metadata='0::5'>0</label>&nbsp;and the left is <label contenteditable='false' id='971071c1-5e10-ccda-f8a3-43ea4b1861d9' selectable-type='range' initial-value='0' metadata='0::4'>0</label>.</li>\r\n<li>Pedal pulses are assessed and the right is&nbsp;<label contenteditable='false' id='4c157fb4-219f-ca25-5c09-6ec38eb52e57' selectable-type='range' initial-value='0' metadata='0::4'>0</label>&nbsp;and the left is&nbsp;<label contenteditable='false' id='cbd187a1-c55b-a783-d9e8-69822a43906d' selectable-type='range' initial-value='0' metadata='0::4'>0</label></li>\r\n</ul>",
+                                        "isDetailedTemplateUsed": false
+                                    },
+                                    "attributes": {
+                                        "order": 14,
+                                        "isActive": true,
+                                        "isPredefined": false,
+                                        "isNotShownInReport": false,
+                                        "signedOffOnly": false,
+                                        "nodeSpecificAttributes": {
+                                            "templateId": "660256d4-981c-ea11-828b-281878072c42",
+                                            "templateTypeId": null
+                                        }
+                                    },
+                                    "children": null,
+                                    "parentId": "c8ad2026-b548-4b3b-ba0b-647153b96934",
+                                    "template": "<patient-chart-template [admissionId]='admissionId' [companyId]='companyId' [isSignedOff]='isSignedOff' [patientChartNode]='patientChartNode' [templateType]='$physicalExam' [templateId]='\"$660256d4-981c-ea11-828b-281878072c42\"' [patientChartDocumentNode]='patientChartDocumentNode'></patient-chart-template>"
+                                },
+                                {
+                                    "id": "9dfc9891-3c27-4f4c-b049-6e86b07d8775",
+                                    "name": "Strength and Tone",
+                                    "title": "Strength and Tone",
+                                    "type": 4,
+                                    "value": {
+                                        "defaultTemplateHtml": "<ul>\r\n<li>The claimant denies pain with palpation or movement of the joints.</li>\r\n<li>The claimant's extremity muscle bulk is normal without atrophy noted in the upper extremities.</li>\r\n<li>Strength 5/5 in the bilateral upper extremities.</li>\r\n<li>The claimant&rsquo;s grip strength is normal.</li>\r\n<li>The claimant's extremity muscle bulk is normal without atrophy noted in the lower extremities.</li>\r\n<li>Strength 5/5 in the bilateral lower extremities.</li>\r\n</ul>",
+                                        "detailedTemplateHtml": "<ul>\r\n<li>The claimant <label contenteditable='false' id='ee160c8d-1fd7-7103-4b24-c7fb0ce40259' selectable-type='list' initial-value='denies' metadata='009a84ec-911c-ea11-828b-281878072c42'>denies</label> pain with palpation or movement of the joints <label contenteditable='false' id='f14201e6-e337-29ca-0f0e-a8a707c9d9a7' selectable-type='list' initial-value='bilateral' metadata='229a84ec-911c-ea11-828b-281878072c42'>bilateral</label> <label contenteditable='false' id='5422cea8-dacb-6f3e-756d-9cde6392524d' selectable-type='list' initial-value='arm' metadata='d99984ec-911c-ea11-828b-281878072c42'>arm</label> .</li>\r\n<li>The claimant <label contenteditable='false' id='9e0d38a3-9cbb-0f3e-f7cc-73db81a9b574' selectable-type='list' initial-value='denies' metadata='009a84ec-911c-ea11-828b-281878072c42'>denies</label> pain with palpation or movement of the joints <label contenteditable='false' id='2fac53e7-917e-eddb-8d4e-e4e9c78cda80' selectable-type='list' initial-value='bilateral' metadata='229a84ec-911c-ea11-828b-281878072c42'>bilateral</label> <label contenteditable='false' id='b3545e9a-80dc-57c6-6060-4a3524b0be86' selectable-type='list' initial-value='arm' metadata='d99984ec-911c-ea11-828b-281878072c42'>arm</label> .</li>\r\n<li>The claimant's extremity muscle bulk is <label contenteditable='false' id='74e19b9c-b2d5-a8bc-dc54-46e994da6d1b' selectable-type='list' initial-value='normal' metadata='0f9a84ec-911c-ea11-828b-281878072c42'>normal</label> <label contenteditable='false' id='a7d4a4bb-6e90-7554-fcd9-ef3815f854d5' selectable-type='list' initial-value='without' metadata='fb9984ec-911c-ea11-828b-281878072c42'>without</label> atrophy noted in the <label contenteditable='false' id='9f37e8ab-c55f-b1c4-fa5b-fff2b6d143c5' selectable-type='list' initial-value='bilateral' metadata='229a84ec-911c-ea11-828b-281878072c42'>bilateral</label> <label contenteditable='false' id='01934e9b-4bd2-648b-dd94-fa9ebf198bb5' selectable-type='list' initial-value='arm' metadata='d99984ec-911c-ea11-828b-281878072c42'>arm</label> .</li>\r\n<li>Strength <label contenteditable='false' id='f9f068f2-a8c6-90d4-cc43-83a74e937bf4' selectable-type='range' initial-value='1' metadata='1::5'>1</label> /5 in the <label contenteditable='false' id='b6627a9a-8a01-f867-ff1b-57f307ede71a' selectable-type='list' initial-value='bilateral' metadata='229a84ec-911c-ea11-828b-281878072c42'>bilateral</label> <label contenteditable='false' id='ad9b3e7c-5265-9d0a-896b-ed8dc9991e05' selectable-type='list' initial-value='arm' metadata='d99984ec-911c-ea11-828b-281878072c42'>arm</label> &middot;</li>\r\n<li>The claimant&rsquo;s grip strength is <label contenteditable='false' id='707c617b-5588-a59e-c2ff-638ebe989ded' selectable-type='list' initial-value='normal' metadata='0f9a84ec-911c-ea11-828b-281878072c42'>normal</label> in the <label contenteditable='false' id='fb2faa14-2901-e7ce-7a21-b9440e1ee5d0' selectable-type='list' initial-value='bilateral' metadata='229a84ec-911c-ea11-828b-281878072c42'>bilateral</label> hand.</li>\r\n<li>The claimant <label contenteditable='false' id='54fa0cb2-7ce1-6814-c745-b989cb4e186a' selectable-type='list' initial-value='denies' metadata='009a84ec-911c-ea11-828b-281878072c42'>denies</label> pain with palpation or movement of the joints <label contenteditable='false' id='ba8ea0ff-5e6b-3c90-c685-753b820c369b' selectable-type='list' initial-value='bilateral' metadata='229a84ec-911c-ea11-828b-281878072c42'>bilateral</label> <label contenteditable='false' id='173318e3-706e-522a-9599-3f5e39d117d7' selectable-type='list' initial-value='Leg' metadata='da9984ec-911c-ea11-828b-281878072c42'>Leg</label> .</li>\r\n<li>The claimant <label contenteditable='false' id='0907595a-aff4-b875-d1df-2ebf3a1f4aa5' selectable-type='list' initial-value='denies' metadata='009a84ec-911c-ea11-828b-281878072c42'>denies</label> pain with palpation or movement of the joints <label contenteditable='false' id='b25007d9-ddc7-fb5c-dcab-c918c1e1f962' selectable-type='list' initial-value='bilateral' metadata='229a84ec-911c-ea11-828b-281878072c42'>bilateral</label> <label contenteditable='false' id='36560f26-91df-5444-2ee5-2f0861324e2c' selectable-type='list' initial-value='Leg' metadata='da9984ec-911c-ea11-828b-281878072c42'>Leg</label></li>\r\n<li>The claimant's extremity muscle bulk is <label contenteditable='false' id='c984c564-aa99-47cf-a718-1c4266c58877' selectable-type='list' initial-value='normal' metadata='0f9a84ec-911c-ea11-828b-281878072c42'>normal</label> <label contenteditable='false' id='fb9eebdd-ec89-8a43-35ac-10c9dcd8f6f6' selectable-type='list' initial-value='without' metadata='fb9984ec-911c-ea11-828b-281878072c42'>without</label> atrophy noted in the <label contenteditable='false' id='4e18e060-afca-652a-beb5-70017d4fedc2' selectable-type='list' initial-value='bilateral' metadata='229a84ec-911c-ea11-828b-281878072c42'>bilateral</label> <label contenteditable='false' id='20199c8a-c8ec-1602-bf90-666609e23a97' selectable-type='list' initial-value='Leg' metadata='da9984ec-911c-ea11-828b-281878072c42'>Leg</label></li>\r\n<li>Strength <label contenteditable='false' id='a2605a72-64fe-8a96-0389-e46436cab79c' selectable-type='range' initial-value='1' metadata='1::5'>1</label> /5 in the <label contenteditable='false' id='d7aa4039-40af-fdab-c774-e05f9a04b4e3' selectable-type='list' initial-value='bilateral' metadata='229a84ec-911c-ea11-828b-281878072c42'>bilateral</label> <label contenteditable='false' id='0de6fcb5-c21d-655e-169d-95a6f510690d' selectable-type='list' initial-value='Leg' metadata='da9984ec-911c-ea11-828b-281878072c42'>Leg</label>.</li>\r\n</ul>",
+                                        "isDetailedTemplateUsed": false
+                                    },
+                                    "attributes": {
+                                        "order": 15,
+                                        "isActive": true,
+                                        "isPredefined": false,
+                                        "isNotShownInReport": false,
+                                        "signedOffOnly": false,
+                                        "nodeSpecificAttributes": {
+                                            "templateId": "6a0256d4-981c-ea11-828b-281878072c42",
+                                            "templateTypeId": null
+                                        }
+                                    },
+                                    "children": null,
+                                    "parentId": "c8ad2026-b548-4b3b-ba0b-647153b96934",
+                                    "template": "<patient-chart-template [admissionId]='admissionId' [companyId]='companyId' [isSignedOff]='isSignedOff' [patientChartNode]='patientChartNode' [templateType]='$physicalExam' [templateId]='\"$6a0256d4-981c-ea11-828b-281878072c42\"' [patientChartDocumentNode]='patientChartDocumentNode'></patient-chart-template>"
+                                },
+                                {
+                                    "id": "95c216fe-5e13-40bf-a15b-ce0b305a365d",
+                                    "name": "Sensory",
+                                    "title": "Sensory",
+                                    "type": 4,
+                                    "value": {
+                                        "defaultTemplateHtml": "<ul>\r\n<li>Normal sensation to light touch, vibration, or pain in the Upper Extremities.</li>\r\n<li>Normal sensation to light touch, vibration, or pain in the lumbar plexus nerves.</li>\r\n</ul>",
+                                        "detailedTemplateHtml": "<ul>\r\n<li>There&nbsp;<label contenteditable='false' id='6e53c77f-6e7b-7028-9530-d133f696a4f8' selectable-type='list' initial-value='is' metadata='0c9a84ec-911c-ea11-828b-281878072c42'>is</label>&nbsp;<label contenteditable='false' id='04f92dd3-877c-4a1b-4926-8257ec67eb72' selectable-type='list' initial-value='normal' metadata='0f9a84ec-911c-ea11-828b-281878072c42'>normal</label> sensation to <label contenteditable='false' id='b64389d8-87bf-068b-3537-e76b71e01e3b' selectable-type='list' initial-value='touch' metadata='df9984ec-911c-ea11-828b-281878072c42'>touch</label> in the Upper Extremities.</li>\r\n<li>There&nbsp;<label contenteditable='false' id='40a2b1b6-3c85-b508-af4f-ef110f4ba813' selectable-type='list' initial-value='is' metadata='0c9a84ec-911c-ea11-828b-281878072c42'>is</label>&nbsp;<label contenteditable='false' id='04f92dd3-877c-4a1b-4926-8257ec67eb72' selectable-type='list' initial-value='normal' metadata='0f9a84ec-911c-ea11-828b-281878072c42'>normal</label> sensation to <label contenteditable='false' id='04fa67ea-1be1-d1e7-ca7a-79d2712462f3' selectable-type='list' initial-value='touch' metadata='df9984ec-911c-ea11-828b-281878072c42'>touch</label> in the lumbar plexus nerves.</li>\r\n</ul>",
+                                        "isDetailedTemplateUsed": false
+                                    },
+                                    "attributes": {
+                                        "order": 16,
+                                        "isActive": true,
+                                        "isPredefined": false,
+                                        "isNotShownInReport": false,
+                                        "signedOffOnly": false,
+                                        "nodeSpecificAttributes": {
+                                            "templateId": "6c0256d4-981c-ea11-828b-281878072c42",
+                                            "templateTypeId": null
+                                        }
+                                    },
+                                    "children": null,
+                                    "parentId": "c8ad2026-b548-4b3b-ba0b-647153b96934",
+                                    "template": "<patient-chart-template [admissionId]='admissionId' [companyId]='companyId' [isSignedOff]='isSignedOff' [patientChartNode]='patientChartNode' [templateType]='$physicalExam' [templateId]='\"$6c0256d4-981c-ea11-828b-281878072c42\"' [patientChartDocumentNode]='patientChartDocumentNode'></patient-chart-template>"
+                                },
+                                {
+                                    "id": "888f5aa4-1367-49ad-b030-abc6258824f8",
+                                    "name": "Deep Tendon Reflexs",
+                                    "title": "Deep Tendon Reflexs",
+                                    "type": 4,
+                                    "value": {
+                                        "defaultTemplateHtml": "<ul>\r\n<li>Deep tendon reflexes were normal.</li>\r\n</ul>",
+                                        "detailedTemplateHtml": "<ul>\r\n<li><label contenteditable='false' id='51b80bb7-4cb4-42c6-9e43-2dd7c184cd04' selectable-type='list' initial-value='bilateral' metadata='229a84ec-911c-ea11-828b-281878072c42'>bilateral</label> bicep DTR <label contenteditable='false' id='33412211-889f-3551-155a-9f6883c8a7cd' selectable-type='range' initial-value='0' metadata='0::4'>0</label> /4 <label contenteditable='false' id='f4ad8866-118c-420c-8dc8-8edebc011406' selectable-type='list' initial-value='bilateral' metadata='229a84ec-911c-ea11-828b-281878072c42'>bilateral</label> brachioradialis DTR <label contenteditable='false' id='39d23c91-a64d-40bb-969c-b6e37ad7efa4' selectable-type='range' initial-value='1' metadata='1::4'>1</label> /4 <label contenteditable='false' id='f1673d33-54cd-4ed9-bd8f-19b47108e110' selectable-type='list' initial-value='bilateral' metadata='229a84ec-911c-ea11-828b-281878072c42'>bilateral</label> Patellar DTR <label contenteditable='false' id='5b9b3454-668c-40cd-962c-1e77a8521e25' selectable-type='range' initial-value='1' metadata='1::4'>1</label> /4 <label contenteditable='false' id='7ceee920-6a03-4c2d-872f-5fd180c18555' selectable-type='list' initial-value='bilateral' metadata='229a84ec-911c-ea11-828b-281878072c42'>bilateral</label> Achilles DTR <label contenteditable='false' id='08008f27-5c30-4bcd-82c8-8296948aad96' selectable-type='range' initial-value='1' metadata='1::4'>1</label> /4</li>\r\n</ul>",
+                                        "isDetailedTemplateUsed": false
+                                    },
+                                    "attributes": {
+                                        "order": 17,
+                                        "isActive": true,
+                                        "isPredefined": false,
+                                        "isNotShownInReport": false,
+                                        "signedOffOnly": false,
+                                        "nodeSpecificAttributes": {
+                                            "templateId": "570256d4-981c-ea11-828b-281878072c42",
+                                            "templateTypeId": null
+                                        }
+                                    },
+                                    "children": null,
+                                    "parentId": "c8ad2026-b548-4b3b-ba0b-647153b96934",
+                                    "template": "<patient-chart-template [admissionId]='admissionId' [companyId]='companyId' [isSignedOff]='isSignedOff' [patientChartNode]='patientChartNode' [templateType]='$physicalExam' [templateId]='\"$570256d4-981c-ea11-828b-281878072c42\"' [patientChartDocumentNode]='patientChartDocumentNode'></patient-chart-template>"
+                                },
+                                {
+                                    "id": "e25f4670-50d6-4671-b57a-ca178d24af5a",
+                                    "name": "Fine Motor Skills",
+                                    "title": "Fine Motor Skills",
+                                    "type": 4,
+                                    "value": {
+                                        "defaultTemplateHtml": "<ul>\r\n<li>The claimant&rsquo;s fine motor skills were evaluated, and the claimant was able to pick up small coins with both hands without difficulty, screw a nut onto a bolt with both hands without difficulty, along with writing their name and other visit specific information on this chart with no appendicular dysmetria noted in the dominant hand without difficulty.</li>\r\n</ul>",
+                                        "detailedTemplateHtml": "<ul>\r\n<li>The claimant's fine motor skills were evaluated, and the claimant <label contenteditable='false' id='d69d5ae3-b477-4ab5-9c9b-93e378b5a619' selectable-type='list' initial-value='was' metadata='fd9984ec-911c-ea11-828b-281878072c42'>was</label> able to pick up small coins with both hands <label contenteditable='false' id='74059d35-bd8e-46e0-a2c0-294cf582c64b' selectable-type='list' initial-value='without' metadata='fb9984ec-911c-ea11-828b-281878072c42'>without</label> difficulty, screw a nut onto a bolt <label contenteditable='false' id='24195ce0-12a9-419e-9a98-03c0d1ec8d0f' selectable-type='list' initial-value='without' metadata='fb9984ec-911c-ea11-828b-281878072c42'>without</label> both hands without difficulty, along with writing their name and other visit specific information on this chart <label contenteditable='false' id='a6adb83e-bdf2-4f9b-b706-d719a898ba7d' selectable-type='list' initial-value='without' metadata='fb9984ec-911c-ea11-828b-281878072c42'>without</label> appendicular dysmetria noted in the dominant hand <label contenteditable='false' id='581119c4-14aa-415c-a41c-ddbbcf3b42e3' selectable-type='list' initial-value='without' metadata='fb9984ec-911c-ea11-828b-281878072c42'>without</label> difficulty.</li>\r\n</ul>",
+                                        "isDetailedTemplateUsed": false
+                                    },
+                                    "attributes": {
+                                        "order": 18,
+                                        "isActive": true,
+                                        "isPredefined": false,
+                                        "isNotShownInReport": false,
+                                        "signedOffOnly": false,
+                                        "nodeSpecificAttributes": {
+                                            "templateId": "6b0256d4-981c-ea11-828b-281878072c42",
+                                            "templateTypeId": null
+                                        }
+                                    },
+                                    "children": null,
+                                    "parentId": "c8ad2026-b548-4b3b-ba0b-647153b96934",
+                                    "template": "<patient-chart-template [admissionId]='admissionId' [companyId]='companyId' [isSignedOff]='isSignedOff' [patientChartNode]='patientChartNode' [templateType]='$physicalExam' [templateId]='\"$6b0256d4-981c-ea11-828b-281878072c42\"' [patientChartDocumentNode]='patientChartDocumentNode'></patient-chart-template>"
+                                },
+                                {
+                                    "id": "4b16bcf6-4f54-4eea-89e6-cdb78f5795ef",
+                                    "name": "Skin",
+                                    "title": "Skin",
+                                    "type": 4,
+                                    "value": {
+                                        "defaultTemplateHtml": "<ul>\r\n<li>Skin is intact without wounds, lesions, ulcerations, erythema, edema, joint effusions, or ecchymosis noted. No circulatory deficits noted. Capillary refill is less than 2 seconds.</li>\r\n</ul>",
+                                        "detailedTemplateHtml": "<ul>\r\n<li>Skin <label contenteditable='false' id='e6cda890-1c0a-f949-93c4-11c42de1f0d9' selectable-type='list' initial-value='is' metadata='0c9a84ec-911c-ea11-828b-281878072c42'>is</label> <label contenteditable='false' id='4f126d68-f871-ff7b-d757-2feede45ff18' selectable-type='list' initial-value='normal' metadata='de9984ec-911c-ea11-828b-281878072c42'>normal</label>. There <label contenteditable='false' id='6467daee-63aa-2849-4262-39b2cb1b1c33' selectable-type='list' initial-value='are not' metadata='149a84ec-911c-ea11-828b-281878072c42'>are not</label>&nbsp; any circulatory deficits noted. Capillary refill is less than <label contenteditable='false' id='ab16d86d-1663-22e3-c390-1ad90d67616b' selectable-type='range' initial-value='1' metadata='1::5'>1</label> seconds.</li>\r\n</ul>",
+                                        "isDetailedTemplateUsed": false
+                                    },
+                                    "attributes": {
+                                        "order": 19,
+                                        "isActive": true,
+                                        "isPredefined": false,
+                                        "isNotShownInReport": false,
+                                        "signedOffOnly": false,
+                                        "nodeSpecificAttributes": {
+                                            "templateId": "700256d4-981c-ea11-828b-281878072c42",
+                                            "templateTypeId": null
+                                        }
+                                    },
+                                    "children": null,
+                                    "parentId": "c8ad2026-b548-4b3b-ba0b-647153b96934",
+                                    "template": "<patient-chart-template [admissionId]='admissionId' [companyId]='companyId' [isSignedOff]='isSignedOff' [patientChartNode]='patientChartNode' [templateType]='$physicalExam' [templateId]='\"$700256d4-981c-ea11-828b-281878072c42\"' [patientChartDocumentNode]='patientChartDocumentNode'></patient-chart-template>"
+                                },
+                                {
+                                    "id": "49d858d4-5490-4427-8a64-6e8ce7ad3885",
+                                    "name": "Range of Motion",
+                                    "title": "Range of Motion",
+                                    "type": 4,
+                                    "value": {
+                                        "defaultTemplateHtml": "<ul>\r\n<li>The claimant's range of motion in within normal Limits.</li>\r\n<li>Shoulders: Within Normal Limits.</li>\r\n<li>Elbow: Within Normal Limits.</li>\r\n<li>Wrist: Within Normal Limits.</li>\r\n<li>Hand: Within Normal Limits.</li>\r\n<li>Dorsolumbar Spine: Within Normal Limits.</li>\r\n<li>Hips: Within Normal Limits.</li>\r\n<li>Knees: Within Normal Limits.</li>\r\n<li>Ankles: Within Normal Limits.</li>\r\n</ul>",
+                                        "detailedTemplateHtml": "<ul> <li>The claimant&#39;s range of motion <label contenteditable='false' id='34969fec-8b52-b5d9-d334-fe65072d1468' selectable-type='list' initial-value='is' metadata='0c9a84ec-911c-ea11-828b-281878072c42'>is</label> within normal limits:</li><li>Cervical Spine: <label contenteditable='false' id='5c849bd7-c9bb-4891-a0ff-b2a948bc984c' selectable-type='list' initial-value='is' metadata='0c9a84ec-911c-ea11-828b-281878072c42'>is</label> within Normal Limits.</li><li>Shoulders: <label contenteditable='false' id='75cfb118-b153-4557-86ad-0bb365eab698' selectable-type='list' initial-value='is' metadata='0c9a84ec-911c-ea11-828b-281878072c42'>is</label> within Normal Limits.</li><li>Elbow: <label contenteditable='false' id='0d2e3d87-e3bc-4907-85f9-033dae2e03a9' selectable-type='list' initial-value='is' metadata='0c9a84ec-911c-ea11-828b-281878072c42'>is</label> within Normal Limits.</li><li>Wrist: <label contenteditable='false' id='2b775166-3dc7-41e6-b8df-2879ee762f73' selectable-type='list' initial-value='is' metadata='0c9a84ec-911c-ea11-828b-281878072c42'>is</label> within Normal Limits.</li><li>Hand: <label contenteditable='false' id='13237875-73df-4b87-95df-acad95456833' selectable-type='list' initial-value='is' metadata='0c9a84ec-911c-ea11-828b-281878072c42'>is</label> within Normal Limits.</li><li>Dorsolumbar Spine: <label contenteditable='false' id='b95b8be4-102f-4724-be85-e744ab6bb0b9' selectable-type='list' initial-value='is' metadata='0c9a84ec-911c-ea11-828b-281878072c42'>is</label> within Normal Limits.</li><li>Hips: <label contenteditable='false' id='5680eff9-8c0f-4861-bc95-49d532673505' selectable-type='list' initial-value='is' metadata='0c9a84ec-911c-ea11-828b-281878072c42'>is</label> within Normal Limits.</li><li>Knees: <label contenteditable='false' id='30b5d7dd-779d-4147-a3b7-50cc8553a9f4' selectable-type='list' initial-value='is' metadata='0c9a84ec-911c-ea11-828b-281878072c42'>is</label> within Normal Limits.</li><li>Ankles: <label contenteditable='false' id='cc92f097-ef3c-4dda-bdc2-d7d18d732d75' selectable-type='list' initial-value='is' metadata='0c9a84ec-911c-ea11-828b-281878072c42'>is</label> within Normal Limits.</li></ul>",
+                                        "isDetailedTemplateUsed": false
+                                    },
+                                    "attributes": {
+                                        "order": 20,
+                                        "isActive": true,
+                                        "isPredefined": false,
+                                        "isNotShownInReport": false,
+                                        "signedOffOnly": false,
+                                        "nodeSpecificAttributes": {
+                                            "templateId": "8b0256d4-981c-ea11-828b-281878072c42",
+                                            "templateTypeId": null
+                                        }
+                                    },
+                                    "children": null,
+                                    "parentId": "c8ad2026-b548-4b3b-ba0b-647153b96934",
+                                    "template": "<patient-chart-template [admissionId]='admissionId' [companyId]='companyId' [isSignedOff]='isSignedOff' [patientChartNode]='patientChartNode' [templateType]='$physicalExam' [templateId]='\"$8b0256d4-981c-ea11-828b-281878072c42\"' [patientChartDocumentNode]='patientChartDocumentNode'></patient-chart-template>"
+                                }
+                            ],
+                            "parentId": "3eb235c0-b6e4-4307-bafc-0a538f3278c7",
+                            "template": "<template-list [companyId]='companyId' [isSignedOff]='isSignedOff' [patientChartNode]='patientChartNode' templateType='physicalExam'></template-list>"
+                        }
+                    ],
+                    "parentId": "882e8831-cefa-41ee-b8fb-3035bfd5d53f",
+                    "template": null
+                },
+                {
+                    "id": "fabbd5a9-84df-4a35-89e0-61b5a599d711",
+                    "name": "procedure",
+                    "title": "Procedure",
+                    "type": 5,
+                    "value": [],
+                    "attributes": {
+                        "order": 8,
+                        "isActive": true,
+                        "isPredefined": true,
+                        "isNotShownInReport": false,
+                        "signedOffOnly": false,
+                        "nodeSpecificAttributes": {
+                            "templateId": null,
+                            "templateTypeId": "87c81e6a-931c-ea11-828b-281878072c42"
+                        }
+                    },
+                    "children": null,
+                    "parentId": "882e8831-cefa-41ee-b8fb-3035bfd5d53f",
+                    "template": "<template-list [companyId]='companyId' [isSignedOff]='isSignedOff' [patientChartNode]='patientChartNode' templateType='procedure'></template-list> "
+                },
+                {
+                    "id": "f5db7c28-d3ed-42d0-898a-1a99cb1f6469",
+                    "name": "prescription",
+                    "title": "Prescription",
+                    "type": 21,
+                    "value": [],
+                    "attributes": {
+                        "order": 9,
+                        "isActive": true,
+                        "isPredefined": true,
+                        "isNotShownInReport": false,
+                        "signedOffOnly": false,
+                        "nodeSpecificAttributes": null
+                    },
+                    "children": null,
+                    "parentId": "882e8831-cefa-41ee-b8fb-3035bfd5d53f",
+                    "template": "<medication-prescription [companyId]='companyId' [isSignedOff]='isSignedOff' [admissionId]='admissionId' [patientId]='patientId'></medication-prescription>"
+                },
+                {
+                    "id": "7b8238ef-23ee-4d87-b117-c9db94c965a2",
+                    "name": "assessment",
+                    "title": "Assessment",
+                    "type": 18,
+                    "value": [
+                        {
+                            "id": "4f91c420-c863-64a8-67bf-96852bcdb0cf",
+                            "order": 1,
+                            "icdCode": null,
+                            "diagnosis": "Cholera",
+                            "notes": "ss"
+                        }
+                    ],
+                    "attributes": {
+                        "order": 10,
+                        "isActive": true,
+                        "isPredefined": true,
+                        "isNotShownInReport": false,
+                        "signedOffOnly": false,
+                        "nodeSpecificAttributes": null
+                    },
+                    "children": null,
+                    "parentId": "882e8831-cefa-41ee-b8fb-3035bfd5d53f",
+                    "template": "<assessment [companyId]='companyId' [isSignedOff]='isSignedOff' [patientChartDocumentNode]='patientChartDocumentNode' [patientChartNode]='patientChartNode'></assessment>"
+                },
+                {
+                    "id": "33659a4a-585d-4f35-bc65-4a640a434c6a",
+                    "name": "plan",
+                    "title": "Plan",
+                    "type": 5,
+                    "value": [],
+                    "attributes": {
+                        "order": 11,
+                        "isActive": true,
+                        "isPredefined": true,
+                        "isNotShownInReport": false,
+                        "signedOffOnly": false,
+                        "nodeSpecificAttributes": {
+                            "templateId": null,
+                            "templateTypeId": "8cc81e6a-931c-ea11-828b-281878072c42"
+                        }
+                    },
+                    "children": null,
+                    "parentId": "882e8831-cefa-41ee-b8fb-3035bfd5d53f",
+                    "template": "<template-list [companyId]='companyId' [isSignedOff]='isSignedOff' [patientChartNode]='patientChartNode' templateType='plan'></template-list>"
+                },
+                {
+                    "id": "f8767833-f8ad-4c7d-aeb6-c230f8207f77",
+                    "name": "addendum",
+                    "title": "Addendum",
+                    "type": 22,
+                    "value": "",
+                    "attributes": {
+                        "order": 12,
+                        "isActive": true,
+                        "isPredefined": true,
+                        "isNotShownInReport": false,
+                        "signedOffOnly": true,
+                        "nodeSpecificAttributes": null
+                    },
+                    "children": null,
+                    "parentId": "882e8831-cefa-41ee-b8fb-3035bfd5d53f",
+                    "template": "<addendum [companyId]='companyId' [isSignedOff]='isSignedOff' [patientChartNode]='patientChartNode'></addendum>"
+                },
+                {
+                    "id": "8812d667-a428-454e-a8ca-37794c7b4c76",
+                    "name": "scanDocument",
+                    "title": "Scan Document",
+                    "type": 20,
+                    "value": [],
+                    "attributes": {
+                        "order": 13,
+                        "isActive": true,
+                        "isPredefined": true,
+                        "isNotShownInReport": true,
+                        "signedOffOnly": false,
+                        "nodeSpecificAttributes": null
+                    },
+                    "children": null,
+                    "parentId": "882e8831-cefa-41ee-b8fb-3035bfd5d53f",
+                    "template": "< [companyId]='companyId' [isSignedOff]='isSignedOff' [patientId]='patientId' [appointmentId]='appointmentId'></scan-document>"
+                },
+                {
+                    "id": "1239c7dc-9ddd-3a7a-c736-738e456ad117",
+                    "name": "myDemoSection",
+                    "title": "My Demo Section",
+                    "type": 3,
+                    "value": null,
+                    "attributes": {
+                        "order": 14,
+                        "isActive": true,
+                        "isPredefined": false,
+                        "isNotShownInReport": false,
+                        "signedOffOnly": false,
+                        "nodeSpecificAttributes": null
+                    },
+                    "children": [],
+                    "parentId": "882e8831-cefa-41ee-b8fb-3035bfd5d53f",
+                    "template": ""
+                }
+            ],
+            "parentId": "8c980622-4181-48d3-ab0a-f602b66caf5f",
+            "template": null
+        }
+    ],
+    "parentId": "00000000-0000-0000-0000-000000000000",
+    "template": null
+}

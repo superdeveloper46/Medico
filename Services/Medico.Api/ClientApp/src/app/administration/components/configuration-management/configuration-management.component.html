@@ -1,0 +1,20 @@
+<div class="row mt-md-2">
+  <div class="col-md-12">
+    <dx-tabs
+      [dataSource]="tabs"
+      [selectedIndex]="selectedTabIndex"
+      (onItemClick)="onTabSelect($event)"
+    >
+    </dx-tabs>
+  </div>
+  <div class="col-md-12">
+    <config-settings *ngIf="isTabVisible(0)"></config-settings>
+    <fileName-convention *ngIf="isTabVisible(1)"></fileName-convention>
+    <credentials *ngIf="isTabVisible(2)"></credentials>
+    <admin-notification *ngIf="isTabVisible(3)"></admin-notification>
+    <default-settings *ngIf="isTabVisible(4)"></default-settings>
+    <selectableList-datasource *ngIf="isTabVisible(5)"></selectableList-datasource>
+    <include-exclude *ngIf="isTabVisible(6)" itemId="Include List"></include-exclude>
+    <include-exclude *ngIf="isTabVisible(7)" itemId="Exclude List"></include-exclude>
+  </div>
+</div>

@@ -1,0 +1,194 @@
+<div class="row mt-md-2">
+  <div class="col-md-6">
+    <h5>Set Business Hours</h5>
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col">Day</th>
+          <th scope="col">Status</th>
+          <th scope="col">Type</th>
+          <th scope="col">Start at</th>
+          <th scope="col">End at</th>
+          <th scope="col"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let businessHourData of businessHoursList; let i = index">
+          <th>{{ businessHourData['day'] }}</th>
+          <td>{{ businessHourData['status'] }}</td>
+          <td>{{ businessHourData['type'] }}</td>
+          <td>{{ businessHourData['startAt'] }}</td>
+          <td>{{ businessHourData['endAt'] }}</td>
+          <td>
+            <dx-button
+              icon="remove"
+              type="danger"
+              (onClick)="removeBusinessHours(businessHourData.index)">
+            </dx-button>
+          </td>
+        </tr>
+        <tr>
+          <td colspan="2">
+            <div [title]="newDay">
+              <dx-select-box
+                [dataSource]="allDays"
+                valueExpr="name"
+                displayExpr="name"
+                [(value)]="newDay"
+              ></dx-select-box>
+            </div>
+            <div [title]="newStartAt | datex: 'HH:mm'" class="mt-2">
+              <dx-date-box
+                type="time"
+                [(value)]="newStartAt">
+              </dx-date-box>
+            </div>
+          </td>
+          <td colspan="2">
+            <div [title]="newStatus">
+              <dx-select-box
+                [dataSource]="allStatuses"
+                [(value)]="newStatus"
+              ></dx-select-box>
+            </div>
+            <div [title]="newEndAt | datex: 'HH:mm'" class="mt-2">
+              <dx-date-box
+                type="time"
+                [(value)]="newEndAt">
+              </dx-date-box>
+            </div>
+          </td>
+          <td colspan="2">
+            <div [title]="newType" >
+              <dx-select-box
+                [dataSource]="allBusinessHoursTypes"
+                valueExpr="value"
+                displayExpr="value"
+                [(value)]="newType"
+              ></dx-select-box>
+            </div>
+            <div class="mt-2">
+              <dx-button
+                icon="add"
+                type="success"
+                (onClick)="addBusinessHour()">
+              </dx-button>
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td [title]="copySDay">
+            <dx-select-box
+              [dataSource]="allDays"
+              valueExpr="name"
+              displayExpr="name"
+              [(value)]="copySDay"
+            ></dx-select-box>
+          </td>
+          <td [title]="copyDDays" colspan="4">
+            <dx-tag-box
+              [dataSource]="allDays"
+              valueExpr="name"
+              displayExpr="name"
+              [(value)]="copyDDays"
+            ></dx-tag-box>
+          </td>
+          <td>
+            <dx-button
+              text="Copy To"
+              type="success"
+              (onClick)="copyBusinessHours()">
+            </dx-button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <div style="margin-left: 12px;">
+      <dx-button
+        text="Save"
+        (onClick)="saveBusinessHour()">
+      </dx-button>
+    </div>
+  </div>
+  <div class="col-md-6">
+    <h5>Set Holidays</h5>
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col">Date</th>
+          <th scope="col">Status</th>
+          <th scope="col">Type</th>
+          <th scope="col">Start at</th>
+          <th scope="col">End at</th>
+          <th scope="col"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let holidayData of holidayHoursList; let i = index">
+          <th>{{ holidayData['date'] }}</th>
+          <td>{{ holidayData['status'] }}</td>
+          <td>{{ holidayData['type'] }}</td>
+          <td>{{ holidayData['startAt'] }}</td>
+          <td>{{ holidayData['endAt'] }}</td>
+          <td>
+            <dx-button
+              icon="remove"
+              type="danger"
+              (onClick)="removeHolidayHours(holidayData.index)">
+            </dx-button>
+          </td>
+        </tr>
+        <tr>
+          <td colspan="2">
+            <div [title]="newHolidayDate | datex: 'DD MMM YY'">
+              <dx-date-box
+                [(value)]="newHolidayDate">
+              </dx-date-box>
+            </div>
+            <div class="mt-2" [title]="newHolidayStartAt | datex: 'HH:mm'">
+              <dx-date-box
+                type="time"
+                [(value)]="newHolidayStartAt">
+              </dx-date-box>
+            </div>
+          </td>
+          <td colspan="2">
+            <div [title]="newHolidayStatus">
+              <dx-select-box
+                [dataSource]="allStatuses"
+                [(value)]="newHolidayStatus"
+              ></dx-select-box>
+            </div>
+            <div class="mt-2" [title]="newHolidayEndAt | datex: 'HH:mm'">
+              <dx-date-box
+                type="time"
+                [(value)]="newHolidayEndAt">
+              </dx-date-box>
+            </div>
+          </td>
+          <td colspan="2">
+            <div [title]="newHolidayType">
+              <dx-select-box
+                [dataSource]="allHolidayHoursType"
+                valueExpr="value"
+                displayExpr="value"
+                [(value)]="newHolidayType"
+              ></dx-select-box>
+            </div>
+            <div class="mt-2">
+              <dx-button
+                icon="add"
+                type="success"
+                (onClick)="addHolidayHours()">
+              </dx-button>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <dx-button
+      text="Save"
+      (onClick)="saveHolidayHours()">
+    </dx-button>
+  </div>
+</div>

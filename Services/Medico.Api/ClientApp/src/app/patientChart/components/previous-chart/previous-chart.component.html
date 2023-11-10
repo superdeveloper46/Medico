@@ -1,0 +1,6 @@
+<div *ngIf="isPreviousChartContentVisibe" class="row report-node-container">
+  <div
+    class="col-md-12 shadow p-3 mb-2 bg-white rounded"
+    [innerHtml]="previousChartContent | safeHtml"
+  ></div>
+</div>

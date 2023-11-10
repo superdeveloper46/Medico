@@ -1,0 +1,23 @@
+<div class="row">
+  <div class="col-md-8">
+    <dx-form #vitalSignsConfigForm [(formData)]="vitalSignsConfig">
+      <dxi-item template="configTemplate"></dxi-item>
+      <div *dxTemplate="let data of 'configTemplate'">
+        <label class="pr-2">Vital Sign Units:</label>
+        <dx-select-box
+          class="mb-2 d-inline-block"
+          [dataSource]="units"
+          [(value)]="vitalSignsConfig.vitalSignUnits"
+          valueExpr="id"
+          displayExpr="value"
+        >
+        </dx-select-box>
+      </div>
+
+      <dxi-item dataField="numberOfPreviousVitalSigns" editorType="dxTextBox">
+        <dxi-validation-rule type="numeric"></dxi-validation-rule>
+      </dxi-item>
+      
+    </dx-form>
+  </div>
+</div>

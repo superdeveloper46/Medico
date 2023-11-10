@@ -1,0 +1,197 @@
+<div class="row mt-md-2">
+  <div class="col-md-3">
+    <button type="button" (click)="openForm()" class="btn btn-sm btn-outline-secondary">
+      NEW LOOK-UP VALUE
+    </button>
+  </div>
+  <div class="offset-md-2 col-md-3 text-right">
+    <button
+      type="button"
+      (click)="refreshInsCompDataGrid()"
+      class="btn btn-sm btn-outline-secondary"
+    >
+      REFRESH
+    </button>
+  </div>
+</div>
+<div class="row mt-md-2">
+  <div class="col-md-8">
+    <dx-data-grid
+      [hoverStateEnabled]="true"
+      [wordWrapEnabled]="true"
+      #lookUpDataGrid
+      [dataSource]="lookUpDataSource"
+      (onSelectionChanged)="onRowSelected($event)"
+      [showBorders]="true"
+      [showRowLines]="true"
+    >
+      <dxo-remote-operations [paging]="true" [sorting]="true"></dxo-remote-operations>
+
+      <dxo-paging [pageSize]="searchConfiguration.pageSizeCount"></dxo-paging>
+
+      <dxo-pager
+        [showPageSizeSelector]="true"
+        [allowedPageSizes]="searchConfiguration.allowedPageSizes"
+      >
+      </dxo-pager>
+
+      <dxi-column dataField="id" dataType="string" [visible]="false"></dxi-column>
+      <dxi-column alignment="left" dataField="title"></dxi-column>
+      <dxi-column alignment="left" dataField="varModifier"></dxi-column>
+      <dxi-column alignment="left" dataField="minVar"></dxi-column>
+      <dxi-column alignment="left" dataField="maxVar"></dxi-column>
+
+      <dxi-column alignment="left" dataField="gender"></dxi-column>
+
+      <dxi-column alignment="left" dataField="minValue"></dxi-column>
+
+      <dxi-column alignment="left" dataField="maxValue"></dxi-column>
+
+      <dxi-column alignment="left" dataField="valUnits"></dxi-column>
+      <dxi-column alignment="left" dataField="avid"></dxi-column>
+
+      <dxi-column
+        [width]="10 + '%'"
+        alignment="center"
+        caption="Actions"
+        cellTemplate="actionsTemplate"
+      >
+      </dxi-column>
+      <div class="text-center" *dxTemplate="let row of 'actionsTemplate'">
+        <div class="btn-group btn-group-sm" role="group">
+          <button (click)="deleteRow(row.data)" class="btn btn-outline-danger">
+            <i class="fas fa-trash"></i>
+          </button>
+        </div>
+      </div>
+      <dxo-selection mode="single"></dxo-selection>
+    </dx-data-grid>
+  </div>
+</div>
+<dx-popup
+  #lookUpAddPopup
+  class="popup"
+  [width]="900"
+  [height]="450"
+  [dragEnabled]="false"
+  [showTitle]="true"
+  [title]="title"
+  [hideOnOutsideClick]="false"
+  [(visible)]="isLookupFormOpened"
+>
+  <div *dxTemplate="let data of 'content'">
+    <div *ngIf="isLookupFormOpened" class="row">
+      <div class="col-md-12">
+        <dx-form #lookUpForm [(formData)]="lookUpData">
+          <dxi-item itemType="tabbed">
+            <dxi-tab [colCount]="12" title="ADD">
+              <dxi-item [colSpan]="6" dataField="title">
+                <dxi-validation-rule
+                  type="required"
+                  message="Name is required"
+                ></dxi-validation-rule>
+              </dxi-item>
+
+              <dxi-item
+                [colSpan]="6"
+                dataField="varModifier"
+                editorType="dxSelectBox"
+                [editorOptions]="{
+                  displayExpr: 'name',
+                  valueExpr: 'value',
+                  dataSource: varModifierList
+                }"
+              >
+                <dxi-validation-rule type="required" message="Var Modifier is required">
+                </dxi-validation-rule>
+              </dxi-item>
+              <dxi-item
+                [colSpan]="6"
+                dataField="gender"
+                editorType="dxSelectBox"
+                [editorOptions]="{
+                  displayExpr: 'name',
+                  valueExpr: 'value',
+                  dataSource: gender
+                }"
+              >
+                <!-- <dxi-validation-rule type="required" message="Gender is required">
+                            </dxi-validation-rule> -->
+              </dxi-item>
+              <dxi-item
+                [colSpan]="6"
+                dataField="minVar"
+                [editorOptions]="{ width: '100%', height: '30' }"
+              >
+                <dxi-validation-rule type="required"></dxi-validation-rule>
+              </dxi-item>
+
+              <dxi-item
+                [colSpan]="6"
+                dataField="maxVar"
+                [editorOptions]="{ width: '100%', height: '30' }"
+              >
+                <dxi-validation-rule type="required"></dxi-validation-rule>
+              </dxi-item>
+
+              <dxi-item
+                [colSpan]="6"
+                dataField="minValue"
+                [editorOptions]="{ width: '100%', height: '30' }"
+              >
+                <dxi-validation-rule type="required"></dxi-validation-rule>
+              </dxi-item>
+
+              <dxi-item
+                [colSpan]="6"
+                dataField="maxValue"
+                [editorOptions]="{ width: '100%', height: '30' }"
+              >
+                <dxi-validation-rule type="required"></dxi-validation-rule>
+              </dxi-item>
+
+              <dxi-item
+                [colSpan]="6"
+                dataField="valUnits"
+                editorType="dxSelectBox"
+                [editorOptions]="{
+                  displayExpr: 'name',
+                  valueExpr: 'value',
+                  dataSource: valUnitsList
+                }"
+              >
+                <dxi-validation-rule type="required" message="Gender is required">
+                </dxi-validation-rule>
+              </dxi-item>
+
+              <dxi-item
+                [colSpan]="6"
+                dataField="avid"
+                [editorOptions]="{ width: '100%', height: '30' }"
+              >
+              </dxi-item>
+            </dxi-tab>
+          </dxi-item>
+        </dx-form>
+      </div>
+      <div class="col-md-12 text-right mt-md-3">
+        <button
+          type="button"
+          (click)="createUpdateLookUp()"
+          class="btn btn-sm btn-outline-secondary mr-2"
+        >
+          {{ isNewLookUp ? 'SAVE' : 'UPDATE' }}
+        </button>
+
+        <!-- <button
+          *ngIf="rowId"
+          type="button"
+          (click)="deleteConfirm()"
+          class="btn btn-sm btn-outline-danger"
+        >
+          DELETE
+        </button> -->
+      </div>
+    </div>
+  </div>
+</dx-popup>

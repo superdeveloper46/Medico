@@ -1,0 +1,159 @@
+<div *ngIf="!isSignedOff">
+  <div class="d-flex align-items-center justify-content-between">
+    <div class="d-flex align-items-center">
+      <div class="mr-4" *ngIf="hasDefaultTemplate">
+        <dx-tabs
+          [width]="200"
+          [dataSource]="templateModes"
+          [selectedIndex]="selectedModeIndex"
+          (onItemClick)="onTemplateModeSelected($event.itemData)"
+        >
+        </dx-tabs>
+      </div>
+
+      <button (click)="savePatientChart()" class="btn btn-sm btn-outline-secondary mr-2">
+        <i class="fas fa-save"></i> Save
+      </button>
+
+      <button
+        *ngIf="isDetailedTemplateShown"
+        (click)="calculateExpressionsNew()"
+        class="btn btn-sm btn-outline-secondary mr-2"
+      >
+        <i class="fas fa-calculator"></i> Calculate expressions
+      </button>
+      <button *ngIf="hasDefaultTemplate" (click)="copyDefaultContent()" class="btn btn-sm btn-outline-secondary">
+        <i class="fas fa-copy"></i> Copy
+      </button>
+    </div>
+    <div>
+      <a
+        *ngIf="showButton"
+        id="previous-template-trigger"
+        class="text-decoration-none text-secondary mr-3"
+        href=""
+        (click)="togglePreviousDetailedContentPopover($event)">
+        <i class="fas fa-file-medical"></i>
+         <span [ngStyle]="{'color': color ? 'blue' : 'red'}"> Historical Data</span>
+      </a>
+    </div>
+  </div>
+
+  <hr />
+
+  <div *ngIf="isDetailedTemplateShown" class="row mt-md-2">
+    <div id="detailed-template-editor" class="col-md-12">
+      <patient-template-editor
+        [companyId]="companyId"
+        [templateId]="templateId"
+        [admissionId]="admissionId"
+        [detailedTemplateContent]="templateContent.detailedTemplateHtml"
+        (contentChanged)="onDetailedContentChanged($event)"
+      >
+      </patient-template-editor>
+    </div>
+  </div>
+
+  <div *ngIf="isDefaultTemplateShown" class="row mt-md-2">
+    <div class="col-md-12">
+      <patient-rich-text-editor
+        #defaultRichTextEditor
+        [initialContent]="templateContent.defaultTemplateHtml"
+        (editorChange)="onDefaultContentChanged($event)"
+        (editorReady)="onDefaultContentReady($event)"
+      >
+      </patient-rich-text-editor>
+    </div>
+  </div>
+</div>
+
+<div *ngIf="isSignedOff" class="row">
+  <div class="col-md-12">
+    <div [innerHtml]="templateResult | safeHtml"></div>
+  </div>
+</div>
+
+<dx-popover
+  target="#duplicate-words-warning-trigger"
+  [width]="800"
+  position="bottom"
+  [showTitle]="false"
+  [(visible)]="isDuplicateWordsWarningVisible"
+>
+  <div *dxTemplate="let data = model; of: 'content'">
+    <duplicate-selectable-items-checker
+      *ngIf="isDuplicateWordsWarningVisible"
+      [patientChartDocumentNode]="patientChartDocumentNode"
+      [detailedTemplateHtmlContent]="templateContent.detailedTemplateHtml"
+    >
+    </duplicate-selectable-items-checker>
+  </div>
+</dx-popover>
+<dx-popover
+  target="#previous-template-trigger"
+  [width]="830"
+  position="bottom"
+  [showTitle]="false"
+  [(visible)]="isPreviousTemplateContentVisible"
+>
+  <div *ngIf="!dataReady">
+    <h6>Loading
+    <dx-load-indicator
+      id = "medium-indicator"
+      height="40"
+      width="40"
+    ></dx-load-indicator>
+    </h6>
+  </div>
+  <div id="scrollview-demo" *ngIf="dataReady">
+    <dx-scroll-view
+      #scrollView
+      id="scrollview"
+      [scrollByContent]="true"
+      [showScrollbar]="'always'"
+      [useNative]="false"
+    >
+  <div id="accordion">
+    <dx-accordion
+      #accordion
+      [dataSource]="templateHistoryFilter"
+      [animationDuration]="300"
+      id="accordion-container"
+      width="max-content"
+      height="max-content"
+    >
+      <div *dxTemplate="let template of 'title';let i=index">
+        <h6>{{patientChartNode.title}} : {{datesTemplates[i]}}</h6>
+      </div>
+      <div *dxTemplate="let template of 'item'">
+          <div
+            class="ex2"
+            *ngIf="doesTemplateHistoryExist"
+            [innerHtml]="template.content | safeHtml"
+          ></div>
+          <div class="text-right mt-2" *ngIf="doesTemplateHistoryExist">
+            <button
+              type="button"
+              (click)="insertPreviousTemplateContent(template)"
+              class="btn btn-sm btn-outline-secondary"
+            >
+              INSERT
+            </button>
+          </div>
+      </div>
+    </dx-accordion>
+  </div>
+
+
+  <div>
+    <div *ngIf="!doesTemplateHistoryExist">
+      <span>The previous template content was not found.</span><br />
+      <span
+        >Please, check in administration if the <strong>"Is Historical"</strong> flag is
+        set to true to the current template.</span
+      >
+    </div>
+  </div>
+</dx-scroll-view>
+</div>
+</dx-popover>

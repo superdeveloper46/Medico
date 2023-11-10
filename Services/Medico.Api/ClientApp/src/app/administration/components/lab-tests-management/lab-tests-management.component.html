@@ -1,0 +1,208 @@
+<div class="row mt-md-2">
+  <div class="col-md-3">
+    <button
+      type="button"
+      (click)="openLabTestForm()"
+      class="btn btn-sm btn-outline-secondary"
+    >
+      ADD ORDER
+    </button>
+  </div>
+</div>
+<div class="row mt-md-2">
+  <div class="col-md-10">
+    <dx-data-grid
+      [hoverStateEnabled]="true"
+      [wordWrapEnabled]="true"
+      #labTestDataGrid
+      [dataSource]="labTestDataSource"
+      [showBorders]="true"
+      [showRowLines]="true"
+    >
+      <dxo-remote-operations
+        [filtering]="true"
+        [paging]="true"
+        [sorting]="true"
+      ></dxo-remote-operations>
+
+      <dxo-paging [pageSize]="searchConfiguration.pageSizeCount"></dxo-paging>
+
+      <dxo-pager
+        [showPageSizeSelector]="true"
+        [allowedPageSizes]="searchConfiguration.allowedPageSizes"
+      >
+      </dxo-pager>
+
+      <dxi-column dataField="id" dataType="string" [visible]="false"></dxi-column>
+      <dxi-column alignment="left" dataField="section"></dxi-column>
+      <dxi-column alignment="left" dataField="code_Desc"></dxi-column>
+      <dxi-column alignment="left" dataField="codeType"></dxi-column>
+      <dxi-column alignment="left" dataField="code"></dxi-column>
+      <dxi-column alignment="left" dataField="testFee"></dxi-column>
+      <dxi-column alignment="left" dataType="string" dataField="category"></dxi-column>
+      <dxi-column
+        alignment="center"
+        caption="Notes"
+        dataField="notes"
+        cellTemplate="notesTemplate"
+      ></dxi-column>
+
+      <dxi-column
+        alignment="center"
+        caption="Edit"
+        cellTemplate="EditTestTemplate"
+      ></dxi-column>
+      <dxi-column
+        [width]="10 + '%'"
+        alignment="center"
+        caption="Actions"
+        cellTemplate="labTestActionsTemplate"
+      >
+      </dxi-column>
+      <!-- <div class="text-left" *dxTemplate="let n of 'category'">
+                <span *ngIf="n.data.categoryId === 1"> In House</span>
+                <span *ngIf="n.data.categoryId === 2"> Lab Tests</span>
+                <span *ngIf="n.data.categoryId === 3"> Imaging</span>
+            </div> -->
+      <div class="text-center" *dxTemplate="let template of 'EditTestTemplate'">
+        <div class="text-center mt-md-1">
+          <button
+            type="button"
+            (click)="editTest(template.data.id)"
+            class="btn btn-sm btn-outline-primary"
+          >
+            Edit
+          </button>
+        </div>
+      </div>
+      <div class="text-center" *dxTemplate="let data of 'notesTemplate'">
+        <div [innerHtml]="data.value"></div>
+      </div>
+      <div class="text-center" *dxTemplate="let labTest of 'labTestActionsTemplate'">
+        <div class="btn-group btn-group-sm" role="group">
+          <button (click)="deleteLabTest(labTest.data.id)" class="btn btn-outline-danger">
+            <i class="fas fa-trash"></i>
+          </button>
+        </div>
+      </div>
+      <dxo-selection mode="single"></dxo-selection>
+      <dxo-filter-row [visible]="true"></dxo-filter-row>
+    </dx-data-grid>
+  </div>
+</div>
+
+<dx-popup
+  #labTestAddPopup
+  class="popup"
+  [width]="1000"
+  [height]="620"
+  [dragEnabled]="false"
+  [showTitle]="true"
+  [title]="title"
+  [hideOnOutsideClick]="false"
+  [(visible)]="isLabTestFormOpened"
+>
+  <div *dxTemplate="let data of 'content'">
+    <div *ngIf="isLabTestFormOpened" class="row">
+      <div class="col-md-12">
+        <dx-form #labTestForm [(formData)]="labTest">
+
+          <dxi-item itemType="group" [colCount]="2">
+            <dxi-item dataField="section" [editorOptions]="{ width: '100%' }">
+              <dxi-validation-rule type="required" message="Order Name is required"></dxi-validation-rule>
+            </dxi-item>
+            <dxi-item dataField="codeType" [editorOptions]="{ width: '100%' }">
+              <dxi-validation-rule type="required" message="Order Name is required"></dxi-validation-rule>
+            </dxi-item>
+          </dxi-item>
+
+          <dxi-item itemType="group" [colCount]="2">
+            <dxi-item dataField="code" [editorOptions]="{ width: '100%' }">
+              <dxi-validation-rule type="required" message="Order Name is required"></dxi-validation-rule>
+            </dxi-item>
+            <dxi-item dataField="code_Desc" [editorOptions]="{ width: '100%' }">
+              <dxi-validation-rule type="required" message="Order Name is required"></dxi-validation-rule>
+            </dxi-item>
+          </dxi-item>
+
+          <dxi-item itemType="group" [colCount]="2">
+            <dxi-item
+              placeholder="Select Category"
+              [label]="{ visible: true }"
+              dataField="category"
+              editorType="dxSelectBox"
+              [editorOptions]="{
+                items: categories,
+                displayExpr: 'value',
+                valueExpr: 'value'
+              }"
+            >
+            <dxi-validation-rule type="required" message="Category is required"></dxi-validation-rule>
+            </dxi-item>
+            <dxi-item
+              dataField="testFee"
+              [editorOptions]="{ width: '100%' }"
+              editorType="dxNumberBox"
+            >
+              <dxi-validation-rule
+                type="required"
+                message="Test testFee is required"
+              ></dxi-validation-rule>
+            </dxi-item>
+          </dxi-item>
+
+          <dxi-item itemType="group" [colCount]="2">
+            <dxi-item
+              [label]="{ text: 'Vendor' }"
+              placeholder="Select Vendor"
+              [label]="{ visible: true }"
+              dataField="vendorId"
+              editorType="dxSelectBox"
+              [editorOptions]="{
+                items: vendorDdl,
+                displayExpr: 'vendorName',
+                valueExpr: 'id'
+              }"
+            >
+              <dxi-validation-rule dxi-validation-rule type="required" message="Vendor is required"></dxi-validation-rule>
+            </dxi-item>
+            <dxi-item itemType="group" [colCount]="2">
+              <dxi-item dataField="inHouse" editorType="dxCheckBox"></dxi-item>
+              <dxi-item dataField="active" editorType="dxCheckBox"></dxi-item>
+            </dxi-item>
+          </dxi-item>
+          
+          <dxi-item itemType="group" [colCount]="1">
+            <dxi-item [label]="{text: 'Notes'}" colSpan="4" >
+              <dxi-validation-rule type="required" message="Notes is required"></dxi-validation-rule>
+              <notes-editor
+                #notesEditor
+                [height]="300"
+                (contentChanged)="onNotesContentChanged($event)"
+              >
+              </notes-editor>
+            </dxi-item>
+          </dxi-item>
+        </dx-form>
+      </div>
+      <div class="col-md-12 text-right mt-md-2">
+        <button
+          *ngIf="isNewlabTest === true"
+          type="button"
+          (click)="createUpdateLabTest()"
+          class="btn btn-sm btn-outline-secondary mr-2"
+        >
+          SAVE
+        </button>
+        <button
+          *ngIf="isNewlabTest === false"
+          type="button"
+          (click)="updateLabTest()"
+          class="btn btn-sm btn-outline-secondary mr-2"
+        >
+          UPDATE
+        </button>
+      </div>
+    </div>
+  </div>
+</dx-popup>

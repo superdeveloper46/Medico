@@ -1,0 +1,569 @@
+<div *ngIf="canRenderComponents">
+  <div class="mt-2">
+    <appointments-filter
+      #appointmentsFilter
+      (filterChanged)="onFilterChanged($event)"
+      [companyId]="companyId"
+    >
+    </appointments-filter>
+  </div>
+
+  <div class="row mt-2">
+    <div class="col-md-12">
+      <dx-scheduler
+        #appointmentScheduler
+        (onAppointmentUpdating)="onAppointmentUpdating($event)"
+        (onAppointmentAdded)="onAppointmentAdded()"
+        (onAppointmentUpdated)="onAppointmentUpdated()"
+        (onAppointmentDeleted)="onAppointmentDeleted()"
+        (onOptionChanged)="onSchedulerOptionChanged($event)"
+        [startDayHour]="appConfiguration.startWorkingHour"
+        [endDayHour]="appConfiguration.endWorkingHour"
+        [views]="schedulerAvailableViews"
+        [currentView]="filter.schedulerView"
+        [firstDayOfWeek]="0"
+        [currentDate]="filter.schedulerDate"
+        [crossScrollingEnabled]="true"
+        (onAppointmentFormOpening)="onAppointmentFormOpening($event)"
+        (onAppointmentDeleting)="onAppointmentDeleting($event)"
+        [showAllDayPanel]="false"
+        height="50vh"
+        appointmentTemplate="appointment-template"
+        appointmentTooltipTemplate="tooltip-template"
+      >
+        <dx-form [colCount]="1"></dx-form>
+        <div
+          [ngStyle]="{'backgroundColor': getAppointmentStatusColor(appointment.appointmentData.appointmentStatus)}"
+          *dxTemplate="let appointment of 'appointment-template'"
+        >
+          <div>
+            <span
+              >{{ appointment.appointmentData.patientFirstName }} {{ appointment.appointmentData.patientLastName }}</span
+            ><br />
+            <span
+              >{{ appointment.appointmentData.physicianFirstName }}
+              {{ appointment.appointmentData.physicianLastName }}</span
+            >
+          </div>
+        </div>
+
+        <div *dxTemplate="let appointment of 'tooltip-template'">
+          <div class="row padding">
+            <div class="col-md-10">
+              <div class="row">
+                <div class="col-md-4 text-left">
+                  <strong>TIME:</strong>
+                </div>
+                <div class="col-md-8 text-left">
+                  {{ appointment.appointmentData.startDate | time }} --- {{ appointment.appointmentData.endDate | time }}
+                </div>
+                <div class="col-md-4 text-left">
+                  <strong>PHYSICIAN:</strong>
+                </div>
+                <div class="col-md-8 text-left">
+                  {{ appointment.appointmentData.physicianFirstName }} {{ appointment.appointmentData.physicianLastName }}
+                </div>
+                <div class="col-md-4 text-left">
+                  <strong>PATIENT:</strong>
+                </div>
+                <div class="col-md-8 text-left">
+                  {{ appointment.appointmentData.patientFirstName }} {{ appointment.appointmentData.patientLastName }}
+                </div>
+                <div class="col-md-4 text-left">
+                  <strong>CHART:</strong>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-2">
+              <em (click)="hideSchedulerTooltip($event)" class="fa fa-times"></em
+              ><br /><br />
+              <em
+                (click)="deleteAppointment($event, appointment)"
+                class="fa fa-trash"
+              ></em
+              ><br />
+            </div>
+            <div class="col-md-12 text-center">
+              <div class="padding;">
+                <em
+                  style="font-size: 30px"
+                  (click)="navigateToPatientChartFromScheduler($event, appointment)"
+                  class="fa fa-arrow-right"
+                ></em>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-12 text-right">
+              <span *ngIf="!appointment.appointmentData.admissionId" class="badge badge-secondary">{{
+                appointment.appointmentData.appointmentStatus
+              }}</span>
+              <span
+                *ngIf="appointment.appointmentData.admissionId && !appointment.appointmentData.signingDate"
+                class="badge badge-danger"
+                >{{ appointment.appointmentData.appointmentStatus }}</span
+              >
+              <span
+                *ngIf="appointment.appointmentData.admissionId && appointment.appointmentData.signingDate"
+                class="badge badge-success"
+                >{{ appointment.appointmentData.appointmentStatus }}</span
+              >
+            </div>
+          </div>
+        </div>
+      </dx-scheduler>
+    </div>
+  </div>
+  <!-- <div style="text-align: center; margin: 20px 0">
+    <span *ngFor="let appointmentStatus of allAppointmentStatuses; let i = index">
+      <span style="background-color: {{getAppointmentStatusColor(appointmentStatus.value)}}" class="dot"></span>&nbsp;
+      <span>{{ appointmentStatus['value'] }}</span>&nbsp;&nbsp;
+    </span>
+  </div> -->
+  <div class="row mt-md-2">
+    <div class="col-md-12">
+      <dx-data-grid
+        #appointmentsGrid
+        [showBorders]="true"
+        [hoverStateEnabled]="true"
+        [selectedRowKeys]="selectedAppointment"
+        (onSelectionChanged)="navigateToPatientChart($event)"
+        height="33vh"
+      >
+        <dxo-scrolling mode="virtual"></dxo-scrolling>
+        <dxo-grouping #expand [autoExpandAll]="false"></dxo-grouping>
+
+        <dxi-column
+          format="shortDate"
+          [groupIndex]="0"
+          dataType="date"
+          dataField="date"
+          [visible]="false"
+        >
+        </dxi-column>
+
+        <dxi-column dataField="id" dataType="string" [visible]="false"></dxi-column>
+        <dxi-column
+          [allowSorting]="false"
+          dataField="patient"
+          cellTemplate="patientNameTemplate"
+        ></dxi-column>
+        <dxi-column
+          [allowSorting]="false"
+          dataField="dateOfBirth"
+          type="date"
+          cellTemplate="patientDoBTemplate"
+        >
+        </dxi-column>
+        <dxi-column
+          [allowSorting]="false"
+          dataField="lastVisit"
+          cellTemplate="lastVisitTemplate"
+        ></dxi-column>
+        <dxi-column
+          [allowSorting]="false"
+          dataField="physician"
+          cellTemplate="physicianNameTemplate"
+        >
+        </dxi-column>
+        <dxi-column
+          [allowSorting]="false"
+          dataField="nurse"
+          cellTemplate="nurseNameTemplate"
+        ></dxi-column>
+        <dxi-column
+          [allowSorting]="false"
+          dataField="startTime"
+          cellTemplate="startDateTemplate"
+        ></dxi-column>
+        <dxi-column
+          [allowSorting]="false"
+          dataField="endTime"
+          cellTemplate="endDateTemplate"
+        ></dxi-column>
+        <dxi-column
+          [allowSorting]="false"
+          caption="Location"
+          cellTemplate="locationTemplate"
+        ></dxi-column>
+        <dxi-column
+          [allowSorting]="false"
+          caption="Room"
+          cellTemplate="roomTemplate"
+        ></dxi-column>
+        <dxi-column
+          [allowSorting]="false"
+          dataField="appointmentType"
+          caption="Appointment Type"
+          cellTemplate="appointmentTypeTemplate"
+        ></dxi-column>
+
+        <div *dxTemplate="let admission of 'appointmentTypeTemplate'">
+          <span *ngIf="!admission.data.admissionId" class="badge badge-secondary">{{
+            admission.data.appointmentType
+          }}</span>
+          <span
+            *ngIf="admission.data.admissionId && !admission.data.signingDate"
+            class="badge badge-danger"
+            >{{ admission.data.appointmentType }}</span
+          >
+          <span
+            *ngIf="admission.data.admissionId && admission.data.signingDate"
+            class="badge badge-success"
+            >{{ admission.data.appointmentType }}</span
+          >
+        </div>
+        <dxi-column
+          alignment="center"
+          [allowSorting]="false"
+          caption="Status"
+          cellTemplate="appointmentStatusTemplate"
+        ></dxi-column>
+        <dxi-column
+          alignment="center"
+          caption="Admissions"
+          cellTemplate="previousAdmissionTemplate"
+        >
+        </dxi-column>
+        <dxi-column
+          alignment="center"
+          caption="Allegations"
+          cellTemplate="allegationsStatusTemplate"
+        >
+        </dxi-column>
+
+        <dxo-remote-operations [paging]="true"> </dxo-remote-operations>
+
+        <dxo-paging [pageSize]="searchConfiguration.pageSizeCount"> </dxo-paging>
+
+        <dxo-pager
+          [showPageSizeSelector]="true"
+          [allowedPageSizes]="searchConfiguration.allowedPageSizes"
+        >
+        </dxo-pager>
+
+        <div *dxTemplate="let appointment of 'lastVisitTemplate'">
+          <patient-last-visit
+            [previousAppointmentDate]="appointment.data.previousAppointmentDate"
+            [startDate]="appointment.data.startDate"
+          >
+          </patient-last-visit>
+        </div>
+
+        <div [title]="appointment.data.nurseFirstName + ' ' + appointment.data.nurseLastName" *dxTemplate="let appointment of 'nurseNameTemplate'">
+          <dx-select-box
+            [(value)]="appointment.data.nurseId"
+            [dataSource]="nurseDataSource"
+            valueExpr="id"
+            displayExpr="name"
+            [searchEnabled]="true"
+            [showClearButton]="false"
+          >
+          </dx-select-box>
+        </div>
+
+        <div [title]="appointment.data.physicianFirstName + ' ' + appointment.data.physicianLastName" *dxTemplate="let appointment of 'physicianNameTemplate'">
+          <dx-select-box
+            [(value)]="appointment.data.physicianId"
+            [dataSource]="physianDataSource"
+            valueExpr="id"
+            displayExpr="name"
+            [searchEnabled]="true"
+            [showClearButton]="false"
+          >
+          </dx-select-box>
+        </div>
+
+        <div [title]="appointment.data.locationName" *dxTemplate="let appointment of 'locationTemplate'">
+          <dx-select-box
+            [(value)]="appointment.data.locationId"
+            [dataSource]="locationDataSource"
+            valueExpr="id"
+            displayExpr="name"
+            [searchEnabled]="true"
+            [showClearButton]="false"
+            (onValueChanged)="onTableLocationChanged($event, appointment.data)"
+          >
+          </dx-select-box>
+        </div>
+
+        <div [title]="appointment.data.roomName" *dxTemplate="let appointment of 'roomTemplate'">
+          <dx-select-box
+            [(value)]="appointment.data.roomId"
+            [dataSource]="getTableRoomDataSource(appointment.data)"
+            valueExpr="id"
+            displayExpr="name"
+            [searchEnabled]="true"
+            [showClearButton]="false"
+          >
+          </dx-select-box>
+        </div>
+
+        <div *dxTemplate="let appointment of 'patientNameTemplate'">
+          {{ appointment.data.patientFirstName }} {{ appointment.data.patientLastName }}
+        </div>
+
+        <div *dxTemplate="let appointment of 'patientDoBTemplate'">
+          {{ appointment.data.patientDateOfBirth | date }}
+        </div>
+
+        <div *dxTemplate="let appointment of 'startDateTemplate'">
+          {{ appointment.data.startDate | time }}
+        </div>
+
+        <div *dxTemplate="let appointment of 'endDateTemplate'">
+          {{ appointment.data.endDate | time }}
+        </div>
+
+        <div *dxTemplate="let appointment of 'previousAdmissionTemplate'">
+          <span
+            *ngIf="appointment.data.totalNumberOfPatientAppointments === 1"
+            class="badge badge-danger"
+          >
+            NOT FOUND
+          </span>
+          <span
+            *ngIf="appointment.data.totalNumberOfPatientAppointments > 1"
+            class="badge badge-primary"
+            (click)="
+              showPreviousAdmissions(
+                $event,
+                appointment.data
+              )
+            "
+          >
+            SHOW PREVIOUS
+          </span>
+        </div>
+
+        <div *dxTemplate="let appointment of 'allegationsStatusTemplate'">
+          <span *ngIf="!appointment.data.allegations" class="badge badge-danger"
+            >NOT SET</span
+          >
+          <span *ngIf="appointment.data.allegations" class="badge badge-primary"
+            >SET</span
+          >
+        </div>
+
+        <div [title]="appointment.data.appointmentStatus" *dxTemplate="let appointment of 'appointmentStatusTemplate'">
+          <dx-select-box
+
+            [(value)]="appointment.data.appointmentStatus"
+            [items]="appointmentStatusItems"
+
+          >
+          </dx-select-box>
+        </div>
+        <dxi-column [allowSorting]="false" cellTemplate="actionsTemplate"></dxi-column>
+          <div class="text-center" *dxTemplate="let appointment of 'actionsTemplate'">
+            <button
+              (click)="saveSimpleAdmission(appointment.data)"
+              class="btn btn-sm btn-outline-secondary"
+              title="Save simple admission"
+            >
+              <i class="fas fa-file-alt"></i>
+            </button>
+            <button
+              (click)="navigateToPatientChartFromAdmission(appointment.data.id)"
+              class="btn btn-sm btn-outline-secondary ml-1"
+            >
+              <i class="fas fa-arrow-right"></i>
+            </button>
+        </div>
+        <!-- <dxo-selection mode="single"></dxo-selection> -->
+      </dx-data-grid>
+    </div>
+  </div>
+  <dx-popup
+    class="popup"
+    [(visible)]="isAdmissionPopupVisible"
+    [width]="1200"
+    [height]="500"
+    [showTitle]="true"
+    [hideOnOutsideClick]="false"
+  >
+    <div *dxTemplate="let data of 'content'">
+      <div class="list-container">
+        <dx-data-grid
+          #appointmentsGrid
+          [showBorders]="true"
+          [dataSource]="patientPreviousAdmissions"
+          [hoverStateEnabled]="false"
+          [height]="410"
+        >
+          <dxo-scrolling mode="virtual"></dxo-scrolling>
+          <dxi-column dataField="id" dataType="string" [visible]="false"></dxi-column>
+
+          <dxi-column
+            [width]="20 + '%'"
+            [allowSorting]="false"
+            caption="MRN"
+            dataField="mrn"
+          ></dxi-column>
+
+          <dxi-column
+            [width]="20 + '%'"
+            [allowSorting]="false"
+            dataField="startDate"
+            caption="Appointment Date Time"
+            cellTemplate="startDateTemplate"
+          ></dxi-column>
+          <div *dxTemplate="let admission of 'startDateTemplate'">
+            {{ admission.data.startDate | datex: 'DD MMM YY HH:mm:ss' }}
+          </div>
+
+          <dxi-column
+            [width]="12 + '%'"
+            [allowSorting]="false"
+            dataField="appointmentType"
+            caption="Appointment Type"
+          ></dxi-column>
+
+          <dxi-column
+            [width]="10 + '%'"
+            [allowSorting]="false"
+            dataField="status"
+            cellTemplate="statusTemplate"
+          ></dxi-column>
+          <div *dxTemplate="let admission of 'statusTemplate'">
+            <span *ngIf="!admission.data.admissionId" class="badge badge-secondary">{{
+              admission.data.appointmentStatus
+            }}</span>
+            <span
+              *ngIf="admission.data.admissionId && !admission.data.signingDate"
+              class="badge badge-danger"
+              >{{ admission.data.appointmentStatus }}</span
+            >
+            <span
+              *ngIf="admission.data.admissionId && admission.data.signingDate"
+              class="badge badge-success"
+              >{{ admission.data.appointmentStatus }}</span
+            >
+          </div>
+          <dxi-column
+            [width]="15 + '%'"
+            [allowSorting]="false"
+            caption="Provider"
+            dataField="physician"
+            cellTemplate="physicianNameTemplate"
+          ></dxi-column>
+          <div *dxTemplate="let admission of 'physicianNameTemplate'">
+            {{ admission.data.physicianFirstName }} {{ admission.data.physicianLastName }}
+          </div>
+          <dxi-column
+            [width]="12 + '%'"
+            [allowSorting]="false"
+            dataField="nurse"
+            caption="MA"
+            cellTemplate="nurseNameTemplate"
+          ></dxi-column>
+          <dxi-column
+            [width]="12 + '%'"
+            [allowSorting]="false"
+            caption="Location"
+            dataField="locationName"
+          ></dxi-column>
+          <div *dxTemplate="let admission of 'nurseNameTemplate'">
+            {{ admission.data.nurseFirstName }} {{ admission.data.nurseLastName }}
+          </div>
+
+          <dxi-column
+            [width]="10 + '%'"
+            [allowSorting]="false"
+            dataField="roomName"
+            caption="Room"
+          ></dxi-column>
+
+          <dxi-column
+            [width]="20 + '%'"
+            [allowSorting]="false"
+            dataField="startDate"
+            caption="Last Edit Date"
+            cellTemplate="lastEditDateTemplate"
+          ></dxi-column>
+          <div *dxTemplate="let admission of 'lastEditDateTemplate'">
+            {{ admission.data.startDate | date:"medium" }}
+          </div>
+
+          <dxi-column [allowSorting]="false" [width]="10 + '%'" cellTemplate="actionsTemplate"></dxi-column>
+          <div class="text-center" *dxTemplate="let admission of 'actionsTemplate'">
+            <button
+              (click)="navigateToPatientChartFromAdmission(admission.data.id)"
+              class="btn btn-sm btn-outline-secondary"
+              title="View PatientChart page"
+            >
+              <i class="fas fa-arrow-right"></i>
+            </button>
+
+            <button
+              (click)="reviewPatientChartFromAdmission(admission.data)"
+              class="btn btn-sm btn-outline-secondary ml-1"
+            >
+              <i class="fas fa-eye"></i>
+            </button>
+          </div>
+        </dx-data-grid>
+      </div>
+    </div>
+    <div class="d-flex align-items-center justify-content-between" *dxTemplate="let data of 'title'">
+      <div class="">
+        <b style="font-size: 16px;">Patient Previous Admissions</b>
+      </div>
+      <div class="d-flex justify-content-end align-items-center">
+        <div class="mr-3" [innerHTML]="previousHeader"></div>
+        <button
+          type="button"
+          class="btn btn-sm btn-outline-default"
+          (click)="isAdmissionPopupVisible=false"
+        >
+          <div><i class="dx-icon dx-icon-close"></i></div>
+        </button>
+      </div>
+    </div>
+  </dx-popup>
+  <dx-popup
+    class="popup"
+    [(visible)]="isManageAllegationsPopupVisible"
+    [width]="900"
+    [height]="600"
+    [showTitle]="true"
+    title="Manage Allegations"
+    [hideOnOutsideClick]="false"
+  >
+    <div *dxTemplate="let data of 'content'">
+      <appointment-allegations
+        *ngIf="isManageAllegationsPopupVisible"
+        [allegationsString]="allegationsString"
+      >
+      </appointment-allegations>
+    </div>
+  </dx-popup>
+
+  <phrase-selection-form
+    #phraseSelectionForm
+    [companyId]="companyId"
+    (phraseSuggestionApplied)="onPhraseSuggestionApplied($event)"
+  >
+  </phrase-selection-form>
+
+  <dx-popup
+    class="popup"
+    [(visible)]="isPatientChartReview"
+    [width]="900"
+    [height]="600"
+    [showTitle]="true"
+    title="Patient Chart"
+    [hideOnOutsideClick]="false"
+  >
+    <div *dxTemplate="let data of 'content'">
+      <report-node-view
+        [isSignedOff]='isSignedOffReview' [patientChartNode]='patientChartNodeReview'
+        [patientChartDocumentNode]='patientChartDocumentNodeReview'
+        [appointmentId]='appointmentIdReview'
+        [patientId]='patientIdReview'
+        [admissionId]='admissionIdReview'
+        [companyId]='companyIdReview'>
+      </report-node-view>
+    </div>
+  </dx-popup>
+</div>

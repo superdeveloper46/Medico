@@ -1,0 +1,20 @@
+<div *ngIf="visible" class="d-flex justify-content-between">
+  <dx-text-box
+    class="w-50"
+    *ngIf="isTextVariable"
+    [(value)]="variableValue"
+  ></dx-text-box>
+  <dx-number-box
+    class="w-50"
+    *ngIf="isNumericVariable"
+    [(value)]="variableValue"
+  ></dx-number-box>
+  <button
+    *ngIf="!isPreviewMode"
+    type="button"
+    (click)="saveSelectbleItemChanges()"
+    class="btn btn-sm btn-outline-secondary"
+  >
+    APPLY
+  </button>
+</div>

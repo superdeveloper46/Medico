@@ -1,0 +1,46 @@
+.form_container {
+    display: flex;
+}
+
+.form_editor {
+    flex: 1;
+}
+.form_button_actions {
+    flex: 1;
+    position: inherit;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: baseline;
+    height: 326px;
+}
+
+.selected-item {
+    margin-top: 10px;
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+
+    .doc-preview-item {
+        display: flex;
+        flex-direction: row;
+        justify-content: start;
+        gap: 10px;
+        align-items: center;
+    }
+
+    .doc-preview {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+    }
+}
+
+.btn-action-form {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    gap: 10px;
+}
+

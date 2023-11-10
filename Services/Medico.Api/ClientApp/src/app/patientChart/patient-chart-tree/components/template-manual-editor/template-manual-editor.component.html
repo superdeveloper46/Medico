@@ -1,0 +1,46 @@
+<div class="row">
+  <div class="col-md-12 text-right">
+    <a
+      class="text-decoration-none text-secondary mr-3"
+      href=""
+      *ngIf="!isPhrasesHelperVisible"
+      (click)="showPhrasesHelper($event)"
+    >
+      Insert Phrases
+    </a>
+    <phrase-suggestion-helper
+      *ngIf="isPhrasesHelperVisible"
+      class="mt-2"
+      [keepFormat]="true"
+      [typedText]="'..'"
+      [templateId]="templateId"
+      [companyId]="companyId"
+      (phraseSuggestionApplied)="onPhraseSuggestionApplied($event)"
+    >
+    </phrase-suggestion-helper>
+    <label class="mr-3 border border-secondary rounded"
+           style="
+           height: 32px;
+           text-align: center;
+           width: 270px"
+    >
+      Check Duplicate Words
+      <dx-switch
+        (click)="toggleView($event)"
+        [(value)]="isCheckDuplicateEnabled"
+        switchedOnText="On"
+        switchedOffText="Off"
+        style="
+              width: 60px;
+              height: 21px;
+              align-items: end;
+            "
+      ></dx-switch>
+    </label>
+  </div>
+</div>
+<div class="row mt-2">
+  <div class="col-md-12">
+    <textarea id="{{ editorId }}"></textarea>
+  </div>
+</div>

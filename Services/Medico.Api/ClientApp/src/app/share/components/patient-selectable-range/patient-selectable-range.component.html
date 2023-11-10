@@ -1,0 +1,17 @@
+<div *ngIf="visible" class="d-flex justify-content-between">
+  <dx-number-box
+    class="w-50"
+    [(value)]="rangeValue"
+    [min]="minRangeValue"
+    [max]="maxRangeValue"
+    [showSpinButtons]="true"
+  >
+  </dx-number-box>
+  <button
+    type="button"
+    (click)="saveSelectbleItemChanges()"
+    class="btn btn-sm btn-outline-secondary"
+  >
+    APPLY
+  </button>
+</div>

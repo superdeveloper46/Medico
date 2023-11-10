@@ -1,0 +1,27 @@
+<div class="row">
+  <div class="col-6">
+    <dx-select-box
+      valueExpr="id"
+      (onItemClick)="onTemplateAdded($event)"
+      placeholder="Select template"
+      displayExpr="name"
+      [dataSource]="templateDataSource"
+      [searchEnabled]="true"
+      [showClearButton]="true"
+    >
+      <div *dxTemplate="let item of 'item'">
+        <h6>{{ item.name }}</h6>
+      </div>
+    </dx-select-box>
+  </div>
+</div>
+
+<div class="row mt-2">
+  <div class="col-6">
+    <dx-list [items]="dependentTemplates" [allowItemDeleting]="true">
+      <div *dxTemplate="let item of 'item'">
+        <div class="mt-1">{{ item.name }}</div>
+      </div>
+    </dx-list>
+  </div>
+</div>

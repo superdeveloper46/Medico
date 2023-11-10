@@ -1,0 +1,2246 @@
+[
+    {
+        "id": "a2087a564d8b4cd487743c996d8244be",
+        "document_id": "cdbe363b1944e648e4e9903f05246c8c",
+        "remote_id": "",
+        "file_name": "2.pdf",
+        "media_link": "https://api.docparser.com/v1/document/media/FU-eaLwJmTzT9UEigRthyEqUEWAoSK_qMphU2_5-s5Z0y99wSSMAIOm82AtUQPDIbODtmgtO-DNAl4trG2JRNuJu8g_lwO-HjtZcx-aKYPE",
+        "media_link_original": "https://api.docparser.com/v1/document/media/FU-eaLwJmTzT9UEigRthyEqUEWAoSK_qMphU2_5-s5Z0y99wSSMAIOm82AtUQPDIbODtmgtO-DNAl4trG2JRNuJu8g_lwO-HjtZcx-aKYPE/original",
+        "media_link_data": "https://api.docparser.com/v1/document/media/FU-eaLwJmTzT9UEigRthyEqUEWAoSK_qMphU2_5-s5Z0y99wSSMAIOm82AtUQPDIbODtmgtO-DNAl4trG2JRNuJu8g_lwO-HjtZcx-aKYPE/data",
+        "page_count": 4,
+        "uploaded_at": "2021-05-14T18:05:43+00:00",
+        "processed_at": "2021-05-14T18:09:57+00:00",
+        "field_1": [
+            {
+                "key_0": "Jan 26,"
+            },
+            {
+                "key_0": "2021                                                         Note Entry"
+            },
+            {
+                "key_0": "04:10 PM"
+            },
+            {
+                "key_0": "Note Type     Clinically  Note             Note Written Legal        Note                Encounter     Encounter|"
+            },
+            {
+                "key_0": "Relevant    Author(s)        Time         AuthenticatorSignature           Provider      Location"
+            },
+            {
+                "key_0": "Time of the                               Name         Time                Name          Date"
+            },
+            {
+                "key_0": "Note"
+            },
+            {
+                "key_0": "Note /        01/26/2021 SUNCTITY, GD Non-identified NoDate                              Non           No Date"
+            },
+            {
+                "key_0": "Progress                    AZ CBOC                       Provider         Available     identified    Available"
+            },
+            {
+                "key_0": "note                                                                                     Provider"
+            },
+            {
+                "key_0": "Narrative Text"
+            },
+            {
+                "key_0": "REPORT OF CONTACT:"
+            },
+            {
+                "key_0": "LOCALTITLE: AFTER VISIT SUMMARY"
+            },
+            {
+                "key_0": "STANDARD TITLE: REPORT OF CONTACT"
+            },
+            {
+                "key_0": "DATE OF NOTE: JAN 26, 2021@16:10:11 ENTRY DATE: JAN 26, 2021@16:10:11"
+            },
+            {
+                "key_0": "AUTHOR: HARDACKER,LORI L EXP COSIGNER:"
+            },
+            {
+                "key_0": "URGENCY: STATUS: COMPLETED"
+            },
+            {
+                "key_0": "*** AFTER VISIT SUMMARY Has ADDENDA ***"
+            },
+            {
+                "key_0": "The patient was provided with a copyof an after-visit summary at the"
+            },
+            {
+                "key_0": "conclusion ofthe visit."
+            },
+            {
+                "key_0": "The after-visit summary includes information pertaining to the patient's"
+            },
+            {
+                "key_0": "lencounter, including diagnoses, vital signs, medications, and new orders,"
+            },
+            {
+                "key_0": "las well as a list of any any upcoming appointments and information regarding"
+            },
+            {
+                "key_0": "ithe patient's ongoing care."
+            },
+            {
+                "key_0": "The patient's medications were reviewed with the patient by the provider"
+            },
+            {
+                "key_0": "land were provided to the patient as an updatedlist of medications. The"
+            },
+            {
+                "key_0": "patient wasinstructed to inform the provider of any medication changes"
+            },
+            {
+                "key_0": "lor discrepancies that were noted. Otherwise, the patient was instructed"
+            },
+            {
+                "key_0": "jto continue the medications as prescribed."
+            },
+            {
+                "key_0": "A copyoftheafter-visit summary providedto the patient is available in"
+            },
+            {
+                "key_0": "VistA Imaging."
+            },
+            {
+                "key_0": "** SCANNED DOCUMENT***"
+            },
+            {
+                "key_0": "SIGNATURE NOT REQUIRED"
+            },
+            {
+                "key_0": "Electronically Filed: 01/26/2021"
+            },
+            {
+                "key_0": "by: LORIL HARDACKER"
+            },
+            {
+                "key_0": "PACT PHYSICIAN ASSISTANT, TEAM 9"
+            },
+            {
+                "key_0": "01/28/2021 ADDENDUM STATUS: COMPLETED"
+            },
+            {
+                "key_0": "MSA Johnson, please contact veteran and schedule a VVC with me. Thank you."
+            },
+            {
+                "key_0": "es/ SHONA L SHEWMAKER, PHD"
+            },
+            {
+                "key_0": "PSYCHOLOGIST"
+            },
+            {
+                "key_0": "Signed: 01/28/2021 15:04"
+            },
+            {
+                "key_0": "Receipt Acknowledged By:"
+            },
+            {
+                "key_0": "* AWAITING SIGNATURE * JOHNSON,BRUCHON"
+            },
+            {
+                "key_0": "Jan 26,                                                                                                                        HARDACKER,LORIL"
+            },
+            {
+                "key_0": "2021                                                         Entry"
+            },
+            {
+                "key_0": "03:34 PM"
+            },
+            {
+                "key_0": "Note Type Clinically Note Author(s)            Note         Legal        Note      Encounter Encounter"
+            },
+            {
+                "key_0": "Relevant                             Written      AuthenticatorSignature Provider  Location"
+            },
+            {
+                "key_0": "Time of the                          Time         Name         Time      Name      Date"
+            },
+            {
+                "key_0": "Note"
+            },
+            {
+                "key_0": "Note /      01/26/20 ae°c No Date                                                         Norm         No Date"
+            },
+            {
+                "key_0": "Progress                               ;                          der        Available    identified   Available"
+            },
+            {
+                "key_0": "note                     CBOC                                                             Provider"
+            },
+            {
+                "key_0": "Narrative Text"
+            },
+            {
+                "key_0": "PRIMARY CARE NOTE:"
+            },
+            {
+                "key_0": "LOCAL TITLE: PRIMARY CARE PROGRESS NOTE"
+            },
+            {
+                "key_0": "STANDARD TITLE: PRIMARY CARE NOTE"
+            },
+            {
+                "key_0": "DATE OF NOTE: JAN26, 2021@15:34 ENTRY DATE: JAN 26, 2021@15:34:50"
+            },
+            {
+                "key_0": "AUTHOR: HARDACKER,LORI L EXP COSIGNER:"
+            },
+            {
+                "key_0": "URGENCY: STATUS: COMPLETED"
+            },
+            {
+                "key_0": "*** PRIMARY CARE PROGRESS NOTE Has ADDENDA***"
+            },
+            {
+                "key_0": "Primary Care Clinic Note"
+            },
+            {
+                "key_0": "This 38 year old MALE has an appointment with Primary Care today."
+            },
+            {
+                "key_0": "CHIEF COMPLAINT: Mood Changes"
+            },
+            {
+                "key_0": "SUBJECTIVE:"
+            },
+            {
+                "key_0": "38 y/o male here for a F2F appointment to discuss his mood. He waslast seen on"
+            },
+            {
+                "key_0": "11/18/20 for an Initial Vesting Appointment. At that time, he reported he was"
+            },
+            {
+                "key_0": "going to be getting his care at Luke AFB. Since then he had his Compensation"
+            },
+            {
+                "key_0": "land Pension Exam, which increased his Compensation from 30% to 80%. He is back"
+            },
+            {
+                "key_0": "ltoday to have someofhis issues readdressed and documentedto try and get to"
+            },
+            {
+                "key_0": "100%."
+            },
+            {
+                "key_0": "Patient reports worsening mood since December. Patient associatesit with being"
+            },
+            {
+                "key_0": "retired from military. Is on Venlafaxine for PTSD/Anxiety/Depression. He also"
+            },
+            {
+                "key_0": "takes Zolpidem. Patient states he is having a harder time getting out of bed."
+            },
+            {
+                "key_0": "Not motivated. Patient has decreasedinterest with outside activities. Patient"
+            },
+            {
+                "key_0": "denies any guilt. Patient reports decreased energylevel. Patient reports"
+            },
+            {
+                "key_0": "difficulties concentrating. No changesin appetite. He denies any Slor HI."
+            },
+            {
+                "key_0": "ls not currently established with Mental Health and would like to be seen by"
+            },
+            {
+                "key_0": "them. His Venalfaxine is being managed by his PCP at Luke."
+            },
+            {
+                "key_0": "Location: bilateral foot pain - arch to heel"
+            },
+            {
+                "key_0": "Intensity: worse foot step in morning"
+            },
+            {
+                "key_0": "Quality: throbbing. occasionally sharp"
+            },
+            {
+                "key_0": "(Onset(duration and frequency): worsening 2 months"
+            },
+            {
+                "key_0": "Radiation: denies"
+            },
+            {
+                "key_0": "Severity: 8/10 at rest; 10/10 at worst"
+            },
+            {
+                "key_0": "Precipitating Event: no change in footwear, on feet less, 7 pound weight gain"
+            },
+            {
+                "key_0": "Progression: worsening"
+            },
+            {
+                "key_0": "Previous similar episodes: while stationed in Puerto Rico and was supposedto"
+            },
+            {
+                "key_0": "get Orthotics, but never accomplished"
+            },
+            {
+                "key_0": "\\Alleviating: Tramadol"
+            },
+            {
+                "key_0": "Aggravating: weight bearing, walking bare footed"
+            },
+            {
+                "key_0": "Medications tried: NSAIDs"
+            },
+            {
+                "key_0": "Modalities tried: nothing"
+            },
+            {
+                "key_0": "Associated symptoms: none"
+            },
+            {
+                "key_0": "Impact on ADLs: none"
+            },
+            {
+                "key_0": "Last Imaging: 2018-2019"
+            },
+            {
+                "key_0": "Patient states was fitted with Orthotics at end of career in Puerto Rico. He"
+            },
+            {
+                "key_0": "states they never camein. He was diagnosedwith Plantar Fasciits and Flat"
+            },
+            {
+                "key_0": "Feet."
+            },
+            {
+                "key_0": "Onset of Current Episode of LBP: several years, worsened past 3 months"
+            },
+            {
+                "key_0": "Injury/Accident Prior to Onset: injured while Active Duty and thrown backwards"
+            },
+            {
+                "key_0": "from a blast and landed on his back; MVA- rear-ended; pulled muscle x2 during"
+            },
+            {
+                "key_0": "PT and CombatTraining"
+            },
+            {
+                "key_0": "Description of Pain: Sharp, Throbbing"
+            },
+            {
+                "key_0": "Onset: Gradual"
+            },
+            {
+                "key_0": "Pain Scale: 7/10; 10/10 at worst"
+            },
+            {
+                "key_0": "Constant/Intermittent: Constant"
+            },
+            {
+                "key_0": "Side of Pain: central back"
+            },
+            {
+                "key_0": "Radiation of Pain: radiatesinto left leg to knee level"
+            },
+            {
+                "key_0": "Aggravating Factors: high impact exercise, bending at waist,"
+            },
+            {
+                "key_0": "Mitigating Factors: laying down,"
+            },
+            {
+                "key_0": "Medications tried: Tramadol, muscle relaxers a long time ago"
+            },
+            {
+                "key_0": "Other modalities tried: PT - 2018,"
+            },
+            {
+                "key_0": "Fever: denies"
+            },
+            {
+                "key_0": "Urinary Symptoms: denies"
+            },
+            {
+                "key_0": "Loss of Control of Bowel/Bladder Function: denies"
+            },
+            {
+                "key_0": "Difficulties Walking: denies"
+            },
+            {
+                "key_0": "INumbness/Tingling in legs: left foot"
+            },
+            {
+                "key_0": "Recent Changesin Activity: more sedentary"
+            },
+            {
+                "key_0": "(Current Occupation: not currently working"
+            },
+            {
+                "key_0": "Prior episodes of LBP: several while Active Duty"
+            },
+            {
+                "key_0": "If Prior Hx, what treatments have been tried including - Just Physical Therapy,"
+            },
+            {
+                "key_0": "Denies Chiropractor, Pain Management, Surgery"
+            },
+            {
+                "key_0": "IPMHx: No knownOsteoporosis, Scoliosis, Cancer"
+            },
+            {
+                "key_0": "FMHx: No Spondylosis"
+            },
+            {
+                "key_0": "Last Imaging in Oct 2020 and negative"
+            },
+            {
+                "key_0": "REVIEW OF SYSTEMS:"
+            },
+            {
+                "key_0": "Denies anyfevers, chills, chest pain, dyspnea, nausea, vomiting, diarrhea,"
+            },
+            {
+                "key_0": "dysuria, focal weakness"
+            },
+            {
+                "key_0": "See HPI, otherwiseall other systemsare diffusely negative"
+            },
+            {
+                "key_0": "ACTIVE MEDICATIONS"
+            },
+            {
+                "key_0": "Active Outpatient Medications (including Supplies):"
+            },
+            {
+                "key_0": "Start Date"
+            },
+            {
+                "key_0": "Active Nor-VA Medications Refills Expiration"
+            },
+            {
+                "key_0": "1) Non-VA LEVOTHYROXINE NA (SYNTHROID) ACTIVE"
+            },
+            {
+                "key_0": "125MCG TAB Sig: 125MCG BY MOUTH EVERY"
+            },
+            {
+                "key_0": "MORNING"
+            },
+            {
+                "key_0": "2) Non-VA TRAMADOL HCL 50MGTABSig: 50MG ACTIVE"
+            },
+            {
+                "key_0": "BY MOUTH TWICE A DAY AS NEEDED"
+            },
+            {
+                "key_0": "3) Non-VA VENLAFAXINE HCL 150MG 24HR SA CAP ACTIVE"
+            },
+            {
+                "key_0": "Sig: 1450MG BY MOUTH EVERY DAY"
+            },
+            {
+                "key_0": "4) Non-VA ZOLPIDEM TARTRATE 12.5MG SA TAB ACTIVE"
+            },
+            {
+                "key_0": "Sig: 12.5MG BY MOUTH AT BEDTIME"
+            },
+            {
+                "key_0": "PAST MEDICAL HISTORY"
+            },
+            {
+                "key_0": "ACTVE PROBLEMS"
+            },
+            {
+                "key_0": "Active problems - Computerized Problem List is the source for the following:"
+            },
+            {
+                "key_0": "1.   Hypothyroidism (SCT 40930008)"
+            },
+            {
+                "key_0": "2.   Insomnia (SCT 193462001)"
+            },
+            {
+                "key_0": "3.   Localized, primary osteoarthritis of the shoulder region"
+            },
+            {
+                "key_0": "4.   Chronic post-traumatic stress disorder following military combat"
+            },
+            {
+                "key_0": "ALLERGIES"
+            },
+            {
+                "key_0": "No Allergy Assessment"
+            },
+            {
+                "key_0": "OBJECTIVE:"
+            },
+            {
+                "key_0": "Vital Signs"
+            },
+            {
+                "key_0": "DATE/TIME TEMP PULSE RESP BP PAIN WT(LB) P OX"
+            },
+            {
+                "key_0": "01/26/21 @ 1532 98.3 80 16 133/88 212.75 96"
+            },
+            {
+                "key_0": "01/26/21 @ 1531 8"
+            },
+            {
+                "key_0": "11/18/20 @ 11046"
+            },
+            {
+                "key_0": "BODY MASS INDEX- 34.4 (JAN 26, 2021@15:32:25)"
+            },
+            {
+                "key_0": "PHYSICAL EXAM"
+            },
+            {
+                "key_0": "General: sitting in no acute distress, appears stated age, obese body habitus"
+            },
+            {
+                "key_0": "Cardio: RRR, no m/r/g"
+            },
+            {
+                "key_0": "Resp: CTAB, normal respiratory effort"
+            },
+            {
+                "key_0": "Musculoskeletal:"
+            },
+            {
+                "key_0": "Bilateral Feet: TTP with deep palpation over heels; apparent fallen arches; no"
+            },
+            {
+                "key_0": "deformities noted"
+            },
+            {
+                "key_0": "Lumbar Spine: no bony deformities or step-offs noted; no vertebral TTP; ROM"
+            },
+            {
+                "key_0": "decreasedin all fields secondary to pain; + hamstring tightness; neg SLR"
+            },
+            {
+                "key_0": "bilaterally; strength 5/5 in lower extremities"
+            },
+            {
+                "key_0": "Neuro: nor-focal, alert and oriented"
+            },
+            {
+                "key_0": "Psych:flat affect; conversational; change from previous appointment where he"
+            },
+            {
+                "key_0": "was upbeatand positive"
+            },
+            {
+                "key_0": "LABS - patient states done at Luke AFB in Decemberand his TSH hadstabilized"
+            },
+            {
+                "key_0": "ASSESSMENT AND PLAN:"
+            },
+            {
+                "key_0": "1. PTSD w/ Worsening Depressive Symptoms"
+            },
+            {
+                "key_0": "Patient desires to be evaluated by Mental Health through VA vs. DOD Luke. He"
+            },
+            {
+                "key_0": "denies current SI or HI. He was provided Veteran Crisis Line phone number."
+            },
+            {
+                "key_0": "Will alert PCMHI to establish with patient."
+            },
+            {
+                "key_0": "2. Plantar Fasciitis/Pes Planus"
+            },
+            {
+                "key_0": "Will get xrays. Patient to self-schedule with Podiatry. Will tryon NSAIDs."
+            },
+            {
+                "key_0": "3. Chronic Low BackPain"
+            },
+            {
+                "key_0": "Normal imaging > 1 year ago. Will get Xray w/Flex/Ext to further assess."
+            },
+            {
+                "key_0": "Consider additional imaging pending results or referral to PT. Will put on"
+            },
+            {
+                "key_0": "muscle relaxer and NSAIDs to take in addition to his Tramadol (managed by Luke"
+            },
+            {
+                "key_0": "AFB)."
+            },
+            {
+                "key_0": "RETURN TO CLINIC: as previously scheduled"
+            },
+            {
+                "key_0": "ITEM ORDERED START DATE STOP DATE ENTERED STATUS"
+            },
+            {
+                "key_0": "Text Order: Podiatry DS patient to call 602-277-5551x5314 to schedule an"
+            },
+            {
+                "key_0": "lappt 30 DAYS FROM NOW TODAY@11:59PM"
+            },
+            {
+                "key_0": "1/26/21 1/26/21@1609 ACTIVE"
+            },
+            {
+                "key_0": "METHOCARBAMOLTAB 1/26/21@1607 PENDING"
+            },
+            {
+                "key_0": "Sig: TAKE ONE TABLET BY MOUTH FOUR TIMES A DAY AS NEEDED"
+            },
+            {
+                "key_0": "INAPROXEN TAB 1/26/21@1607 PENDING"
+            },
+            {
+                "key_0": "Sig: TAKE ONE TABLET BY MOUTH TWICE A DAY"
+            },
+            {
+                "key_0": "ISPINE LUMBOSACRALW/FLEX AN1/27/21 1/26/21@1603 PENDING"
+            },
+            {
+                "key_0": "FOOT 3 OR MORE VIEWS(BILLAT1/27/21 1/26/21@1602 PENDING"
+            },
+            {
+                "key_0": "MEDICATION RECONCLLIATION"
+            },
+            {
+                "key_0": "Medication Reconciliation done, reviewed the prescriptions and non-VA meds"
+            },
+            {
+                "key_0": "including over the counter medications with the patient and/or caregiver"
+            },
+            {
+                "key_0": "within the realm of my specialty and pertaining to this encounter. Any"
+            },
+            {
+                "key_0": "discrepancies have been noted and corrected as stated elsewherein this note."
+            },
+            {
+                "key_0": "A reconciled medication list was provided to the patient. All questions were"
+            },
+            {
+                "key_0": "lansweredas well a concernsfor side effects/toxicities and when to call me"
+            },
+            {
+                "key_0": "With directions."
+            },
+            {
+                "key_0": "es/ LORIL HARDACKER"
+            },
+            {
+                "key_0": "PACT PHYSICIAN ASSISTANT, TEAM 9"
+            },
+            {
+                "key_0": "Signed: 01/27/2021 22:43"
+            },
+            {
+                "key_0": "01/27/2021 ADDENDUM STATUS: COMPLETED"
+            },
+            {
+                "key_0": "Will alert PCMHI to patient's worsening Depressive Symptoms. Currently under"
+            },
+            {
+                "key_0": "care at Luke AFB with medication managementonly. Patient feels now that he is"
+            },
+            {
+                "key_0": "further out from Retirement, it is hitting him what he experienced. No current"
+            },
+            {
+                "key_0": "IS! or HI."
+            },
+            {
+                "key_0": "es/ LORIL HARDACKER"
+            },
+            {
+                "key_0": "PACT PHYSICIAN ASSISTANT, TEAM 9"
+            },
+            {
+                "key_0": "Signed: 01/27/2021 22:44"
+            },
+            {
+                "key_0": "Receipt Acknowledged By:"
+            },
+            {
+                "key_0": "* AWAITING SIGNATURE * SHEWMAKER,SHONAL"
+            },
+            {
+                "key_0": "Jan 26,                                                                                                                       RAVENSCRAFT,DONALD"
+            },
+            {
+                "key_0": "2021                                                        Entry                                                             R"
+            },
+            {
+                "key_0": "03:31 PM"
+            },
+            {
+                "key_0": "INote      Clinically Note Author(s)             Note        Legal        Note     Encounter Encounter"
+            },
+            {
+                "key_0": "Type       Relevant                              Written     AuthenticatorSignatureProvider Location"
+            },
+            {
+                "key_0": "Time                                  Time        Name             Time        Name         Date"
+            },
+            {
+                "key_0": "Note"
+            },
+            {
+                "key_0": "Note/      01/26/2021 RAVENSCRAFT,DONALD 01/26/2021 Non-identified No Date                Non-         No Date"
+            },
+            {
+                "key_0": "Progress              R/ SUN CITY, AZ CBOC                   Provider         Available   identified   Available"
+            },
+            {
+                "key_0": "note                                                                                      Provider"
+            },
+            {
+                "key_0": "Narrative Text"
+            },
+            {
+                "key_0": "PREVENTIVE MEDICINE NOTE:"
+            },
+            {
+                "key_0": "LOCAL TITLE: PREVENTVE HEALTH MANAGEMENT"
+            },
+            {
+                "key_0": "ISTANDARD TITLE: PREVENTIVE MEDICINE NOTE"
+            },
+            {
+                "key_0": "DATE OF NOTE: JAN 26, 2021@15:31 ENTRY DATE: JAN 26, 2021@15:31:04"
+            },
+            {
+                "key_0": "AUTHOR: RAVENSCRAFT,DONALD EXP COSIGNER:"
+            },
+            {
+                "key_0": "URGENCY: STATUS: COMPLETED"
+            },
+            {
+                "key_0": "(Would youlike to discuss your stress level with your provider today? Yesif"
+            },
+            {
+                "key_0": "lyes provider contacted:Hardacker"
+            },
+            {
+                "key_0": "Patient has pain now."
+            },
+            {
+                "key_0": "Chronic pain."
+            },
+            {
+                "key_0": "Pain level:"
+            },
+            {
+                "key_0": "Pain at time now 8"
+            },
+            {
+                "key_0": "Location: Back, Arms, Legs"
+            },
+            {
+                "key_0": "\\What # best describes the pain on average in the past week? (0 = no pain"
+            },
+            {
+                "key_0": "land 10 = pain asbad asthe patient can image)"
+            },
+            {
+                "key_0": "Level(select only ONE number): 8"
+            },
+            {
+                "key_0": "\\What number best describes how, during the past week,pain has interfered"
+            },
+            {
+                "key_0": "With the patient's general activity? (0 = does not interfere and 10 ="
+            },
+            {
+                "key_0": "completely interferes)"
+            },
+            {
+                "key_0": "Level(select only ONE number): 10"
+            },
+            {
+                "key_0": "\\What # best describes how, during the past week, pain hasinterfered with"
+            },
+            {
+                "key_0": "the patient's enjoymentoflife? (0 = does notinterfere and 10 ="
+            },
+            {
+                "key_0": "completely interferes)"
+            },
+            {
+                "key_0": "Level(select only ONE number): 9"
+            },
+            {
+                "key_0": "es/ DONALD R RAVENSCRAFT"
+            },
+            {
+                "key_0": "LPN"
+            },
+            {
+                "key_0": "Signed: 01/26/2021 15:32"
+            },
+            {
+                "key_0": "Jan 26,                                                                                                                       WILSON,TAMIK"
+            },
+            {
+                "key_0": "2021                                                        Note Entry"
+            },
+            {
+                "key_0": "09:42 AM"
+            },
+            {
+                "key_0": "Note Type     Clinically   Note           Note Written Legal            Note          Encounter        Encounter"
+            },
+            {
+                "key_0": "Relevant     Author(s)      Time          AuthenticatorSignature        Provider         Location"
+            }
+        ]
+    },
+    {
+        "id": "f7c1357b1b556ce128e32d329735dced",
+        "document_id": "037df40fb5d8adf79855cc87c164b4f3",
+        "remote_id": "",
+        "file_name": "1.pdf",
+        "media_link": "https://api.docparser.com/v1/document/media/5tWJJAdrF4LKRQ2ncRSOQgiG_tdDDkwCjwt9Yc4excV0y99wSSMAIOm82AtUQPDIbODtmgtO-DNAl4trG2JRNuJu8g_lwO-HjtZcx-aKYPE",
+        "media_link_original": "https://api.docparser.com/v1/document/media/5tWJJAdrF4LKRQ2ncRSOQgiG_tdDDkwCjwt9Yc4excV0y99wSSMAIOm82AtUQPDIbODtmgtO-DNAl4trG2JRNuJu8g_lwO-HjtZcx-aKYPE/original",
+        "media_link_data": "https://api.docparser.com/v1/document/media/5tWJJAdrF4LKRQ2ncRSOQgiG_tdDDkwCjwt9Yc4excV0y99wSSMAIOm82AtUQPDIbODtmgtO-DNAl4trG2JRNuJu8g_lwO-HjtZcx-aKYPE/data",
+        "page_count": 4,
+        "uploaded_at": "2021-05-14T18:05:42+00:00",
+        "processed_at": "2021-05-14T18:09:57+00:00",
+        "field_1": [
+            {
+                "key_0": "INUPFVICIT VUY TTY LANICL                                             ee                                                              wicyurli|a     wiic8u"
+            },
+            {
+                "key_0": "Lantus Solostar U-100 Insulin 100 unit/mL (3 mL) subcutaneous pen                                                                     12/26/20 filled"
+            },
+            {
+                "key_0": "Inject 35 unit(s) every day by subcutaneousroute."
+            },
+            {
+                "key_0": "lisinopriL 20 mg-hydrochlorothiazide 12.5 mg tablet                                                                                   11/11/20 filled"
+            },
+            {
+                "key_0": "Take 1 tablet(s) twice a day by oral route with meals for 90 days."
+            },
+            {
+                "key_0": "lithium carbonate ER 300 mg tablet,extended release                                                                                   12/10/20 filled"
+            },
+            {
+                "key_0": "1 tab PO TID"
+            },
+            {
+                "key_0": "metFORMIN 500 mgtablet                                                                                                                11/11/20 filled"
+            },
+            {
+                "key_0": "Take3 tablet(s) every day by oral route."
+            },
+            {
+                "key_0": "nystatin 100,000 unit/mL oral suspension                                                                                              08/14/20 filled"
+            },
+            {
+                "key_0": "Take 5 mL 4 times a daybyoral route for 10 days."
+            },
+            {
+                "key_0": "sertraline 100 mg tablet                                                                                                              12/10/20 filled"
+            },
+            {
+                "key_0": "1 tab PO BID"
+            },
+            {
+                "key_0": "triamcinolone acetonide 0.1 % topical cream                                                                                           12/13/20 filled"
+            },
+            {
+                "key_0": "APPLY A THIN LAYER TO THE AFFECTED AREA(S) BY TOPICAL ROUTE 2 TIMES PER"
+            },
+            {
+                "key_0": "DAY"
+            },
+            {
+                "key_0": "valACYclovir 1 gram tablet                                                                                                            10/26/19 filled"
+            },
+            {
+                "key_0": "Vaccines"
+            },
+            {
+                "key_0": "Vaccines not reviewed (last reviewed 11/11/2020)"
+            },
+            {
+                "key_0": "Vaccine Type                                        Date     Amt.   |Route         Site       NDC         Lot #      Mfr.      Exp.     Date       VIS        Vaccinator"
+            },
+            {
+                "key_0": "Date     onVIS_     |Given"
+            },
+            {
+                "key_0": "Influenza"
+            },
+            {
+                "key_0": "influenza, injectable, quadrivalent, preservative   |11/11/20/0.5   Intramuscular) Deltoid,   49281042050) UT7102NA\\ Sanofi    06/30/21 |08/15/19|11/11/20|Pamela"
+            },
+            {
+                "key_0": "free                                                          mL                   Left                              Pasteur                              Hulsey"
+            },
+            {
+                "key_0": "Problems"
+            },
+            {
+                "key_0": "Reviewed Problems"
+            },
+            {
+                "key_0": "No knownproblems"
+            },
+            {
+                "key_0": "e Seizure disorder - Onset: 09/26/2018"
+            },
+            {
+                "key_0": "e Chronic migraine without aura - Onset: 03/20/2019"
+            },
+            {
+                "key_0": "e Chronic headache disorder - Onset: 07/22/2019"
+            },
+            {
+                "key_0": "Family History"
+            },
+            {
+                "key_0": "Family History not reviewed (last reviewed 11/11/2020)"
+            },
+            {
+                "key_0": "Unspecified Relation                         - Family history of stroke"
+            },
+            {
+                "key_0": "- Family history of coronary arteriosclerosis"
+            },
+            {
+                "key_0": "Mother                                                        - Family history of cancer"
+            },
+            {
+                "key_0": "Social History"
+            },
+            {
+                "key_0": "Social History not reviewed (last reviewed 11/11/2020)"
+            },
+            {
+                "key_0": "Tobacco Smoking Status: Never smoker"
+            },
+            {
+                "key_0": "Non-smoker"
+            },
+            {
+                "key_0": "Most Recent Tobacco Use Screening: 03/27/2019"
+            },
+            {
+                "key_0": "Surgical History"
+            },
+            {
+                "key_0": "Surgical History not reviewed (last reviewed 11/11/2020)"
+            },
+            {
+                "key_0": "GYNHistory"
+            },
+            {
+                "key_0": "(not configured)"
+            },
+            {
+                "key_0": "Obstetric History"
+            },
+            {
+                "key_0": "Obstetric History not reviewed (last reviewed 11/11/2020)"
+            },
+            {
+                "key_0": "Past Medical History"
+            },
+            {
+                "key_0": "Past Medical History not reviewed (last reviewed 11/11/2020)"
+            },
+            {
+                "key_0": "Seizures: Y"
+            },
+            {
+                "key_0": "HPI"
+            },
+            {
+                "key_0": "Telephone follow-up. | had seen her in the past for psychogenic episode. Now she is complaining about numbnesswhichis"
+            },
+            {
+                "key_0": "constant and the first 3 fingers of both hands. Worse after sleeping. He also reports stabbing tingling pain in her feet. She has"
+            },
+            {
+                "key_0": "uncontrolled diabetes and PCP suspects neuropathy. She is on gabapentin"
+            },
+            {
+                "key_0": "4"
+            },
+            {
+                "key_0": "INUO"
+            },
+            {
+                "key_0": "ROSas notedin the HPI"
+            },
+            {
+                "key_0": "Physical Exam"
+            },
+            {
+                "key_0": "Patient is a 31-year-old"
+            },
+            {
+                "key_0": "female."
+            },
+            {
+                "key_0": "Telephone"
+            },
+            {
+                "key_0": "Assessment/ Plan"
+            },
+            {
+                "key_0": "Reviewedhistory with patient. Reviewed past medical history in chart. Discussed she has uncontrolled diabetes which may"
+            },
+            {
+                "key_0": "contribute to neuropathy and/or carpal tunnel. Her symptoms currently are concerning for both. We'lll have her do EMG upper and"
+            },
+            {
+                "key_0": "lower extremities and further evaluation. She is agreeable"
+            },
+            {
+                "key_0": ". Paresthesia"
+            },
+            {
+                "key_0": "R20.2: Paresthesia of"
+            },
+            {
+                "key_0": "skin"
+            },
+            {
+                "key_0": "Return to Office"
+            },
+            {
+                "key_0": "one recorded."
+            },
+            {
+                "key_0": "Encounter Sign-Off"
+            },
+            {
+                "key_0": "Encounter signed-off by Adnan Mahmood, DO, 01/19/2021."
+            },
+            {
+                "key_0": "Encounter performed and documented by Adnan Mahmood, DO"
+            },
+            {
+                "key_0": "Encounter reviewed & signed by Adnan Mahmood, DO on 01/19/2021 at 8:14am"
+            },
+            {
+                "key_0": "Encounter Date: 11/11/2020"
+            },
+            {
+                "key_0": "Patient"
+            },
+            {
+                "key_0": "Name                  GETTTD 20%. DateTime                                                    11/11/2020 09:20AM"
+            },
+            {
+                "key_0": "674014"
+            },
+            {
+                "key_0": "DOB                      Ces                                         Service Dept.            IMS_PC_AV_201"
+            },
+            {
+                "key_0": "Provider                 STEVEN SUMPTER, DO"
+            },
+            {
+                "key_0": "Insurance                Med Primary: UNITED HEALTHCARE COMMUNITY PLAN-AZ (MEDICAID REPLACEMENT - HMO)"
+            },
+            {
+                "key_0": "Insurance # : A00226056"
+            },
+            {
+                "key_0": "Policy/Group # : AZHCCCS"
+            },
+            {
+                "key_0": "PCP : SUMPTER, STEVEN"
+            },
+            {
+                "key_0": "Referring Provider Name : SUMPTER, STEVEN"
+            },
+            {
+                "key_0": "Prescription: OPTUMRX - Member is eligible. details"
+            },
+            {
+                "key_0": "Chief Complaint"
+            },
+            {
+                "key_0": "Medication Refill"
+            },
+            {
+                "key_0": "Medrefills. Flu shot"
+            },
+            {
+                "key_0": "Patient's Care Team"
+            },
+            {
+                "key_0": "Primary Care Provider: SUMPTER, STEVEN: 10815 W MCDOWELLRD, STE 201, AVONDALE, AZ 85392, Ph (623) 433-0155,"
+            },
+            {
+                "key_0": "Fax (623) 433-0185"
+            },
+            {
+                "key_0": "Referring Provider: SUMPTER, STEVEN: 10815 W MCDOWELLRD,STE 201, AVONDALE, AZ 85392, Ph (623) 433-0155, Fax"
+            },
+            {
+                "key_0": "(623) 433-0185"
+            },
+            {
+                "key_0": "Primary Care Provider: STEVEN SUMPTER DO: 10815 W MCDOWELL RD STE 201, AVONDALE, AZ 85392, Ph (623) 433-"
+            },
+            {
+                "key_0": "0155, Fax (623) 433-0185 NPI: 1083828610"
+            },
+            {
+                "key_0": "Patient's Pharmacies"
+            },
+            {
+                "key_0": ","
+            },
+            {
+                "key_0": "Vitals"
+            },
+            {
+                "key_0": "Ht: 5 ft 5 in 11/11/2020                 Wt: 256 lbs 11/11/2020       BP:   140/90 11/11/2020"
+            },
+            {
+                "key_0": "09:06 am                                 09:18 am                       09:19 am"
+            },
+            {
+                "key_0": "BMI: 42.6 11/11/2020 09:18             O2Sat: 98% 11/11/2020 09:19   Pulse: 100 bpm 11/11/2020"
+            },
+            {
+                "key_0": "am                                     am                           09:19 am"
+            },
+            {
+                "key_0": "T: 97.4 F° temporal"
+            },
+            {
+                "key_0": "artery 11/11/2020"
+            },
+            {
+                "key_0": "09:07 am"
+            },
+            {
+                "key_0": "Allergies"
+            },
+            {
+                "key_0": "ReviewedAllergies"
+            },
+            {
+                "key_0": "NKDA"
+            },
+            {
+                "key_0": "Medications"
+            },
+            {
+                "key_0": "Reviewed Medications"
+            },
+            {
+                "key_0": "albuterol sulfate 2.5 mg/3 mL (0.083 %) solution for nebulization                      01/04/19      administered"
+            },
+            {
+                "key_0": "Inhale 3 mL 3 times a day by nebulization route."
+            },
+            {
+                "key_0": "atorvastatin 20 mg tablet                                                              11/11/20 prescribed"
+            },
+            {
+                "key_0": "Take 1 tablet(s) every dayby oral route."
+            },
+            {
+                "key_0": "BD ULTRA-FINE MICRO PEN NEEDLE 32 GAUGE X 1/4\"                                         10/16/19 changed"
+            },
+            {
+                "key_0": "ONE - DAILY WITH LANTUS INJECTION"
+            },
+            {
+                "key_0": "busPIRone 30 mg tablet                                                                 09/22/20 filled"
+            },
+            {
+                "key_0": "Bydureon 2 mg/0.65 mL subcutaneous pen injector                                        11/11/20 prescribed"
+            },
+            {
+                "key_0": "INJECT 1 ML UNDER THE SKIN ONCE WEEKLY"
+            },
+            {
+                "key_0": "diclofenac sodium 75 mg tablet,delayed release                                         06/26/19 filled"
+            },
+            {
+                "key_0": "Take 1 tablet(s) twice a daybyoral route."
+            },
+            {
+                "key_0": "gabapentin 300 mg capsule                                                              11/11/20 prescribed"
+            },
+            {
+                "key_0": "Take 1 capsule(s) 3 times a day byoral route."
+            },
+            {
+                "key_0": "glipiZIDE 5 mg tablet                                                                  11/11/20 prescribed"
+            },
+            {
+                "key_0": "Take1 tablet(s) twice a daybyoral route with meals for 30 days."
+            },
+            {
+                "key_0": "hydrOXYzine HCL 50 mg tablet                                                           10/01/20 filled"
+            },
+            {
+                "key_0": "ibuprofen 600 mg tablet                                                                10/26/19 filled"
+            },
+            {
+                "key_0": "Lantus Solostar U-100 Insulin 100 unit/mL (3 mL) subcutaneous pen                      11/11/20 prescribed"
+            },
+            {
+                "key_0": "Inject 35 unit(s) every day by subcutaneous route."
+            },
+            {
+                "key_0": "lisinopril 20 mg-hydrochlorothiazide 12.5 mg tablet                                    11/11/20 prescribed"
+            },
+            {
+                "key_0": "Take 1 tablet(s) twice a day by oral route with meals for 90 days."
+            },
+            {
+                "key_0": "lithium carbonate ER 300 mg tablet,extended release                                    09/22/20 filled"
+            },
+            {
+                "key_0": "1 tab PO TID"
+            },
+            {
+                "key_0": "metFORMIN 500 mg tablet                                                                11/11/20 prescribed"
+            },
+            {
+                "key_0": "Take 3 tablet(s) every dayby oral route."
+            },
+            {
+                "key_0": "nystatin 100,000 unit/mL oral suspension                                                                                              08/14/20 filled"
+            },
+            {
+                "key_0": "Take 5 mL 4 times a daybyoral route for 10 days."
+            },
+            {
+                "key_0": "sertraline 100 mg tablet                                                                                                              09/01/20 filled"
+            },
+            {
+                "key_0": "1 tab PO BID"
+            },
+            {
+                "key_0": "triamcinolone acetonide 0.1 % topical cream                                                                                           11/11/20     prescribed"
+            },
+            {
+                "key_0": "APPLY A THIN LAYER TO THE AFFECTED AREA(S) BY TOPICAL ROUTE 2 TIMES PER"
+            },
+            {
+                "key_0": "DAY"
+            },
+            {
+                "key_0": "valACYclovir 1 gram tablet                                                                                                            10/26/19 filled"
+            },
+            {
+                "key_0": "Vaccines"
+            },
+            {
+                "key_0": "Reviewed Vaccines"
+            },
+            {
+                "key_0": "Vaccine Type                                        Date     Amt.   (Route         Site       NDC         Lot #      Mfr.      Exp.     Date     VIS      Vaccinator"
+            },
+            {
+                "key_0": "Date     on VIS   |Given"
+            },
+            {
+                "key_0": "Influenza"
+            },
+            {
+                "key_0": "influenza, injectable, quadrivalent, preservative   |11/11/20/0.5   Intramuscular) Deltoid,   49281042050) UT7102NA\\ Sanofi    06/30/21 |08/15/19|11/11/20|Pamela"
+            },
+            {
+                "key_0": "free                                                          mL                   Left                              Pasteur                              Hulsey"
+            },
+            {
+                "key_0": "Problems"
+            },
+            {
+                "key_0": "Reviewed Problems"
+            },
+            {
+                "key_0": "No known problems"
+            },
+            {
+                "key_0": "e Seizure disorder - Onset: 09/26/2018"
+            },
+            {
+                "key_0": "e Chronic migraine without aura - Onset: 03/20/2019"
+            },
+            {
+                "key_0": "e Chronic headache disorder - Onset: 07/22/2019"
+            },
+            {
+                "key_0": "GYNHistory"
+            },
+            {
+                "key_0": "Reviewed GYN History"
+            },
+            {
+                "key_0": "Obstetric History"
+            },
+            {
+                "key_0": "Reviewed Obstetric History"
+            },
+            {
+                "key_0": "Family History"
+            },
+            {
+                "key_0": "Reviewed Family History"
+            },
+            {
+                "key_0": "Unspecified Relation                                          - Family history of stroke"
+            },
+            {
+                "key_0": "- Family history of coronary arteriosclerosis"
+            },
+            {
+                "key_0": "Mother                                                        - Family history of cancer"
+            },
+            {
+                "key_0": "Social History"
+            },
+            {
+                "key_0": "Reviewed Social History"
+            },
+            {
+                "key_0": "Internal Medicine"
+            },
+            {
+                "key_0": "Alcohol intake: None"
+            },
+            {
+                "key_0": "Caffeine intake: Occasional"
+            },
+            {
+                "key_0": "Illicit drugs: no"
+            },
+            {
+                "key_0": "Tobacco Smoking Status: Never smoker"
+            },
+            {
+                "key_0": "Non-smoker"
+            },
+            {
+                "key_0": "Most Recent Tobacco Use Screening: 03/27/2019"
+            },
+            {
+                "key_0": "Surgical History"
+            },
+            {
+                "key_0": "Reviewed Surgical History"
+            },
+            {
+                "key_0": "Past Medical History"
+            },
+            {
+                "key_0": "Reviewed Past Medical History"
+            },
+            {
+                "key_0": "Seizures: Y"
+            },
+            {
+                "key_0": "HPI"
+            },
+            {
+                "key_0": "Diabetes F/U"
+            },
+            {
+                "key_0": "Reported by"
+            },
+            {
+                "key_0": "patient."
+            },
+            {
+                "key_0": "Review finger sticks: Pt is not checking sugars. Has appt to see endo later this week on Friday."
+            },
+            {
+                "key_0": "Labs: last A1C result: 9.1% (8/31/20)"
+            },
+            {
+                "key_0": "Context: seeina eve doctor reaularlv: checkina feet reaularlv: takina aspirin dailvmissina doses of medication"
+            }
+        ]
+    },
+    {
+        "id": "d9956dce45a93a08155bb15f3149768c",
+        "document_id": "db37cd82ba46e79192831b2d2abdbc30",
+        "remote_id": "",
+        "file_name": "3.pdf",
+        "media_link": "https://api.docparser.com/v1/document/media/7bGjWkrUTKGM6gazvmKvjF2yfEdh4aX5PID1_un8I-V0y99wSSMAIOm82AtUQPDIbODtmgtO-DNAl4trG2JRNuJu8g_lwO-HjtZcx-aKYPE",
+        "media_link_original": "https://api.docparser.com/v1/document/media/7bGjWkrUTKGM6gazvmKvjF2yfEdh4aX5PID1_un8I-V0y99wSSMAIOm82AtUQPDIbODtmgtO-DNAl4trG2JRNuJu8g_lwO-HjtZcx-aKYPE/original",
+        "media_link_data": "https://api.docparser.com/v1/document/media/7bGjWkrUTKGM6gazvmKvjF2yfEdh4aX5PID1_un8I-V0y99wSSMAIOm82AtUQPDIbODtmgtO-DNAl4trG2JRNuJu8g_lwO-HjtZcx-aKYPE/data",
+        "page_count": 7,
+        "uploaded_at": "2021-05-14T18:05:37+00:00",
+        "processed_at": "2021-05-14T18:09:57+00:00",
+        "field_1": [
+            {
+                "key_0": "Schizophrenia,"
+            },
+            {
+                "key_0": "unspecified"
+            },
+            {
+                "key_0": "[F20.9]"
+            },
+            {
+                "key_0": "Schizophrenia"
+            },
+            {
+                "key_0": "NOS-unspec"
+            },
+            {
+                "key_0": "[295.90]"
+            },
+            {
+                "key_0": "Schizophrenia"
+            },
+            {
+                "key_0": "[54193]"
+            },
+            {
+                "key_0": "Narrative Text"
+            },
+            {
+                "key_0": "Problem                                                 Noted Date"
+            },
+            {
+                "key_0": "Chronic midline low back pain with bilateral sciatica                                      02/17/2021"
+            },
+            {
+                "key_0": "Lumbar radiculopathy                                                                       10/30/2020"
+            },
+            {
+                "key_0": "Overview:"
+            },
+            {
+                "key_0": "Formatting of this note might be different from the original."
+            },
+            {
+                "key_0": "Added automatically from request for surgery 2230672"
+            },
+            {
+                "key_0": "Intractable back pain                                                                      10/13/2020"
+            },
+            {
+                "key_0": "Lumbar discogenic pain syndrome                                                            09/16/2020"
+            },
+            {
+                "key_0": "Drug-seeking behavior                                                                      09/16/2020"
+            },
+            {
+                "key_0": "CAD (coronary artery disease)                                                              09/16/2020"
+            },
+            {
+                "key_0": "Essential hypertension                                                                     09/16/2020"
+            },
+            {
+                "key_0": "Schizophrenia                                                                              09/16/2020"
+            },
+            {
+                "key_0": "Bipolar disorder                                                                           09/16/2020"
+            },
+            {
+                "key_0": "CVA (cerebral vascular accident)                                                           09/16/2020"
+            },
+            {
+                "key_0": "Dependence on nicotine from cigarettes                                                     09/16/2020"
+            },
+            {
+                "key_0": "Complaints of weakness of lower extremity                                                  10/16/2017"
+            },
+            {
+                "key_0": "Paraplegia                                                                                 10/16/2017"
+            },
+            {
+                "key_0": "ENC          Encounters"
+            },
+            {
+                "key_0": "Date           Type                   Specialty                       Care Team                Description"
+            },
+            {
+                "key_0": "03/10/2021 Surgery                                              Hennenhoefer, Amber Rae,   JCLMC John C"
+            },
+            {
+                "key_0": "DO"
+            },
+            {
+                "key_0": "Lincoln Medical"
+            },
+            {
+                "key_0": "Center"
+            },
+            {
+                "key_0": "03/10/2021"
+            },
+            {
+                "key_0": "LEFT L4 - L5 AND L5 - S1"
+            },
+            {
+                "key_0": "EPIDURAL STEROID"
+            },
+            {
+                "key_0": "INJECTION, LUMBAR"
+            },
+            {
+                "key_0": "TRANSFORAMINAL"
+            },
+            {
+                "key_0": "03/10/2021 Hospital                                             Hennenhoefer, Amber Rae,"
+            },
+            {
+                "key_0": "Encounter                                            DO"
+            },
+            {
+                "key_0": "JCLMC John C Lincoln Medical Center"
+            },
+            {
+                "key_0": "03/10/2021"
+            },
+            {
+                "key_0": "H&P - Hennenhoefer, Amber Rae, DO - 03/08/2021 10:57 AM MST"
+            },
+            {
+                "key_0": "Formatting of this note is different from the original."
+            },
+            {
+                "key_0": "PM&R History & Physical Examination"
+            },
+            {
+                "key_0": "Patient Name: Mark Munos"
+            },
+            {
+                "key_0": "Age: 52 y.o."
+            },
+            {
+                "key_0": "Date of Birth: 2/4/1968"
+            },
+            {
+                "key_0": "MRN: 3188161"
+            },
+            {
+                "key_0": "Date of Service: 10/20/2020"
+            },
+            {
+                "key_0": "Referring Provider: Daas, Jatin B, MD"
+            },
+            {
+                "key_0": "PCP: Jatin B Daas, MD"
+            },
+            {
+                "key_0": "Chief Complaint"
+            },
+            {
+                "key_0": "Patient presents with"
+            },
+            {
+                "key_0": "• Back Pain"
+            },
+            {
+                "key_0": "History of Present Illness:"
+            },
+            {
+                "key_0": "Mark Munos is a 52 y.o. year old male who presents to the OP OR for his ESI. The pain is in the low back"
+            },
+            {
+                "key_0": "and down the lateral leg. He states that he has weakness left > right leg. He has numbness in the legs as"
+            },
+            {
+                "key_0": "well. He was referred by Dr. Lee. He has been in the DV ER multiple times over the last few months and"
+            },
+            {
+                "key_0": "undergone significant neurologic work up. Dr. Lee recommended pain management and cardiology work"
+            },
+            {
+                "key_0": "up due to CAD/MI, stroke, and continued smoking. The pain started years agi and was of insidious onset."
+            },
+            {
+                "key_0": "On a scale of 0 to 10, the patient states their pain is 10 out of 10. There was an injury associated with this"
+            },
+            {
+                "key_0": "pain: He had a fall 5 months that increased his pain and caused the weakness in the left foot. The pain is"
+            },
+            {
+                "key_0": "constant and is getting worse. The pain radiates down the bilateral lower extremities, along the lateral"
+            },
+            {
+                "key_0": "aspect, to the ankle/ankles. The patient describes their pain as stabbing, numbness and tingling."
+            },
+            {
+                "key_0": "Aggravating factors include standing, walking, lifting and prolonged sitting. Alleviating factors include rest."
+            },
+            {
+                "key_0": "The patient admits to numbness and/or tingling in the bilateral lower extremities. The patient admits to"
+            },
+            {
+                "key_0": "weakness in the bilateral lower extremities. The patient has trouble walking due to the pain. The patient"
+            },
+            {
+                "key_0": "denies bowel or bladder dysfunction or saddle anesthesia associated with this pain. So far the patient has"
+            },
+            {
+                "key_0": "undergone MRI of the lumbar spine and MRI of the thoracic spine to evaluate their pain. So far the patient"
+            },
+            {
+                "key_0": "has tried the following to treat their pain:"
+            },
+            {
+                "key_0": "1) Physical therapy and/or other exercises - Currently getting HH"
+            },
+            {
+                "key_0": "2) Medications (prescription or over the counter) - flexeril 10 mg"
+            },
+            {
+                "key_0": "3) Interventional spine or other injections - None"
+            },
+            {
+                "key_0": "4) Other - None"
+            },
+            {
+                "key_0": "There is no litigation pending"
+            },
+            {
+                "key_0": "Past Medical History:"
+            },
+            {
+                "key_0": "Past Medical History:"
+            },
+            {
+                "key_0": "Diagnosis Date"
+            },
+            {
+                "key_0": "• Bipolar affective disorder"
+            },
+            {
+                "key_0": "• Chronic back pain"
+            },
+            {
+                "key_0": "• Coronary artery disease"
+            },
+            {
+                "key_0": "• H/O resection of large bowel"
+            },
+            {
+                "key_0": "RT GSW"
+            },
+            {
+                "key_0": "• Heavy smoker"
+            },
+            {
+                "key_0": "• Hypertension"
+            },
+            {
+                "key_0": "• Marijuana smoker"
+            },
+            {
+                "key_0": "• Schizophrenia"
+            },
+            {
+                "key_0": "• Stroke"
+            },
+            {
+                "key_0": "Past Surgical History:"
+            },
+            {
+                "key_0": "Past Surgical History:"
+            },
+            {
+                "key_0": "Procedure Laterality Date"
+            },
+            {
+                "key_0": "• ABDOMINAL SURGERY"
+            },
+            {
+                "key_0": "• BACK SURGERY"
+            },
+            {
+                "key_0": "RT GSW"
+            },
+            {
+                "key_0": "• HAND SURGERY Left"
+            },
+            {
+                "key_0": "Medications:"
+            },
+            {
+                "key_0": "Encounter Medications"
+            },
+            {
+                "key_0": "Outpatient Encounter Medications as of 10/20/2020"
+            },
+            {
+                "key_0": "Medication Sig Dispense Refill"
+            },
+            {
+                "key_0": "• acetaminophen (TYLENOL) 325 mg tablet Take 650 mg by mouth every 6 (six) hours as needed for Pain."
+            },
+            {
+                "key_0": "• amLODIPine (NORVASC) 5 mg tablet Take 5 mg by mouth daily."
+            },
+            {
+                "key_0": "• aspirin (ECOTRIN) 81 mg EC tablet Take 1 tablet (81 mg total) by mouth daily. 30 tablet 1"
+            },
+            {
+                "key_0": "• atorvastatin (LIPITOR) 40 mg tablet Take 1 tablet (40 mg total) by mouth at bedtime. 30 tablet 0"
+            },
+            {
+                "key_0": "• cyclobenzaprine (FLEXERIL) 10 mg tablet Take 1 tablet (10 mg total) by mouth 3 (three) times daily as"
+            },
+            {
+                "key_0": "needed for up to 10 days for Muscle spasms. 30 tablet 0"
+            },
+            {
+                "key_0": "• gabapentin (NEURONTIN) 300 mg capsule Take 300 mg by mouth 3 (three) times daily."
+            },
+            {
+                "key_0": "• omeprazole (PRILOSEC) 40 MG capsule Take 40 mg by mouth daily."
+            },
+            {
+                "key_0": "• [DISCONTINUED] Aspirin Buf,CaCarb-MgCarb-MgO, 81 MG TABS"
+            },
+            {
+                "key_0": "No facility-administered encounter medications on file as of 10/20/2020."
+            },
+            {
+                "key_0": "Allergies:"
+            },
+            {
+                "key_0": "Allergies as of 10/20/2020"
+            },
+            {
+                "key_0": "• (No Known Allergies)"
+            },
+            {
+                "key_0": "Family History:"
+            },
+            {
+                "key_0": "Family History"
+            },
+            {
+                "key_0": "Problem Relation Age of Onset"
+            },
+            {
+                "key_0": "• Diabetes Maternal Aunt"
+            },
+            {
+                "key_0": "• Diabetes Maternal Grandmother"
+            },
+            {
+                "key_0": "• Heart disease Paternal Grandmother"
+            },
+            {
+                "key_0": "Social History:"
+            },
+            {
+                "key_0": "Social History"
+            },
+            {
+                "key_0": "Occupational History"
+            },
+            {
+                "key_0": "• Not on file"
+            },
+            {
+                "key_0": "Tobacco Use"
+            },
+            {
+                "key_0": "• Smoking status: Current Every Day Smoker"
+            },
+            {
+                "key_0": "Packs/day: 0.25"
+            },
+            {
+                "key_0": "Types: Cigarettes"
+            },
+            {
+                "key_0": "• Smokeless tobacco: Never Used"
+            },
+            {
+                "key_0": "Substance and Sexual Activity"
+            },
+            {
+                "key_0": "• Alcohol use: Yes"
+            },
+            {
+                "key_0": "Alcohol/week: 3.0 - 5.0 standard drinks"
+            },
+            {
+                "key_0": "Types: 3 - 5 Shots of liquor per week"
+            },
+            {
+                "key_0": "Comment: have not drank in about 5 days per patient"
+            },
+            {
+                "key_0": "• Drug use: Yes"
+            },
+            {
+                "key_0": "Types: Marijuana, Amphetamines, MDMA (Ecstacy)"
+            },
+            {
+                "key_0": "• Sexual activity: Yes"
+            },
+            {
+                "key_0": "Partners: Female"
+            },
+            {
+                "key_0": "Falls in the last 12 months:"
+            },
+            {
+                "key_0": "Multiple"
+            },
+            {
+                "key_0": "Assistive device(s) used by the patient:"
+            },
+            {
+                "key_0": "Wheelchair and cane"
+            },
+            {
+                "key_0": "Review of Systems:"
+            },
+            {
+                "key_0": "A 12-point review of systems was performed and is negative other than what is noted above."
+            },
+            {
+                "key_0": "Physical Exam:"
+            },
+            {
+                "key_0": "Vital Signs:"
+            },
+            {
+                "key_0": "BP 116/72 | Pulse (!) 97 | Temp 97.9 °F (36.6 °C) | Resp 16 | Ht 5' 9\" (1.753 m) | Wt 160 lb (72.6 kg) | SpO2"
+            },
+            {
+                "key_0": "96% | BMI 23.63 kg/m²"
+            },
+            {
+                "key_0": "General:"
+            },
+            {
+                "key_0": "Constitutional: Patient is well developed, well nourished, and in no acute distress."
+            },
+            {
+                "key_0": "Psychiatric: Patient is alert and oriented X3 with bright affect."
+            },
+            {
+                "key_0": "Respiratory: Breathing is non-labored and non-dyspneic."
+            },
+            {
+                "key_0": "Cardiovascular: Pulses are intact in the bilateral upper and lower extremities with no peripheral edema."
+            },
+            {
+                "key_0": "Skin: There are no rashes appreciated."
+            },
+            {
+                "key_0": "Lymph nodes: There is no lymphadenopathy appreciated."
+            },
+            {
+                "key_0": "Neurological Exam:"
+            },
+            {
+                "key_0": "Gait: Left-antalgic with dragging his leg"
+            },
+            {
+                "key_0": "Coordination: Normal with single leg stance on the right only"
+            },
+            {
+                "key_0": "Reflexes:"
+            },
+            {
+                "key_0": "Left Right"
+            },
+            {
+                "key_0": "Patellar 2+ 3+"
+            },
+            {
+                "key_0": "Achilles 2+ 3+"
+            },
+            {
+                "key_0": "Babinski’s Sign Absent Absent"
+            },
+            {
+                "key_0": "Clonus Absent Absent"
+            },
+            {
+                "key_0": "Sensory exam:"
+            },
+            {
+                "key_0": "Left Right"
+            },
+            {
+                "key_0": "L1 Decreased Normal"
+            },
+            {
+                "key_0": "L2 Decreased Normal"
+            },
+            {
+                "key_0": "L3 Decreased Normal"
+            },
+            {
+                "key_0": "L4 Decreased Normal"
+            },
+            {
+                "key_0": "L5 Decreased Normal"
+            },
+            {
+                "key_0": "S1 Decreased Normal"
+            },
+            {
+                "key_0": "S2 Decreased Normal"
+            },
+            {
+                "key_0": "He states that he does not feel the entire left leg"
+            },
+            {
+                "key_0": "Motor strength (L2-S1 myotomes):"
+            },
+            {
+                "key_0": "Left Right"
+            },
+            {
+                "key_0": "Hip Flexion 3+ 5"
+            },
+            {
+                "key_0": "Knee Extension 3- 5"
+            },
+            {
+                "key_0": "Dorsiflexion 2 5"
+            },
+            {
+                "key_0": "EHL Extension 2 5"
+            },
+            {
+                "key_0": "Plantarflexion 2 5"
+            },
+            {
+                "key_0": "Heel Walking Not tested Not tested"
+            },
+            {
+                "key_0": "Toe Walking Not tested Not tested"
+            },
+            {
+                "key_0": "Slump Test/Straight Leg Raise:"
+            },
+            {
+                "key_0": "Left Right"
+            },
+            {
+                "key_0": "Positive Negative"
+            },
+            {
+                "key_0": "Femoral stretch:"
+            },
+            {
+                "key_0": "Left Right"
+            },
+            {
+                "key_0": "Negative Negative"
+            },
+            {
+                "key_0": "Lumbar Spine Exam:"
+            },
+            {
+                "key_0": "Inspection: There is normal curvature of the lumbar spine with no evidence of step-off deformity."
+            },
+            {
+                "key_0": "Palpation: Lumbar spinous processes and bilateral lumbar paraspinal muscles are diffusely tender. There"
+            },
+            {
+                "key_0": "is no associated muscle spasm."
+            },
+            {
+                "key_0": "Range of motion: Decreased and painful in all planes including flexion, extension, side bending bilaterally &"
+            },
+            {
+                "key_0": "extension with rotation bilaterally."
+            },
+            {
+                "key_0": "Bilateral Hip and Pelvis Exam:"
+            },
+            {
+                "key_0": "Inspection: There is no pelvic obliquity or sheer. There is no leg length discrepancy. There is no atrophy of"
+            },
+            {
+                "key_0": "the gluteal musculature."
+            },
+            {
+                "key_0": "Palpation: Non-tender throughout hip and pelvis area."
+            },
+            {
+                "key_0": "Range of motion: Full and non-painful in all planes including bilateral flexion, internal rotation & external"
+            },
+            {
+                "key_0": "rotation."
+            },
+            {
+                "key_0": "SIJ tests: Negative bilateral Faber's test & 90/90 thrust test."
+            },
+            {
+                "key_0": "Hip joint tests: Negative bilateral hip scour & Faber's test."
+            },
+            {
+                "key_0": "Piriformis tests: Negative FADIR and piriformis muscle stretches."
+            },
+            {
+                "key_0": "Ancillary Studies:"
+            },
+            {
+                "key_0": "MRI LUMBAR SPINE WITHOUT CONTRAST 10/13/20"
+            },
+            {
+                "key_0": "HISTORY: Low back pain."
+            },
+            {
+                "key_0": "COMPARISON: 9/16/2020 lumbar spine MR"
+            },
+            {
+                "key_0": "TECHNIQUE: Multiplanar, multisequence noncontrast images were obtained."
+            },
+            {
+                "key_0": "FINDINGS:"
+            },
+            {
+                "key_0": "5 nonrib-bearing lumbar vertebra. Benign vertebral body marrow signal. No fracture. Conus ends at T12-L1"
+            },
+            {
+                "key_0": "disc space and is normal in signal. Paravertebral soft tissues unremarkable. Superior sacrum"
+            },
+            {
+                "key_0": "unremarkable."
+            },
+            {
+                "key_0": "T12-L1: No degenerative disc disease, disc herniation, or canal/neural foraminal narrowing. Facet joints"
+            },
+            {
+                "key_0": "unremarkable."
+            },
+            {
+                "key_0": "L1-L2: No degenerative disc disease, disc herniation, or canal/neural foraminal narrowing. Facet joints"
+            },
+            {
+                "key_0": "unremarkable."
+            },
+            {
+                "key_0": "L2-L3: No degenerative disc disease, disc herniation, or canal/neural foraminal narrowing. Facet joints"
+            },
+            {
+                "key_0": "unremarkable."
+            },
+            {
+                "key_0": "L3-L4:Unchanged mild degenerative disc disease with stable tiny broad based posterior disc bulge and"
+            },
+            {
+                "key_0": "unchanged mild bilateral neural foraminal narrowing. No focal disc herniation or canal narrowing."
+            },
+            {
+                "key_0": "Unchanged moderate bilateral facet DJD."
+            },
+            {
+                "key_0": "L4-L5: Unchanged advanced bilateral facet DJD with unchanged mild right-sided perifacet soft tissue"
+            },
+            {
+                "key_0": "edema consistent with capsulitis. Unchanged mild grade 1 anterolisthesis of L4 on L5 measuring 4 mm"
+            },
+            {
+                "key_0": "with unchanged mild degenerative disc disease and"
+            },
+            {
+                "key_0": "stable small broad-based posterior disc bulge. This combines with advanced bilateral facet DJD and"
+            },
+            {
+                "key_0": "ligamentum flavum thickening to cause stable mild canal narrowing with mild contact of both traversing L5"
+            },
+            {
+                "key_0": "nerve roots within the lateral recesses."
+            },
+            {
+                "key_0": "Unchanged moderate bilateral neural foraminal narrowing."
+            },
+            {
+                "key_0": "L5-S1: Unchanged advanced degenerative disc disease with stable right paracentral disc protrusion"
+            },
+            {
+                "key_0": "superimposed on broad based posterior disc osteophyte complex, eccentric to the right. This results in"
+            },
+            {
+                "key_0": "unchanged contact/displacement of traversing right S1"
+            },
+            {
+                "key_0": "nerve root within the lateral recess and stable severe right and moderate left neural foraminal narrowing."
+            },
+            {
+                "key_0": "No canal narrowing. Unchanged mild bilateral facet DJD."
+            },
+            {
+                "key_0": "IMPRESSION:"
+            },
+            {
+                "key_0": "1. Unchanged advanced L5-S1 degenerative disc disease with stable right paracentral disc protrusion"
+            },
+            {
+                "key_0": "superimposed on broad-based posterior disc osteophyte complex resulting in unchanged contact/mild"
+            },
+            {
+                "key_0": "displacement of traversing right S1 nerve root and stable severe right/moderate left L5-S1 neural foraminal"
+            },
+            {
+                "key_0": "narrowing."
+            },
+            {
+                "key_0": "2. Unchanged advanced bilateral facet DJD with stable moderate degenerative disc disease, grade 1"
+            },
+            {
+                "key_0": "anterolisthesis, mild degenerative disc disease, and small broad-based posterior disc bulge combining to"
+            },
+            {
+                "key_0": "cause stable mild canal and moderate bilateral L4-5 neural foraminal narrowing."
+            },
+            {
+                "key_0": "3. Unchanged mild L3-L4 degenerative disc disease with stable tiny broad based posterior disc bulge and"
+            },
+            {
+                "key_0": "mild bilateral neural foraminal narrowing. Unchanged moderate bilateral L3-4 facet DJD."
+            },
+            {
+                "key_0": "MRI THORACIC SPINE WITHOUT CONTRAST 9/16/20"
+            },
+            {
+                "key_0": "HISTORY: Increasing back pain with radiculopathy."
+            },
+            {
+                "key_0": "COMPARISON: None"
+            },
+            {
+                "key_0": "TECHNIQUE: Multiplanar, multisequence noncontrast images were obtained."
+            },
+            {
+                "key_0": "FINDINGS:"
+            },
+            {
+                "key_0": "Normal kyphotic curvature. Vertebral body heights are preserved. Marrow signal is normal. No evidence of"
+            },
+            {
+                "key_0": "compression fracture."
+            },
+            {
+                "key_0": "Multilevel degenerative disc disease."
+            },
+            {
+                "key_0": "T1-2 left paracentral disc protrusion with AP dimension measuring 4 mm. This effaces the left side of the"
+            },
+            {
+                "key_0": "thecal sac to contact the cord without definitive flattening of the cord. Mild to moderate left foraminal"
+            },
+            {
+                "key_0": "narrowing."
+            },
+            {
+                "key_0": "T5-6: Small left paracentral disc protrusion measuring 3 mm in AP dimension effacing the thecal sac but no"
+            },
+            {
+                "key_0": "cord compression."
+            },
+            {
+                "key_0": "T6-7: tiny central disc protrusion."
+            },
+            {
+                "key_0": "T7-8: Right paracentral disc extrusion with AP dimension measuring 4 mm. Mild cephalad extension. This"
+            },
+            {
+                "key_0": "effaces the right-sided thecal sac to contact the cord."
+            },
+            {
+                "key_0": "T9-T10 and T10-11 mild bulging disc."
+            },
+            {
+                "key_0": "Cord signal is normal."
+            },
+            {
+                "key_0": "Foramina are unremarkable."
+            },
+            {
+                "key_0": "Facets: Unremarkable."
+            },
+            {
+                "key_0": "Paraspinal soft tissues are unremarkable."
+            },
+            {
+                "key_0": "IMPRESSION:"
+            },
+            {
+                "key_0": "1. No evidence of compression fracture."
+            },
+            {
+                "key_0": "2. Multilevel degenerative disc disease."
+            },
+            {
+                "key_0": "3. Multiple disc protrusions as described above."
+            },
+            {
+                "key_0": "Diagnoses:"
+            },
+            {
+                "key_0": "1. Lumbar degenerative disc disease"
+            },
+            {
+                "key_0": "2. Lumbar radiculopathy"
+            },
+            {
+                "key_0": "3. Left foot drop"
+            },
+            {
+                "key_0": "Assessment:"
+            },
+            {
+                "key_0": "The patient’s history, physical exam, and ancillary studies are consistent with chronic lower back pain with"
+            },
+            {
+                "key_0": "radiating pain in the bilateral lower extremities, numbness and tingling in the bilateral lower extremities and"
+            },
+            {
+                "key_0": "subjective weakness in the left lower extremity. These symptoms are likely due to advanced lumbar DDD"
+            },
+            {
+                "key_0": "with radiculopathy and left foot drop. Patient's Lumbar MRI show(s) advanced L5-S1 degenerative disc"
+            },
+            {
+                "key_0": "disease with stable right paracentral disc protrusion superimposed on broad-based posterior disc"
+            },
+            {
+                "key_0": "osteophyte complex resulting in unchanged contact/mild displacement of traversing right S1 nerve root and"
+            },
+            {
+                "key_0": "stable severe right/moderate left L5-S1 neural foraminal narrowing. Advanced bilateral facet DJD with"
+            },
+            {
+                "key_0": "stable moderate degenerative disc disease, grade 1 anterolisthesis, mild degenerative disc disease, and"
+            },
+            {
+                "key_0": "small broad-based posterior disc bulge combining to cause stable mild canal and moderate bilateral L4-5"
+            },
+            {
+                "key_0": "neural foraminal narrowing. Mild L3-L4 degenerative disc disease with stable tiny broad based posterior"
+            },
+            {
+                "key_0": "disc bulge and mild bilateral neural foraminal narrowing. Unchanged moderate bilateral L3-4 facet DJD.."
+            },
+            {
+                "key_0": "The following neurological deficits were appreciated on examination today: chronic left LE weakness. So"
+            },
+            {
+                "key_0": "far the patient has tried home health PT. He is indicated for lumbar ESI."
+            },
+            {
+                "key_0": "Plan:"
+            },
+            {
+                "key_0": "Orders Placed:"
+            },
+            {
+                "key_0": "No orders of the defined types were placed in this encounter."
+            }
+        ]
+    }
+]

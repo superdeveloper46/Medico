@@ -1,0 +1,53 @@
+@{
+    dynamic Resp = new System.Dynamic.ExpandoObject();
+        
+    double? patientHeight = 0;
+    int patientAge = 0;
+    int patientGender = 0;
+    
+    if(Model.BaseVitalSigns != null) {
+        patientHeight = Model.BaseVitalSigns.Height;
+        patientAge = Model.Patient.Age();
+        patientGender = Model.Patient.Gender;
+    }
+
+    Resp.Patient = new {        
+        Height = patientHeight,
+        Age = patientAge,
+        Gender = patientGender
+    };
+
+    Resp.FVC = new {
+        Title = "",
+        VarName = "",
+        gender = "",
+        maxValue = -1,
+        maxVar = -1,
+        minValue = -1,
+        minVar = -1,
+        warningLevel = "",
+        valUnits = "%",
+    };
+    
+    foreach (var row in Model.ReferenceTables["Blood Pressure"]){        
+        string title = "" + row["Title"];
+        string VarName = "" + row["VarName"];
+        string VarModifier = "" + row["varModifier"];
+        string gender = "" + row["gender"];
+        double MinVar = double.Parse("" + row["minVar"]);
+        double MaxVar = double.Parse("" + row["maxVar"]);
+        double MinValue = double.Parse("" + row["minValue"]);
+        double MaxValue = double.Parse("" + row["maxValue"]);
+
+        if(title == "FVC" && patientGender == 1 && gender == "Male" && patientHeight >= MinVar && patientHeight <= MaxVar) {
+            Resp.FVC = row;
+            continue;
+        }
+
+        if(title == "FVC" && patientGender == 2 && gender == "Female" && patientHeight >= MinVar && patientHeight <= MaxVar) {
+            Resp.FVC = row;
+            continue;
+        }
+    }
+}
+<b>Return Values:<span class="expression-return-data">@(Newtonsoft.Json.JsonConvert.SerializeObject(Resp))</span></b>

@@ -1,0 +1,162 @@
+<div class="row mt-md-2">
+  <div class="col-md-12 mb-2">
+    <button
+      type="button"
+      (click)="deleteErrorLogs()"
+      class="btn btn-outline-primary"
+    >
+      <i class="fas fa-trash"></i>
+      Delete
+    </button>
+  </div>
+  <div class="col-md-12">
+    <dx-data-grid
+      #errorLogDataGrid
+      [hoverStateEnabled]="false"
+      [wordWrapEnabled]="true"
+      [dataSource]="errorLogDataSource"
+      [showBorders]="true"
+      height="85vh"
+    >
+      <dxo-remote-operations [paging]="true" [filtering]="true" [sorting]="true">
+      </dxo-remote-operations>
+
+      <dxo-selection
+        selectAllMode="allPages"
+        showCheckBoxesMode="onClick"
+        mode="multiple"
+      ></dxo-selection>
+
+      <dxo-paging [pageSize]="searchConfiguration.pageSizeCount"></dxo-paging>
+
+      <dxo-pager
+        [showPageSizeSelector]="true"
+        [allowedPageSizes]="searchConfiguration.allowedPageSizes"
+      >
+      </dxo-pager>
+
+      <dxo-filter-row [visible]="true"></dxo-filter-row>
+
+      <dxi-column dataField="id" dataType="string" [visible]="false"></dxi-column>
+      <dxi-column
+        [calculateFilterExpression]="convertFilterDateToUtc"
+        [filterOperations]="searchConfiguration.availableDateFilters"
+        width="180"
+        dataField="date"
+        cellTemplate="errorDateTemplate"
+      ></dxi-column>
+      <dxi-column
+        [filterOperations]="searchConfiguration.availableFilters"
+        dataField="userName"
+        cellTemplate="errorUserNameTemplate"
+        width="150"
+      ></dxi-column>
+      <dxi-column
+        [filterOperations]="searchConfiguration.availableFilters"
+        dataField="errorType"
+        width="100"
+      ></dxi-column>
+      <dxi-column
+        [filterOperations]="searchConfiguration.availableFilters"
+        dataField="requestedUrl"
+        width="280"
+      ></dxi-column>
+      <dxi-column
+        [filterOperations]="searchConfiguration.availableFilters"
+        dataField="errorAppType"
+        width="250"
+      ></dxi-column>
+      <dxi-column
+        [filterOperations]="searchConfiguration.availableFilters"
+        dataField="errorAppForm"
+        cellTemplate="errorAppFormTemplate"
+        width="560"
+      ></dxi-column>
+      <dxi-column
+        [filterOperations]="searchConfiguration.availableFilters"
+        dataField="status"
+        width="190"
+      ></dxi-column>
+
+      <dxi-column
+        alignment="center"
+        caption="Actions"
+        width="100"
+        cellTemplate="actionTemplate"
+      ></dxi-column>
+
+      <div *dxTemplate="let errorLog of 'errorDateTemplate'">
+        <div>{{errorLog.data.date | date:"MM/dd/yyyy hh:mm:ss a"}}</div>
+      </div>
+
+      <div *dxTemplate="let errorLog of 'errorUserNameTemplate'">
+        <div [innerHTML]="errorLog.data.userName"></div>
+      </div>
+
+      <div *dxTemplate="let errorLog of 'errorAppFormTemplate'">
+        <div [innerHTML]="errorLog.data.errorAppForm"></div>
+      </div>
+
+      <div class="text-center" *dxTemplate="let errorLog of 'actionTemplate'">
+        <div class="btn-group btn-group-sm" role="group">
+          <button
+            type="button"
+            (click)="showErrorDetails(errorLog.data.status, errorLog.data.userFriendlyErrorText, errorLog.data.adminErrorText, errorLog.data.errorDetails, errorLog.data.id, $event)"
+            class="btn btn-outline-primary"
+          >
+            <i class="fas fa-edit"></i>
+          </button>
+          <button
+            type="button"
+            (click)="deleteErrorLog(errorLog.data.id)"
+            class="btn btn-outline-primary"
+          >
+            <i class="fas fa-trash"></i>
+          </button>
+        </div>
+      </div>
+    </dx-data-grid>
+  </div>
+</div>
+<dx-popup
+  #errorLogPopup
+  class="popup"
+  [width]="1000"
+  [height]="650"
+  [dragEnabled]="false"
+  [showTitle]="true"
+  title="Error Details"
+  [hideOnOutsideClick]="false"
+  [(visible)]="isErrorLogPopupOpened"
+  (onHidden)="resetErrorDetails()"
+>
+  <div *dxTemplate="let data of 'content'">
+    <dx-scroll-view [scrollByContent]="true">
+      <div>
+        <p class="text-primary mb-1">Status </p>
+        <div class="col-md-4 p-0">
+          <dxi-item
+              dataField="priority"
+              editorType="dxSelectBox"
+            >
+              <dx-select-box
+                [dataSource]="errorLogStatusList"
+                displayExpr="description"
+                valueExpr="value"
+                [value]="status"
+                (onValueChanged)="changeErrorStatus($event)"
+              ></dx-select-box>
+            </dxi-item>
+        </div>
+        <p class="text-primary mb-1 mt-3">UserFriendlyErrorText </p>
+        <div [innerHTML]="userFriendlyErrorText">
+        </div>
+
+        <p class="text-primary mb-1 mt-3">ErrorDetails</p>
+        <div>
+          {{ errorDetails }}
+        </div>
+      </div>
+    </dx-scroll-view>
+  </div>
+</dx-popup>

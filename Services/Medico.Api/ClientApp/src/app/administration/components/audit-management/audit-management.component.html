@@ -1,0 +1,103 @@
+<div class="row mt-md-3">
+  <div class="col-md-8">
+    
+    <div class="row mt-md-2" id="one">
+      <div class="col-md-6">
+        <h4>Category</h4>
+      </div>
+      <div class="col-md-3">
+        <h4 class="text-center">Background</h4>
+      </div>
+      <div class="col-md-3">
+        <h4 class="text-center">Border</h4>
+      </div>
+    </div>
+
+    <div class="row data" id="two">
+      <div class="col-md-6">
+        <p>{{categoryFrontEnd[0]}}</p>
+      </div>
+      <div class="col-md-3">
+        <dx-color-box 
+          value={{chartColors.noContentChanged}}
+          id={{classNames[0][0]}}
+          (onValueChanged)="onColorChange($event)">
+        </dx-color-box>
+      </div>
+      <div class="col-md-3">
+        <dx-color-box 
+           value={{chartColors.borderNoContentChanged}}
+          id={{classNames[0][1]}}
+          (onValueChanged)="onColorChange($event)">
+        </dx-color-box>
+      </div>
+    </div>
+
+    <div class="row data" id="three">
+      <div class="col-md-6">
+        <p>{{categoryFrontEnd[1]}}</p>
+      </div>
+      <div class="col-md-3">
+        <dx-color-box 
+          value={{chartColors.updated}}
+          id={{classNames[1][0]}}
+          (onValueChanged)="onColorChange($event)">
+        </dx-color-box>
+      </div>
+      <div class="col-md-3">
+        <dx-color-box 
+           value={{chartColors.borderUpdated}}
+          id={{classNames[1][1]}}
+          (onValueChanged)="onColorChange($event)">
+        </dx-color-box>
+      </div>
+    </div>
+  
+    <div class="row data" id="four">
+      <div class="col-md-6">
+        <p>{{categoryFrontEnd[2]}}</p>
+      </div>
+      <div class="col-md-3">
+        <dx-color-box 
+           value={{chartColors.defaultOrIncomplete}}  
+          id={{classNames[2][0]}}
+          (onValueChanged)="onColorChange($event)">
+        </dx-color-box>
+      </div>
+      <div class="col-md-3">
+        <dx-color-box 
+          value={{chartColors.borderDefaultOrIncomplete}}
+          id={{classNames[2][1]}}
+          (onValueChanged)="onColorChange($event)">
+        </dx-color-box>
+      </div>
+    </div>
+
+    <div class="row data" id="five">
+      <div class="col-md-6">
+        <p>{{categoryFrontEnd[3]}}</p>
+      </div>
+      <div class="col-md-3">
+        <dx-color-box 
+           value={{chartColors.abnormal}}
+          id={{classNames[3][0]}}
+          (onValueChanged)="onColorChange($event)">
+        </dx-color-box>
+      </div>
+      <div class="col-md-3">
+        <dx-color-box 
+           value={{chartColors.borderAbnormal}}
+          id={{classNames[3][1]}}
+          (onValueChanged)="onColorChange($event)">
+       </dx-color-box>
+      </div>
+    </div>
+    <div class="row button justify-content-end" id="five">
+      <button
+        type="button"
+        class="btn btn-sm btn-outline-secondary"
+        (click)="setDefaultColors()"
+      >Restore Defaults</button>
+    </div>
+  </div>
+</div>

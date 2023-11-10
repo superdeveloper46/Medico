@@ -1,0 +1,65 @@
+<div class="row mt-md-2">
+  <div class="col-md-12">
+    <h5>Timeline</h5>
+    <br />
+  </div>
+  <div class="col-md-12">
+    <div class="stats">
+      <div *ngIf="timelineDataSource.length > 0">
+        <div class="stat-value">{{ timelineDataSource[0].timeElapsed }}</div>
+        <div class="sub-title">Time since first check-in</div>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-12">
+    <dx-data-grid
+      [selectedRowKeys]="selectedTimeline"
+      [hoverStateEnabled]="true"
+      (onSelectionChanged)="onTimelineSelected($event)"
+      [wordWrapEnabled]="true"
+      #timelineDataGrid
+      [dataSource]="timelineDataSource"
+      [showBorders]="true"
+    >
+      <dxo-remote-operations [sorting]="true" [filtering]="true" [paging]="true">
+      </dxo-remote-operations>
+
+      <dxo-paging [pageSize]="searchConfiguration.pageSizeCount"></dxo-paging>
+
+      <dxo-pager
+        [showPageSizeSelector]="true"
+        [allowedPageSizes]="searchConfiguration.allowedPageSizes"
+      >
+      </dxo-pager>
+
+      <dxi-column
+        dataField="id"
+        dataType="string"
+        [allowEditing]="false"
+        [visible]="false"
+      >
+      </dxi-column>
+      <dxi-column caption="Status" dataField="status" cellTemplate="statusTemplate"></dxi-column>
+      <dxi-column caption="Status Date" dataField="createdOn" dataType="date" cellTemplate="statusDateTemplate"></dxi-column>
+      <dxi-column caption="Time Difference" dataField="timeDiff" cellTemplate="timeDiffTemplate"></dxi-column>
+      <dxi-column caption="Modified By" dataField="createdByName" cellTemplate="nameTemplate"></dxi-column>
+      <dxi-column dataField="notes"> </dxi-column>  
+
+      <div class="text-left" *dxTemplate="let n of 'statusTemplate'">
+        <span class="badge-outline"> {{ n.data.status }}</span>
+      </div>
+      <div class="text-left" *dxTemplate="let n of 'timeDiffTemplate'">
+        <span>{{ n.data.timeDiff }}</span>
+      </div>
+      <div class="text-left" *dxTemplate="let n of 'nameTemplate'">
+        <b> {{ n.data.createdByName }} </b>
+      </div>
+      <div class="text-left" *dxTemplate="let n of 'statusDateTemplate'">
+        <span> {{ n.data.createdOn | datex: 'DD MMM YY HH:mm:ss' }}</span>
+      </div>
+
+      <dxo-selection mode="single"></dxo-selection>
+      <dxo-filter-row [visible]="true"></dxo-filter-row>
+    </dx-data-grid>
+  </div>
+</div>

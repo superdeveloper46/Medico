@@ -1,0 +1,70 @@
+<div class="mt-2" *ngIf="areSuggestionsVisible">
+  <div class="row">
+    <div class="col-md-12">
+      <div style="font-size: 0.8em" class="row">
+        <div class="col-md-6 text-left">PHRASES</div>
+        <div class="col-md-6 text-right">
+          <i (click)="closeSuggestionList()" class="dx-icon dx-icon-close"></i>
+        </div>
+      </div>
+      <dx-data-grid
+        class="mt-1"
+        [height]="345"
+        [selectedRowKeys]="selectedPhrases"
+        [hoverStateEnabled]="true"
+        [wordWrapEnabled]="true"
+        #phraseGrid
+        (onSelectionChanged)="onPhraseSelected($event)"
+        [showColumnHeaders]="true"
+        [dataSource]="phrasesDataSource"
+        [showBorders]="true"
+      >
+        <dxo-filter-row [visible]="true"></dxo-filter-row>
+
+        <dxi-column dataField="id" dataType="string" [visible]="false"></dxi-column>
+
+        <dxi-column
+          caption="Phrase"
+          sortOrder="asc"
+          alignment="left"
+          dataField="name"
+          dataType="string"
+        ></dxi-column>
+
+        <dxo-selection mode="single"></dxo-selection>
+      </dx-data-grid>
+    </div>
+  </div>
+  <dx-popup
+    class="popup"
+    [width]="900"
+    [height]="620"
+    [dragEnabled]="false"
+    [showTitle]="true"
+    title="Phrase content"
+    [hideOnOutsideClick]="false"
+    [(visible)]="isPhrasePopupOpened"
+    (onHidden)="onPhrasePopupHidden()"
+  >
+    <div *dxTemplate="let data of 'content'">
+      <div *ngIf="isPhrasePopupOpened">
+        <selectable-items-editor
+          [companyId]="companyId"
+          [templateContent]="phraseContent"
+          (contentChanged)="onPhraseContentChanged($event)"
+        >
+        </selectable-items-editor>
+
+        <div class="text-right mt-1">
+          <button
+            type="button"
+            (click)="insertPhraseContent()"
+            class="btn btn-sm btn-outline-secondary"
+          >
+            INSERT
+          </button>
+        </div>
+      </div>
+    </div>
+  </dx-popup>
+</div>

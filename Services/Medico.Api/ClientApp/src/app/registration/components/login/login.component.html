@@ -1,0 +1,67 @@
+<div class="row mt-md-5">
+  <div class="col-md-5">
+    <dx-form #loginForm [(formData)]="loginModel">
+      <dxi-item [editorOptions]="{ width: '320px', readOnly: true }" dataField="email">
+        <dxi-validation-rule
+          type="required"
+          message="Email is required"
+        ></dxi-validation-rule>
+      </dxi-item>
+      <!--login issue for same email - code reverted-->
+      <dxi-item
+        *ngIf="companies.length > 1"
+        [label]="{ text: 'Company' }"
+        dataField="companyId"
+        editorType="dxSelectBox"
+        [editorOptions]="{
+          width: '320px',
+          displayExpr: 'name',
+          valueExpr: 'id',
+          dataSource: companies
+        }"
+      >
+        <dxi-validation-rule
+          type="required"
+          message="Company id is required"
+        ></dxi-validation-rule>
+      </dxi-item>
+      <dxi-item
+        [editorOptions]="{ width: '320px', mode: 'password' }"
+        dataField="password"
+      >
+        <dxi-validation-rule
+          type="required"
+          message="Password is required"
+        ></dxi-validation-rule>
+      </dxi-item>
+    </dx-form>
+  </div>
+</div>
+<div *ngIf="loginErrors.length" class="row mt-md-2">
+  <div class="col-md-10">
+    <div *ngFor="let error of loginErrors; let i = index">
+      <div class="text-right text-danger">{{ error }}</div>
+    </div>
+  </div>
+</div>
+<div class="row mt-md-5">
+  <div class="col-md-6 text-left">
+    <button
+      type="button"
+      (click)="onBackToEmailForm()"
+      class="btn btn-sm btn-outline-secondary"
+    >
+      BACK TO EMAIL
+    </button>
+  </div>
+  <div class="col-md-6 text-right">
+    <button type="button" (click)="login()" class="btn btn-sm btn-outline-secondary">
+      LOGIN
+    </button>
+  </div>
+</div>
+<div class="row mt-md-5">
+  <div class="col-md-12 text-right">
+    <a routerLink="/forgot-password">Forgot Password?</a>
+  </div>
+</div>

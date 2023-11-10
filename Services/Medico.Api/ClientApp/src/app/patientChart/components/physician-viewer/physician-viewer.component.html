@@ -1,0 +1,364 @@
+<div class="row mt-md-2">
+  <div class="col-md-12">
+    <h5>Physician Viewer</h5>
+    <br />
+  </div>
+  <div class="col-md-12">
+    <dx-tabs
+      [dataSource]="companyManagementTabs"
+      [selectedIndex]="selectedTabIndex"
+      (onItemClick)="onTabSelect($event)"
+    >
+    </dx-tabs>
+  </div>
+  <div class="col-md-12">
+    <!--main docs tab-->
+    <div *ngIf="isTabVisible(1)">
+      <div class="row mt-md-2">
+        <div class="col-md-5">
+          <button
+            type="button"
+            (click)="openUploader()"
+            class="btn btn-sm btn-outline-primary"
+            style="margin: 5px 0"
+          >
+            UPLOAD TO DOC PARSER</button
+          ><br />
+
+          <div class="feature-description">
+            <hr />
+            <!-- feature-left -->
+            <div class="feature-left">
+              <div class="feature-icon"><i class="fa fa-info-circle"></i></div>
+              <div class="feature-content">
+                <p>
+                  You may manually upload doc to Doc Parser, if unable to find the
+                  document in below list.
+                </p>
+              </div>
+            </div>
+            <!-- /.feature-left -->
+            <!-- feature-left -->
+            <div class="feature-left">
+              <div class="feature-icon"><i class="fa fa-info-circle"></i></div>
+              <div class="feature-content">
+                <p>
+                  Doc Parser takes some time to process a document. Click here to
+                  <a href="javascript:;" (click)="initProcessedDocsDataSource()"
+                    >Refresh List</a
+                  >.
+                </p>
+              </div>
+            </div>
+            <!-- /.feature-left -->
+            <hr />
+          </div>
+        </div>
+        <div class="col-md-5">
+          <button
+            type="button"
+            (click)="saveSelected()"
+            class="btn btn-sm btn-outline-secondary"
+            style="margin: 5px 0"
+          >
+            SAVE DOCUMENTS</button
+          ><br />
+          <small class="text-info"></small>
+          <div class="feature-description">
+            <hr />
+            <!-- feature-left -->
+            <div class="feature-left">
+              <div class="feature-icon"><i class="fa fa-info-circle"></i></div>
+              <div class="feature-content">
+                <p>
+                  This will save the selected document(s) to Patient's Document List(next
+                  Tab)
+                </p>
+              </div>
+            </div>
+            <!-- /.feature-left -->
+            <!-- feature-left -->
+            <div class="feature-left">
+              <div class="feature-icon"></div>
+              <div class="feature-content">
+                <p>&nbsp;</p>
+              </div>
+            </div>
+            <!-- /.feature-left -->
+            <hr />
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-12">
+          <dx-data-grid
+            [hoverStateEnabled]="true"
+            [wordWrapEnabled]="true"
+            [dataSource]="patientDataSource"
+            [showBorders]="true"
+            [showRowLines]="true"
+            (onSelectionChanged)="documentSelected($event)">
+            
+            <dxi-column
+              caption="File Name"
+              dataField="fileName"
+              dataType="string"
+              [allowEditing]="false"
+              [visible]="true"
+            >
+            </dxi-column>
+            <dxi-column
+              caption="Processed On"
+              cellTemplate="docParserProcessDate"
+            ></dxi-column>
+            <div class="text-left" *dxTemplate="let paient of 'docParserProcessDate'">
+              <span> {{ paient.data.docParserProcessDate | date: 'MMM dd HH:mm' }}</span>
+            </div>
+
+            <dxi-column
+              dataField="media_link_original"
+              dataType="string"
+              [visible]="false"
+              [allowSorting]="false"
+            >
+            </dxi-column>
+            <dxi-column dataField="id" [visible]="false" [allowSorting]="false">
+            </dxi-column>
+            <dxo-selection mode="multiple"></dxo-selection>
+          </dx-data-grid>
+        </div>
+      </div>
+    </div>
+    <!--patient docs tab-->
+    <div *ngIf="isTabVisible(0)">
+      <div class="row">
+        <div class="col-md-12 form-upload" style="margin: 10px 0">
+          <input #file type="file" multiple="true" (change)="onChange($event)" />
+          <button
+            type="button"
+            (click)="upload()"
+            class="btn btn-sm btn-outline-secondary"
+          >
+            Open Document
+          </button>
+        </div>
+        <div class="col-md-12">
+          <dx-data-grid
+            [hoverStateEnabled]="true"
+            [wordWrapEnabled]="true"
+            [dataSource]="existingDocs"
+            [showBorders]="true"
+            [showRowLines]="true"
+            #patientDataGrid
+            (onSelectionChanged)="patientDocSelected($event)"
+          >
+            <dxo-paging [pageSize]="searchConfiguration.pageSizeCount"></dxo-paging>
+
+            <dxo-pager
+              [showPageSizeSelector]="true"
+              [allowedPageSizes]="searchConfiguration.allowedPageSizes"
+            >
+            </dxo-pager>
+
+            <dxi-column
+              dataField="fileName"
+              dataType="string"
+              [allowSorting]="true"
+            ></dxi-column>
+
+            <dxi-column caption="Created Date" cellTemplate="dobTemplate"></dxi-column>
+            <div class="text-left" *dxTemplate="let paient of 'dobTemplate'">
+              <span> {{ paient.data.createDate | localDate }}</span>
+            </div>
+            <dxi-column caption="Parsable" cellTemplate="parseTemplate"> </dxi-column>
+
+            <div class="text-left" *dxTemplate="let paient of 'parseTemplate'">
+              <span
+                class="badge"
+                [ngClass]="{
+                  'badge-danger': paient.data.parserId === null,
+                  'badge-success': paient.data.parserId !== null
+                }"
+                >{{ paient.data.parserId === null ? 'No' : 'Yes' }}
+              </span>
+            </div>
+
+            <dxi-column caption="Action" cellTemplate="downTemplate"></dxi-column>
+            <div class="text-left" *dxTemplate="let paient of 'downTemplate'">
+              <a href="javascript:void()" (click)="donwloadDoc(paient.data)"> Download</a>
+              &nbsp;|&nbsp;
+              <a
+                *ngIf="paient.data.parserId !== null"
+                href="javascript:'"
+                (click)="parseDoc(paient.data.id)"
+                >Parse
+              </a>
+            </div>
+            <dxi-column
+              alignment="center"
+              caption="Delete"
+              cellTemplate="deleteTemplate"
+            ></dxi-column>
+            <div class="text-center" *dxTemplate="let patient of 'deleteTemplate'">
+              <div class="btn-group btn-group-sm" role="group">
+                <button
+                  (click)="deletePatientDocument(patient.data.id, $event)"
+                  class="btn btn-outline-danger"
+                >
+                  <i class="fas fa-trash"></i>
+                </button>
+              </div>
+            </div>
+            <dxo-selection mode="single"></dxo-selection>
+          </dx-data-grid>
+          <hr />
+          <div class="row mt-md-2">
+            <div class="col-md-12">
+              <!-- <div style="visibility: hidden;">
+                                <ngx-doc-viewer 
+                                [url]="previewLink" viewer="url" style="width:100%;height:10px;"></ngx-doc-viewer>
+                            </div> -->
+              <!-- <a *ngIf="previewLink" href="{{previewLink}}" target="_blank">Preview Document 
+                               
+                            </a><br> -->
+            </div>
+            <div *ngIf="physicianDoc.field_1 !== undefined" class="col-md-3 form-group">
+              <label>Document Type</label>
+              <dx-select-box
+                #searchDocSelectBox
+                [(value)]="documentType"
+                [dataSource]="documentationList"
+                valueExpr="description"
+                displayExpr="description"
+                [searchEnabled]="true"
+                [showClearButton]="true"
+              >
+              </dx-select-box>
+            </div>
+            <div *ngIf="physicianDoc.field_1 !== undefined" class="col-md-3 form-group">
+              <button
+                type="button"
+                (click)="saveDocument(true)"
+                class="btn btn-sm btn-outline-secondary"
+                style="margin-top: 35px"
+              >
+                SAVE
+              </button>
+              <!-- <button type="button" (click)="saveDocument(false)" class="btn btn-sm btn-outline-secondary"
+                                style="margin-top: 35px;margin-left: 10px;">
+                                SAVE & Keep Document</button> -->
+            </div>
+          </div>
+          <div class="row mt-md-2">
+            <div *ngIf="physicianDoc.field_1 !== undefined" class="col-md-6">
+              <dx-data-grid
+                [hoverStateEnabled]="true"
+                [wordWrapEnabled]="true"
+                [dataSource]="keyPairDataSource"
+                [showBorders]="true"
+                [showRowLines]="true"
+                (onSelectionChanged)="handleChange($event)"
+              >
+                <dxo-remote-operations
+                  [sorting]="true"
+                  [filtering]="true"
+                  [paging]="true"
+                >
+                </dxo-remote-operations>
+
+                <dxi-column
+                  [width]="50"
+                  dataField="line"
+                  dataType="string"
+                  [allowSorting]="false"
+                >
+                </dxi-column>
+                <dxi-column
+                  dataField="value"
+                  dataType="string"
+                  [allowSorting]="false"
+                ></dxi-column>
+
+                <dxo-selection mode="multiple"></dxo-selection>
+                <dxo-filter-row [visible]="true"></dxo-filter-row>
+              </dx-data-grid>
+            </div>
+            <div
+              *ngIf="physicianDoc.field_1 !== undefined"
+              class="col-md-6"
+              style="height: 300px; overflow: auto"
+            >
+              <angular-editor [(ngModel)]="selectedValues"></angular-editor>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- <div class="col-md-4 form-group">
+        <label>Select Document</label>
+        <dx-select-box #searchDocSelectBox [(value)]="docNameId" [dataSource]="docNameDataSource"
+            valueExpr="document_id" displayExpr="file_name" (onValueChanged)="onDocNameChanged($event)"
+            [searchEnabled]="true" [showClearButton]="true">
+        </dx-select-box>
+    </div>
+    <div class="col-md-3 form-group">
+        <label>Document Type</label>
+        <dx-select-box #searchDocSelectBox [(value)]="documentType" [dataSource]="documentationList"
+            valueExpr="description" displayExpr="description" [searchEnabled]="true" [showClearButton]="true">
+        </dx-select-box>
+    </div>
+    <div *ngIf="physicianDoc.field_1 != undefined" class="col-md-3 form-group ">
+        <button type="button" (click)="saveDocument(true)" class="btn btn-sm btn-outline-secondary"
+            style="margin-top: 35px;">
+            SAVE</button>
+        <button type="button" (click)="saveDocument(false)" class="btn btn-sm btn-outline-secondary"
+            style="margin-top: 35px;margin-left: 10px;">
+            SAVE & Keep Document</button>
+    </div> -->
+</div>
+<!--Uploads tab-->
+<dx-popup
+  #uploaderPopup
+  class="popup"
+  [width]="700"
+  [height]="600"
+  [dragEnabled]="false"
+  [showTitle]="true"
+  title="UPLOAD TO DOC PARSER"
+  [hideOnOutsideClick]="false"
+  [(visible)]="isUploaderPopupOpened"
+>
+  <div *dxTemplate="let data of 'content'">
+    <div *ngIf="isUploaderPopupOpened" class="row">
+      <div class="col-md-9">
+        <dx-file-uploader
+          #pdfFileUploader
+          [multiple]="true"
+          [maxFileSize]="4000000"
+          uploadMode="useForm"
+          [allowedFileExtensions]="['.pdf', '.tif']"
+        >
+        </dx-file-uploader>
+        <span class="note">Allowed file extensions: <b>.pdf, .tif</b></span
+        >&nbsp;|&nbsp;
+        <span class="note">Maximum file size: <span>4 MB</span>.</span>
+      </div>
+      <div class="col-md-3 text-right mt-md-2 docparse-container-btn">
+        <button
+          type="button"
+          (click)="uploadToDocParser()"
+          class="btn btn-sm btn-outline-secondary">
+          UPLOAD
+        </button>
+        <button
+          type="button"
+          (click)="doDocParser()"
+          class="btn btn-sm btn-outline-secondary">
+          PARSE
+        </button>
+      </div>
+    </div>
+  </div>
+</dx-popup>

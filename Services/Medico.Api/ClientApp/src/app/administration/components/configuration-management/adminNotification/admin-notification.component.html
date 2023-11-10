@@ -1,0 +1,37 @@
+<div class="col-md-6 py-2">
+    <div class="col-md-12 p-2">
+        <dx-form #adminNotificationForm [(formData)]="formData">
+            <dxi-item [label]="{ text: 'Tech Support' }" dataField="techSupport" editorType="dxTagBox"
+                [editorOptions]="{
+                    dataSource: userDataSource,
+                    displayExpr: 'firstName',
+                    valueExpr: 'id',
+                    placeholder: 'Select tags...'
+                }"
+            >
+                <dxi-validation-rule type="required" message="This field is required"></dxi-validation-rule>
+            </dxi-item>
+            <dxi-item [label]="{ text: 'Medico Manager' }" dataField="medicoManager" editorType="dxTagBox"
+                [editorOptions]="{
+                    dataSource: userDataSource,
+                    displayExpr: 'firstName',
+                    valueExpr: 'id',
+                    placeholder: 'Select tags...'
+                }"
+            >
+                <dxi-validation-rule type="required" message="This field is required"></dxi-validation-rule>
+            </dxi-item>
+        </dx-form>
+    </div>
+    <div class="col-md-12 p-2">
+        <div class="dx-field-value">
+            <dx-button
+                class="Save"
+                icon="fas fa-save"
+                text="Save"
+                (onClick)="save()"
+                >
+            </dx-button>
+        </div>
+    </div>
+</div>

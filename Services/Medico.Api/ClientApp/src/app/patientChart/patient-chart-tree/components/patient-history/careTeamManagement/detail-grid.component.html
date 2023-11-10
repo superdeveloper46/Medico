@@ -1,0 +1,55 @@
+<dx-data-grid
+  [dataSource]="careTeamAdditionalInformation"
+  [showBorders]="true"
+  [columnAutoWidth]="true"
+>
+  <dxi-column dataField="npi" dataType="string"></dxi-column>
+  <dxi-column dataField="providerLastName" dataType="string"></dxi-column>
+  <dxi-column dataField="providerMiddleName" dataType="string"></dxi-column>
+  <dxi-column dataField="providerFirstName" dataType="string"></dxi-column>
+  <dxi-column dataField="phoneNumber" dataType="string"></dxi-column>
+  <dxi-column dataField="faxNumber" dataType="string"></dxi-column>
+  <dxi-column dataField="email" dataType="string"></dxi-column>
+  <dxi-column dataField="urlForWebsite" dataType="string"></dxi-column>
+  <dxo-selection mode="single"></dxo-selection>
+    <dxo-filter-row [visible]="true"></dxo-filter-row>
+    <dxo-master-detail [enabled]="true" template="detail"></dxo-master-detail>
+</dx-data-grid>
+<dx-data-grid
+  [dataSource]="careTeamAdditionalInformation"
+  [showBorders]="true"
+  [columnAutoWidth]="true"
+>
+  <dxi-column dataField="npi" dataType="string"></dxi-column>
+  <dxi-column dataField="enumerationDate" dataType="string"></dxi-column>
+  <dxi-column dataField="entityType" dataType="string"></dxi-column>
+  <dxi-column dataField="practiceLocationAddress" dataType="string"></dxi-column>
+  <dxi-column dataField="practiceLocationAddressCityName" dataType="string"></dxi-column>
+  <dxi-column dataField="practiceLocationAddressStateName" dataType="string"></dxi-column>
+  <dxi-column dataField="practiceLocationAddressPostalCode" dataType="string"></dxi-column>
+  <dxo-selection mode="single"></dxo-selection>
+    <dxo-filter-row [visible]="true"></dxo-filter-row>
+    <dxo-master-detail [enabled]="true" template="detail"></dxo-master-detail>
+</dx-data-grid>
+<dx-data-grid
+  [dataSource]="careTeamAdditionalInformation"
+  [showBorders]="true"
+  [columnAutoWidth]="true"
+>
+  <dxi-column dataField="npi" dataType="string"></dxi-column>
+  <dxi-column dataField="taxonomyCode1" dataType="string"></dxi-column>
+  <dxi-column dataField="taxonomy1" dataType="string"></dxi-column>
+  <dxi-column dataField="licenseNumber1" dataType="string"></dxi-column>
+  <dxi-column dataField="taxonomyCode2" dataType="string"></dxi-column>
+  <dxi-column dataField="taxonomy2" dataType="string"></dxi-column>
+  <dxi-column dataField="licenseNumber2" dataType="string"></dxi-column>
+  <dxi-column dataField="taxonomyCode3" dataType="string"></dxi-column>
+  <dxi-column dataField="taxonomy3" dataType="string"></dxi-column>
+  <dxi-column dataField="licenseNumber3" dataType="string"></dxi-column>
+  <dxi-column dataField="taxonomyCode4" dataType="string"></dxi-column>
+  <dxi-column dataField="taxonomy4" dataType="string"></dxi-column>
+  <dxi-column dataField="licenseNumber4" dataType="string"></dxi-column>
+  <dxo-selection mode="single"></dxo-selection>
+    <dxo-filter-row [visible]="true"></dxo-filter-row>
+    <dxo-master-detail [enabled]="true" template="detail"></dxo-master-detail>
+</dx-data-grid>

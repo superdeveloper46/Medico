@@ -1,0 +1,630 @@
+<!-- <div *ngIf="admission">
+  <div *ngIf="admission.admissionData">
+    {{
+      this.patientChartRootNode.children[0].children[3].children[0].value | json
+    }}
+  </div>
+</div> -->
+<div class="row mt-2">
+  <div class="col-md-12">
+    <patient-chart-header
+      [patientChartHeaderData]="patientChartHeaderData"
+      [appointment]="appointment"
+      (outPatientInfo)="setPatientInfo($event)"
+      (outVitalSignsFromExpressions)="setVitalSignsForReport($event)"
+    >
+    </patient-chart-header>
+  </div>
+</div>
+<div
+  *ngIf="isPatientChartVisible && isPatientChartPreAuth && isPatientAuditChart"
+  class="row mt-1"
+>
+  <div
+    *ngIf="showPatientChartLeftColumn"
+    class="col-md-3"
+  >
+    <div class="d-flex justify-content-between align-items-center pt-1 pb-1 border-top border-bottom">
+      <div
+        *ngIf="!isAdmissionSignedOff"
+        class="w-25 p-1"
+      >
+        <button
+          title="Edit chart documents"
+          (click)="openDocumentNodesManagementPopup()"
+          class="btn btn-sm btn-outline-secondary w-100"
+        >
+          <em class="fas fa-edit"></em>
+        </button>
+      </div>
+      <div class="w-25 p-1">
+        <button
+          title="Report"
+          (click)="makeReport()"
+          class="btn btn-sm btn-outline-secondary w-100"
+        >
+          <em class="fas fa-file-alt"></em>
+        </button>
+      </div>
+      <div
+        *ngIf="!isAdmissionSignedOff"
+        class="w-25 p-1"
+      >
+        <button
+          title="Sign Off"
+          (click)="signOff(false)"
+          class="btn btn-sm btn-outline-danger w-100"
+        >
+          <em class="fas fa-signature"></em>
+        </button>
+      </div>
+      <div
+        *ngIf="isAdmissionSignedOff"
+        class="w-25 p-1"
+      >
+        <button
+          title="Unsign"
+          (click)="signOff(true)"
+          class="btn btn-sm btn-outline-danger w-100"
+        >
+          <em class="fas fa-lock-open"></em>
+        </button>
+      </div>
+    </div>
+
+    <div class="d-flex justify-content-between align-items-center pt-1 pb-1 border-bottom">
+      <div
+        class="w-25 p-1"
+        (click)="openStatusPopup()"
+      >
+        <div style="
+            border: solid 1px #56ca85;
+            color: #56ca85;
+            padding: 6px 7px;
+            text-align: center;
+            text-transform: uppercase;
+            font-size: 11px;
+            font-weight: 600;
+            border-radius: 5px;
+            cursor: pointer;
+            height: 31px;
+          ">
+          <span> {{ appointment?.appointmentStatus }}</span>
+        </div>
+      </div>
+      <div
+        class="w-25 p-1"
+        (click)="preAuth()"
+      >
+        <div style="
+            border: solid 1px #5d69da;
+            color: #5d69da;
+            padding: 6px 7px;
+            text-align: center;
+            text-transform: uppercase;
+            font-size: 11px;
+            font-weight: 600;
+            border-radius: 5px;
+            cursor: pointer;
+            height: 31px;
+          ">
+          <span> Pre Auth</span>
+        </div>
+      </div>
+      <div class="w-25 p-1">
+        <button
+          title="Audit Report"
+          (click)="auditChart()"
+          class="btn btn-sm btn-outline-secondary w-100"
+        >
+          <em class="fas fa-history"></em>
+        </button>
+      </div>
+    </div>
+
+
+    <div class="d-flex justify-content-between align-items-center pt-1 pb-1 border-bottom">
+      <div class="w-100 p-1">
+        <div
+          (click)="togglePatientAdmissionInfoView()"
+          class="d-flex justify-content-between"
+          style="cursor: pointer"
+        >
+          <small>Admission Info</small>
+          <i
+            *ngIf="!showPatientAdmissionInfo"
+            class="fa fa-chevron-down"
+          ></i>
+          <i
+            *ngIf="showPatientAdmissionInfo"
+            class="fa fa-chevron-up"
+          ></i>
+        </div>
+        <div *ngIf="showPatientAdmissionInfo">
+          <div class="row ">
+            <div class="col-6">
+              <small *ngIf="admission?.createdDate !== '0001-01-01T00:00:00'">Created on:
+                <strong>{{
+                  admission?.createdDate | datex: 'DD MMM YY HH:mm:ss'
+                  }}</strong> </small><br />
+              <small *ngIf="admission?.modifiedDate !== '0001-01-01T00:00:00'">Last Modified:
+                <strong>{{ admission?.modifiedDate | datex: 'DD MMM YY HH:mm:ss' }}</strong>
+              </small>
+              <div><small>Content Status: <strong>{{selectedPatientChartNode ?
+                    selectedPatientChartNode.attributes['nodeSpecificAttributes']['editStatus'] : ''}}</strong></small>
+              </div>
+              <div><small>Content Status: <strong>{{showReason()}}</strong></small></div>
+              <!-- <small>{{appointment}}</small> -->
+            </div>
+            <div class="col-6 align-self-end justify-content-end ">
+              <div style="min-width: 100px">
+                <div class="p-1 d-flex justify-content-end align-items-center border-bottom">
+                  <div
+                    class="p-1 border border-secondary rounded"
+                    style="
+                          width:128px;
+                          height: 34px;
+                        "
+                  >
+                    <div class="dx-field">
+                      <div
+                        class="dx-field-label"
+                        style="
+                              padding: 2px 7px 1px 7px;
+                              text-align: center;
+                            "
+                      >
+                        View
+                      </div>
+                      <div class="dx-field-value">
+                        <dx-switch
+                          (onValueChanged)="toggleView($event)"
+                          [(value)]="isPatientChartView"
+                          (hoverStateEnabled)=true
+                          switchedOnText="Audit"
+                          switchedOffText="Default"
+                          style="
+                                width: 64px;
+                                margin: 0px;
+                                height: 21px;
+                              "
+                        ></dx-switch>
+                      </div>
+                    </div>
+                  </div>
+
+                </div>
+                <!-- <div>
+                  <div class="dx-field">
+                   <div class="dx-field-label">
+                    Audit
+                  </div>
+                    <div class="dx-field-value" style="padding: 0px 89px 0px 0px">
+                              <dx-switch
+                                (onValueChanged)="auditChanged($event)"
+                                [(value)]="switch"
+                              ></dx-switch>
+                            </div>
+                  </div>
+                </div> -->
+                <div style="vertical-align: middle; margin: 7px; ">
+                  <span
+                    style="background-color: {{chartColors.noContentChanged}}; border: solid 3px {{chartColors.noContentChanged}}"
+                    class="dot mb-mt-1"
+                  ></span>&nbsp; <span>No Content Change</span><br />
+                </div>
+                <div style="vertical-align: middle; margin: 7px">
+                  <span
+                    style="background-color: {{chartColors.updated}}; border: solid 3px {{chartColors.updated}}"
+                    class="dot mb-mt-1"
+                  ></span>&nbsp; <span>Content Updated</span><br />
+                </div>
+                <div style="vertical-align: middle; margin: 7px">
+                  <span
+                    style="background-color: {{chartColors.defaultOrIncomplete}}; border: solid 3px {{chartColors.defaultOrIncomplete}}"
+                    class="dot mb-mt-1"
+                  ></span>&nbsp; <span>Default Or Incomplete</span><br />
+                </div>
+                <div style="vertical-align: middle; margin: 7px">
+                  <span
+                    style="background-color: {{chartColors.abnormal}}; border: solid 3px {{chartColors.abnormal}}"
+                    class="dot mb-mt-1"
+                  ></span>&nbsp; <span>Abnormal Values</span><br />
+                </div>
+                <div>
+                  <!-- <button
+                            type="button"
+                            (click)="refreshChart()"
+                            class="btn btn-sm btn-outline-primary"
+                          >
+                            Refresh
+                          </button> -->
+                </div>
+              </div>
+            </div>
+            <div class="col-12">
+              <hr />
+              <div class="text-center">
+                <a
+                  (click)="showTimeline()"
+                  style="padding-left: 20px; cursor: pointer; font-size: 14px"
+                >Timeline</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- <div class="w-100 p-1 text-center">
+        <a
+          (click)="showTimeline()"
+          style="padding-left: 20px; cursor: pointer; font-size: 14px"
+        >Timeline</a>
+      </div> -->
+    </div>
+
+    <div class="mt-2">
+      <br />
+      <div class="row">
+        <div class="col-md-6">
+          <div class="dx-field">
+            <dx-date-box
+              [value]="from"
+              (onValueChanged)="handleValueChange1($event)"
+              type="date"
+            >
+            </dx-date-box>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="dx-field">
+            <dx-date-box
+              [value]="now"
+              (onValueChanged)="handleValueChange($event)"
+              type="date"
+            >
+            </dx-date-box>
+          </div>
+        </div>
+        <div class="col-md-12">
+          <div class="dx-field">
+            <dx-select-box
+              [items]="sortDates"
+              [value]="dateDirection"
+              (onValueChanged)="onSortDateChanged($event)"
+            >
+            </dx-select-box>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="dx-field">
+            <dx-number-box
+              [value]="quantity"
+              [min]="1"
+              [showSpinButtons]="true"
+              (onValueChanged)="onLimitChanged($event)"
+            ></dx-number-box>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="dx-field">
+            <dx-select-box
+              [items]="sortItems"
+              [value]="sortDirection"
+              (onValueChanged)="onSortChanged($event)"
+            >
+            </dx-select-box>
+          </div>
+        </div>
+      </div>
+      <hr />
+      <a
+        (click)="showPhysicianViewer()"
+        style="padding-left: 20px; cursor: pointer; font-size: 14px"
+      >Physician
+        Viewer</a>
+      <br />
+      <a
+        (click)="showLabOrderViewer()"
+        style="padding-left: 20px; cursor: pointer; font-size: 14px"
+      >Patient Orders</a>
+      <br />
+      <a
+        (click)="showPatientNotesViewer()"
+        style="padding-left: 20px; cursor: pointer; font-size: 14px"
+      >Patient
+        Notes</a>
+      <br />
+      <a
+        (click)="showPatientMessageViewer()"
+        style="padding-left: 20px; cursor: pointer; font-size: 14px"
+      >Patient
+        Messages</a>
+      <br />
+      <dx-tree-view
+        width="100%"
+        #treeView
+        id="patient-data-treeview"
+        [dataSource]="patientChartProjectionTree"
+        (onItemClick)="selectPatientChartNode($event)"
+        height="75vh"
+      >
+        <div
+          [ngStyle]="colorTitles(data)"
+          *dxTemplate="let data of 'item'"
+        >
+          <span [ngClass]="{ selected: isNodeOpened(data.id) }">{{ data.text }}</span>
+          <i
+            *ngIf="data.editable"
+            class="fa fa-edit"
+            (click)="editNode($event, data)"
+          ></i>
+        </div>
+      </dx-tree-view>
+    </div>
+  </div>
+  <div class="col-md-9">
+    <html-outlet
+      [patientChartInfo]="patientChartInfo"
+      *ngIf="chartViewer"
+    > </html-outlet>
+    <!-- new patient chart view (audit) -->
+    <div
+      *ngIf="isPatientChartView"
+      class="row"
+    >
+      <app-patient-chart-audit-report
+        (reportHidden)="onReportHidden()"
+        [admission]="admission"
+        [savedVersionOfAdmissionData]="savedVersionOfAdmissionData"
+        [companyId]="companyId"
+        [patientChartTreeView]="patientChartProjectionTree.slice(1)"
+        [isPatientChartView]="isPatientChartView"
+        [chartColors]="chartColors"
+      >
+      </app-patient-chart-audit-report>
+    </div>
+
+    <!--physicianViewer-->
+    <app-physician-viewer
+      [companyId]="companyId"
+      [isSignedOff]="isAdmissionSignedOff"
+      [patientId]="appointment?.patientId"
+      *ngIf="physicianViewer"
+    ></app-physician-viewer>
+
+    <!--labOrderViewer-->
+    <app-patient-orders
+      [companyId]="companyId"
+      [isSignedOff]="isAdmissionSignedOff"
+      [appointmentId]="appointment?.id"
+      [patientId]="appointment?.patientId"
+      *ngIf="labOrderViewer"
+    ></app-patient-orders>
+
+    <!--patientNotesViewer-->
+
+    <!-- pre Auth Management -->
+    <!-- <app-pre-auth-management
+      [admission]="admission"
+      [companyId]="companyId"
+      [patientChartTreeView]="patientChartProjectionTree.slice(1)"
+      *ngIf="preAuthViewer"
+    ></app-pre-auth-management> -->
+
+    <app-patient-notes
+      [companyId]="companyId"
+      [isSignedOff]="isAdmissionSignedOff"
+      [appointmentId]="appointment?.id"
+      [patientId]="appointment?.patientId"
+      *ngIf="patientNotesViewer"
+    ></app-patient-notes>
+
+    <!--timelineViewer-->
+    <app-timeline
+      [companyId]="companyId"
+      [isSignedOff]="isAdmissionSignedOff"
+      [appointmentId]="appointment?.id"
+      [patientId]="appointment?.patientId"
+      [startDate]="from.toISOString()"
+      [endDate]="now.toISOString()"
+      *ngIf="timelineViewer"
+    ></app-timeline>
+
+
+    <!-- Patient Message -->
+    <app-notification
+      *ngIf="messageViewer"
+      [companyId]="companyId"
+      [appointmentId]="appointment?.id"
+      [patientId]="appointment?.patientId"
+      [startDate]="from.toISOString()"
+      [endDate]="now.toISOString()"
+    ></app-notification>
+  </div>
+</div>
+<div
+  *ngIf="!isPatientChartVisible"
+  class="row"
+>
+  <div class="col-md-12">
+    <!-- patientChartProjectionTree.slice(1): we need to skip adding previous charts to report -->
+    <patient-chart-report
+      (reportHidden)="onReportHidden()"
+      [admission]="admission"
+      [companyId]="companyId"
+      [patientChartTreeView]="patientChartProjectionTree.slice(1)"
+    >
+    </patient-chart-report>
+  </div>
+</div>
+<div
+  *ngIf="!isPatientChartPreAuth"
+  class="row"
+>
+  <div class="col-md-12">
+    <app-patient-chart-pre-auth
+      (reportHidden)="onReportHidden()"
+      [admission]="admission"
+      [companyId]="companyId"
+      [patientChartTreeView]="patientChartProjectionTree.slice(1)"
+    >
+    </app-patient-chart-pre-auth>
+  </div>
+</div>
+<div
+  *ngIf="!isPatientAuditChart"
+  class="row"
+>
+  <div class="col-md-12">
+    <app-patient-chart-audit-report
+      (reportHidden)="onReportHidden()"
+      [admission]="admission"
+      [savedVersionOfAdmissionData]="savedVersionOfAdmissionData"
+      [companyId]="companyId"
+      [patientChartTreeView]="patientChartProjectionTree.slice(1)"
+      [isPatientChartView]="isPatientChartView"
+      [chartColors]="chartColors"
+    >
+    </app-patient-chart-audit-report>
+  </div>
+</div>
+<dx-popup
+  class="popup"
+  [width]="900"
+  [height]="500"
+  [dragEnabled]="false"
+  [showTitle]="true"
+  title="Document Nodes Management"
+  [hideOnOutsideClick]="false"
+  [(visible)]="isDocumentNodesManagementPopupVisible"
+>
+  <div *dxTemplate="let data of 'content'">
+    <div *ngIf="isDocumentNodesManagementPopupVisible">
+      <document-list
+        #documentList
+        [companyId]="companyId"
+        [initialDocumentNodes]="documentNodes"
+      >
+      </document-list>
+    </div>
+    <div class="d-flex justify-content-between">
+      <button
+        type="button"
+        (click)="closeDocumentNodesManagementPopup()"
+        class="btn btn-sm btn-outline-danger"
+      >
+        CANCEL
+      </button>
+      <button
+        type="button"
+        (click)="createUpdatePatientChartDocumentNodes()"
+        class="btn btn-sm btn-outline-secondary"
+      >
+        SAVE
+      </button>
+    </div>
+  </div>
+</dx-popup>
+
+<!--Status-->
+<dx-popup
+  class="popup"
+  [width]="720"
+  [height]="500"
+  [dragEnabled]="false"
+  [showTitle]="true"
+  title="Status"
+  [hideOnOutsideClick]="false"
+  [(visible)]="isStatusPopupVisible"
+>
+  <div class="row">
+    <div class="col-md-12 mt-md-2">
+      <dx-form
+        #companyForm
+        [(formData)]="statusForm"
+        style="height: 275px"
+      >
+        <dxi-item itemType="tabbed">
+          <dxi-tab
+            [colCount]="1"
+            title="Appointment Status"
+          >
+            <dxi-item
+              [colSpan]="12"
+              dataField="appointmentStatus"
+              editorType="dxSelectBox"
+              [editorOptions]="{ dataSource: statusList }"
+            >
+              <dxi-validation-rule
+                type="required"
+                message="Status is required"
+              ></dxi-validation-rule>
+            </dxi-item>
+
+
+            <dxi-item
+              *ngIf="statusForm.appointmentStatus === 'Discharged'"
+              editorType="dxSelectBox"
+              dataField="Discharge Instructions"
+              [editorOptions]="{ dataSource: dischargeInstructionsList }"
+            >
+            </dxi-item>
+            <dxi-item
+              [colSpan]="12"
+              dataField="notes"
+              editorType="dxTextArea"
+              [editorOptions]="{ width: '100%', height: '90' }"
+            >
+            </dxi-item>
+
+            <dxi-item
+              *ngIf="statusForm.appointmentStatus === 'Discharged'"
+              editorType="dxCheckBox"
+              dataField="sendEmail"
+              text="Send Email"
+            >
+            </dxi-item>
+
+          </dxi-tab>
+        </dxi-item>
+      </dx-form>
+    </div>
+  </div>
+
+
+  <div class="row">
+    <div
+      class="col-md-12 text-center mt-md-1"
+      *ngIf="statusForm.appointmentStatus === 'Discharged'"
+    >
+      <!-- <div *ngIf="patientInfo.email?.length>0" style="border :dashed 1px #777;padding:5px 10px">
+        <span class="text-muted">Email will be sent to : {{patientInfo.email}} </span>
+      </div> -->
+      <div style="padding: 20px 5px">
+        <div class="settings">
+          <div class="column">
+            <div class="field">
+              <div class="label">Patient Email</div>
+              <div class="value">
+                <dx-text-box
+                  [(value)]="patientInfo.email"
+                  valueChangeEvent="keyup"
+                  [maxLength]="200"
+                  aria-placeholder="Enter Email"
+                ></dx-text-box>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-12 text-right mt-md-1">
+      <button
+        (click)="updateAppointmentStatus()"
+        class="btn btn-sm btn-outline-secondary"
+      >
+        SAVE
+      </button>
+    </div>
+  </div>
+</dx-popup>

@@ -1,0 +1,116 @@
+<div>
+  <div *ngIf="isPatientChartHeaderReady" class="row">
+    <div class="col-md-12">
+      <div class="d-flex h6">
+        <div class="p-2 bg-white">{{ dateOfService | date }}</div>
+        <div class="p-2 bg-secondary text-white border-white border-right">
+          <ng-container>
+            <div>
+              <i>{{ patientName }}</i>
+              <span id="patInfo" (click)="togglePatientInfoPopover()" class="pl-2">
+                <i [ngClass]="
+                    isPatientInfoPopoverVisible
+                      ? 'dx-icon-chevronup'
+                      : 'dx-icon-chevrondown'
+                  "></i>
+              </span>
+            </div>
+          </ng-container>
+        </div>
+        <div class="p-2 bg-secondary text-white border-white border-left border-right">
+          {{ patientDateOfBirth | date }}
+        </div>
+        <div class="p-2 bg-secondary text-white border-white border-left border-right">
+          {{ patientDateOfBirth | age }}
+        </div>
+        <div class="p-2 bg-secondary text-white border-white border-left border-right">
+          <!-- <span class="text-uppercase">height, </span><span>{{ vitalSignsFromExpression['Patient']['Height'] }}inch: -->
+          <!-- </span> -->
+          <span>{{ patientVitalSigns.height }}</span>
+        </div>
+        <div class="p-2 bg-secondary text-white border-white border-right border-left">
+          <!-- <span class="text-uppercase">weight, </span><span>{{ vitalSignsFromExpression['Patient']['Weight'] }}lbs:
+          </span> -->
+          <span>{{ patientVitalSigns.weight }}</span>
+        </div>
+        <div [ngClass]="vitalSignsColor('BMI')" class="p-2 text-white border-white border-right border-left">
+          <span title="{{ vitalSignsMessage('BMI') }}" class="mr-2"><em class="fas fa-info"></em></span>
+          <span class="">BMI, {{ vitalSignsValue('BMI')}}</span>
+        </div>
+        <div [ngClass]="vitalSignsColor('Pulse')" class="p-2 text-white border-white border-right border-left">
+          <span title="{{ vitalSignsMessage('Pulse') }}" class="mr-2"><em class="fas fa-info"></em></span>
+          <span class="">PULSE, {{ vitalSignsValue('Pulse')}} </span>
+        </div>
+        <div [ngClass]="vitalSignsColor('Systolic')" class="p-2 text-white border-white border-right border-left">
+          <span title="{{ vitalSignsMessage('Systolic') }}" class="mr-2"><em class="fas fa-info"></em></span>
+          <span class="">Systolic, {{ vitalSignsValue('Systolic')}}</span>
+        </div>
+        <div [ngClass]="vitalSignsColor('Diastolic')" class="p-2 text-white border-white border-right border-left">
+          <span title="{{ vitalSignsMessage('Diastolic') }}" class="mr-2"><em class="fas fa-info"></em></span>
+          <span class="">Diastolic, {{ vitalSignsValue('Diastolic')}}</span>
+        </div>
+        <div [ngClass]="vitalSignsColor('Resp')" class="p-2 text-white border-white border-right border-left">
+          <span title="{{ vitalSignsMessage('Resp') }}" class="mr-2"><em class="fas fa-info"></em></span>
+          <span class="">RESP, {{ vitalSignsValue('Resp')}} </span>
+        </div>
+        <div [ngClass]="vitalSignsColor('O2Sat')"
+          class="p-2 bg-secondary text-white border-white border-right border-left w-auto">
+          <span title="{{ vitalSignsMessage('O2Sat') }}" class="mr-2"><em class="fas fa-info"></em></span>
+          <span class="">O2 SAT, {{ vitalSignsValue('O2Sat') }}</span>
+        </div>
+        <div class="p-2 bg-secondary text-white border-white border-left">
+          <ng-container *ngIf="isPatientHaveAllergies">
+            <div>
+              <span class="text-uppercase">Allergies</span>
+              <span id="allergies" (click)="togglePatientAllergiesPopover()" class="pl-2">
+                <i [ngClass]="
+                    isPatientAllergiesPopoverVisible
+                      ? 'dx-icon-chevronup'
+                      : 'dx-icon-chevrondown'
+                  "></i>
+              </span>
+            </div>
+          </ng-container>
+
+          <ng-container *ngIf="!isPatientHaveAllergies">
+            <span>{{ allergiesDefaultValue }}</span>
+          </ng-container>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div *ngIf="!isPatientChartHeaderReady" class="row">
+    <div class="col-md-12 text-left">
+      <b>Loading...</b>
+    </div>
+  </div>
+</div>
+
+<!--Allergies Popover-->
+<dx-popover target="#allergies" position="bottom" [width]="300" [showTitle]="false"
+  [(visible)]="isPatientAllergiesPopoverVisible">
+  <div *dxTemplate="let data = model; of: 'content'">
+    <div *ngIf="!patientAllergies.length">
+      <h6>Patient have no allergies.</h6>
+    </div>
+    <div *ngIf="patientAllergies.length">
+      <div class="text-left margin-top-5" *ngFor="let allergy of patientAllergies; let i = index">
+        <p>{{ allergy }}</p>
+      </div>
+    </div>
+  </div>
+</dx-popover>
+
+<!--PatientInfo Popover-->
+<dx-popover target="#patInfo" position="bottom" [width]="720" [showTitle]="false"
+  [(visible)]="isPatientInfoPopoverVisible">
+  <div *dxTemplate="let data = model; of: 'content'">
+    <div>
+      <h6>Patient Info</h6>
+    </div>
+    <div>
+      <patient-info [patientId]="patient.id" [companyId]="patient.companyId" [appointment]="appointment"
+        (notifyParent)="patientUpdated($event)"></patient-info>
+    </div>
+  </div>
+</dx-popover>

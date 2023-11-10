@@ -1,0 +1,23 @@
+<dx-popup
+  #detailedTemplatePreviewPopup
+  class="popup"
+  [width]="900"
+  [height]="600"
+  [visible]="true"
+  [showTitle]="true"
+  title="Preview mode for detailed template"
+  (onHidden)="onDetailedTemplatePreviewPopupHidden()"
+  (onShown)="isPreviewPopupContentReady = true"
+  [dragEnabled]="false"
+>
+  <div *dxTemplate="let data of 'content'">
+    <selectable-items-editor
+      *ngIf="isPreviewPopupContentReady"
+      [templateContent]="detailedTemplateContent"
+      (contentChanged)="onContentChanged($event)"
+      [expressions]="expressions"
+      [companyId]="companyId"
+    >
+    </selectable-items-editor>
+  </div>
+</dx-popup>

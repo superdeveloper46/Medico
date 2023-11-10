@@ -1,0 +1,44 @@
+<div class="col-md-6 py-3 d-flex">
+    <dx-form #IncludeExcludeForm [(formData)]="formData">
+        <dxi-item
+            [label]="{ text: 'Domain or Email' }"
+            dataField="value"
+            [editorOptions]="{ width: '100%' }"
+            >
+            <dxi-validation-rule type="required" message="This field is required">
+            </dxi-validation-rule>
+        </dxi-item>
+    </dx-form>
+    <dx-button
+        class="Save ml-2"
+        icon="fas fa-plus"
+        text="Add"
+        (onClick)="save()"
+    >
+    </dx-button>
+</div>
+
+<div class="col-md-6">
+    <table class="table">
+        <thead>
+            <tr>
+            <th scope="col">Domain or Email</th>
+            <th scope="col">Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let data of lists" class="not-data">
+                <td>{{data.value}}</td>
+                <td>
+                    <button
+                        type="button"
+                        class="btn btn-outline-danger"
+                        (click)="deleteList(data.id)"
+                    >
+                        <i class="fas fa-trash"></i>
+                    </button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+  </div>

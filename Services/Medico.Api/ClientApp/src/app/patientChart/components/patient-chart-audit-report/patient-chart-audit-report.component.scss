@@ -1,0 +1,10 @@
+.pointer {
+  cursor: pointer;
+}
+._strength0 {
+  border: 1px solid yellow;
+  li:last-child {
+    border: 1px solid red;
+    color: red;
+  }
+}

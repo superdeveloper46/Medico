@@ -1,0 +1,29 @@
+<div class="row mt-md-2">
+  <div class="col-md-6">
+    <h5>Appointment Status Colors</h5>
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col">Appointment Status</th>
+          <th scope="col">Color</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let appointmentStatus of allAppointmentStatuses; let i = index">
+          <th>{{ appointmentStatus['value'] }}</th>
+          <td>
+            <dx-color-box 
+              value={{getAppointmentStatusColor(appointmentStatus.value)}}
+              id={{appointmentStatus.value}}
+              (onValueChanged)="onColorChange($event)">
+            </dx-color-box>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <dx-button
+      text="Save"
+      (onClick)="saveAppointmentStatusColors()">
+    </dx-button>
+  </div>
+</div>

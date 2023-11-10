@@ -1,0 +1,51 @@
+<div class="col-md-6 py-2">
+    <div class="col-md-12 p-2">
+        <dx-form #fileNameConventionForm [(formData)]="formData" >
+            <dxi-item
+                [label]="{ text: 'Location Code' }"
+                dataField="locationCode"
+                [editorOptions]="{ width: '100%' }"
+                >
+                <dxi-validation-rule type="required" message="This field is required">
+                </dxi-validation-rule>
+            </dxi-item>
+            <dxi-item
+                [label]="{ text: 'File Name' }"
+                dataField="fileName"
+                [editorOptions]="{ width: '100%' }"
+                >
+                <dxi-validation-rule type="required" message="This field is required">
+                </dxi-validation-rule>
+            </dxi-item>
+            <dxi-item
+                [label]="{ text: 'Date' }"
+                dataField="date"
+                editorType="dxDateBox"
+                [editorOptions]="{ width: '100%' }"
+                >
+                <dxi-validation-rule type="required" message="This field is required">
+                </dxi-validation-rule>
+            </dxi-item>
+            <dxi-item
+                [label]="{ text: 'File Type' }"
+                dataField="fileType"
+                editorType="dxSelectBox"
+                [editorOptions]="{ dataSource: fileTypes, displayExpr: 'value', valueExpr: 'value' }"
+                >
+                <dxi-validation-rule type="required" message="This field is required">
+                </dxi-validation-rule>
+            </dxi-item>
+        </dx-form>
+    </div>
+    <div class="col-md-12 p-2">
+        <div class="dx-field-value">
+            <dx-button
+                class="Save"
+                icon="fas fa-save"
+                text="Save"
+                (onClick)="save()"
+                >
+            </dx-button>
+        </div>
+    </div>
+</div>

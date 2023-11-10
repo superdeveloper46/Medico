@@ -1,0 +1,337 @@
+<div class="row">
+  <div class="col-md-10">
+    <div *ngIf="!isSignedOff">
+      <button
+        type="button"
+        (click)="openBaseVitalSignsForm()"
+        class="btn btn-sm btn-outline-secondary"
+      >
+        {{ isNewBaseVitalSigns ? 'FILL VITAL SIGNS' : 'MODIFY VITAL SIGNS' }}
+      </button>
+    </div>
+
+    <div class="mt-md-3">
+      <dx-accordion
+        #accordion
+        [dataSource]="accordions"
+        [collapsible]="true"
+        [multiple]="false"
+        [animationDuration]="300"
+        [selectedItems]="[accordions[0]]"
+      >
+        <div *dxTemplate="let company of 'title'">
+          <h6 *ngIf="company.ID === 1">Base Vital Signs</h6>
+          <h6 *ngIf="company.ID === 2">Vital Signs History</h6>
+        </div>
+
+        <div>
+          <div *dxTemplate="let company of 'item'">
+            <div *ngIf="company.ID === 1">
+              <table class="table table-bordered mt-3">
+                <thead class="thead-light">
+                  <tr>
+                    <th class="text-center" scope="col">Date/Time</th>
+                    <th class="text-center" scope="col">Weight, {{ weightUnit }}</th>
+                    <th class="text-center" scope="col">Height, {{ distanceUnit }}</th>
+                    <th class="text-center" scope="col">BMI, %</th>
+                    <th class="text-center" scope="col">Dominant Hand</th>
+                    <th class="text-center" scope="col">Oxygen, lpm</th>
+                    <th
+                      *ngIf="isHeadCircumferenceEnabled"
+                      class="text-center"
+                      scope="col"
+                    >
+                      Head Circumference, {{ distanceUnit }}
+                    </th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="text-center">
+                      {{ baseVitalSigns.createdOn | date: 'medium' }}
+                    </td>
+                    <td class="text-center">
+                      {{ baseVitalSigns.weight | weight: 'lbs':weightUnit }}
+                    </td>
+                    <td class="text-center">
+                      {{ baseVitalSigns.height | distance: 'inches':distanceUnit }}
+                    </td>
+                    <td class="text-center">{{ bmi | notSet }}</td>
+                    <td class="text-center">
+                      {{ baseVitalSigns.dominantHand | notSet }}
+                    </td>
+                    <td class="text-center">
+                      {{ oxygenUseInfo }}
+                    </td>
+                    <td *ngIf="isHeadCircumferenceEnabled" class="text-center">
+                      {{ baseVitalSigns.headCircumference | distance: 'cm':distanceUnit }}
+                      }}
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div *ngIf="company.ID === 2">
+              <table class="table table-bordered mt-3">
+                <thead class="thead-light">
+                  <tr>
+                    <th class="text-center" scope="col">Date/Time</th>
+                    <th class="text-center" scope="col">Weight, {{ weightUnit }}</th>
+                    <th class="text-center" scope="col">Height, {{ distanceUnit }}</th>
+                    <th class="text-center" scope="col">BMI, %</th>
+                    <th class="text-center" scope="col">Dominant Hand</th>
+                    <th class="text-center" scope="col">Oxygen, lpm</th>
+                    <th
+                      *ngIf="isHeadCircumferenceEnabled"
+                      class="text-center"
+                      scope="col"
+                    >
+                      Head Circumference, {{ distanceUnit }}
+                    </th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let item of history">
+                    <td class="text-center">{{ item.createdOn | date: 'medium' }}</td>
+                    <td class="text-center">
+                      {{ item.weight | weight: 'lbs':weightUnit }}
+                    </td>
+                    <td class="text-center">
+                      {{ item.height | distance: 'inches':distanceUnit }}
+                    </td>
+                    <td class="text-center">{{ calcBmi(item.height, item.weight) }}</td>
+                    <td class="text-center">{{ item.dominantHand | notSet }}</td>
+                    <td class="text-center">
+                      {{ item.oxygenAmount }}/{{ item.oxygenUse }}
+                    </td>
+                    <td *ngIf="isHeadCircumferenceEnabled" class="text-center">
+                      {{ item.headCircumference | distance: 'cm':distanceUnit }}
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+              <hr />
+              <table class="table table-bordered mt-3">
+                <thead class="thead-light">
+                  <tr>
+                    <th class="text-center" scope="col">Date/Time</th>
+                    <th class="text-center" scope="col">Calf(L/R)</th>
+                    <th class="text-center" scope="col">Thigh(L/R)</th>
+                    <th class="text-center" scope="col">Bicep(L/R)</th>
+                    <th class="text-center" scope="col">Forearm(L/R)</th> 
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let item of history">
+                    <td class="text-center">{{ item.createdOn | date: 'medium' }}</td>
+                    <td class="text-center">
+                      {{ item.leftCalf | notSet }}/{{ item.rightCalf | notSet }}
+                    </td>
+                    <td class="text-center">
+                      {{ item.leftThigh | notSet }}/{{ item.rightThigh | notSet }}
+                    </td>
+                    <td class="text-center">
+                      {{ item.leftBicep }}/{{ item.rightBicep | notSet }}
+                    </td>
+                    <td class="text-center">
+                      {{ item.leftForearm | notSet }}/{{ item.rightForearm | notSet }}
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+              
+            </div>
+          </div>
+        </div>
+      </dx-accordion>
+    </div>
+
+    <table class="table table-bordered mt-5">
+      <thead class="thead-light">
+        <tr>
+          <th class="text-center" scope="col">Location</th>
+          <th class="text-center" scope="col">Calf, {{ distanceUnit }}</th>
+          <th class="text-center" scope="col">Thigh, {{ distanceUnit }}</th>
+          <th class="text-center" scope="col">Forearm, {{ distanceUnit }}</th>
+          <th class="text-center" scope="col">Bicep, {{ distanceUnit }}</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <th class="text-center">Right</th>
+          <td class="text-center">
+            {{ baseVitalSigns.rightCalf | distance: 'cm':distanceUnit }}
+          </td>
+          <td class="text-center">
+            {{ baseVitalSigns.rightThigh | distance: 'cm':distanceUnit }}
+          </td>
+          <td class="text-center">
+            {{ baseVitalSigns.rightForearm | distance: 'cm':distanceUnit }}
+          </td>
+          <td class="text-center">
+            {{ baseVitalSigns.rightBicep | distance: 'cm':distanceUnit }}
+          </td>
+          
+        </tr>
+        <tr>
+          <th class="text-center">Left</th>
+          <td class="text-center">
+            {{ baseVitalSigns.leftCalf | distance: 'cm':distanceUnit }}
+          </td>
+          <td class="text-center">
+            {{ baseVitalSigns.leftThigh | distance: 'cm':distanceUnit }}
+          </td>
+          <td class="text-center">
+            {{ baseVitalSigns.leftForearm | distance: 'cm':distanceUnit }}
+          </td>
+          <td class="text-center">
+            {{ baseVitalSigns.leftBicep | distance: 'cm':distanceUnit }}
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+<dx-popup
+  #baseVitalSignsPopup
+  class="popup"
+  [width]="900"
+  [height]="580"
+  [dragEnabled]="false"
+  [showTitle]="true"
+  [title]="'BASE VITAL SIGNS'"
+  [hideOnOutsideClick]="false"
+  [(visible)]="isBaseVitalSignsPopupOpened"
+  (onDisposing)="onBaseVitalSignsPopupDisposing()"
+>
+  <div *dxTemplate="let data of 'content'">
+    <div class="row">
+      <div class="col-md-12">
+        <dx-form
+          [(formData)]="baseVitalSignsCopy"
+          [height]="460"
+          [colCount]="12"
+          labelLocation="top"
+        >
+          <dxi-item
+            [label]="{ text: 'Weight, lbs' }"
+            [colSpan]="2"
+            dataField="weight"
+            editorType="dxNumberBox"
+          >
+          </dxi-item>
+          <dxi-item
+            [label]="{ text: 'Height, inches' }"
+            [colSpan]="2"
+            dataField="height"
+            editorType="dxNumberBox"
+          ></dxi-item>
+          <dxi-item
+            [colSpan]="isHeadCircumferenceEnabled ? 5 : 8"
+            dataField="dominantHand"
+            editorType="dxSelectBox"
+            [editorOptions]="{ dataSource: dominantHand }"
+          ></dxi-item>
+          <dxi-item
+            *ngIf="isHeadCircumferenceEnabled"
+            [colSpan]="3"
+            [label]="{ text: 'Head Circumference, cm' }"
+            dataField="headCircumference"
+            editorType="dxNumberBox"
+          ></dxi-item>
+
+          <dxi-item [colSpan]="12" [colCount]="12" itemType="group" caption="RIGHT:">
+            <dxi-item
+              [label]="{ text: 'Bicep, cm' }"
+              [colSpan]="3"
+              dataField="rightBicep"
+              editorType="dxNumberBox"
+            ></dxi-item>
+            <dxi-item
+              [label]="{ text: 'Forearm, cm' }"
+              [colSpan]="3"
+              dataField="rightForearm"
+              editorType="dxNumberBox"
+            ></dxi-item>
+            <dxi-item
+              [label]="{ text: 'Thigh, cm' }"
+              [colSpan]="3"
+              dataField="rightThigh"
+              editorType="dxNumberBox"
+            ></dxi-item>
+            <dxi-item
+              [label]="{ text: 'Calf, cm' }"
+              [colSpan]="3"
+              dataField="rightCalf"
+              editorType="dxNumberBox"
+            ></dxi-item>
+            <dxi-column
+              [width]="8 + '%'"
+              alignment="center"
+              caption="Delete"
+              cellTemplate="deleteTemplate"
+            ></dxi-column>
+          </dxi-item>
+
+          <dxi-item [colSpan]="12" [colCount]="12" itemType="group" caption="LEFT:">
+            <dxi-item
+              [label]="{ text: 'Bicep, cm' }"
+              [colSpan]="3"
+              dataField="leftBicep"
+              editorType="dxNumberBox"
+            ></dxi-item>
+            <dxi-item
+              [label]="{ text: 'Forearm, cm' }"
+              [colSpan]="3"
+              dataField="leftForearm"
+              editorType="dxNumberBox"
+            ></dxi-item>
+            <dxi-item
+              [label]="{ text: 'Thigh, cm' }"
+              [colSpan]="3"
+              dataField="leftThigh"
+              editorType="dxNumberBox"
+            ></dxi-item>
+            <dxi-item
+              [label]="{ text: 'Calf, cm' }"
+              [colSpan]="3"
+              dataField="leftCalf"
+              editorType="dxNumberBox"
+            ></dxi-item>
+          </dxi-item>
+
+          <dxi-item
+            [label]="{ text: 'Is Oxygen Use' }"
+            [colSpan]="3"
+            dataField="isOxygenUse"
+            editorType="dxCheckBox"
+          ></dxi-item>
+
+          <dxi-item *ngIf="baseVitalSignsCopy.isOxygenUse" itemType="group" [colSpan]="6" [colCount]="2">
+            <dxi-item
+              [label]="{ text: 'Use' }"
+              [colSpan]="3"
+              dataField="oxygenAmount"
+              editorType="dxNumberBox"
+            ></dxi-item>
+            <dxi-item
+              [colSpan]="3"
+              dataField="oxygenUse"
+              editorType="dxSelectBox"
+              [editorOptions]="{ dataSource: oxygenUseListValues }"
+            ></dxi-item>
+          </dxi-item>
+        </dx-form>
+      </div>
+      <div class="col-md-12 text-right mt-md-2">
+        <button
+          type="button"
+          (click)="createUpdateBaseVitalSigns()"
+          class="btn btn-sm btn-outline-secondary"
+        >
+          SAVE
+        </button>
+      </div>
+    </div>
+  </div>
+</dx-popup>

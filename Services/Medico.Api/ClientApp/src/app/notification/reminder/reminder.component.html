@@ -1,0 +1,18 @@
+<div class="row mt-2">
+  <div class="col-md-12">
+    <!-- <dx-scheduler #reminderScheduler [dataSource]="reminderData" [views]='["day", "week", "month"]' currentView="day"
+            [currentDate]="currentDate" [firstDayOfWeek]="0" [crossScrollingEnabled]="true"
+            [showAllDayPanel]="false" height="100vh">
+        </dx-scheduler> -->
+    <dx-scheduler
+      timeZone="America/Los_Angeles"
+      [dataSource]="reminderData"
+      [views]="['day', 'week', 'month']"
+      currentView="day"
+      [currentDate]="currentDate"
+      [startDayHour]="08"
+      height="100vh"
+    >
+    </dx-scheduler>
+  </div>
+</div>

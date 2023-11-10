@@ -1,0 +1,91 @@
+<div id="template-type-form-popup" *dxTemplate="let data of 'content'">
+  <div class="row">
+    <div class="col-md-12">
+      <dx-form
+        [colCount]="1"
+        [height]="150"
+        #duplicateTemplateForm
+        [(formData)]="duplicateTemplateType"
+        (onFieldDataChanged)="onTemplateFormFieldChanged($event)"
+      >
+        <dxi-item itemType="group" [colCount]="2">
+          <dxi-item [colSpan]="6" dataField="newTitle">
+            <dxi-validation-rule
+              type="required"
+              message="Title is required"
+            ></dxi-validation-rule>
+            <!-- <dxi-validation-rule type="custom" [validationCallback]="validateDuplicateTitleExistence">
+                            </dxi-validation-rule> -->
+            <dxi-validation-rule
+              type="pattern"
+              [pattern]="regexRuleList.alphabeticAndSpace"
+              message="Title can contain only alphabetic symbols and spaces"
+            ></dxi-validation-rule>
+          </dxi-item>
+          <dxi-item
+            [colSpan]="6"
+            dataField="copyFrom"
+            editorType="dxSelectBox"
+            [editorOptions]="{
+              width: '100%',
+              height: '35',
+              items: templateTypes,
+              displayExpr: 'title',
+              valueExpr: 'id'
+            }"
+          >
+          </dxi-item>
+        </dxi-item>
+        <dxi-item itemType="group" [colCount]="1">
+          <dxi-item
+            [label]="{ text: 'Offices' }"
+            dataField="companies"
+            editorType="dxTagBox"
+            [editorOptions]="{
+              dataSource: companiesList,
+              showClearButton: true,
+              displayExpr: 'name',
+              valueExpr: 'id'
+            }"
+          >
+          </dxi-item>
+        </dxi-item>
+      </dx-form>
+    </div>
+    <div class="col-md-12">
+      <div style="height: 300px; overflow: auto">
+        <dx-data-grid
+          [hoverStateEnabled]="true"
+          [wordWrapEnabled]="true"
+          [dataSource]="_filteredTemplates"
+          [showBorders]="true"
+          [showRowLines]="true"
+          (onSelectionChanged)="templateSelected($event)"
+        >
+          <dxi-column
+            caption="Template Title"
+            dataField="title"
+            dataType="string"
+            [allowEditing]="false"
+            [visible]="true"
+          >
+          </dxi-column>
+          <dxi-column dataField="version" dataType="string" [allowSorting]="false">
+          </dxi-column>
+          <dxi-column dataField="id" [visible]="false" [allowSorting]="false">
+          </dxi-column>
+          <dxo-selection mode="multiple"></dxo-selection>
+        </dx-data-grid>
+      </div>
+    </div>
+    <div class="col-md-12 text-right mt-md-3">
+      <button
+        type="button"
+        (click)="createDuplicateTemplate()"
+        class="btn btn-sm btn-outline-secondary"
+      >
+        CREATE DUPLICATE
+      </button>
+    </div>
+  </div>
+</div>

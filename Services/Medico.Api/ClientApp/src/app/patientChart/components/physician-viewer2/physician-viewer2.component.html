@@ -1,0 +1,221 @@
+<div class="row">
+  <div class="col-md-12">
+    <h5>Physician Viewer</h5>
+    <br />
+  </div>
+  <div class="col-md-12">
+    <dx-tabs
+      [dataSource]="companyManagementTabs"
+      [selectedIndex]="selectedTabIndex"
+      (onItemClick)="onTabSelect($event)"
+    >
+    </dx-tabs>
+  </div>
+  <div class="col-md-12 mt-md-1">
+    <!--main docs tab-->
+    <div *ngIf="isTabVisible(0)">
+      <div class="row">
+        <div class="col-md-12" style="margin: 10px 0"></div>
+        <div class="col-md-12">
+          <dx-data-grid
+            [hoverStateEnabled]="true"
+            [wordWrapEnabled]="true"
+            [dataSource]="existingDocs"
+            [showBorders]="true"
+            [showRowLines]="true"
+            #patientDataGrid
+          >
+            <dxo-paging [pageSize]="searchConfiguration.pageSizeCount"></dxo-paging>
+            <dxo-pager
+              [showPageSizeSelector]="true"
+              [allowedPageSizes]="searchConfiguration.allowedPageSizes"
+            >
+            </dxo-pager>
+            <dxi-column
+              dataField="fileName"
+              dataType="string"
+              [allowSorting]="true"
+            ></dxi-column>
+            <dxi-column caption="Created Date" cellTemplate="dobTemplate"></dxi-column>
+            <dxi-column caption="Parsable" cellTemplate="parseTemplate"> </dxi-column>
+            <dxi-column
+              caption="Document Type"
+              cellTemplate="docTypeTemplate"
+            ></dxi-column>
+            <dxi-column caption="Download" cellTemplate="downTemplate"></dxi-column>
+            <dxi-column caption="Action" cellTemplate="actionTemplate"></dxi-column>
+
+            <!--dobTemplate-->
+            <div class="text-left" *dxTemplate="let dt of 'dobTemplate'">
+              <span> {{ dt.data.createDate | localDate }}</span>
+            </div>
+
+            <!--downTemplate-->
+            <div class="text-left" *dxTemplate="let d of 'downTemplate'">
+              <div style="padding: 20px auto; text-align: center">
+                <a target="_blank" href="{{ d.data.fileExt }}"> Download</a>
+              </div>
+            </div>
+
+            <!--parseTemplate-->
+            <div class="text-left" *dxTemplate="let parse of 'parseTemplate'">
+              <span
+                class="badge"
+                [ngClass]="{
+                  'badge-danger': parse.data.parserId === null,
+                  'badge-success': parse.data.parserId !== null
+                }"
+                >{{ parse.data.parserId === null ? 'No' : 'Yes' }}
+              </span>
+            </div>
+
+            <!--docTypeTemplate-->
+            <div class="text-left" *dxTemplate="let doc of 'docTypeTemplate'">
+              <dx-select-box
+                #searchDocSelectBox
+                [(value)]="documentType"
+                [dataSource]="documentationList"
+                valueExpr="description"
+                displayExpr="description"
+                [searchEnabled]="true"
+                [showClearButton]="true"
+              >
+              </dx-select-box>
+            </div>
+
+            <!--actionTemplate-->
+            <div class="text-left" *dxTemplate="let action of 'actionTemplate'">
+              <button
+                type="button"
+                (click)="addDocument(action.data)"
+                class="btn btn-sm btn-outline-success mr-2"
+              >
+                Add
+              </button>
+              <button
+                type="button"
+                (click)="saveDocument(true)"
+                class="btn btn-sm btn-outline-danger"
+              >
+                Delete
+              </button>
+            </div>
+            <dxo-selection mode="single"></dxo-selection>
+          </dx-data-grid>
+          <hr />
+          <div class="row mt-md-2">
+            <div *ngIf="physicianDoc.field_1 !== undefined" class="col-md-3 form-group">
+              <button
+                type="button"
+                (click)="saveDocument(true)"
+                class="btn btn-sm btn-outline-secondary"
+                style="margin-top: 35px"
+              >
+                SAVE
+              </button>
+            </div>
+          </div>
+          <div class="row mt-md-2">
+            <div *ngIf="physicianDoc.field_1 !== undefined" class="col-md-6">
+              <dx-data-grid
+                [hoverStateEnabled]="true"
+                [wordWrapEnabled]="true"
+                [dataSource]="keyPairDataSource"
+                [showBorders]="true"
+                [showRowLines]="true"
+                (onSelectionChanged)="handleChange($event)"
+              >
+                <dxo-remote-operations
+                  [sorting]="true"
+                  [filtering]="true"
+                  [paging]="true"
+                >
+                </dxo-remote-operations>
+
+                <dxi-column
+                  [width]="50"
+                  dataField="line"
+                  dataType="string"
+                  [allowSorting]="false"
+                >
+                </dxi-column>
+                <dxi-column
+                  dataField="value"
+                  dataType="string"
+                  [allowSorting]="false"
+                ></dxi-column>
+
+                <dxo-selection mode="multiple"></dxo-selection>
+                <dxo-filter-row [visible]="true"></dxo-filter-row>
+              </dx-data-grid>
+            </div>
+            <div
+              *ngIf="physicianDoc.field_1 !== undefined"
+              class="col-md-6"
+              style="height: 300px; overflow: auto"
+            >
+              <!-- <editor [(ngModel)]="selectedValues"
+            apiKey="70vneflf97p4mfopd7r652uz61jy0fo0eg80vy9ctk69p9fl" 
+            [init]="{
+              height: 500,
+              menubar: false,
+              plugins: [
+                'export lists table image powerpaste'
+              ],
+              menubar: true,
+              powerpaste_allow_local_images: true,
+              powerpaste_word_import: 'prompt',
+              powerpaste_html_import: 'prompt',
+              browser_spellcheck: true,
+              fontsize_formats: '8pt 10pt 12pt 14pt 18pt 24pt',
+              toolbar:
+                'export insertfile undo redo | fontsizeselect | styleselect  | \
+                bold italic | alignleft aligncenter alignright alignjustify | \
+                bullist numlist outdent indent | table | image'
+            }"></editor> -->
+              <dx-text-area
+                valueChangeEvent="keyup"
+                [(value)]="selectedValues"
+                height="120"
+              >
+              </dx-text-area>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!--main docs tab-->
+    <div *ngIf="isTabVisible(1)"></div>
+  </div>
+</div>
+
+<dx-popup
+  class="popup"
+  [width]="900"
+  [height]="600"
+  [dragEnabled]="false"
+  [showTitle]="true"
+  title="Add Patient Document"
+  [hideOnOutsideClick]="false"
+  [(visible)]="isDocumentPopupVisible"
+>
+  <div *dxTemplate="let data of 'content'">
+    <div></div>
+    <div class="d-flex justify-content-between">
+      <button
+        type="button"
+        (click)="closeDocumentNodesManagementPopup()"
+        class="btn btn-sm btn-outline-danger"
+      >
+        CANCEL
+      </button>
+      <button
+        type="button"
+        (click)="createUpdatePatientChartDocumentNodes()"
+        class="btn btn-sm btn-outline-secondary"
+      >
+        SAVE
+      </button>
+    </div>
+  </div>
+</dx-popup>

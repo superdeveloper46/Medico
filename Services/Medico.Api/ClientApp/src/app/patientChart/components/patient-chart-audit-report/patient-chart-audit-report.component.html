@@ -1,0 +1,96 @@
+<div class="row">
+  <div *ngIf="isPatientChartView; else auditView">
+    <div style="position:absolute">
+      <dx-tree-view
+        #patientChartTreeViewComponent
+        width="0%"
+        height="0%"
+      >
+      </dx-tree-view>
+    </div>
+  </div>
+  <ng-template #auditView>
+    <div class="col-md-2">
+      <dx-tree-view
+        #patientChartTreeViewComponent
+        width="100%"
+        height="80vh"
+        scrollDirection="vertical"
+        showCheckBoxesMode="normal"
+        (onItemSelectionChanged)="patientChartSectionSelectionChanged($event)"
+      >
+        <div *dxTemplate="let data of 'item'">
+          <span [ngClass]="{ 'required-node': data.isRequired }">{{ data.text }}</span>
+        </div>
+      </dx-tree-view>
+    </div>
+  </ng-template>
+  <div [ngClass]="isPatientChartView ? 'col-md-12' : 'col-md-10'">
+    <!-- <div class="col-md-10"> -->
+    <!-- <div class="mb-mt-2">
+            <button type="button" (click)="previewReport()" class="btn btn-sm btn-outline-secondary pull-right">Audit
+                Report</button>
+        </div> -->
+    <div
+      class="content"
+      style="margin-top: 10px"
+      hidden
+    >
+      <textarea id="{{ reportEditorId }}"></textarea>
+    </div>
+
+    <!-- Audit Report -->
+    <div>
+
+      <div
+        style="
+          width: 100%;
+          overflow: auto;
+          height: 80vh;
+          box-shadow: 0 -0.5rem 2rem rgba(0, 0, 0, 0.1) !important;
+        "
+        class="col-md-12 shadow p-3 mb-2 bg-white rounded"
+        [innerHtml]="parsedContent | safeHtml"
+      ></div>
+    </div>
+  </div>
+</div>
+<div
+  *ngIf="!isPatientChartView"
+  class="row mt-md-2 ml-5"
+>
+  <div class="offset-md-2 col-md-8 d-flex justify-content-between">
+    <button
+      type="button"
+      (click)="hideReport()"
+      class="btn btn-sm btn-outline-primary"
+    >
+      BACK TO CHART
+    </button>
+    <div>
+      <button
+        type="button"
+        (click)="generatePdfReport()"
+        class="btn btn-sm btn-outline-primary"
+      >
+        GENERATE REPORT
+      </button>
+    </div>
+  </div>
+</div>
+<dx-popup
+  #previewPopup
+  class="popup"
+  [width]="1300"
+  [dragEnabled]="false"
+  [showTitle]="true"
+  title="Preview"
+  [hideOnOutsideClick]="false"
+  [(visible)]="isPreview"
+  (onHiding)="popupHiding($event)"
+>
+  <html-outlet
+    [patientChartInfo]="patientChartInfo"
+    *ngIf="chartViewer"
+  > </html-outlet>
+</dx-popup>

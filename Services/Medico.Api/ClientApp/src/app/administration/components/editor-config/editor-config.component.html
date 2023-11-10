@@ -1,0 +1,45 @@
+<div class="row">
+  <div class="col-md-12 mt-md-2">
+    <dx-form #companyForm [(formData)]="configData">
+      <dxi-item itemType="tabbed">
+        <dxi-tab [colCount]="12" title="Editor Configuration">
+          <dxi-item
+            [colSpan]="4"
+            dataField="fontFamily"
+            editorType="dxSelectBox"
+            [editorOptions]="{
+              displayExpr: 'name',
+              valueExpr: 'value',
+              dataSource: fontFamilyList
+            }"
+          >
+            <dxi-validation-rule
+              type="required"
+              message="State is required"
+            ></dxi-validation-rule>
+          </dxi-item>
+
+          <dxi-item
+            [colSpan]="4"
+            dataField="fontSize"
+            editorType="dxSelectBox"
+            [editorOptions]="{
+              displayExpr: 'name',
+              valueExpr: 'value',
+              dataSource: fontSizeList
+            }"
+          >
+            <dxi-validation-rule type="required"></dxi-validation-rule>
+          </dxi-item>
+        </dxi-tab>
+      </dxi-item>
+    </dx-form>
+  </div>
+</div>
+<div class="row">
+  <div class="col-md-12 text-right mt-md-1">
+    <button type="button" (click)="saveEditorConfig()" class="btn btn-outline-secondary">
+      SAVE
+    </button>
+  </div>
+</div>

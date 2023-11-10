@@ -1,0 +1,7 @@
+<div *ngIf="duplicateWords.length">
+  <h6>These words already exist in HPI templates:</h6>
+  <div class="alert alert-danger" role="alert">
+    {{ duplicateWordsText }}
+  </div>
+</div>
+<div *ngIf="!duplicateWords.length">Duplicate words were not found</div>

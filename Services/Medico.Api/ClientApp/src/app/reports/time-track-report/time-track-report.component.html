@@ -1,0 +1,183 @@
+<div class="row">
+  <div class="col-md-12">
+    <div class="row" id="tabs">
+      <dx-tabs
+        #apiTabs
+        [dataSource]="tabs"
+        [selectedIndex]="0"
+        (onItemClick)="selectTab($event)"
+      ></dx-tabs>
+
+      <!--Tab 2-->
+      <div *ngIf="isTabVisible(0)" class="col-md-12 ml-auto col-xl-12 mr-auto">
+        <dx-pie-chart
+          id="pie"
+          title="Appoitment Status "
+          palette="bright"
+          [dataSource]="appoitmentStatus"
+        >
+          <dxo-legend
+            orientation="horizontal"
+            itemTextPosition="right"
+            horizontalAlignment="center"
+            verticalAlignment="bottom"
+            [columnCount]="4"
+          ></dxo-legend>
+          <dxo-export [enabled]="true"></dxo-export>
+          <dxi-series argumentField="status" valueField="statusCount">
+            <dxo-label
+              [visible]="true"
+              position="columns"
+              [customizeText]="customizeLabel"
+            >
+              <dxo-font [size]="16"></dxo-font>
+              <dxo-connector [visible]="true" [width]="0.5"></dxo-connector>
+            </dxo-label>
+          </dxi-series>
+        </dx-pie-chart>
+      </div>
+
+      <!--Tab 2-->
+      <div *ngIf="isTabVisible(1)" class="col-md-12 ml-auto col-xl-12 mr-auto">
+        <div class="tab-pane active mt-md-3" id="home" role="tabpanel">
+          <dx-data-grid
+            [selectedRowKeys]="selectedRows"
+            [hoverStateEnabled]="true"
+            (onSelectionChanged)="onRowSelected($event)"
+            [wordWrapEnabled]="true"
+            #reportDataGrid
+            [dataSource]="reportDataSource"
+            [showBorders]="true"
+          >
+            <dxo-remote-operations [sorting]="true" [filtering]="true" [paging]="true">
+            </dxo-remote-operations>
+
+            <dxo-paging [pageSize]="searchConfiguration.pageSizeCount"></dxo-paging>
+
+            <dxo-pager
+              [showPageSizeSelector]="true"
+              [allowedPageSizes]="searchConfiguration.allowedPageSizes"
+            >
+            </dxo-pager>
+
+            <dxi-column
+              dataField="orderId"
+              dataType="string"
+              [allowEditing]="false"
+              [visible]="false"
+            >
+            </dxi-column>
+            <dxi-column caption="Patient Name" cellTemplate="nameTemplate"></dxi-column>
+            <dxi-column dataField="timeElapsed"></dxi-column>
+            <!-- <dxi-column caption="Date of Birth" cellTemplate="dobTemplate"></dxi-column>
+                        <dxi-column caption="Date" cellTemplate="dateTemplate"></dxi-column>
+                        <dxi-column caption="Updated By" dataField="createdByName"></dxi-column>
+                        <dxi-column caption="Status" cellTemplate="statusTemplate"></dxi-column>
+                        <dxi-column caption="Notes" cellTemplate="itemTemplate">
+                        </dxi-column> -->
+            <dxo-selection mode="single"></dxo-selection>
+
+            <div class="text-left" *dxTemplate="let n of 'nameTemplate'">
+              <span> {{ n.data.patientName }}</span>
+            </div>
+            <div class="text-left" *dxTemplate="let item of 'dobTemplate'">
+              <span> {{ item.data.dateOfBirth | localDate }}</span>
+            </div>
+            <div class="text-left" *dxTemplate="let item of 'dateTemplate'">
+              <span> {{ item.data.createdOn | localDate }}</span>
+            </div>
+
+            <div class="text-left" *dxTemplate="let item of 'statusTemplate'">
+              <span class="badge-outline"> {{ item.data.status }}</span>
+            </div>
+            <div class="text-left" *dxTemplate="let item of 'itemTemplate'">
+              <span> {{ item.data.notes }}</span>
+            </div>
+            <dxo-filter-row [visible]="true"></dxo-filter-row>
+          </dx-data-grid>
+          <hr />
+          <div class="row d-flex justify-content-center mt-70 mb-70">
+            <div class="col-md-12">
+              <div class="main-card mb-3 card">
+                <div class="card-body">
+                  <h5 class="card-title">Patient Timeline</h5>
+                  <div
+                    class="vertical-timeline vertical-timeline--animate vertical-timeline--one-column"
+                  >
+                    <div class="vertical-timeline-item vertical-timeline-element">
+                      <div>
+                        <span class="vertical-timeline-element-icon bounce-in">
+                          <i class="badge badge-dot badge-dot-xl badge-success"></i>
+                        </span>
+                        <div class="vertical-timeline-element-content bounce-in">
+                          <h4 class="timeline-title">Discharged</h4>
+                          <p>
+                            Discharge Notes
+                            <a href="javascript:void(0);" data-abc="true"
+                              >19 Jul 12:00 PM</a
+                            >
+                          </p>
+                          <span class="vertical-timeline-element-date">9:30 AM</span>
+                          <span class="text-muted">Glenn Kunsman</span>
+                          <hr />
+                        </div>
+                      </div>
+                    </div>
+                    <div class="vertical-timeline-item vertical-timeline-element">
+                      <div>
+                        <span class="vertical-timeline-element-icon bounce-in">
+                          <i class="badge badge-dot badge-dot-xl badge-warning"> </i>
+                        </span>
+                        <div class="vertical-timeline-element-content bounce-in">
+                          <h4 class="timeline-title">Procedure</h4>
+                          <p>
+                            Procedure Notes
+                            <span class="text-success">18 Jul 12:00 PM</span>
+                          </p>
+                          <span class="vertical-timeline-element-date">12:25 PM</span>
+                          <span class="text-muted">Glenn Kunsman</span>
+                          <hr />
+                        </div>
+                      </div>
+                    </div>
+                    <div class="vertical-timeline-item vertical-timeline-element">
+                      <div>
+                        <span class="vertical-timeline-element-icon bounce-in">
+                          <i class="badge badge-dot badge-dot-xl badge-danger"> </i>
+                        </span>
+                        <div class="vertical-timeline-element-content bounce-in">
+                          <h4 class="timeline-title">Exam</h4>
+                          <p>Tell them about new features</p>
+                          <span class="vertical-timeline-element-date"
+                            >17 Jul 6:00 PM</span
+                          >
+                          <span class="text-muted">Rob Gordan</span>
+                          <hr />
+                        </div>
+                      </div>
+                    </div>
+                    <div class="vertical-timeline-item vertical-timeline-element">
+                      <div>
+                        <span class="vertical-timeline-element-icon bounce-in">
+                          <i class="badge badge-dot badge-dot-xl badge-primary"> </i>
+                        </span>
+                        <div class="vertical-timeline-element-content bounce-in">
+                          <h4 class="timeline-title text-success">Schedule</h4>
+                          <p>Discussion with doctor</p>
+                          <span class="vertical-timeline-element-date"
+                            >17 Jul 9:00 AM</span
+                          >
+                          <span class="text-muted">Glenn Kunsman</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

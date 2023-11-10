@@ -1,0 +1,179 @@
+<div style="height: 600px">
+  <div class="row" *ngIf="serviceType === 2">
+    <div class="col-md-6">
+      MRN: <strong>{{ patient.mrn }}</strong>
+    </div>
+    <div class="col-md-6">
+      FIN: <strong>{{ patient.fin }}</strong>
+    </div>
+  </div>
+
+  <div class="row mt-md-20" *ngIf="serviceType === 1">
+    <div class="col-md-6">
+      RQID: <strong>{{ patient.rqid }}</strong>
+    </div>
+    <div class="col-md-6">
+      Case Number: <strong>{{ patient.caseNumber }}</strong>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-6">
+      Date of service: <strong>{{ appointment.startDate | date }}</strong>
+    </div>
+    <div class="col-md-6">
+      Provider: <strong>{{ providerName }}</strong>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-6">
+      Admission Date: <strong>{{ patient.admissionDate | date }}</strong>
+    </div>
+    <div class="col-md-6">
+      Location: <strong>{{ locationName }}</strong>
+    </div>
+  </div>
+  <hr />
+  <dx-form
+    #patientForm
+    [(formData)]="patient"
+    labelLocation="top"
+    [colCount]="2"
+    (onFieldDataChanged)="onPatientFieldChanged($event)"
+  >
+    <dxi-item dataField="id" [visible]="false"></dxi-item>
+
+    <dxi-item
+      dataField="patientCommunicationMethodArray"
+      editorType="dxTagBox"
+      [editorOptions]="{
+        width: '100%',
+        items: patientCommunicationMethod,
+        displayExpr: 'name',
+        valueExpr: 'value',
+        showClearButton: true
+      }"
+    >
+      <dxi-validation-rule type="required"></dxi-validation-rule>
+    </dxi-item>
+
+    <dxi-item
+      dataField="primaryAddress"
+      editorType="dxTextArea"
+      [editorOptions]="{ width: '100%', height: '50' }"
+    >
+      <dxi-validation-rule type="required"></dxi-validation-rule>
+    </dxi-item>
+
+    <dxi-item dataField="email">
+      <dxi-validation-rule
+        type="pattern"
+        [pattern]="regexRuleList.email"
+        message="Email is invalid"
+      >
+      </dxi-validation-rule>
+    </dxi-item>
+
+    <dxi-item
+      dataField="secondaryAddress"
+      editorType="dxTextArea"
+      [editorOptions]="{ width: '100%', height: '50' }"
+    >
+    </dxi-item>
+
+    <dxi-item
+      dataField="primaryPhone"
+      [editorOptions]="{
+        useMaskedValue: false,
+        width: '100%',
+        height: '30',
+        mask: validationMasks.phone
+      }"
+    >
+      <dxi-validation-rule type="required"></dxi-validation-rule>
+    </dxi-item>
+
+    <dxi-item dataField="city" [editorOptions]="{ width: '100%', height: '30' }">
+      <dxi-validation-rule type="required"></dxi-validation-rule>
+    </dxi-item>
+
+    <dxi-item
+      dataField="secondaryPhone"
+      [editorOptions]="{
+        useMaskedValue: false,
+        width: '100%',
+        height: '30',
+        mask: validationMasks.phone
+      }"
+    >
+    </dxi-item>
+
+    <dxi-item
+      dataField="zipCodeType"
+      editorType="dxSelectBox"
+      [disabled]="true"
+      [editorOptions]="{
+        width: '100%',
+        height: '30',
+        items: zipCodeTypes,
+        displayExpr: 'name',
+        valueExpr: 'value'
+      }"
+    >
+      <dxi-validation-rule type="required"></dxi-validation-rule>
+    </dxi-item>
+
+    <dxi-item
+      dataField="pharmacyInformation"
+      [editorOptions]="{ disabled: 'true', width: '100%', height: '30' }"
+    >
+    </dxi-item>
+
+    <dxi-item
+      dataField="zip"
+      [editorOptions]="{
+        useMaskedValue: false,
+        width: '100%',
+        height: '30',
+        mask: zipMask
+      }"
+    >
+      <dxi-validation-rule type="required"></dxi-validation-rule>
+    </dxi-item>
+
+    <dxi-item
+      dataField="primaryInsuranceInformation"
+      [editorOptions]="{ disabled: 'true', width: '100%', height: '30' }"
+    >
+    </dxi-item>
+
+    <dxi-item
+      dataField="state"
+      editorType="dxSelectBox"
+      [editorOptions]="{
+        width: '100%',
+        height: '30',
+        items: states,
+        displayExpr: 'name',
+        valueExpr: 'value'
+      }"
+    >
+      <dxi-validation-rule type="required"></dxi-validation-rule>
+    </dxi-item>
+
+    <dxi-item
+      dataField="secondaryInsuranceInformation"
+      aria-readonly="true"
+      [editorOptions]="{ disabled: 'true', width: '100%', height: '30' }"
+    >
+    </dxi-item>
+  </dx-form>
+  <div class="offset-md-10 col-md-2 mt-2 pr-0 text-right">
+    <div class="pull-right">
+      <button (click)="updatePatient()" class="btn btn-sm btn-outline-secondary">
+        UPDATE
+      </button>
+    </div>
+  </div>
+</div>

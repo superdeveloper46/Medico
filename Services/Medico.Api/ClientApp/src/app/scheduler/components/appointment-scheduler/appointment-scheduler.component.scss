@@ -1,0 +1,43 @@
+.green_bg {
+    background-color: #56ca85;
+}
+
+.red_bg {
+    background-color: #f21a1a;
+}
+
+.blue_bg {
+    background-color: blue;
+}
+.purple_bg {
+    background-color: purple;
+}
+.orange_bg {
+    background-color: orange;
+}
+.cyan_bg {
+    background-color: cyan;
+}
+.gray_bg {
+    background-color: #888;
+}
+.dot {
+    height: 15px;
+    width: 15px;
+    border-radius: 50%;
+    display: inline-block;
+    margin-left: 20px;
+}
+
+.padding {
+    padding: 10px;
+}
+
+.dx-scheduler-header {
+   z-index: -1 !important;
+}
+
+.dx-template-wrapper report-node-view {
+    height: 100%;
+    display: block;
+}

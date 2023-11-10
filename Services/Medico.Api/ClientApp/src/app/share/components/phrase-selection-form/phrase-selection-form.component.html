@@ -1,0 +1,90 @@
+<dx-popup
+  class="popup"
+  #phraseManagementPopup
+  [width]="900"
+  [height]="600"
+  [dragEnabled]="false"
+  titleTemplate="title"
+  [hideOnOutsideClick]="false"
+  [(visible)]="isPhrasePopupOpened"
+>
+  <div *dxTemplate="let data of 'title'">
+    <div class="d-flex justify-content-between align-items-center mt-1 mb-1">
+      <span>Phrase Management</span>
+      <em
+        style="cursor: pointer"
+        (click)="closePhraseManagementPopup()"
+        class="dx-icon dx-icon-close"
+      ></em>
+    </div>
+  </div>
+  <div *dxTemplate="let data of 'content'">
+    <div *ngIf="isPhrasePopupOpened">
+      <dx-data-grid
+        *ngIf="isSearchPhrasesModeEnabled"
+        #phraseGrid
+        class="mt-1"
+        [height]="500"
+        [selectedRowKeys]="selectedPhrases"
+        [hoverStateEnabled]="true"
+        [wordWrapEnabled]="true"
+        (onSelectionChanged)="onPhraseSelected($event)"
+        [dataSource]="phrasesDataSource"
+        [showBorders]="true"
+      >
+        <dxo-filter-row [visible]="true"></dxo-filter-row>
+
+        <dxo-remote-operations [paging]="true" [sorting]="true"></dxo-remote-operations>
+
+        <dxo-paging [pageSize]="searchConfiguration.pageSizeCount"></dxo-paging>
+
+        <dxo-pager
+          [showPageSizeSelector]="true"
+          [allowedPageSizes]="searchConfiguration.allowedPageSizes"
+        ></dxo-pager>
+
+        <dxi-column dataField="id" dataType="string" [visible]="false"></dxi-column>
+
+        <dxi-column
+          sortOrder="asc"
+          caption="Phrase"
+          alignment="left"
+          dataField="name"
+          dataType="string"
+        ></dxi-column>
+
+        <dxo-selection mode="single"></dxo-selection>
+      </dx-data-grid>
+
+      <div *ngIf="isPhrasesContentSelectionModeEnabled">
+        <div style="height: 490px">
+          <selectable-items-editor
+            [companyId]="companyId"
+            [templateContent]="phraseContent"
+            (contentChanged)="onPhraseContentChanged($event)"
+          >
+          </selectable-items-editor>
+        </div>
+
+        <div class="text-right">
+          <div class="btn-group btn-group-sm" role="group">
+            <button
+              type="button"
+              (click)="backToPhraseSearch()"
+              class="btn btn-sm btn-outline-secondary"
+            >
+              BACK TO SEARCH
+            </button>
+            <button
+              type="button"
+              (click)="insertPhraseContent()"
+              class="btn btn-sm btn-outline-secondary"
+            >
+              INSERT
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</dx-popup>

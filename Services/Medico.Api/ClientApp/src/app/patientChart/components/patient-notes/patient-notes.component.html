@@ -1,0 +1,269 @@
+<div class="row mt-md-3">
+  <div class="col-md-3">
+    <button type="button"
+            (click)="openPatientNoteForm()"
+            class="btn btn-sm btn-outline-secondary">
+      ADD PATIENT NOTES
+    </button>
+  </div>
+</div>
+<!--form-->
+<div *ngIf="isPatientNotesPopupOpened" class="row mt-md-3">
+  <div class="col-md-12">
+    <dx-form [colCount]="12"
+             id="patientNoteForm"
+             #patientNoteForm
+             [formData]="patientNotes">
+      <dxi-item [colSpan]="3"
+                placeholder="Select Subject"
+                [label]="{ visible: true }"
+                dataField="subject"
+                editorType="dxSelectBox"
+                [editorOptions]="{ items: docData, displayExpr: 'value', valueExpr: 'value' }">
+        <dxi-validation-rule type="required"></dxi-validation-rule>
+      </dxi-item>
+
+      <dxi-item [colSpan]="3"
+                placeholder="Select Status"
+                [label]="{ visible: true }"
+                dataField="status"
+                editorType="dxSelectBox"
+                [editorOptions]="{ items: statusData, displayExpr: 'value', valueExpr: 'value' }">
+        <dxi-validation-rule type="required"></dxi-validation-rule>
+      </dxi-item>
+    </dx-form>
+
+    <div class="mt-md-2">
+      <b>Notes:</b><br />
+      <span class="pr-5">Include Notes In Report:</span>
+      <dx-check-box [(value)]="includeNotesInReport" (click)="showInfo()"></dx-check-box>
+    </div>
+
+    <dx-form [colCount]="12" id="form" [formData]="patientNotes">
+        <dxi-item [colSpan]="12"
+                  [label]="{ visible: false }"
+                  dataField="notes"
+                  template="notesTemplate">
+        </dxi-item>
+        <div *dxTemplate="let data of 'notesTemplate'">
+          <div class="row">
+            <div class="col-md-12">
+              <notes-editor #notesEditor
+                            [initialContent]="patientNotes.notes"
+                            (contentChanged)="onDetailedContentChanged($event)">
+              </notes-editor>
+            </div>
+          </div>
+        </div>
+    </dx-form>
+    <br />
+    <div class="row">
+      <div class="col-md-1">Notify:</div>
+      <div class="dx-field col-md-6">
+        <dx-tag-box [(value)]="userId"
+                    [dataSource]="employeeList"
+                    [searchEnabled]="true"
+                    displayExpr="firstName"
+                    valueExpr="id">
+        </dx-tag-box>
+      </div>
+      <div class="col-md-2">Reminder Date:</div>
+      <div class="dx-field col-md-3">
+        <dx-date-box [(value)]="reminderDate"> </dx-date-box>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-12 text-right mt-md-2">
+    <button type="button"
+            (click)="closePatientNoteForm()"
+            class="btn btn-sm btn-outline-secondary">
+      CANCEL
+    </button>&nbsp;
+    <button *ngIf="isAdd"
+            type="button"
+            (click)="createNotes()"
+            class="btn btn-sm btn-outline-secondary">
+      SAVE
+    </button>
+    <button *ngIf="isEdit"
+            type="button"
+            (click)="EditNotes()"
+            class="btn btn-sm btn-outline-secondary">
+      UPDATE
+    </button>
+  </div>
+
+  <br />
+  <!-- ===== show popup message =====  -->
+  <dx-popup class="popup"
+            [width]="300"
+            [height]="200"
+            [dragEnabled]="false"
+            [showTitle]="true"
+            title="Warning Message"
+            [hideOnOutsideClick]="false"
+            [(visible)]="showMessageCheck">
+    <div class="dx-popup-content dx-dialog-content"><div class="dx-dialog-message">Patient will have access to this data.."?? </div></div>
+    <div  class="buttons-column">
+      <dx-button style="margin-right: 10px;" stylingMode="contained"
+                 text="Yes"
+                 type="normal"
+                 [width]="80"
+                 (click)="checkBoxChecked()">
+      </dx-button>
+      <dx-button stylingMode="contained"
+                 text="Cancel"
+                 type="normal"
+                 [width]="80"
+                 (click)="closePopup()">
+      </dx-button>
+    </div>
+
+  </dx-popup>
+</div>
+<!--grid-->
+<div *ngIf="!isPatientNotesPopupOpened">
+  <div class="row">
+    <!--search form-->
+    <div class="col-md-11"
+         style="
+        background: #f8f8f8;
+        border: solid 1px #ccc;
+        padding: 20px;
+        margin: auto 0 auto 15px;
+      ">
+      <dx-form [colCount]="12"
+               id="searchForm"
+               #searchForm
+               [formData]="patientSearchtNotes"
+               (onFieldDataChanged)="onSearchFormChanged($event)">
+        <dxi-item [colSpan]="3" dataField="fromDate" editorType="dxDateBox"></dxi-item>
+
+        <dxi-item [colSpan]="3" dataField="toDate" editorType="dxDateBox"></dxi-item>
+
+        <dxi-item [colSpan]="3"
+                  placeholder="Select Subject"
+                  dataField="subject"
+                  editorType="dxSelectBox"
+                  [editorOptions]="{ items: docData, displayExpr: 'value', valueExpr: 'value' }">
+        </dxi-item>
+
+        <dxi-item [colSpan]="3"
+                  placeholder="Select Status"
+                  dataField="status"
+                  editorType="dxSelectBox"
+                  [editorOptions]="{
+            items: statusData,
+            displayExpr: 'value',
+            valueExpr: 'value'
+          }"></dxi-item>
+
+        <dxi-item [colSpan]="3"
+                  placeholder="Select Employee"
+                  dataField="employee"
+                  editorType="dxSelectBox"
+                  [editorOptions]="{
+            items: employeeList,
+            displayExpr: 'firstName',
+            valueExpr: 'id'
+          }"></dxi-item>
+        <dxi-item dataField="searchContent" [colSpan]="3" editorType="dxTextBox">
+        </dxi-item>
+        <dxi-item [colSpan]="3">
+          <dx-button stylingMode="contained"
+                     text="Search"
+                     type="default"
+                     [width]="120"
+                     (onClick)="searchNotes($event)">
+          </dx-button>
+        </dxi-item>
+        <dxi-item [colSpan]="3">
+          <a href="javascript:;" (click)="resetFilters()"><i class="fas fa-sync"></i> Reset Filters</a>
+        </dxi-item>
+      </dx-form>
+    </div>
+  </div>
+  <br />
+  <dx-data-grid [selectedRowKeys]="selectedPatientNotes"
+                [hoverStateEnabled]="true"
+                [wordWrapEnabled]="true"
+                #patientNotesDataGrid
+                [dataSource]="_filteredRows"
+                [showBorders]="true"
+                [showRowLines]="true">
+    <dxo-remote-operations [paging]="true" [sorting]="true"></dxo-remote-operations>
+
+    <dxo-paging [pageSize]="searchConfiguration.pageSizeCount"> </dxo-paging>
+
+    <dxo-pager [showPageSizeSelector]="true"
+               [allowedPageSizes]="searchConfiguration.allowedPageSizes">
+    </dxo-pager>
+    
+    <dxi-column caption="Subject" dataField="subject"></dxi-column>
+    <dxi-column dataField="createdByName"
+                cellTemplate="employeeTemplate"
+                [allowSorting]="false"
+                caption="Employee">
+    </dxi-column>
+    <dxi-column dataField="date"
+                cellTemplate="cellTemplate"
+                [allowSorting]="false"
+                caption="Message Date">
+    </dxi-column>
+    <dxi-column dataField="notes"
+                cellTemplate="noteTemplate"
+                caption="Notes">
+    </dxi-column>
+    <dxi-column caption="Status" dataField="status"></dxi-column>
+    
+    <dxi-column alignment="center"
+                caption="Edit Note"
+                cellTemplate="EditNoteTemplate"></dxi-column>
+    <dxi-column alignment="center"
+                caption="Delete"
+                cellTemplate="DeleteNoteTemplate"></dxi-column>
+
+    <div class="text-center" *dxTemplate="let patient of 'cellTemplate'">
+      <span> {{ patient.data.createdOn | localDate }}</span>
+    </div>
+    <div class="text-center" *dxTemplate="let data of 'noteTemplate'">
+      <!-- <span [innerHtml]="patient.data.notes"></span> -->
+      <span class="badge badge-success"
+            [ngClass]="{
+            'badge-success' : data.value.length>
+        0,
+        'badge-danger': data.value.length === 0 || data.value === null
+        }"
+        >
+        {{ data.value.length > 0 ? 'Yes' : 'No' }}
+      </span>
+    </div>
+
+    <div class="text-center" *dxTemplate="let patient of 'employeeTemplate'">
+      <span> {{ patient.data.createdByName }}</span>
+    </div>
+    <div *dxTemplate="let template of 'EditNoteTemplate'">
+      <div class="text-center mt-md-1">
+        <button [disabled]="isSignedOff"
+                type="button"
+                (click)="getNotes(template.data.id)"
+                class="btn btn-sm btn-outline-primary">
+          Edit
+        </button>
+      </div>
+    </div>
+    <div *dxTemplate="let template of 'DeleteNoteTemplate'">
+      <div class="text-center mt-md-1">
+        <button [disabled]="isSignedOff"
+                type="button"
+                (click)="deleteNotes(template.data.id)"
+                class="btn btn-sm btn-outline-danger">
+          Delete
+        </button>
+      </div>
+    </div>
+
+    <dxo-filter-row [visible]="false"></dxo-filter-row>
+  </dx-data-grid>
+</div>
+

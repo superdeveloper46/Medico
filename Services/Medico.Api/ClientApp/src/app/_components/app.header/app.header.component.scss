@@ -1,0 +1,64 @@
+.active-link {
+  color: white !important;
+  cursor: unset;
+}
+
+/* submenu positioning*/
+.nav ul {
+  top: 32px;
+  position: absolute;
+  white-space: nowrap;
+  border-bottom: 5px solid #343a40;
+  z-index: 1;
+  left: -99999em;
+  list-style: none;
+  padding: 20px 10px 0 !important;
+  margin-right: 20px;
+}
+
+.nav > li:hover > ul {
+  left: -40px;
+  margin-left: -7px;
+  margin-top: 5px;
+  min-width: 100%;
+}
+
+li.dropdown ul {
+  padding: 30px;
+  background: #343a40;
+  z-index: 999;
+  margin-right: 20px;
+}
+
+.notif {
+  width: 300px;
+  border: solid 1px #ccc;
+  background-color: white;
+  border-bottom: 0px !important;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  margin-left: 70% !important;
+  margin-top: 20px;
+  padding: 0px !important;
+  font-size: 90%;
+  z-index:1000 !important;
+}
+
+.noti_search {
+  border-radius: 4px;
+  color: #333;
+  font-size: 1rem;
+  padding: 2px;
+  border-width: 1px;
+  outline: 0;
+  height: 35px;
+  width: 250px;
+  border-color: #333 !important;
+}
+
+.searchContainer {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 10px;
+  margin-left: 5px;
+}

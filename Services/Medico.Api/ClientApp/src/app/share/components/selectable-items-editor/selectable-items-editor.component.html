@@ -1,0 +1,44 @@
+<div class="content-container" *ngIf="!doesContentContainSelectableItems">
+  <dx-scroll-view [height]="'100%'">
+    <div *ngIf="renderedContent" #selectableItemsEditor [innerHtml]="templateContent | safeHtml"></div>
+  </dx-scroll-view>
+</div>
+<div
+  *ngIf="doesContentContainSelectableItems"
+  class="row m-0 selectable-editor-container"
+>
+  <div *ngIf="renderedContent"
+    #selectableItemsEditor
+    [innerHtml]="templateContent | safeHtml"
+    class="col-8 p-4 border border-right-0"
+  ></div>
+  <div class="col-4 h-100 p-4 border">
+    <patient-selectable-root
+      #patientSelectableRoot
+      (selectableItemValueChanged)="onSelectableItemValueChanged($event)"
+      [companyId]="companyId"
+    >
+    </patient-selectable-root>
+  </div>
+</div>
+<div *ngIf="doesContentContainSelectableItems" class="row mt-2">
+  <div class="col-8 d-flex justify-content-between">
+    <button
+      type="button"
+      #previousSelectableItemBtn
+      (click)="moveToPreviousSelectableitem()"
+      class="btn btn-sm btn-outline-secondary"
+    >
+      <i class="fas fa-arrow-left"></i> Previous
+    </button>
+
+    <button
+      type="button"
+      #nextSelectableItemBtn
+      (click)="moveToNextSelectableItem()"
+      class="btn btn-sm btn-outline-secondary"
+    >
+      Next <i class="fas fa-arrow-right"></i>
+    </button>
+  </div>
+</div>

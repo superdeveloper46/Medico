@@ -1,0 +1,1295 @@
+[
+    {
+        "id": "8b4bdc7467498e2caceeb67b442c2c77",
+        "document_id": "11c43aa687b0925a74e419dc98c17124",
+        "remote_id": "1",
+        "file_name": "Complete OCD PDF.pdf",
+        "media_link": "https:\/\/api.docparser.com\/v1\/document\/media\/A3hLzJP1Njink3p6bxoTOFmvhxqxRmb9M-86aOx0HBqv6bJsyvCMlmvq__AcPWKTRYQC8_WN1cUs1G5pideZM8cUX81RdWljtDyla3eYltA",
+        "media_link_original": "https:\/\/api.docparser.com\/v1\/document\/media\/A3hLzJP1Njink3p6bxoTOFmvhxqxRmb9M-86aOx0HBqv6bJsyvCMlmvq__AcPWKTRYQC8_WN1cUs1G5pideZM8cUX81RdWljtDyla3eYltA\/original",
+        "media_link_data": "https:\/\/api.docparser.com\/v1\/document\/media\/A3hLzJP1Njink3p6bxoTOFmvhxqxRmb9M-86aOx0HBqv6bJsyvCMlmvq__AcPWKTRYQC8_WN1cUs1G5pideZM8cUX81RdWljtDyla3eYltA\/data",
+        "page_count": 11,
+        "uploaded_at": "2021-04-10T15:57:27+00:00",
+        "processed_at": "2021-04-10T15:57:45+00:00",
+        "rqid": null,
+        "medico_info": "ERICA NEAL, PA (MESA)\n3507 NORTH CENTRAL AVE STE 403\nPHOENIX AZ 85012",
+        "claimant_case_information": [
+            {
+                "key_0": "Date:",
+                "key_1": "Mar",
+                "key_2": "2,",
+                "key_3": "2021"
+            },
+            {
+                "key_0": "Case",
+                "key_1": "ID:",
+                "key_2": "897020",
+                "key_3": ""
+            },
+            {
+                "key_0": "RE:",
+                "key_1": "Lilliana",
+                "key_2": "D",
+                "key_3": "Gonsalves"
+            },
+            {
+                "key_0": "DOB:",
+                "key_1": "November",
+                "key_2": "23,",
+                "key_3": "1967"
+            },
+            {
+                "key_0": "Applicant:",
+                "key_1": "Lilliana",
+                "key_2": "D",
+                "key_3": "Gonsalves"
+            },
+            {
+                "key_0": "Authorization",
+                "key_1": "#:",
+                "key_2": "20210302690008",
+                "key_3": ""
+            }
+        ],
+        "claimant_address": [
+            {
+                "key_0": "Claimant",
+                "key_1": "Information",
+                "key_2": "",
+                "key_3": ""
+            },
+            {
+                "key_0": "Lilliana",
+                "key_1": "D",
+                "key_2": "Gonsalves",
+                "key_3": ""
+            },
+            {
+                "key_0": "18767",
+                "key_1": "E",
+                "key_2": "PINE",
+                "key_3": "BARRENS"
+            },
+            {
+                "key_0": "QUEEN",
+                "key_1": "CREEK,",
+                "key_2": "AZ",
+                "key_3": "851"
+            },
+            {
+                "key_0": "(480)",
+                "key_1": "291-3847",
+                "key_2": "",
+                "key_3": ""
+            }
+        ],
+        "appt_date": "S\n142-3667\n\nDate\n\nTuesd\nMarc\n09:00",
+        "service": "me\n\n2021\nMountain Standard Time\n\nServices Authorized\nCode: 99204-PHYSIATRIST\nProcedure Type Code: E\nDesc: Physiatrist\nFee: $124.00",
+        "claimant_ssn": "NAME (First, Middle, Last, Suffix)\nLILLIANA D GONSALVES\nSSN\n552-67-2224",
+        "birthday": "Birthday\n(mm\/dd\/yy)\n11\/23\/67",
+        "special_instructions": "Special Instructions:\nIndicate the range of motion in degrees of the affected joint(s) or spine.\nJoint examination to include specific range of motion of the joints. List the involved joints and describe the presence\nor absence of effusion, periarticular swelling, tenderness, heat, redness and thickening of the joints",
+        "hpi": "Vitals\nsys dia HR RR temp wt\n\nht Bill\n\n110 72 76 16 97.3\u00b0F 173.8 lb 65 in 28.9",
+        "problem_list": "General: A&0x3; sa02-98%RA\nHEENT: OMI, anicteric sclera, nares patent\nNeck: supple, FROM\nLungs: CTA bilaterally, NI I:E ratio\nCV: RRR. No M\/R\/G, no edema\nAbd: NABS, mild diffuse lower epigastric tenderness, no rebound, no guarding, no acute or peritoneal\nsigns, no masses or FiSM, no cva tenderness\nExtr: NO c\/c\/e. FROMx4. Slight slow antalgic gait\nNeuro: CN grossly intact, no focal deficits\nPsych: normal judgment, insight, appropriate mood and affect\nSkin: no rashes, or ecchymoses, no palpable exanthem, normal skin turgor",
+        "variable_hpi": null
+    },
+    {
+        "id": "7861df5db4adcac13f0de75eb8392029",
+        "document_id": "1ee4c197e4f93b5a7de6cacaa22c556d",
+        "remote_id": "1",
+        "file_name": "Complete OCD PDF (1).pdf",
+        "media_link": "https:\/\/api.docparser.com\/v1\/document\/media\/HXlL284FNmhZyW8UdKahirb4HGcgkPFmVg5XGtTrSXyv6bJsyvCMlmvq__AcPWKTRYQC8_WN1cUs1G5pideZM8cUX81RdWljtDyla3eYltA",
+        "media_link_original": "https:\/\/api.docparser.com\/v1\/document\/media\/HXlL284FNmhZyW8UdKahirb4HGcgkPFmVg5XGtTrSXyv6bJsyvCMlmvq__AcPWKTRYQC8_WN1cUs1G5pideZM8cUX81RdWljtDyla3eYltA\/original",
+        "media_link_data": "https:\/\/api.docparser.com\/v1\/document\/media\/HXlL284FNmhZyW8UdKahirb4HGcgkPFmVg5XGtTrSXyv6bJsyvCMlmvq__AcPWKTRYQC8_WN1cUs1G5pideZM8cUX81RdWljtDyla3eYltA\/data",
+        "page_count": 11,
+        "uploaded_at": "2021-04-10T06:04:14+00:00",
+        "processed_at": "2021-04-10T06:04:52+00:00",
+        "rqid": null,
+        "medico_info": "ERICA NEAL, PA (MESA)\n3507 NORTH CENTRAL AVE STE 403\nPHOENIX AZ 85012",
+        "claimant_case_information": [
+            {
+                "key_0": "Date:",
+                "key_1": "Mar",
+                "key_2": "2,",
+                "key_3": "2021"
+            },
+            {
+                "key_0": "Case",
+                "key_1": "ID:",
+                "key_2": "897020",
+                "key_3": ""
+            },
+            {
+                "key_0": "RE:",
+                "key_1": "Lilliana",
+                "key_2": "D",
+                "key_3": "Gonsalves"
+            },
+            {
+                "key_0": "DOB:",
+                "key_1": "November",
+                "key_2": "23,",
+                "key_3": "1967"
+            },
+            {
+                "key_0": "Applicant:",
+                "key_1": "Lilliana",
+                "key_2": "D",
+                "key_3": "Gonsalves"
+            },
+            {
+                "key_0": "Authorization",
+                "key_1": "#:",
+                "key_2": "20210302690008",
+                "key_3": ""
+            }
+        ],
+        "claimant_address": [
+            {
+                "key_0": "Claimant",
+                "key_1": "Information",
+                "key_2": "",
+                "key_3": ""
+            },
+            {
+                "key_0": "Lilliana",
+                "key_1": "D",
+                "key_2": "Gonsalves",
+                "key_3": ""
+            },
+            {
+                "key_0": "18767",
+                "key_1": "E",
+                "key_2": "PINE",
+                "key_3": "BARRENS"
+            },
+            {
+                "key_0": "QUEEN",
+                "key_1": "CREEK,",
+                "key_2": "AZ",
+                "key_3": "851"
+            },
+            {
+                "key_0": "(480)",
+                "key_1": "291-3847",
+                "key_2": "",
+                "key_3": ""
+            }
+        ],
+        "appt_date": "S\n142-3667\n\nDate\n\nTuesd\nMarc\n09:00",
+        "service": "me\n\n2021\nMountain Standard Time\n\nServices Authorized\nCode: 99204-PHYSIATRIST\nProcedure Type Code: E\nDesc: Physiatrist\nFee: $124.00",
+        "claimant_ssn": "NAME (First, Middle, Last, Suffix)\nLILLIANA D GONSALVES\nSSN\n552-67-2224",
+        "birthday": "Birthday\n(mm\/dd\/yy)\n11\/23\/67",
+        "special_instructions": "Special Instructions:\nIndicate the range of motion in degrees of the affected joint(s) or spine.\nJoint examination to include specific range of motion of the joints. List the involved joints and describe the presence\nor absence of effusion, periarticular swelling, tenderness, heat, redness and thickening of the joints",
+        "hpi": "Vitals\nsys dia HR RR temp wt\n\nht Bill\n\n110 72 76 16 97.3\u00b0F 173.8 lb 65 in 28.9",
+        "problem_list": "General: A&0x3; sa02-98%RA\nHEENT: OMI, anicteric sclera, nares patent\nNeck: supple, FROM\nLungs: CTA bilaterally, NI I:E ratio\nCV: RRR. No M\/R\/G, no edema\nAbd: NABS, mild diffuse lower epigastric tenderness, no rebound, no guarding, no acute or peritoneal\nsigns, no masses or FiSM, no cva tenderness\nExtr: NO c\/c\/e. FROMx4. Slight slow antalgic gait\nNeuro: CN grossly intact, no focal deficits\nPsych: normal judgment, insight, appropriate mood and affect\nSkin: no rashes, or ecchymoses, no palpable exanthem, normal skin turgor",
+        "variable_hpi": null
+    },
+    {
+        "id": "cf185de7bf87ed6bfb570f6a20a7d975",
+        "document_id": "3c14a0fb2070dfb3cce7a12557462f50",
+        "remote_id": "1",
+        "file_name": "Complete OCD PDF (1).pdf",
+        "media_link": "https:\/\/api.docparser.com\/v1\/document\/media\/yMcOc1_m9JHMOpsRwBhQWN5GYMvCFB5DNE5dEmt5OUuv6bJsyvCMlmvq__AcPWKTRYQC8_WN1cUs1G5pideZM8cUX81RdWljtDyla3eYltA",
+        "media_link_original": "https:\/\/api.docparser.com\/v1\/document\/media\/yMcOc1_m9JHMOpsRwBhQWN5GYMvCFB5DNE5dEmt5OUuv6bJsyvCMlmvq__AcPWKTRYQC8_WN1cUs1G5pideZM8cUX81RdWljtDyla3eYltA\/original",
+        "media_link_data": "https:\/\/api.docparser.com\/v1\/document\/media\/yMcOc1_m9JHMOpsRwBhQWN5GYMvCFB5DNE5dEmt5OUuv6bJsyvCMlmvq__AcPWKTRYQC8_WN1cUs1G5pideZM8cUX81RdWljtDyla3eYltA\/data",
+        "page_count": 11,
+        "uploaded_at": "2021-04-09T21:41:01+00:00",
+        "processed_at": "2021-04-09T21:41:16+00:00",
+        "rqid": null,
+        "medico_info": "ERICA NEAL, PA (MESA)\n3507 NORTH CENTRAL AVE STE 403\nPHOENIX AZ 85012",
+        "claimant_case_information": [
+            {
+                "key_0": "Date:",
+                "key_1": "Mar",
+                "key_2": "2,",
+                "key_3": "2021"
+            },
+            {
+                "key_0": "Case",
+                "key_1": "ID:",
+                "key_2": "897020",
+                "key_3": ""
+            },
+            {
+                "key_0": "RE:",
+                "key_1": "Lilliana",
+                "key_2": "D",
+                "key_3": "Gonsalves"
+            },
+            {
+                "key_0": "DOB:",
+                "key_1": "November",
+                "key_2": "23,",
+                "key_3": "1967"
+            },
+            {
+                "key_0": "Applicant:",
+                "key_1": "Lilliana",
+                "key_2": "D",
+                "key_3": "Gonsalves"
+            },
+            {
+                "key_0": "Authorization",
+                "key_1": "#:",
+                "key_2": "20210302690008",
+                "key_3": ""
+            }
+        ],
+        "claimant_address": [
+            {
+                "key_0": "Claimant",
+                "key_1": "Information",
+                "key_2": "",
+                "key_3": ""
+            },
+            {
+                "key_0": "Lilliana",
+                "key_1": "D",
+                "key_2": "Gonsalves",
+                "key_3": ""
+            },
+            {
+                "key_0": "18767",
+                "key_1": "E",
+                "key_2": "PINE",
+                "key_3": "BARRENS"
+            },
+            {
+                "key_0": "QUEEN",
+                "key_1": "CREEK,",
+                "key_2": "AZ",
+                "key_3": "851"
+            },
+            {
+                "key_0": "(480)",
+                "key_1": "291-3847",
+                "key_2": "",
+                "key_3": ""
+            }
+        ],
+        "appt_date": "S\n142-3667\n\nDate\n\nTuesd\nMarc\n09:00",
+        "service": "me\n\n2021\nMountain Standard Time\n\nServices Authorized\nCode: 99204-PHYSIATRIST\nProcedure Type Code: E\nDesc: Physiatrist\nFee: $124.00",
+        "claimant_ssn": "NAME (First, Middle, Last, Suffix)\nLILLIANA D GONSALVES\nSSN\n552-67-2224",
+        "birthday": "Birthday\n(mm\/dd\/yy)\n11\/23\/67",
+        "special_instructions": "Special Instructions:\nIndicate the range of motion in degrees of the affected joint(s) or spine.\nJoint examination to include specific range of motion of the joints. List the involved joints and describe the presence\nor absence of effusion, periarticular swelling, tenderness, heat, redness and thickening of the joints",
+        "hpi": "Vitals\nsys dia HR RR temp wt\n\nht Bill\n\n110 72 76 16 97.3\u00b0F 173.8 lb 65 in 28.9",
+        "problem_list": "General: A&0x3; sa02-98%RA\nHEENT: OMI, anicteric sclera, nares patent\nNeck: supple, FROM\nLungs: CTA bilaterally, NI I:E ratio\nCV: RRR. No M\/R\/G, no edema\nAbd: NABS, mild diffuse lower epigastric tenderness, no rebound, no guarding, no acute or peritoneal\nsigns, no masses or FiSM, no cva tenderness\nExtr: NO c\/c\/e. FROMx4. Slight slow antalgic gait\nNeuro: CN grossly intact, no focal deficits\nPsych: normal judgment, insight, appropriate mood and affect\nSkin: no rashes, or ecchymoses, no palpable exanthem, normal skin turgor",
+        "variable_hpi": null
+    },
+    {
+        "id": "e16771f1e1d6ddb6bf1f98758fe0c060",
+        "document_id": "59c6bdc57ca5595fccbf4ab0812d5693",
+        "remote_id": "1",
+        "file_name": "Complete OCD PDF.pdf",
+        "media_link": "https:\/\/api.docparser.com\/v1\/document\/media\/VNJi6zHYSDOZqYqsfnpynm0cHlYxl2C4tUXNIGa_UMiv6bJsyvCMlmvq__AcPWKTRYQC8_WN1cUs1G5pideZM8cUX81RdWljtDyla3eYltA",
+        "media_link_original": "https:\/\/api.docparser.com\/v1\/document\/media\/VNJi6zHYSDOZqYqsfnpynm0cHlYxl2C4tUXNIGa_UMiv6bJsyvCMlmvq__AcPWKTRYQC8_WN1cUs1G5pideZM8cUX81RdWljtDyla3eYltA\/original",
+        "media_link_data": "https:\/\/api.docparser.com\/v1\/document\/media\/VNJi6zHYSDOZqYqsfnpynm0cHlYxl2C4tUXNIGa_UMiv6bJsyvCMlmvq__AcPWKTRYQC8_WN1cUs1G5pideZM8cUX81RdWljtDyla3eYltA\/data",
+        "page_count": 11,
+        "uploaded_at": "2021-04-09T17:34:20+00:00",
+        "processed_at": "2021-04-09T17:34:36+00:00",
+        "rqid": null,
+        "medico_info": "ERICA NEAL, PA (MESA)\n3507 NORTH CENTRAL AVE STE 403\nPHOENIX AZ 85012",
+        "claimant_case_information": [
+            {
+                "key_0": "Date:",
+                "key_1": "Mar",
+                "key_2": "2,",
+                "key_3": "2021"
+            },
+            {
+                "key_0": "Case",
+                "key_1": "ID:",
+                "key_2": "897020",
+                "key_3": ""
+            },
+            {
+                "key_0": "RE:",
+                "key_1": "Lilliana",
+                "key_2": "D",
+                "key_3": "Gonsalves"
+            },
+            {
+                "key_0": "DOB:",
+                "key_1": "November",
+                "key_2": "23,",
+                "key_3": "1967"
+            },
+            {
+                "key_0": "Applicant:",
+                "key_1": "Lilliana",
+                "key_2": "D",
+                "key_3": "Gonsalves"
+            },
+            {
+                "key_0": "Authorization",
+                "key_1": "#:",
+                "key_2": "20210302690008",
+                "key_3": ""
+            }
+        ],
+        "claimant_address": [
+            {
+                "key_0": "Claimant",
+                "key_1": "Information",
+                "key_2": "",
+                "key_3": ""
+            },
+            {
+                "key_0": "Lilliana",
+                "key_1": "D",
+                "key_2": "Gonsalves",
+                "key_3": ""
+            },
+            {
+                "key_0": "18767",
+                "key_1": "E",
+                "key_2": "PINE",
+                "key_3": "BARRENS"
+            },
+            {
+                "key_0": "QUEEN",
+                "key_1": "CREEK,",
+                "key_2": "AZ",
+                "key_3": "851"
+            },
+            {
+                "key_0": "(480)",
+                "key_1": "291-3847",
+                "key_2": "",
+                "key_3": ""
+            }
+        ],
+        "appt_date": "S\n142-3667\n\nDate\n\nTuesd\nMarc\n09:00",
+        "service": "me\n\n2021\nMountain Standard Time\n\nServices Authorized\nCode: 99204-PHYSIATRIST\nProcedure Type Code: E\nDesc: Physiatrist\nFee: $124.00",
+        "claimant_ssn": "NAME (First, Middle, Last, Suffix)\nLILLIANA D GONSALVES\nSSN\n552-67-2224",
+        "birthday": "Birthday\n(mm\/dd\/yy)\n11\/23\/67",
+        "special_instructions": "Special Instructions:\nIndicate the range of motion in degrees of the affected joint(s) or spine.\nJoint examination to include specific range of motion of the joints. List the involved joints and describe the presence\nor absence of effusion, periarticular swelling, tenderness, heat, redness and thickening of the joints",
+        "hpi": "Vitals\nsys dia HR RR temp wt\n\nht Bill\n\n110 72 76 16 97.3\u00b0F 173.8 lb 65 in 28.9",
+        "problem_list": "General: A&0x3; sa02-98%RA\nHEENT: OMI, anicteric sclera, nares patent\nNeck: supple, FROM\nLungs: CTA bilaterally, NI I:E ratio\nCV: RRR. No M\/R\/G, no edema\nAbd: NABS, mild diffuse lower epigastric tenderness, no rebound, no guarding, no acute or peritoneal\nsigns, no masses or FiSM, no cva tenderness\nExtr: NO c\/c\/e. FROMx4. Slight slow antalgic gait\nNeuro: CN grossly intact, no focal deficits\nPsych: normal judgment, insight, appropriate mood and affect\nSkin: no rashes, or ecchymoses, no palpable exanthem, normal skin turgor",
+        "variable_hpi": null
+    },
+    {
+        "id": "17155889017f91a2f2e43ecf0a0f3424",
+        "document_id": "c4ea3d91ded01a286a2f56691713cfd5",
+        "remote_id": "1",
+        "file_name": "Complete OCD PDF (1).pdf",
+        "media_link": "https:\/\/api.docparser.com\/v1\/document\/media\/JHvcZo8MvY9vQBwl8ln1jcKvGiowYUt1OPARuCIWCUev6bJsyvCMlmvq__AcPWKTRYQC8_WN1cUs1G5pideZM8cUX81RdWljtDyla3eYltA",
+        "media_link_original": "https:\/\/api.docparser.com\/v1\/document\/media\/JHvcZo8MvY9vQBwl8ln1jcKvGiowYUt1OPARuCIWCUev6bJsyvCMlmvq__AcPWKTRYQC8_WN1cUs1G5pideZM8cUX81RdWljtDyla3eYltA\/original",
+        "media_link_data": "https:\/\/api.docparser.com\/v1\/document\/media\/JHvcZo8MvY9vQBwl8ln1jcKvGiowYUt1OPARuCIWCUev6bJsyvCMlmvq__AcPWKTRYQC8_WN1cUs1G5pideZM8cUX81RdWljtDyla3eYltA\/data",
+        "page_count": 11,
+        "uploaded_at": "2021-04-08T17:46:38+00:00",
+        "processed_at": "2021-04-08T17:47:19+00:00",
+        "rqid": null,
+        "medico_info": "ERICA NEAL, PA (MESA)\n3507 NORTH CENTRAL AVE STE 403\nPHOENIX AZ 85012",
+        "claimant_case_information": [
+            {
+                "key_0": "Date:",
+                "key_1": "Mar",
+                "key_2": "2,",
+                "key_3": "2021"
+            },
+            {
+                "key_0": "Case",
+                "key_1": "ID:",
+                "key_2": "897020",
+                "key_3": ""
+            },
+            {
+                "key_0": "RE:",
+                "key_1": "Lilliana",
+                "key_2": "D",
+                "key_3": "Gonsalves"
+            },
+            {
+                "key_0": "DOB:",
+                "key_1": "November",
+                "key_2": "23,",
+                "key_3": "1967"
+            },
+            {
+                "key_0": "Applicant:",
+                "key_1": "Lilliana",
+                "key_2": "D",
+                "key_3": "Gonsalves"
+            },
+            {
+                "key_0": "Authorization",
+                "key_1": "#:",
+                "key_2": "20210302690008",
+                "key_3": ""
+            }
+        ],
+        "claimant_address": [
+            {
+                "key_0": "Claimant",
+                "key_1": "Information",
+                "key_2": "",
+                "key_3": ""
+            },
+            {
+                "key_0": "Lilliana",
+                "key_1": "D",
+                "key_2": "Gonsalves",
+                "key_3": ""
+            },
+            {
+                "key_0": "18767",
+                "key_1": "E",
+                "key_2": "PINE",
+                "key_3": "BARRENS"
+            },
+            {
+                "key_0": "QUEEN",
+                "key_1": "CREEK,",
+                "key_2": "AZ",
+                "key_3": "851"
+            },
+            {
+                "key_0": "(480)",
+                "key_1": "291-3847",
+                "key_2": "",
+                "key_3": ""
+            }
+        ],
+        "appt_date": "S\n142-3667\n\nDate\n\nTuesd\nMarc\n09:00",
+        "service": "me\n\n2021\nMountain Standard Time\n\nServices Authorized\nCode: 99204-PHYSIATRIST\nProcedure Type Code: E\nDesc: Physiatrist\nFee: $124.00",
+        "claimant_ssn": "NAME (First, Middle, Last, Suffix)\nLILLIANA D GONSALVES\nSSN\n552-67-2224",
+        "birthday": "Birthday\n(mm\/dd\/yy)\n11\/23\/67",
+        "special_instructions": "Special Instructions:\nIndicate the range of motion in degrees of the affected joint(s) or spine.\nJoint examination to include specific range of motion of the joints. List the involved joints and describe the presence\nor absence of effusion, periarticular swelling, tenderness, heat, redness and thickening of the joints",
+        "hpi": "Vitals\nsys dia HR RR temp wt\n\nht Bill\n\n110 72 76 16 97.3\u00b0F 173.8 lb 65 in 28.9",
+        "problem_list": "General: A&0x3; sa02-98%RA\nHEENT: OMI, anicteric sclera, nares patent\nNeck: supple, FROM\nLungs: CTA bilaterally, NI I:E ratio\nCV: RRR. No M\/R\/G, no edema\nAbd: NABS, mild diffuse lower epigastric tenderness, no rebound, no guarding, no acute or peritoneal\nsigns, no masses or FiSM, no cva tenderness\nExtr: NO c\/c\/e. FROMx4. Slight slow antalgic gait\nNeuro: CN grossly intact, no focal deficits\nPsych: normal judgment, insight, appropriate mood and affect\nSkin: no rashes, or ecchymoses, no palpable exanthem, normal skin turgor",
+        "variable_hpi": null
+    },
+    {
+        "id": "af81465c662c2450868fe789667dac39",
+        "document_id": "1c24c94ea559f0c88b374b773c10922d",
+        "remote_id": "1",
+        "file_name": "Complete OCD PDF.pdf",
+        "media_link": "https:\/\/api.docparser.com\/v1\/document\/media\/4ChdEqW7A5oRORRBTqDBHVhgi7gjkLs_YC9oCIUeDcWv6bJsyvCMlmvq__AcPWKTRYQC8_WN1cUs1G5pideZM8cUX81RdWljtDyla3eYltA",
+        "media_link_original": "https:\/\/api.docparser.com\/v1\/document\/media\/4ChdEqW7A5oRORRBTqDBHVhgi7gjkLs_YC9oCIUeDcWv6bJsyvCMlmvq__AcPWKTRYQC8_WN1cUs1G5pideZM8cUX81RdWljtDyla3eYltA\/original",
+        "media_link_data": "https:\/\/api.docparser.com\/v1\/document\/media\/4ChdEqW7A5oRORRBTqDBHVhgi7gjkLs_YC9oCIUeDcWv6bJsyvCMlmvq__AcPWKTRYQC8_WN1cUs1G5pideZM8cUX81RdWljtDyla3eYltA\/data",
+        "page_count": 11,
+        "uploaded_at": "2021-04-07T07:57:00+00:00",
+        "processed_at": "2021-04-07T07:57:29+00:00",
+        "rqid": null,
+        "medico_info": "ERICA NEAL, PA (MESA)\n3507 NORTH CENTRAL AVE STE 403\nPHOENIX AZ 85012",
+        "claimant_case_information": [
+            {
+                "key_0": "Date:",
+                "key_1": "Mar",
+                "key_2": "2,",
+                "key_3": "2021"
+            },
+            {
+                "key_0": "Case",
+                "key_1": "ID:",
+                "key_2": "897020",
+                "key_3": ""
+            },
+            {
+                "key_0": "RE:",
+                "key_1": "Lilliana",
+                "key_2": "D",
+                "key_3": "Gonsalves"
+            },
+            {
+                "key_0": "DOB:",
+                "key_1": "November",
+                "key_2": "23,",
+                "key_3": "1967"
+            },
+            {
+                "key_0": "Applicant:",
+                "key_1": "Lilliana",
+                "key_2": "D",
+                "key_3": "Gonsalves"
+            },
+            {
+                "key_0": "Authorization",
+                "key_1": "#:",
+                "key_2": "20210302690008",
+                "key_3": ""
+            }
+        ],
+        "claimant_address": [
+            {
+                "key_0": "Claimant",
+                "key_1": "Information",
+                "key_2": "",
+                "key_3": ""
+            },
+            {
+                "key_0": "Lilliana",
+                "key_1": "D",
+                "key_2": "Gonsalves",
+                "key_3": ""
+            },
+            {
+                "key_0": "18767",
+                "key_1": "E",
+                "key_2": "PINE",
+                "key_3": "BARRENS"
+            },
+            {
+                "key_0": "QUEEN",
+                "key_1": "CREEK,",
+                "key_2": "AZ",
+                "key_3": "851"
+            },
+            {
+                "key_0": "(480)",
+                "key_1": "291-3847",
+                "key_2": "",
+                "key_3": ""
+            }
+        ],
+        "appt_date": "S\n142-3667\n\nDate\n\nTuesd\nMarc\n09:00",
+        "service": "me\n\n2021\nMountain Standard Time\n\nServices Authorized\nCode: 99204-PHYSIATRIST\nProcedure Type Code: E\nDesc: Physiatrist\nFee: $124.00",
+        "claimant_ssn": "NAME (First, Middle, Last, Suffix)\nLILLIANA D GONSALVES\nSSN\n552-67-2224",
+        "birthday": "Birthday\n(mm\/dd\/yy)\n11\/23\/67",
+        "special_instructions": "Special Instructions:\nIndicate the range of motion in degrees of the affected joint(s) or spine.\nJoint examination to include specific range of motion of the joints. List the involved joints and describe the presence\nor absence of effusion, periarticular swelling, tenderness, heat, redness and thickening of the joints",
+        "hpi": "Vitals\nsys dia HR RR temp wt\n\nht Bill\n\n110 72 76 16 97.3\u00b0F 173.8 lb 65 in 28.9",
+        "problem_list": "General: A&0x3; sa02-98%RA\nHEENT: OMI, anicteric sclera, nares patent\nNeck: supple, FROM\nLungs: CTA bilaterally, NI I:E ratio\nCV: RRR. No M\/R\/G, no edema\nAbd: NABS, mild diffuse lower epigastric tenderness, no rebound, no guarding, no acute or peritoneal\nsigns, no masses or FiSM, no cva tenderness\nExtr: NO c\/c\/e. FROMx4. Slight slow antalgic gait\nNeuro: CN grossly intact, no focal deficits\nPsych: normal judgment, insight, appropriate mood and affect\nSkin: no rashes, or ecchymoses, no palpable exanthem, normal skin turgor",
+        "variable_hpi": null
+    },
+    {
+        "id": "2257a75c230c4a693e04222e50a3aea2",
+        "document_id": "5510f8e39fb8d9c48f114e1cd47ad5c4",
+        "remote_id": "1",
+        "file_name": "Complete OCD PDF (1).pdf",
+        "media_link": "https:\/\/api.docparser.com\/v1\/document\/media\/xip9hGSXucugzhRCx6xQdtFd9wP9YaMwBa8KMSAOF5yv6bJsyvCMlmvq__AcPWKTRYQC8_WN1cUs1G5pideZM8cUX81RdWljtDyla3eYltA",
+        "media_link_original": "https:\/\/api.docparser.com\/v1\/document\/media\/xip9hGSXucugzhRCx6xQdtFd9wP9YaMwBa8KMSAOF5yv6bJsyvCMlmvq__AcPWKTRYQC8_WN1cUs1G5pideZM8cUX81RdWljtDyla3eYltA\/original",
+        "media_link_data": "https:\/\/api.docparser.com\/v1\/document\/media\/xip9hGSXucugzhRCx6xQdtFd9wP9YaMwBa8KMSAOF5yv6bJsyvCMlmvq__AcPWKTRYQC8_WN1cUs1G5pideZM8cUX81RdWljtDyla3eYltA\/data",
+        "page_count": 11,
+        "uploaded_at": "2021-04-07T07:52:28+00:00",
+        "processed_at": "2021-04-07T07:52:53+00:00",
+        "rqid": null,
+        "medico_info": "ERICA NEAL, PA (MESA)\n3507 NORTH CENTRAL AVE STE 403\nPHOENIX AZ 85012",
+        "claimant_case_information": [
+            {
+                "key_0": "Date:",
+                "key_1": "Mar",
+                "key_2": "2,",
+                "key_3": "2021"
+            },
+            {
+                "key_0": "Case",
+                "key_1": "ID:",
+                "key_2": "897020",
+                "key_3": ""
+            },
+            {
+                "key_0": "RE:",
+                "key_1": "Lilliana",
+                "key_2": "D",
+                "key_3": "Gonsalves"
+            },
+            {
+                "key_0": "DOB:",
+                "key_1": "November",
+                "key_2": "23,",
+                "key_3": "1967"
+            },
+            {
+                "key_0": "Applicant:",
+                "key_1": "Lilliana",
+                "key_2": "D",
+                "key_3": "Gonsalves"
+            },
+            {
+                "key_0": "Authorization",
+                "key_1": "#:",
+                "key_2": "20210302690008",
+                "key_3": ""
+            }
+        ],
+        "claimant_address": [
+            {
+                "key_0": "Claimant",
+                "key_1": "Information",
+                "key_2": "",
+                "key_3": ""
+            },
+            {
+                "key_0": "Lilliana",
+                "key_1": "D",
+                "key_2": "Gonsalves",
+                "key_3": ""
+            },
+            {
+                "key_0": "18767",
+                "key_1": "E",
+                "key_2": "PINE",
+                "key_3": "BARRENS"
+            },
+            {
+                "key_0": "QUEEN",
+                "key_1": "CREEK,",
+                "key_2": "AZ",
+                "key_3": "851"
+            },
+            {
+                "key_0": "(480)",
+                "key_1": "291-3847",
+                "key_2": "",
+                "key_3": ""
+            }
+        ],
+        "appt_date": "S\n142-3667\n\nDate\n\nTuesd\nMarc\n09:00",
+        "service": "me\n\n2021\nMountain Standard Time\n\nServices Authorized\nCode: 99204-PHYSIATRIST\nProcedure Type Code: E\nDesc: Physiatrist\nFee: $124.00",
+        "claimant_ssn": "NAME (First, Middle, Last, Suffix)\nLILLIANA D GONSALVES\nSSN\n552-67-2224",
+        "birthday": "Birthday\n(mm\/dd\/yy)\n11\/23\/67",
+        "special_instructions": "Special Instructions:\nIndicate the range of motion in degrees of the affected joint(s) or spine.\nJoint examination to include specific range of motion of the joints. List the involved joints and describe the presence\nor absence of effusion, periarticular swelling, tenderness, heat, redness and thickening of the joints",
+        "hpi": "Vitals\nsys dia HR RR temp wt\n\nht Bill\n\n110 72 76 16 97.3\u00b0F 173.8 lb 65 in 28.9",
+        "problem_list": "General: A&0x3; sa02-98%RA\nHEENT: OMI, anicteric sclera, nares patent\nNeck: supple, FROM\nLungs: CTA bilaterally, NI I:E ratio\nCV: RRR. No M\/R\/G, no edema\nAbd: NABS, mild diffuse lower epigastric tenderness, no rebound, no guarding, no acute or peritoneal\nsigns, no masses or FiSM, no cva tenderness\nExtr: NO c\/c\/e. FROMx4. Slight slow antalgic gait\nNeuro: CN grossly intact, no focal deficits\nPsych: normal judgment, insight, appropriate mood and affect\nSkin: no rashes, or ecchymoses, no palpable exanthem, normal skin turgor",
+        "variable_hpi": null
+    },
+    {
+        "id": "e965ee39ab05a29c0f989a88ced87c3f",
+        "document_id": "a5c6c8d2f343aef4b70f4a4084528cb3",
+        "remote_id": "1",
+        "file_name": "Complete OCD PDF (1).pdf",
+        "media_link": "https:\/\/api.docparser.com\/v1\/document\/media\/fUZdbhg76I_0oG-S_ta13k-pzuq8tB2QoJ8L4aWKrjav6bJsyvCMlmvq__AcPWKTRYQC8_WN1cUs1G5pideZM8cUX81RdWljtDyla3eYltA",
+        "media_link_original": "https:\/\/api.docparser.com\/v1\/document\/media\/fUZdbhg76I_0oG-S_ta13k-pzuq8tB2QoJ8L4aWKrjav6bJsyvCMlmvq__AcPWKTRYQC8_WN1cUs1G5pideZM8cUX81RdWljtDyla3eYltA\/original",
+        "media_link_data": "https:\/\/api.docparser.com\/v1\/document\/media\/fUZdbhg76I_0oG-S_ta13k-pzuq8tB2QoJ8L4aWKrjav6bJsyvCMlmvq__AcPWKTRYQC8_WN1cUs1G5pideZM8cUX81RdWljtDyla3eYltA\/data",
+        "page_count": 11,
+        "uploaded_at": "2021-04-07T07:47:38+00:00",
+        "processed_at": "2021-04-07T07:48:20+00:00",
+        "rqid": null,
+        "medico_info": "ERICA NEAL, PA (MESA)\n3507 NORTH CENTRAL AVE STE 403\nPHOENIX AZ 85012",
+        "claimant_case_information": [
+            {
+                "key_0": "Date:",
+                "key_1": "Mar",
+                "key_2": "2,",
+                "key_3": "2021"
+            },
+            {
+                "key_0": "Case",
+                "key_1": "ID:",
+                "key_2": "897020",
+                "key_3": ""
+            },
+            {
+                "key_0": "RE:",
+                "key_1": "Lilliana",
+                "key_2": "D",
+                "key_3": "Gonsalves"
+            },
+            {
+                "key_0": "DOB:",
+                "key_1": "November",
+                "key_2": "23,",
+                "key_3": "1967"
+            },
+            {
+                "key_0": "Applicant:",
+                "key_1": "Lilliana",
+                "key_2": "D",
+                "key_3": "Gonsalves"
+            },
+            {
+                "key_0": "Authorization",
+                "key_1": "#:",
+                "key_2": "20210302690008",
+                "key_3": ""
+            }
+        ],
+        "claimant_address": [
+            {
+                "key_0": "Claimant",
+                "key_1": "Information",
+                "key_2": "",
+                "key_3": ""
+            },
+            {
+                "key_0": "Lilliana",
+                "key_1": "D",
+                "key_2": "Gonsalves",
+                "key_3": ""
+            },
+            {
+                "key_0": "18767",
+                "key_1": "E",
+                "key_2": "PINE",
+                "key_3": "BARRENS"
+            },
+            {
+                "key_0": "QUEEN",
+                "key_1": "CREEK,",
+                "key_2": "AZ",
+                "key_3": "851"
+            },
+            {
+                "key_0": "(480)",
+                "key_1": "291-3847",
+                "key_2": "",
+                "key_3": ""
+            }
+        ],
+        "appt_date": "S\n142-3667\n\nDate\n\nTuesd\nMarc\n09:00",
+        "service": "me\n\n2021\nMountain Standard Time\n\nServices Authorized\nCode: 99204-PHYSIATRIST\nProcedure Type Code: E\nDesc: Physiatrist\nFee: $124.00",
+        "claimant_ssn": "NAME (First, Middle, Last, Suffix)\nLILLIANA D GONSALVES\nSSN\n552-67-2224",
+        "birthday": "Birthday\n(mm\/dd\/yy)\n11\/23\/67",
+        "special_instructions": "Special Instructions:\nIndicate the range of motion in degrees of the affected joint(s) or spine.\nJoint examination to include specific range of motion of the joints. List the involved joints and describe the presence\nor absence of effusion, periarticular swelling, tenderness, heat, redness and thickening of the joints",
+        "hpi": "Vitals\nsys dia HR RR temp wt\n\nht Bill\n\n110 72 76 16 97.3\u00b0F 173.8 lb 65 in 28.9",
+        "problem_list": "General: A&0x3; sa02-98%RA\nHEENT: OMI, anicteric sclera, nares patent\nNeck: supple, FROM\nLungs: CTA bilaterally, NI I:E ratio\nCV: RRR. No M\/R\/G, no edema\nAbd: NABS, mild diffuse lower epigastric tenderness, no rebound, no guarding, no acute or peritoneal\nsigns, no masses or FiSM, no cva tenderness\nExtr: NO c\/c\/e. FROMx4. Slight slow antalgic gait\nNeuro: CN grossly intact, no focal deficits\nPsych: normal judgment, insight, appropriate mood and affect\nSkin: no rashes, or ecchymoses, no palpable exanthem, normal skin turgor",
+        "variable_hpi": null
+    },
+    {
+        "id": "f634556b31cebd8447e22371cabd6e87",
+        "document_id": "b3aa0719e84e36802f2b52cc1337849e",
+        "remote_id": "1",
+        "file_name": "Complete OCD PDF (1).pdf",
+        "media_link": "https:\/\/api.docparser.com\/v1\/document\/media\/e7IE4_VgPMwe_WExF2GK6opS72fwyD9_syLzq_r7nHmv6bJsyvCMlmvq__AcPWKTRYQC8_WN1cUs1G5pideZM8cUX81RdWljtDyla3eYltA",
+        "media_link_original": "https:\/\/api.docparser.com\/v1\/document\/media\/e7IE4_VgPMwe_WExF2GK6opS72fwyD9_syLzq_r7nHmv6bJsyvCMlmvq__AcPWKTRYQC8_WN1cUs1G5pideZM8cUX81RdWljtDyla3eYltA\/original",
+        "media_link_data": "https:\/\/api.docparser.com\/v1\/document\/media\/e7IE4_VgPMwe_WExF2GK6opS72fwyD9_syLzq_r7nHmv6bJsyvCMlmvq__AcPWKTRYQC8_WN1cUs1G5pideZM8cUX81RdWljtDyla3eYltA\/data",
+        "page_count": 11,
+        "uploaded_at": "2021-04-07T07:44:45+00:00",
+        "processed_at": "2021-04-07T07:45:04+00:00",
+        "rqid": null,
+        "medico_info": "ERICA NEAL, PA (MESA)\n3507 NORTH CENTRAL AVE STE 403\nPHOENIX AZ 85012",
+        "claimant_case_information": [
+            {
+                "key_0": "Date:",
+                "key_1": "Mar",
+                "key_2": "2,",
+                "key_3": "2021"
+            },
+            {
+                "key_0": "Case",
+                "key_1": "ID:",
+                "key_2": "897020",
+                "key_3": ""
+            },
+            {
+                "key_0": "RE:",
+                "key_1": "Lilliana",
+                "key_2": "D",
+                "key_3": "Gonsalves"
+            },
+            {
+                "key_0": "DOB:",
+                "key_1": "November",
+                "key_2": "23,",
+                "key_3": "1967"
+            },
+            {
+                "key_0": "Applicant:",
+                "key_1": "Lilliana",
+                "key_2": "D",
+                "key_3": "Gonsalves"
+            },
+            {
+                "key_0": "Authorization",
+                "key_1": "#:",
+                "key_2": "20210302690008",
+                "key_3": ""
+            }
+        ],
+        "claimant_address": [
+            {
+                "key_0": "Claimant",
+                "key_1": "Information",
+                "key_2": "",
+                "key_3": ""
+            },
+            {
+                "key_0": "Lilliana",
+                "key_1": "D",
+                "key_2": "Gonsalves",
+                "key_3": ""
+            },
+            {
+                "key_0": "18767",
+                "key_1": "E",
+                "key_2": "PINE",
+                "key_3": "BARRENS"
+            },
+            {
+                "key_0": "QUEEN",
+                "key_1": "CREEK,",
+                "key_2": "AZ",
+                "key_3": "851"
+            },
+            {
+                "key_0": "(480)",
+                "key_1": "291-3847",
+                "key_2": "",
+                "key_3": ""
+            }
+        ],
+        "appt_date": "S\n142-3667\n\nDate\n\nTuesd\nMarc\n09:00",
+        "service": "me\n\n2021\nMountain Standard Time\n\nServices Authorized\nCode: 99204-PHYSIATRIST\nProcedure Type Code: E\nDesc: Physiatrist\nFee: $124.00",
+        "claimant_ssn": "NAME (First, Middle, Last, Suffix)\nLILLIANA D GONSALVES\nSSN\n552-67-2224",
+        "birthday": "Birthday\n(mm\/dd\/yy)\n11\/23\/67",
+        "special_instructions": "Special Instructions:\nIndicate the range of motion in degrees of the affected joint(s) or spine.\nJoint examination to include specific range of motion of the joints. List the involved joints and describe the presence\nor absence of effusion, periarticular swelling, tenderness, heat, redness and thickening of the joints",
+        "hpi": "Vitals\nsys dia HR RR temp wt\n\nht Bill\n\n110 72 76 16 97.3\u00b0F 173.8 lb 65 in 28.9",
+        "problem_list": "General: A&0x3; sa02-98%RA\nHEENT: OMI, anicteric sclera, nares patent\nNeck: supple, FROM\nLungs: CTA bilaterally, NI I:E ratio\nCV: RRR. No M\/R\/G, no edema\nAbd: NABS, mild diffuse lower epigastric tenderness, no rebound, no guarding, no acute or peritoneal\nsigns, no masses or FiSM, no cva tenderness\nExtr: NO c\/c\/e. FROMx4. Slight slow antalgic gait\nNeuro: CN grossly intact, no focal deficits\nPsych: normal judgment, insight, appropriate mood and affect\nSkin: no rashes, or ecchymoses, no palpable exanthem, normal skin turgor",
+        "variable_hpi": null
+    },
+    {
+        "id": "0dc53bac61351beb232119464934def5",
+        "document_id": "341769587d9c90e9a534e4db6790589a",
+        "remote_id": "1",
+        "file_name": "Complete OCD PDF.pdf",
+        "media_link": "https:\/\/api.docparser.com\/v1\/document\/media\/i6s-Fp_9xNWTK6ro4LRuYDOx8_sZIFlaw2vlWpy9fB-v6bJsyvCMlmvq__AcPWKTRYQC8_WN1cUs1G5pideZM8cUX81RdWljtDyla3eYltA",
+        "media_link_original": "https:\/\/api.docparser.com\/v1\/document\/media\/i6s-Fp_9xNWTK6ro4LRuYDOx8_sZIFlaw2vlWpy9fB-v6bJsyvCMlmvq__AcPWKTRYQC8_WN1cUs1G5pideZM8cUX81RdWljtDyla3eYltA\/original",
+        "media_link_data": "https:\/\/api.docparser.com\/v1\/document\/media\/i6s-Fp_9xNWTK6ro4LRuYDOx8_sZIFlaw2vlWpy9fB-v6bJsyvCMlmvq__AcPWKTRYQC8_WN1cUs1G5pideZM8cUX81RdWljtDyla3eYltA\/data",
+        "page_count": 11,
+        "uploaded_at": "2021-04-07T07:42:33+00:00",
+        "processed_at": "2021-04-07T07:43:05+00:00",
+        "rqid": null,
+        "medico_info": "ERICA NEAL, PA (MESA)\n3507 NORTH CENTRAL AVE STE 403\nPHOENIX AZ 85012",
+        "claimant_case_information": [
+            {
+                "key_0": "Date:",
+                "key_1": "Mar",
+                "key_2": "2,",
+                "key_3": "2021"
+            },
+            {
+                "key_0": "Case",
+                "key_1": "ID:",
+                "key_2": "897020",
+                "key_3": ""
+            },
+            {
+                "key_0": "RE:",
+                "key_1": "Lilliana",
+                "key_2": "D",
+                "key_3": "Gonsalves"
+            },
+            {
+                "key_0": "DOB:",
+                "key_1": "November",
+                "key_2": "23,",
+                "key_3": "1967"
+            },
+            {
+                "key_0": "Applicant:",
+                "key_1": "Lilliana",
+                "key_2": "D",
+                "key_3": "Gonsalves"
+            },
+            {
+                "key_0": "Authorization",
+                "key_1": "#:",
+                "key_2": "20210302690008",
+                "key_3": ""
+            }
+        ],
+        "claimant_address": [
+            {
+                "key_0": "Claimant",
+                "key_1": "Information",
+                "key_2": "",
+                "key_3": ""
+            },
+            {
+                "key_0": "Lilliana",
+                "key_1": "D",
+                "key_2": "Gonsalves",
+                "key_3": ""
+            },
+            {
+                "key_0": "18767",
+                "key_1": "E",
+                "key_2": "PINE",
+                "key_3": "BARRENS"
+            },
+            {
+                "key_0": "QUEEN",
+                "key_1": "CREEK,",
+                "key_2": "AZ",
+                "key_3": "851"
+            },
+            {
+                "key_0": "(480)",
+                "key_1": "291-3847",
+                "key_2": "",
+                "key_3": ""
+            }
+        ],
+        "appt_date": "S\n142-3667\n\nDate\n\nTuesd\nMarc\n09:00",
+        "service": "me\n\n2021\nMountain Standard Time\n\nServices Authorized\nCode: 99204-PHYSIATRIST\nProcedure Type Code: E\nDesc: Physiatrist\nFee: $124.00",
+        "claimant_ssn": "NAME (First, Middle, Last, Suffix)\nLILLIANA D GONSALVES\nSSN\n552-67-2224",
+        "birthday": "Birthday\n(mm\/dd\/yy)\n11\/23\/67",
+        "special_instructions": "Special Instructions:\nIndicate the range of motion in degrees of the affected joint(s) or spine.\nJoint examination to include specific range of motion of the joints. List the involved joints and describe the presence\nor absence of effusion, periarticular swelling, tenderness, heat, redness and thickening of the joints",
+        "hpi": "Vitals\nsys dia HR RR temp wt\n\nht Bill\n\n110 72 76 16 97.3\u00b0F 173.8 lb 65 in 28.9",
+        "problem_list": "General: A&0x3; sa02-98%RA\nHEENT: OMI, anicteric sclera, nares patent\nNeck: supple, FROM\nLungs: CTA bilaterally, NI I:E ratio\nCV: RRR. No M\/R\/G, no edema\nAbd: NABS, mild diffuse lower epigastric tenderness, no rebound, no guarding, no acute or peritoneal\nsigns, no masses or FiSM, no cva tenderness\nExtr: NO c\/c\/e. FROMx4. Slight slow antalgic gait\nNeuro: CN grossly intact, no focal deficits\nPsych: normal judgment, insight, appropriate mood and affect\nSkin: no rashes, or ecchymoses, no palpable exanthem, normal skin turgor",
+        "variable_hpi": null
+    },
+    {
+        "id": "0bdeaebd41882642e35dbf7fa3516fe9",
+        "document_id": "d3951c80e45cabec179063b56eb5702f",
+        "remote_id": "",
+        "file_name": "Complete OCD PDF.pdf",
+        "media_link": "https:\/\/api.docparser.com\/v1\/document\/media\/ylynaq14_rE98pQXx1n6MPyLyP4mW6BeeJk7goqdtbiv6bJsyvCMlmvq__AcPWKTRYQC8_WN1cUs1G5pideZM8cUX81RdWljtDyla3eYltA",
+        "media_link_original": "https:\/\/api.docparser.com\/v1\/document\/media\/ylynaq14_rE98pQXx1n6MPyLyP4mW6BeeJk7goqdtbiv6bJsyvCMlmvq__AcPWKTRYQC8_WN1cUs1G5pideZM8cUX81RdWljtDyla3eYltA\/original",
+        "media_link_data": "https:\/\/api.docparser.com\/v1\/document\/media\/ylynaq14_rE98pQXx1n6MPyLyP4mW6BeeJk7goqdtbiv6bJsyvCMlmvq__AcPWKTRYQC8_WN1cUs1G5pideZM8cUX81RdWljtDyla3eYltA\/data",
+        "page_count": 11,
+        "uploaded_at": "2021-04-02T07:04:11+00:00",
+        "processed_at": "2021-04-02T07:06:15+00:00",
+        "rqid": null,
+        "medico_info": "ERICA NEAL, PA (MESA)\n3507 NORTH CENTRAL AVE STE 403\nPHOENIX AZ 85012",
+        "claimant_case_information": [
+            {
+                "key_0": "Date:",
+                "key_1": "Mar",
+                "key_2": "2,",
+                "key_3": "2021"
+            },
+            {
+                "key_0": "Case",
+                "key_1": "ID:",
+                "key_2": "897020",
+                "key_3": ""
+            },
+            {
+                "key_0": "RE:",
+                "key_1": "Lilliana",
+                "key_2": "D",
+                "key_3": "Gonsalves"
+            },
+            {
+                "key_0": "DOB:",
+                "key_1": "November",
+                "key_2": "23,",
+                "key_3": "1967"
+            },
+            {
+                "key_0": "Applicant:",
+                "key_1": "Lilliana",
+                "key_2": "D",
+                "key_3": "Gonsalves"
+            },
+            {
+                "key_0": "Authorization",
+                "key_1": "#:",
+                "key_2": "20210302690008",
+                "key_3": ""
+            }
+        ],
+        "claimant_address": [
+            {
+                "key_0": "Claimant",
+                "key_1": "Information",
+                "key_2": "",
+                "key_3": ""
+            },
+            {
+                "key_0": "Lilliana",
+                "key_1": "D",
+                "key_2": "Gonsalves",
+                "key_3": ""
+            },
+            {
+                "key_0": "18767",
+                "key_1": "E",
+                "key_2": "PINE",
+                "key_3": "BARRENS"
+            },
+            {
+                "key_0": "QUEEN",
+                "key_1": "CREEK,",
+                "key_2": "AZ",
+                "key_3": "851"
+            },
+            {
+                "key_0": "(480)",
+                "key_1": "291-3847",
+                "key_2": "",
+                "key_3": ""
+            }
+        ],
+        "appt_date": "S\n142-3667\n\nDate\n\nTuesd\nMarc\n09:00",
+        "service": "me\n\n2021\nMountain Standard Time\n\nServices Authorized\nCode: 99204-PHYSIATRIST\nProcedure Type Code: E\nDesc: Physiatrist\nFee: $124.00",
+        "claimant_ssn": "NAME (First, Middle, Last, Suffix)\nLILLIANA D GONSALVES\nSSN\n552-67-2224",
+        "birthday": "Birthday\n(mm\/dd\/yy)\n11\/23\/67",
+        "special_instructions": "Special Instructions:\nIndicate the range of motion in degrees of the affected joint(s) or spine.\nJoint examination to include specific range of motion of the joints. List the involved joints and describe the presence\nor absence of effusion, periarticular swelling, tenderness, heat, redness and thickening of the joints",
+        "hpi": "Vitals\nsys dia HR RR temp wt\n\nht Bill\n\n110 72 76 16 97.3\u00b0F 173.8 lb 65 in 28.9",
+        "problem_list": "General: A&0x3; sa02-98%RA\nHEENT: OMI, anicteric sclera, nares patent\nNeck: supple, FROM\nLungs: CTA bilaterally, NI I:E ratio\nCV: RRR. No M\/R\/G, no edema\nAbd: NABS, mild diffuse lower epigastric tenderness, no rebound, no guarding, no acute or peritoneal\nsigns, no masses or FiSM, no cva tenderness\nExtr: NO c\/c\/e. FROMx4. Slight slow antalgic gait\nNeuro: CN grossly intact, no focal deficits\nPsych: normal judgment, insight, appropriate mood and affect\nSkin: no rashes, or ecchymoses, no palpable exanthem, normal skin turgor",
+        "variable_hpi": null
+    },
+    {
+        "id": "0adac0c1b58a06720b6472018c7535c7",
+        "document_id": "b00d41b3fea3c30ce75a257a8c67573e",
+        "remote_id": "",
+        "file_name": "REQUEST_S03_20210310162623_251733535_0.pdf",
+        "media_link": "https:\/\/api.docparser.com\/v1\/document\/media\/HJsnmyCHTLb70pu-7X6m0tH7H_qRH_IaVBBz_RQGvQmv6bJsyvCMlmvq__AcPWKTRYQC8_WN1cUs1G5pideZM8cUX81RdWljtDyla3eYltA",
+        "media_link_original": "https:\/\/api.docparser.com\/v1\/document\/media\/HJsnmyCHTLb70pu-7X6m0tH7H_qRH_IaVBBz_RQGvQmv6bJsyvCMlmvq__AcPWKTRYQC8_WN1cUs1G5pideZM8cUX81RdWljtDyla3eYltA\/original",
+        "media_link_data": "https:\/\/api.docparser.com\/v1\/document\/media\/HJsnmyCHTLb70pu-7X6m0tH7H_qRH_IaVBBz_RQGvQmv6bJsyvCMlmvq__AcPWKTRYQC8_WN1cUs1G5pideZM8cUX81RdWljtDyla3eYltA\/data",
+        "page_count": 22,
+        "uploaded_at": "2021-03-17T20:50:52+00:00",
+        "processed_at": "2021-03-17T21:34:34+00:00",
+        "rqid": null,
+        "medico_info": "GLENN R KUNSMAN, DO (GLENDALE\n3507 NORTH CENTRAL AVE STE 403\nPHOENIX AZ 85012",
+        "claimant_case_information": [
+            {
+                "key_0": "Date:",
+                "key_1": "Mar",
+                "key_2": "10,",
+                "key_3": "2021"
+            },
+            {
+                "key_0": "Case",
+                "key_1": "ID:",
+                "key_2": "1023713",
+                "key_3": ""
+            },
+            {
+                "key_0": "RE:",
+                "key_1": "Leslye",
+                "key_2": "Carlene",
+                "key_3": "Smiling"
+            },
+            {
+                "key_0": "DOB:",
+                "key_1": "July",
+                "key_2": "22,",
+                "key_3": "1968"
+            },
+            {
+                "key_0": "Applicant:",
+                "key_1": "Leslye",
+                "key_2": "Carlene",
+                "key_3": "Smiling"
+            },
+            {
+                "key_0": "Authorization",
+                "key_1": "#:",
+                "key_2": "20210310690044",
+                "key_3": ""
+            }
+        ],
+        "claimant_address": [
+            {
+                "key_0": "Claimant",
+                "key_1": "Information",
+                "key_2": "",
+                "key_3": ""
+            },
+            {
+                "key_0": "Date",
+                "key_1": "and",
+                "key_2": "Tim",
+                "key_3": ""
+            },
+            {
+                "key_0": "Leslye",
+                "key_1": "Carlene",
+                "key_2": "Smiling",
+                "key_3": ""
+            },
+            {
+                "key_0": "805",
+                "key_1": "N",
+                "key_2": "DYSART",
+                "key_3": "RD"
+            },
+            {
+                "key_0": "LOT",
+                "key_1": "8",
+                "key_2": "",
+                "key_3": ""
+            },
+            {
+                "key_0": "AVONDALE,",
+                "key_1": "AZ",
+                "key_2": "",
+                "key_3": ""
+            },
+            {
+                "key_0": "Monday",
+                "key_1": "",
+                "key_2": "",
+                "key_3": ""
+            },
+            {
+                "key_0": "March",
+                "key_1": "29th,",
+                "key_2": "20",
+                "key_3": ""
+            },
+            {
+                "key_0": "10:00",
+                "key_1": "AM",
+                "key_2": "Mo",
+                "key_3": ""
+            },
+            {
+                "key_0": "Standard",
+                "key_1": "Time",
+                "key_2": "",
+                "key_3": ""
+            }
+        ],
+        "appt_date": "1\nntain\n\nServices Authorized\n\nCode: 99205-MUSC-SKEL\nProcedure Type Code: E\nDesc: Comprehensive muscu\nTypically 60 min exam.",
+        "service": "Please evaluate the following:\nPolycystic Ovary Syndrome; Arthritis; Depression; Anxiety; PTSD",
+        "claimant_ssn": "NAME (First, Middle, Last, Suffix)\nLeslye Carlene Smiling\nSSN\n044-48-4355",
+        "birthday": "Birthday\n(mm\/dd\/yy)\n07\/22\/68",
+        "special_instructions": ".\n\nSpecial Instructions:\nPlease send for ordered X-rays.\n\nWhat You Need To Do Next",
+        "hpi": "History of Present Illness:\n\n1. Herpes\n52 year old female with hx of hirsutism, MDD, and hypothyroidism who is here requesting tx for HSV.\nEndorses long hx of HSV and is on Acyclovir 800mg bid x 5 days for outbreak. She is requesting refills\nfor this for future use. Reports having vaginal outbreak last 2 weeks ago. Has had 6 outbreaks in the\nlast 1 years. Declines suppression therapy at this time.",
+        "problem_list": "PROBLEM LIST:\n\nProblem Description\nBenign neoplasm of\nmeninges\nHypothyroidism due to\nthyroiditis\nMenopause present\n\nOnset Date\n08\/28\/2017\n\nChronic\nY\n\n04\/10\/2017\n\nY\n\n04\/10\/2017\n\nY\n\nClinical Status\n\nNotes",
+        "variable_hpi": null
+    },
+    {
+        "id": "6f689130c5eadbc326fbacfcb7d7111c",
+        "document_id": "b977951cca450a34042014fcfb96fc39",
+        "remote_id": "",
+        "file_name": "REQUEST_S03_20210310162623_251733535_0.pdf",
+        "media_link": "https:\/\/api.docparser.com\/v1\/document\/media\/hKW_Toxr19IPdoHs4ipiw0PtzlSH6mvWb2Jknyyf20Cv6bJsyvCMlmvq__AcPWKTRYQC8_WN1cUs1G5pideZM8cUX81RdWljtDyla3eYltA",
+        "media_link_original": "https:\/\/api.docparser.com\/v1\/document\/media\/hKW_Toxr19IPdoHs4ipiw0PtzlSH6mvWb2Jknyyf20Cv6bJsyvCMlmvq__AcPWKTRYQC8_WN1cUs1G5pideZM8cUX81RdWljtDyla3eYltA\/original",
+        "media_link_data": "https:\/\/api.docparser.com\/v1\/document\/media\/hKW_Toxr19IPdoHs4ipiw0PtzlSH6mvWb2Jknyyf20Cv6bJsyvCMlmvq__AcPWKTRYQC8_WN1cUs1G5pideZM8cUX81RdWljtDyla3eYltA\/data",
+        "page_count": 22,
+        "uploaded_at": "2021-03-17T20:45:33+00:00",
+        "processed_at": "2021-03-17T20:45:45+00:00",
+        "rqid": null,
+        "medico_info": "GLENN R KUNSMAN, DO (GLENDALE\n3507 NORTH CENTRAL AVE STE 403\nPHOENIX AZ 85012",
+        "claimant_case_information": [
+            {
+                "key_0": "Date:",
+                "key_1": "Mar",
+                "key_2": "10,",
+                "key_3": "2021"
+            },
+            {
+                "key_0": "Case",
+                "key_1": "ID:",
+                "key_2": "1023713",
+                "key_3": ""
+            },
+            {
+                "key_0": "RE:",
+                "key_1": "Leslye",
+                "key_2": "Carlene",
+                "key_3": "Smiling"
+            },
+            {
+                "key_0": "DOB:",
+                "key_1": "July",
+                "key_2": "22,",
+                "key_3": "1968"
+            },
+            {
+                "key_0": "Applicant:",
+                "key_1": "Leslye",
+                "key_2": "Carlene",
+                "key_3": "Smiling"
+            },
+            {
+                "key_0": "Authorization",
+                "key_1": "#:",
+                "key_2": "20210310690044",
+                "key_3": ""
+            }
+        ],
+        "claimant_address": [
+            {
+                "key_0": "Claimant",
+                "key_1": "Information",
+                "key_2": "",
+                "key_3": ""
+            },
+            {
+                "key_0": "Date",
+                "key_1": "and",
+                "key_2": "Tim",
+                "key_3": ""
+            },
+            {
+                "key_0": "Leslye",
+                "key_1": "Carlene",
+                "key_2": "Smiling",
+                "key_3": ""
+            },
+            {
+                "key_0": "805",
+                "key_1": "N",
+                "key_2": "DYSART",
+                "key_3": "RD"
+            },
+            {
+                "key_0": "LOT",
+                "key_1": "8",
+                "key_2": "",
+                "key_3": ""
+            },
+            {
+                "key_0": "AVONDALE,",
+                "key_1": "AZ",
+                "key_2": "",
+                "key_3": ""
+            },
+            {
+                "key_0": "Monday",
+                "key_1": "",
+                "key_2": "",
+                "key_3": ""
+            },
+            {
+                "key_0": "March",
+                "key_1": "29th,",
+                "key_2": "20",
+                "key_3": ""
+            },
+            {
+                "key_0": "10:00",
+                "key_1": "AM",
+                "key_2": "Mo",
+                "key_3": ""
+            },
+            {
+                "key_0": "Standard",
+                "key_1": "Time",
+                "key_2": "",
+                "key_3": ""
+            }
+        ],
+        "appt_date": "1\nntain\n\nServices Authorized\n\nCode: 99205-MUSC-SKEL\nProcedure Type Code: E\nDesc: Comprehensive muscu\nTypically 60 min exam.",
+        "service": "Please evaluate the following:\nPolycystic Ovary Syndrome; Arthritis; Depression; Anxiety; PTSD",
+        "claimant_ssn": "NAME (First, Middle, Last, Suffix)\nLeslye Carlene Smiling\nSSN\n044-48-4355",
+        "birthday": "Birthday\n(mm\/dd\/yy)\n07\/22\/68",
+        "special_instructions": ".\n\nSpecial Instructions:\nPlease send for ordered X-rays.\n\nWhat You Need To Do Next",
+        "hpi": null,
+        "problem_list": null,
+        "variable_hpi": null
+    },
+    {
+        "id": "81999318d2ae637e7ee0a75af203cfe2",
+        "document_id": "f6df1467d58f2616917f793c50a72e8e",
+        "remote_id": "",
+        "file_name": "Complete OCD PDF.pdf",
+        "media_link": "https:\/\/api.docparser.com\/v1\/document\/media\/77ge_ztxXsUdjoHS2QtiSZvifOzgh9htX4uaK4qltwGv6bJsyvCMlmvq__AcPWKTRYQC8_WN1cUs1G5pideZM8cUX81RdWljtDyla3eYltA",
+        "media_link_original": "https:\/\/api.docparser.com\/v1\/document\/media\/77ge_ztxXsUdjoHS2QtiSZvifOzgh9htX4uaK4qltwGv6bJsyvCMlmvq__AcPWKTRYQC8_WN1cUs1G5pideZM8cUX81RdWljtDyla3eYltA\/original",
+        "media_link_data": "https:\/\/api.docparser.com\/v1\/document\/media\/77ge_ztxXsUdjoHS2QtiSZvifOzgh9htX4uaK4qltwGv6bJsyvCMlmvq__AcPWKTRYQC8_WN1cUs1G5pideZM8cUX81RdWljtDyla3eYltA\/data",
+        "page_count": 11,
+        "uploaded_at": "2021-03-16T04:31:32+00:00",
+        "processed_at": "2021-03-16T05:10:31+00:00",
+        "rqid": null,
+        "medico_info": "ERICA NEAL, PA (MESA)\n3507 NORTH CENTRAL AVE STE 403\nPHOENIX AZ 85012",
+        "appt_date": "Date and Time\nTuesday\nMarch 16th, 2021\n09:00 AM Mountain Standard Time",
+        "service": "Please evaluate the following:\naxial spondyloarthritis, fibromyalgia, chronic fatigue syndrome, asthma, lung nodules, Covid-19, hyperintensities subcortial\nmatter, migraines, vertigo, hematuria, anemia, and PTSD",
+        "claimant_ssn": "NAME (First, Middle, Last, Suffix)\nLILLIANA D GONSALVES\nSSN\n552-67-2224",
+        "birthday": "Birthday\n(mm\/dd\/yy)\n11\/23\/67",
+        "special_instructions": "Special Instructions:\nIndicate the range of motion in degrees of the affected joint(s) or spine.\nJoint examination to include specific range of motion of the joints. List the involved joints and describe the presence\nor absence of effusion, periarticular swelling, tenderness, heat, redness and thickening of the joints",
+        "hpi": null,
+        "problem_list": null,
+        "variable_hpi": null
+    },
+    {
+        "id": "1374349817e259b2d756fc03b76eb9ec",
+        "document_id": "58b7a4129c6f6613175948a06198d8e1",
+        "remote_id": "",
+        "file_name": "REQUEST_V16_20210302113707_251020872_0.pdf",
+        "media_link": "https:\/\/api.docparser.com\/v1\/document\/media\/Lv4kJAHF-3sWAJ_yCHpvJMampeeE3g1fbq7IokPw9Zav6bJsyvCMlmvq__AcPWKTRYQC8_WN1cUs1G5pideZM8cUX81RdWljtDyla3eYltA",
+        "media_link_original": "https:\/\/api.docparser.com\/v1\/document\/media\/Lv4kJAHF-3sWAJ_yCHpvJMampeeE3g1fbq7IokPw9Zav6bJsyvCMlmvq__AcPWKTRYQC8_WN1cUs1G5pideZM8cUX81RdWljtDyla3eYltA\/original",
+        "media_link_data": "https:\/\/api.docparser.com\/v1\/document\/media\/Lv4kJAHF-3sWAJ_yCHpvJMampeeE3g1fbq7IokPw9Zav6bJsyvCMlmvq__AcPWKTRYQC8_WN1cUs1G5pideZM8cUX81RdWljtDyla3eYltA\/data",
+        "page_count": 11,
+        "uploaded_at": "2021-03-16T04:30:35+00:00",
+        "processed_at": "2021-03-16T04:30:49+00:00"
+    }
+
+
+
+]

@@ -1,0 +1,14 @@
+<div class="row mt-md-3">
+  <div class="col-md-12">
+    <notification-card
+      #newMessages
+      [id]="id"
+      (notifyParent)="reload()"
+      [companyId]="companyId"
+      [appointmentId]="appointmentId"
+      [patientId]="patientId"
+      [startDate]="startDate"
+      [endDate]="endDate"
+    ></notification-card>
+  </div>
+</div>

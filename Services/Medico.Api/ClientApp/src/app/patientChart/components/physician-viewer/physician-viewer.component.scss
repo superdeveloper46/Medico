@@ -1,0 +1,41 @@
+.feature-left {
+    margin-bottom: 5px;
+}
+
+.feature-left .feature-icon {
+    color: #4cbec5;
+    display: inline-block;
+    float: left;
+    padding-right: 30px;
+    padding-top: 1px;
+}
+
+.feature-left .feature-content {
+    font-size: 13px;
+    color: #777 !important;
+}
+
+.feature-left:last-child {}
+
+.docparse-container-btn {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    align-items: center;
+    justify-content: center;
+}
+
+.dxform {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    margin-bottom: 5px;
+}
+
+.form-upload {
+    display: flex;
+    flex-direction: row;
+    justify-content: start;
+    align-items: center;
+    gap: 20px;
+}

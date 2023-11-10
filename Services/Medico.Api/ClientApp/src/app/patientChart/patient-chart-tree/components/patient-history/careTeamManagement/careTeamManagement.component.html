@@ -1,0 +1,41 @@
+<div class="row mt-md-2">
+  <div class="col-md-3">
+    <button
+      type="button"
+      (click)="openLink()"
+      class="btn btn-sm btn-outline-secondary"
+    >
+      FIND PHYSICIAN
+    </button>
+  </div>
+</div>
+<div class="row mt-md-2">
+  <div class="col-md-12">
+    <dx-data-grid
+        [hoverStateEnabled]="true"
+        [wordWrapEnabled]="true"
+        [dataSource]="careTeamSource"
+        [showBorders]="true"
+        [showRowLines]="true"
+    >
+    <dxi-column dataField="npi" [width]="100" caption="NPI"></dxi-column>
+    <dxi-column dataField="providerLastName" [width]="130" ></dxi-column>
+    <dxi-column dataField="providerMiddleName" [width]="155"></dxi-column>
+    <dxi-column dataField="providerFirstName" [width]="110"></dxi-column>
+    <dxi-column dataField="phoneNumber" [width]="105"></dxi-column>
+    <dxi-column dataField="faxNumber" [width]="105"></dxi-column>
+    <dxi-column dataField="practiceLocationAddress" [width]="240"></dxi-column>
+    <dxi-column dataField="practiceLocationCity" [width]="165"></dxi-column>
+    <dxi-column dataField="practiceLocationAddressState" [width]="80"></dxi-column>
+    <dxo-selection mode="single"></dxo-selection>
+    <dxo-filter-row [visible]="true"></dxo-filter-row>
+    <!-- <dxo-master-detail [enabled]="true" template="detail"></dxo-master-detail> -->
+
+    <!-- <div *dxTemplate="let careteam of 'detail'">
+      <div class="master-detail-caption">{{
+        "Additional  Information:"
+      }}</div>
+      <detail-grid></detail-grid>
+    </div> -->
+  </dx-data-grid>
+

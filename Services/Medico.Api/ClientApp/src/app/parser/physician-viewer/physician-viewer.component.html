@@ -1,0 +1,102 @@
+<div class="row mt-md-2">
+  <div class="col-md-12">
+    <h5>Physician Viewer</h5>
+    <br />
+  </div>
+  <div class="col-md-2 form-group">
+    <label>Select Patient</label>
+    <dx-select-box
+      #searchPatientSelectBox
+      [(value)]="patientId"
+      [dataSource]="patientDataSource"
+      valueExpr="id"
+      displayExpr="firstName"
+      [searchEnabled]="true"
+    >
+    </dx-select-box>
+  </div>
+  <div class="col-md-2 form-group">
+    <label>Select Document</label>
+    <dx-select-box
+      #searchDocSelectBox
+      [(value)]="docNameId"
+      [dataSource]="docNameDataSource"
+      valueExpr="document_id"
+      displayExpr="file_name"
+      (onValueChanged)="onDocNameChanged($event)"
+      [searchEnabled]="true"
+      [showClearButton]="true"
+    >
+    </dx-select-box>
+  </div>
+  <div class="col-md-2 form-group">
+    <label>Document Type</label>
+    <dx-select-box
+      #searchDocSelectBox
+      [(value)]="documentType"
+      [dataSource]="documentationList"
+      valueExpr="description"
+      displayExpr="description"
+      [searchEnabled]="true"
+      [showClearButton]="true"
+    >
+    </dx-select-box>
+  </div>
+  <div *ngIf="physicianDoc.field_1 !== undefined" class="col-md-3 form-group">
+    <button
+      type="button"
+      (click)="saveDocument()"
+      class="btn btn-sm btn-outline-secondary"
+      style="margin-top: 35px"
+    >
+      SAVE
+    </button>
+  </div>
+</div>
+<div class="row mt-md-2">
+  <div class="col-md-6">
+    <input #file type="file" (change)="onChange($event)" />
+    <button type="button" (click)="upload()" class="btn btn-sm btn-outline-secondary">
+      Upload Document
+    </button>
+    <dx-data-grid
+      [hoverStateEnabled]="true"
+      [wordWrapEnabled]="true"
+      [dataSource]="documentDataSource"
+      [showBorders]="true"
+      [showRowLines]="true"
+      (onSelectionChanged)="documentSelected($event)"
+    >
+      <dxi-column dataField="name" dataType="string" [allowSorting]="false"></dxi-column>
+      <dxi-column dataField="url" dataType="string" [visible]="false"></dxi-column>
+
+      <dxo-selection mode="multiple"></dxo-selection>
+    </dx-data-grid>
+  </div>
+</div>
+
+<div class="row mt-md-2">
+  <div *ngIf="physicianDoc.field_1 !== undefined" class="col-md-6">
+    <dx-data-grid
+      [hoverStateEnabled]="true"
+      [wordWrapEnabled]="true"
+      [dataSource]="keyPairDataSource"
+      [showBorders]="true"
+      [showRowLines]="true"
+      (onSelectionChanged)="handleChange($event)"
+    >
+      <dxi-column
+        [width]="50"
+        dataField="line"
+        dataType="string"
+        [allowSorting]="false"
+      ></dxi-column>
+      <dxi-column dataField="value" dataType="string" [allowSorting]="false"></dxi-column>
+
+      <dxo-selection mode="multiple"></dxo-selection>
+    </dx-data-grid>
+  </div>
+  <div *ngIf="physicianDoc.field_1 !== undefined" class="col-md-6">
+    <angular-editor [(ngModel)]="selectedValues"></angular-editor>
+  </div>
+</div>

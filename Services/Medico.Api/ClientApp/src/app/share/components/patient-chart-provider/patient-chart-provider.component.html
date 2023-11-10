@@ -1,0 +1,15 @@
+<div class="row">
+  <div class="col-md-12">
+    <dx-select-box
+      class="mt-md-2"
+      [(value)]="patientChartId"
+      [dataSource]="patientChartDataSource"
+      valueExpr="id"
+      displayExpr="title"
+      (onValueChanged)="onPatientChartChanged($event)"
+      placeholder="Search model view ..."
+      [searchEnabled]="false"
+    >
+    </dx-select-box>
+  </div>
+</div>

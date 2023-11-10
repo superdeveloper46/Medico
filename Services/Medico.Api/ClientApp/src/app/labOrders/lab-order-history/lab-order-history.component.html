@@ -1,0 +1,367 @@
+<div>
+  <div class="left">
+    <dx-list
+      class="list"
+      [dataSource]="dataSource"
+      [grouped]="true"
+      [searchEnabled]="true"
+      selectionMode="single"
+      (onSelectionChanged)="listSelectionChanged($event)"
+    >
+      <div *dxTemplate="let item of 'item'">
+        <div>
+          <div class="hotel">
+            <div class="name">{{ item.Item_Name }}</div>
+          </div>
+          <div class="price-container">
+            <div class="price">
+              <span *ngIf="item.Id === 0">{{ orderSummary?.total }} </span>
+              <span *ngIf="item.Id === 1">{{ orderSummary?.open }} </span>
+              <span *ngIf="item.Id === 2">{{ orderSummary?.completed }} </span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div *dxTemplate="let item of 'group'">
+        <div class="city">{{ item.key }}</div>
+      </div>
+    </dx-list>
+  </div>
+  <div class="right">
+    <div class="row mt-md-3">
+      <div class="col-md-12">
+        <h5>Patient Orders</h5>
+      </div>
+      <div class="col-md-12">
+        <div class="row mt-md-3">
+          <div
+            style="
+              background: #f8f8f8;
+              border: solid 1px #ccc;
+              padding: 20px;
+              margin: auto 0 auto 15px;
+            "
+            class="col-md-10"
+          >
+            <dx-form
+              #searchForm
+              [(formData)]="searchData"
+              (onFieldDataChanged)="onSearchFieldChanged($event)"
+              labelLocation="left"
+              [colCount]="3"
+            >
+              <dxi-item>
+                <dx-select-box
+                  #searchPatientSelectBox
+                  [(value)]="patientId"
+                  [dataSource]="patients"
+                  valueExpr="id"
+                  displayExpr="firstName"
+                  (onValueChanged)="onPatientNameChanged($event)"
+                  [searchEnabled]="true"
+                  [showClearButton]="false"
+                >
+                </dx-select-box>
+                <dxo-label text="Patient"></dxo-label>
+              </dxi-item>
+              <!-- <dxi-item  placeholder="Select Physician" dataField="physicianId" (onValueChanged)="onPhysicianChanged($event)"
+                                editorType="dxSelectBox"
+                                [editorOptions]="{ items: physicianData, displayExpr: 'name', valueExpr: 'id' }">
+                            </dxi-item> -->
+              <dxi-item>
+                <dx-select-box
+                  #searchPhysicianSelectBox
+                  [(value)]="physicianId"
+                  [dataSource]="physicianData"
+                  valueExpr="id"
+                  displayExpr="name"
+                  (onValueChanged)="onPhysicianChanged($event)"
+                  [searchEnabled]="true"
+                  [showClearButton]="false"
+                >
+                </dx-select-box>
+                <dxo-label text="Physician"></dxo-label>
+              </dxi-item>
+              <dxi-item>
+                <dx-select-box
+                  #searchCategorySelectBox
+                  [(value)]="categoryId"
+                  [dataSource]="categories"
+                  valueExpr="value"
+                  displayExpr="value"
+                  (onValueChanged)="onCategoryChanged($event)"
+                  [searchEnabled]="true"
+                  [showClearButton]="false"
+                >
+                </dx-select-box>
+                <dxo-label text="Category"></dxo-label>
+              </dxi-item>
+
+              <dxi-item>
+                <dx-select-box
+                  #searchStatusSelectBox
+                  [dataSource]="statusList"
+                  valueExpr="value"
+                  displayExpr="value"
+                  [value]="statusList[0].value"
+                  (onValueChanged)="onOrderStatusChanged($event)"
+                  [searchEnabled]="true"
+                  [showClearButton]="false"
+                >
+                </dx-select-box>
+                <dxo-label text="Status"></dxo-label>
+              </dxi-item>
+            </dx-form>
+          </div>
+        </div>
+
+        <div class="row mt-md-5">
+          <div class="col-md-12 ml-auto col-xl-12 mr-auto">
+            <!-- Nav tabs -->
+            <div class="card">
+              <div class="card-body">
+                <!-- Tab panes -->
+                <div class="tab-content">
+                  <div class="tab-pane active" id="home" role="tabpanel">
+                    <dx-data-grid
+                      [selectedRowKeys]="selectedOrders"
+                      [hoverStateEnabled]="true"
+                      (onSelectionChanged)="onOrderSelected($event)"
+                      [wordWrapEnabled]="true"
+                      #labOrderDataGrid
+                      [dataSource]="labOrderDataSource"
+                      [showBorders]="true"
+                    >
+                      <dxo-remote-operations
+                        [sorting]="true"
+                        [filtering]="true"
+                        [paging]="true"
+                      >
+                      </dxo-remote-operations>
+
+                      <dxo-paging
+                        [pageSize]="searchConfiguration.pageSizeCount"
+                      ></dxo-paging>
+
+                      <dxo-pager
+                        [showPageSizeSelector]="true"
+                        [allowedPageSizes]="searchConfiguration.allowedPageSizes"
+                      >
+                      </dxo-pager>
+
+                      <dxi-column
+                        dataField="orderId"
+                        dataType="string"
+                        [allowEditing]="false"
+                        [visible]="false"
+                      >
+                      </dxi-column>
+                      <dxi-column
+                        caption="Patient Name"
+                        cellTemplate="nameTemplate"
+                      ></dxi-column>
+                      <dxi-column
+                        caption="Order Date"
+                        cellTemplate="dobTemplate"
+                      ></dxi-column>
+                      <dxi-column
+                        caption="Order Number"
+                        dataField="orderNumber"
+                      ></dxi-column>
+                      <dxi-column
+                        dataField="insurance"
+                        dataType="string"
+                        [allowEditing]="false"
+                      >
+                      </dxi-column>
+                      <dxi-column
+                        caption="Status"
+                        cellTemplate="statusTemplate"
+                      ></dxi-column>
+                      <dxi-column caption="Items" cellTemplate="itemTemplate">
+                      </dxi-column>
+                      <dxo-selection mode="single"></dxo-selection>
+
+                      <div class="text-left" *dxTemplate="let n of 'nameTemplate'">
+                        <span> {{ n.data.patientName }}</span>
+                      </div>
+                      <div class="text-left" *dxTemplate="let labOrder of 'dobTemplate'">
+                        <span> {{ labOrder.data.createdOn | localDate }}</span>
+                      </div>
+                      <div class="text-left" *dxTemplate="let status of 'statusTemplate'">
+                        <span
+                          class="badge badge-danger"
+                          *ngIf="status.data.orderStatus === 1"
+                        >
+                          Open</span
+                        >
+                        <span
+                          class="badge badge-success"
+                          *ngIf="status.data.orderStatus === 3"
+                        >
+                          Completed</span
+                        >
+                      </div>
+                      <div class="text-left" *dxTemplate="let item of 'itemTemplate'">
+                        <span *ngFor="let x of item.data.orderItems">
+                          &nbsp;<span
+                            class="badge badge-danger"
+                            *ngIf="x.status === 1 || x.status === 0"
+                          >
+                            {{ x.labCodeDesc }}
+                          </span>
+                          <span class="badge badge-warning" *ngIf="x.status === 2">{{
+                            x.labCodeDesc
+                          }}</span>
+                          <span class="badge badge-success" *ngIf="x.status === 3">{{
+                            x.labCodeDesc
+                          }}</span>
+                        </span>
+                      </div>
+                      <dxo-filter-row [visible]="true"></dxo-filter-row>
+                    </dx-data-grid>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!--Pop Up-->
+<dx-popup
+  #statusUpdatePopup
+  class="popup"
+  [width]="1024"
+  [height]="600"
+  [dragEnabled]="false"
+  [showTitle]="true"
+  title="UPDATE STATUS"
+  [hideOnOutsideClick]="false"
+  [(visible)]="isDetailPopupOpen"
+>
+  <div style="height: 540px; overflow: auto" *dxTemplate="let data of 'content'">
+    <div class="row mt-mb-1">
+      <div class="col-md-12 mt-md-2">
+        <table class="table table-condensed" width="99%">
+          <thead>
+            <tr>
+              <th>Order Name</th>
+              <th>Code</th>
+
+              <th>Quantity</th>
+              <th>Status</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let lt of previewList">
+              <td>{{ lt.labCodeDesc }}</td>
+              <td>{{ lt.labCode }}</td>
+
+              <td>
+                {{ lt.quantity }}
+              </td>
+              <td>
+                <dx-select-box
+                  [(value)]="lt.status"
+                  [dataSource]="orderStatusList"
+                  valueExpr="id"
+                  displayExpr="text"
+                  (onValueChanged)="onStatusChanged($event)"
+                  [searchEnabled]="true"
+                  [showClearButton]="true"
+                >
+                </dx-select-box>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <hr />
+    <div class="row mt-mb-1">
+      <div class="col-md-3">
+        <div class="dx-field">
+          <label>Date</label>
+          <dx-date-box [(value)]="dateOrdered"> </dx-date-box>
+        </div>
+      </div>
+      <div class="col-md-3">
+        <div class="dx-field">
+          <label>Physician</label>
+          <dx-select-box
+            [(value)]="physicianId"
+            [dataSource]="physicianData"
+            displayExpr="name"
+            valueExpr="id"
+            [searchEnabled]="true"
+          >
+          </dx-select-box>
+        </div>
+      </div>
+      <div class="col-md-3">
+        <div class="dx-field">
+          <label>Vendor</label>
+          <dx-select-box
+            [(value)]="vendorId"
+            [dataSource]="vendorDdl"
+            displayExpr="vendorName"
+            valueExpr="id"
+            [searchEnabled]="true"
+          >
+          </dx-select-box>
+        </div>
+      </div>
+      <div class="col-md-3">
+        <div class="dx-field">
+          <label>Reference No.</label>
+          <dx-text-box [(value)]="referenceNo"> </dx-text-box>
+        </div>
+      </div>
+    </div>
+    <div class="row mt-md-2">
+      <div class="col-md-3">
+        <div class="dx-field">
+          <label>Insurance</label>
+          <dx-select-box
+            [(value)]="insuranceId"
+            [dataSource]="insuranceCompanies"
+            displayExpr="name"
+            valueExpr="id"
+            [searchEnabled]="true"
+          >
+          </dx-select-box>
+        </div>
+      </div>
+    </div>
+    <div class="row mt-md-2">
+      <div class="col-md-9">
+        <!-- <div class="dx-field">
+                    <label>Notes</label>
+                    <dx-text-area [height]="100" [maxLength]="maxLength" [(value)]="notes">
+                    </dx-text-area>
+                </div> -->
+        <label>Notes</label>
+        <notes-editor
+          #notesEditor
+          [height]="300"
+          (contentChanged)="onNotesContentChanged($event)"
+        >
+        </notes-editor>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-12 text-right mt-md-2">
+        <button
+          type="button"
+          (click)="updateStatus()"
+          class="btn btn-sm btn-outline-secondary"
+        >
+          Update Status
+        </button>
+      </div>
+    </div>
+  </div>
+</dx-popup>

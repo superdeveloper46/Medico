@@ -1,0 +1,214 @@
+<dx-data-grid
+  [hoverStateEnabled]="true"
+  [wordWrapEnabled]="true"
+  [dataSource]="data"
+  [columnAutoWidth]="false"
+  [showColumnLines]="false"
+  [showRowLines]="true"
+  [showBorders]="true"
+  [rowAlternationEnabled]="true"
+>
+  <dxo-remote-operations [sorting]="true" [filtering]="true" [paging]="true">
+  </dxo-remote-operations>
+
+  <dxo-paging [pageSize]="searchConfiguration.pageSizeCount"></dxo-paging>
+
+  <dxo-pager
+    [showPageSizeSelector]="true"
+    [allowedPageSizes]="searchConfiguration.allowedPageSizes"
+  >
+  </dxo-pager>
+
+  <!-- <dxi-column [width]="200" caption="" cellTemplate="iconTemplate"></dxi-column> -->
+  <dxi-column
+    alignment="center"
+    caption="Description"
+    cellTemplate="dobTemplate"
+  ></dxi-column>
+
+  <dxi-column
+    alignment="center"
+    caption="Status"
+    cellTemplate="statusTemplate"
+  ></dxi-column>
+  <dxi-column
+    alignment="center"
+    caption="Reply"
+    cellTemplate="replyTemplate"
+  ></dxi-column>
+  <dxi-column
+    alignment="center"
+    caption="History"
+    cellTemplate="historyTemplate"
+  ></dxi-column>
+  <!-- <div class="text-left" *dxTemplate="let n of 'iconTemplate'">
+        <dx-button icon="info" class="mr-5" title="Info">
+        </dx-button>
+    </div> -->
+
+  <div class="text-left" *dxTemplate="let n of 'dobTemplate'">
+    <div class="mb-3">
+      <span class="text-muted f-11 mb-1 ml-5">
+        {{ n.data.creatorName }} / {{ n.data.createdOn | date: 'long' }}</span
+      ><br />
+      <div class="ml-5 mt-2">
+        <a [routerLink]="['/', n.data.link]"> {{ n.data.title }}</a>
+      </div>
+      <div class="text-muted ml-5" [innerHtml]="n.data.description"></div>
+    </div>
+  </div>
+  <div class="text-center mt-md-2" *dxTemplate="let status of 'statusTemplate'">
+    <button
+      *ngIf="status.data.isRead === false"
+      (click)="updateNotification(status.data.id)"
+      class="btn btn-sm btn-outline-primary"
+    >
+      Mark As Read
+    </button>
+  </div>
+
+  <div class="text-center mt-md-1" *dxTemplate="let status of 'replyTemplate'">
+    <button (click)="openPopup(status.data.id)" class="btn btn-sm btn-outline-danger">
+      Reply
+    </button>
+  </div>
+
+  <div class="text-center mt-md-1" *dxTemplate="let status of 'historyTemplate'">
+    <dx-button
+      (click)="openHistory(status.data.id)"
+      icon="clock"
+      class="mr-1"
+      title="Info"
+    >
+    </dx-button>
+  </div>
+  <!-- <dxo-filter-row [visible]="true"></dxo-filter-row> -->
+</dx-data-grid>
+
+<dx-popup
+  #replyPopup
+  class="popup"
+  [width]="950"
+  [height]="550"
+  [dragEnabled]="false"
+  [showTitle]="true"
+  title="Reply"
+  [hideOnOutsideClick]="false"
+  [(visible)]="isDrawerOpen"
+>
+  <div *dxTemplate="let data of 'content'">
+    <div *ngIf="isDrawerOpen" class="row">
+      <div class="col-md-12">
+        <dx-form #replyForm [(formData)]="replyData">
+          <dxi-item
+            [label]="{ text: 'Message' }"
+            dataField="description"
+            editorType="dxTextArea"
+            [editorOptions]="{ width: '100%', height: '150' }"
+          >
+            <dxi-validation-rule type="required" message="Message is required">
+            </dxi-validation-rule>
+          </dxi-item>
+          <!-- <dxi-item [visible]="false"  dataField="createdBy" editorType="dxTextArea"
+                    [editorOptions]="{ width: '100%' , height: '100'}">
+                    </dxi-item>
+                    <dxi-item [visible]="false"  dataField="title" editorType="dxTextArea"
+                    [editorOptions]="{ width: '100%' , height: '100'}">
+                    </dxi-item> -->
+        </dx-form>
+        <br />
+        <div class="row">
+          <div class="col-md-1">Responsible Person:</div>
+          <div class="dx-field col-md-6">
+            <dx-tag-box
+              [(value)]="userId"
+              [dataSource]="userDataSource"
+              [searchEnabled]="true"
+              displayExpr="firstName"
+              valueExpr="id"
+            >
+            </dx-tag-box>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-12 text-right mt-md-2">
+        <button
+          type="button"
+          (click)="postMessage()"
+          class="btn btn-sm btn-outline-secondary mr-2"
+        >
+          SAVE
+        </button>
+        <!-- <button *ngIf="labTestId" type="button" (click)="deleteConfirm()"
+                    class="btn btn-sm btn-outline-danger">DELETE</button> -->
+      </div>
+    </div>
+  </div>
+</dx-popup>
+
+<dx-popup
+  #HistoryPopup
+  class="popup"
+  [width]="900"
+  [height]="500"
+  [dragEnabled]="false"
+  [showTitle]="true"
+  title="History"
+  [hideOnOutsideClick]="false"
+  [(visible)]="isHistoryOpen"
+>
+  <div style="overflow: auto" *dxTemplate="let data of 'content'">
+    <div class="col-md-12">
+      <dx-data-grid
+        [hoverStateEnabled]="true"
+        [wordWrapEnabled]="true"
+        [dataSource]="notificationdata"
+        [columnAutoWidth]="false"
+        [showColumnLines]="false"
+        [showRowLines]="true"
+        [showBorders]="true"
+        [rowAlternationEnabled]="true"
+      >
+        <dxo-remote-operations [sorting]="true" [filtering]="true" [paging]="true">
+        </dxo-remote-operations>
+
+        <dxo-paging [pageSize]="searchConfiguration.pageSizeCount"></dxo-paging>
+
+        <dxo-pager
+          [showPageSizeSelector]="true"
+          [allowedPageSizes]="searchConfiguration.allowedPageSizes"
+        >
+        </dxo-pager>
+
+        <!-- <dxi-column [width]="200" caption="" cellTemplate="iconTemplate"></dxi-column> -->
+        <dxi-column alignment="center" dataField="description"></dxi-column>
+
+        <dxi-column
+          alignment="center"
+          caption="Status"
+          cellTemplate="statusTemplate"
+        ></dxi-column>
+
+        <!-- <div class="text-left" *dxTemplate="let n of 'dobTemplate'">
+                <div class="mb-3">
+                    <span class="text-muted f-11  mb-1 ml-5">
+                        {{n.data.creatorName}} / {{n.data.createdOn |date :'long'}}</span><br>
+                    <div class=" ml-5 mt-2"><a [routerLink]="['/', n.data.link]"> {{ n.data.title }}</a></div>
+                    <div class="text-muted ml-5" [innerHtml]="n.data.description"></div>
+                </div>
+            </div> -->
+        <div class="text-center mt-md-2" *dxTemplate="let status of 'statusTemplate'">
+          <button
+            *ngIf="status.data.isRead === false"
+            (click)="updateNotification(status.data.id)"
+            class="btn btn-sm btn-outline-primary"
+          >
+            Mark As Read
+          </button>
+          <p *ngIf="status.data.isRead === true" class="text-success">Read</p>
+        </div>
+        <!-- <dxo-filter-row [visible]="true"></dxo-filter-row> -->
+      </dx-data-grid>
+    </div>
+  </div>
+</dx-popup>

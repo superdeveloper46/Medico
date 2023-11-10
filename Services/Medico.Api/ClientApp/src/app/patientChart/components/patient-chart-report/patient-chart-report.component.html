@@ -1,0 +1,85 @@
+<div class="row">
+  <div class="col-md-2">
+    <dx-tree-view
+      #patientChartTreeViewComponent
+      width="100%"
+      height="80vh"
+      scrollDirection="vertical"
+      showCheckBoxesMode="normal"
+      (onItemSelectionChanged)="patientChartSectionSelectionChanged($event)"
+    >
+      <div *dxTemplate="let data of 'item'">
+        <span [ngClass]="{ 'required-node': data.isRequired }">{{ data.text }}</span>
+      </div>
+    </dx-tree-view>
+  </div>
+  <div class="col-md-10">
+    <!-- <div class="mb-mt-2">
+            <button type="button" (click)="previewReport()" class="btn btn-sm btn-outline-secondary pull-right">Audit
+                Report</button>
+        </div> -->
+    <div class="content" style="margin-top: 10px">
+      <textarea id="{{ reportEditorId }}"></textarea>
+    </div>
+  </div>
+</div>
+<div class="row mt-md-2">
+  <div class="offset-md-2 col-md-10 d-flex justify-content-between">
+    <button type="button" (click)="hideReport()" class="btn btn-sm btn-outline-primary">
+      BACK TO CHART
+    </button>
+    <button
+      type="button"
+      (click)="generatePdfReport()"
+      class="btn btn-sm btn-outline-primary"
+    >
+      GENERATE REPORT
+    </button>
+  </div>
+</div>
+
+<!-- popup -->
+<dx-popup
+  #previewPopup
+  class="popup"
+  [width]="1300"
+  [dragEnabled]="false"
+  [showTitle]="true"
+  title="Preview"
+  [hideOnOutsideClick]="false"
+  [(visible)]="isPreview"
+>
+  <dx-scroll-view width="100%" height="100%">
+    <div class="col-md-2" style="float: right !important">
+      <div style="position: fixed; top: 100px">
+        <h6 class="text-center">LEGEND</h6>
+        <div style="vertical-align: middle; margin: 7px">
+          <span
+            style="background-color: #d5ffd5; border: solid 1px lightgreen"
+            class="dot mb-mt-1"
+          ></span
+          >&nbsp; <span>Content Updated</span><br />
+        </div>
+        <div style="vertical-align: middle; margin: 7px">
+          <span
+            style="background-color: #bfdfff; border: solid 1px #555"
+            class="dot mb-mt-1"
+          ></span
+          >&nbsp; <span>New Content</span><br />
+        </div>
+        <div style="vertical-align: middle; margin: 7px">
+          <span
+            style="background-color: #ff9393; border: solid 1px #555"
+            class="dot mb-mt-1"
+          ></span
+          >&nbsp; <span>Abnormal Values</span><br />
+        </div>
+      </div>
+    </div>
+
+    <div
+      class="col-md-10 shadow p-3 mb-2 bg-white rounded"
+      [innerHtml]="parsedContent | safeHtml"
+    ></div>
+  </dx-scroll-view>
+</dx-popup>

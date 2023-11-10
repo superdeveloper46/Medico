@@ -1,0 +1,215 @@
+<div class="row">
+  <div *ngIf="!isSignedOff" class="col-md-2">
+    <button
+      type="button"
+      (click)="openSurgicalHistoryForm()"
+      class="btn btn-sm btn-outline-secondary"
+    >
+      ADD SURGICAL HISTORY
+    </button>
+  </div>
+</div>
+<div *ngIf="isSurgicalHistoryPopupOpened" class="row mt-md-3">
+  <div class="col-md-12">
+    <dx-form
+      #surgicalHistoryForm
+      [height]="460"
+      labelLocation="top"
+      [(formData)]="surgicalHistory"
+      (onFieldDataChanged)="onSurgicalHistoryFieldChanged($event)"
+    >
+      <dxi-item itemType="tabbed" [tabPanelOptions]="{ height: 450 }">
+        <dxi-tab [colCount]="12" title="Base Info">
+          <dxi-item
+            [colSpan]="9"
+            [label]="{ text: 'Search diagnosis' }"
+            dataField="cptCode"
+            editorType="dxSelectBox"
+            [editorOptions]="{
+              dataSource: icdCodesDataSource,
+              searchEnabled: true,
+              displayExpr: 'description',
+              valueExpr: 'id'
+            }"
+          >
+          </dxi-item>
+
+          <dxi-item
+            [colSpan]="3"
+            dataField="createDate"
+            editorType="dxDateBox"
+            [editorOptions]="{ width: '100%', readOnly: isNewSurgicalHistory }"
+          >
+            <dxi-validation-rule type="required"></dxi-validation-rule>
+          </dxi-item>
+
+          <dxi-item
+            [colSpan]="12"
+            [label]="{ text: 'Diagnosis' }"
+            dataField="diagnosis"
+            editorType="dxTextArea"
+            [editorOptions]="{ height: 80 }"
+          >
+            <dxi-validation-rule type="required"></dxi-validation-rule>
+          </dxi-item>
+        </dxi-tab>
+
+        <dxi-tab [colCount]="12" title="Notes">
+          <dxi-item
+            [colSpan]="12"
+            [label]="{ text: 'Notes' }"
+            dataField="notes"
+            template="notesTemplate"
+          ></dxi-item>
+          <div *dxTemplate="let data of 'notesTemplate'">
+            <div class="row">
+              <div class="col-md-8">
+                <div class="mb-2">
+                  <span class="pr-5">Include Notes In Report:</span>
+                  <dx-check-box
+                    [(value)]="surgicalHistory.includeNotesInReport"
+                  ></dx-check-box>
+                </div>
+                <notes-editor
+                  #notesEditor
+                  [initialContent]="surgicalHistory.notes"
+                  (contentChanged)="onDetailedContentChanged($event)"
+                >
+                </notes-editor>
+              </div>
+              <div class="col-md-4">
+                <a
+                  class="text-decoration-none text-secondary mr-3"
+                  href=""
+                  (click)="showPhrasesHelper($event)"
+                >
+                  Insert Phrases
+                </a>
+                <phrase-suggestion-helper
+                  #phraseHelper
+                  *ngIf="isPhrasesHelperVisible"
+                  class="mt-2"
+                  [keepFormat]="true"
+                  [typedText]="'..'"
+                  [templateId]="templateId"
+                  [companyId]="companyId"
+                  (phraseSuggestionApplied)="onPhraseSuggestionApplied($event)"
+                >
+                </phrase-suggestion-helper>
+              </div>
+            </div>
+          </div>
+        </dxi-tab>
+      </dxi-item>
+    </dx-form>
+  </div>
+
+  <div class="col-md-12 text-right mt-md-2">
+    <button
+      type="button"
+      (click)="createUpdateSurgicalHistory()"
+      class="btn btn-sm btn-outline-secondary"
+    >
+      SAVE
+    </button>
+  </div>
+</div>
+<hr />
+
+<div *ngIf="isHistoryExist" class="row mt-md-2" style="height: 300px; overflow: auto">
+  <div class="col-md-12">
+    <dx-data-grid
+      [selectedRowKeys]="selectedSurgicalHistory"
+      [hoverStateEnabled]="true"
+      (onSelectionChanged)="onSurgicalHistorySelect($event)"
+      [wordWrapEnabled]="true"
+      #surgicalHistoryDataGrid
+      [dataSource]="surgicalHistoryDataSource"
+      [showBorders]="true"
+      [showRowLines]="true"
+    >
+      <dxo-remote-operations [paging]="true" [sorting]="true"></dxo-remote-operations>
+
+      <dxo-paging [pageSize]="searchConfiguration.pageSizeCount"> </dxo-paging>
+
+      <dxo-pager
+        [showPageSizeSelector]="true"
+        [allowedPageSizes]="searchConfiguration.allowedPageSizes"
+      >
+      </dxo-pager>
+
+      <dxi-column dataField="id" dataType="string" [visible]="false"></dxi-column>
+      <dxi-column dataField="patientId" dataType="string" [visible]="false"></dxi-column>
+      <dxi-column
+        dataField="diagnosis"
+        dataType="string"
+        [allowSorting]="false"
+      ></dxi-column>
+      <dxi-column
+        dataField="notes"
+        cellTemplate="noteTemplate"
+        dataType="string"
+        [allowSorting]="false"
+      ></dxi-column>
+      <dxi-column
+        alignment="center"
+        width="15%"
+        dataField="createDate"
+        dataType="date"
+      ></dxi-column>
+
+      <dxi-column
+        *ngIf="!isSignedOff"
+        alignment="center"
+        width="15%"
+        caption="Delete"
+        cellTemplate="deleteHistoryTemplate"
+      ></dxi-column>
+      <div class="text-center" *dxTemplate="let history of 'deleteHistoryTemplate'">
+        <button
+          type="button"
+          (click)="deleteHistory(history.data, $event)"
+          class="btn btn-sm btn-outline-danger"
+        >
+          DELETE
+        </button>
+      </div>
+
+      <dxo-selection mode="single"></dxo-selection>
+
+      <div *dxTemplate="let data of 'noteTemplate'">
+        <!-- <div style="width: 100%;max-height: 60px; overflow:hidden;" [innerHtml]="data.value"></div> -->
+        <span
+          class="badge badge-success"
+          [ngClass]="{
+            'badge-success': data.value && data.value.length > 0,
+            'badge-danger': data.value.length === 0
+          }"
+        >
+          {{ data.value.length > 0 ? 'Yes' : 'No' }}
+        </span>
+      </div>
+      <div class="text-left" *dxTemplate="let data of 'cellTemplate'">
+        <div
+          style="width: 100%; max-height: 60px; overflow: hidden"
+          [innerHtml]="data.value"
+        ></div>
+      </div>
+    </dx-data-grid>
+  </div>
+</div>
+<div *ngIf="!isHistoryExist" class="row mt-md-2">
+  <div class="col-md-2">
+    <h6>{{ defaultHistoryValue }}</h6>
+  </div>
+</div>
+<hr />
+<br />
+<!-- <dx-popup #surgicalHistoryPopup class="popup" [width]="900" [height]="580" [dragEnabled]="false" [showTitle]="true"
+    title="SURGICAL HISTORY" [hideOnOutsideClick]="false" [(visible)]="isSurgicalHistoryPopupOpened"
+    (onHidden)="onSurgicalHistoryPopupHidden()">
+    <div *dxTemplate="let data of 'content'">
+     
+    </div>
+  </dx-popup>
+   -->

@@ -1,0 +1,59 @@
+[
+    {
+      "id": "9a6425f9f17867632d4825220ef0bd46",
+      "document_id": "7d50c08ae1cfda03d30e2287b86e9bdd",
+      "remote_id": "1",
+      "file_name": "PDF3_ForOCR.pdf",
+      "media_link": "https:\/\/api.docparser.com\/v1\/document\/media\/32Auyy7Jawkx9F13Rr5YT8xl7NXIuWBJ-aRjWV2yhhKv6bJsyvCMlmvq__AcPWKTRYQC8_WN1cUs1G5pideZM8cUX81RdWljtDyla3eYltA",
+      "media_link_original": "https:\/\/api.docparser.com\/v1\/document\/media\/32Auyy7Jawkx9F13Rr5YT8xl7NXIuWBJ-aRjWV2yhhKv6bJsyvCMlmvq__AcPWKTRYQC8_WN1cUs1G5pideZM8cUX81RdWljtDyla3eYltA\/original",
+      "media_link_data": "https:\/\/api.docparser.com\/v1\/document\/media\/32Auyy7Jawkx9F13Rr5YT8xl7NXIuWBJ-aRjWV2yhhKv6bJsyvCMlmvq__AcPWKTRYQC8_WN1cUs1G5pideZM8cUX81RdWljtDyla3eYltA\/data",
+      "page_count": 14,
+      "uploaded_at": "2021-04-19T17:35:05+00:00",
+      "processed_at": "2021-04-19T17:36:21+00:00",
+      "medico_info": "GLENN R KUNSMAN,DO (GLENDALE)\n3507 NORTH CENTRAL AVE STE 403\nPHOENIX AZ 85012",
+      "claimant_case_information": [
+        {
+          "key_0": "Joshua T Abner"
+        },
+        {
+          "key_0": "8632 W CLARA LN"
+        },
+        {
+          "key_0": "PEORIA,AZ 85382-1429"
+        },
+        {
+          "key_0": "(623) 696-7572"
+        }
+      ],
+      "claimant_address": {
+        "street_number": "8632",
+        "street": "W Clara Ln",
+        "extra": "   ",
+        "city": "Peoria",
+        "state": "AZ",
+        "state_full": "Arizona",
+        "zipcode": "85382",
+        "country": "United States"
+      },
+      "appt_date": {
+        "key_0": "March29th, 2021"
+      },
+      "service": "Services Authorized\n\nStandard Time\n\nCode: 99204-INTERNIST\nProcedure Type Code: E\nDesc: Internal Medical Exam\n\nFee:ap",
+      "claimant_ssn": null,
+      "birthday": {
+        "formatted": "11-28-90"
+      },
+      "rqidbytext": "DCC378921",
+      "allegationsbytext": "Crohns disease; Aspergers Autism; OCD; Anxiety Disorder; Depression",
+      "variable_hpi": null,
+      "special_instructions": null,
+      "physicianbylocation": "GLENN R KUNSMAN,",
+      "claimant_name": "JOSHUA T ABNER",
+      "phone_number": {
+        "formatted": "+16236967572"
+      },
+      "appointment_time": "03:00 PM",
+      "case_number": "1100310",
+      "exam_location": "GLENDALE"
+    }
+  ]

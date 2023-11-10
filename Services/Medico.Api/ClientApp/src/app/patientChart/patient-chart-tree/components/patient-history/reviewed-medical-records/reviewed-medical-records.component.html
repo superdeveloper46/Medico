@@ -1,0 +1,355 @@
+<div *ngIf="canRenderComponent" class="row">
+  <div *ngIf="!isSignedOff" class="col-md-3">
+    <button
+      type="button"
+      (click)="openMedicalRecordForm()"
+      class="btn btn-sm btn-outline-secondary"
+    >
+      ADD MEDICAL RECORD
+    </button>
+  </div>
+</div>
+
+<div *ngIf="isMedicalRecordPopupOpened" class="row mt-md-3">
+  <div class="col-md-12">
+    <dx-form
+      #medicalRecordForm
+      [height]="800"
+      [colCount]="12"
+      labelLocation="top"
+      [(formData)]="medicalRecord"
+      (onFieldDataChanged)="onFormChanged($event)"
+    >
+      <dxi-item
+        [colSpan]="3"
+        [label]="{ text: 'Document Type' }"
+        dataField="documentType"
+        editorType="dxSelectBox"
+        [editorOptions]="{ items: associatedDocumentationListValues }"
+      >
+        <dxi-validation-rule type="required"></dxi-validation-rule>
+      </dxi-item>
+      <dxi-item
+        [colSpan]="6"
+        [label]="{ text: 'Search diagnosis' }"
+        dataField="icdCode"
+        editorType="dxSelectBox"
+        [editorOptions]="{
+          dataSource: icdCodesDataSource,
+          searchEnabled: true,
+          displayExpr: 'name',
+          valueExpr: 'id'
+        }"
+      >
+      </dxi-item>
+      <dxi-item [colSpan]="3" itemType="empty"></dxi-item>
+      <br />
+      <dxi-item
+        [colSpan]="3"
+        [label]="{ text: 'Diagnosis' }"
+        dataField="diagnosis"
+        editorType="dxTextArea"
+      >
+        <dxi-validation-rule type="required"></dxi-validation-rule>
+      </dxi-item>
+
+      <dxi-item [colSpan]="3" dataField="createDate" editorType="dxDateBox">
+        <dxi-validation-rule type="required"></dxi-validation-rule>
+      </dxi-item>
+
+      <dxi-item
+        [colSpan]="3"
+        placeholder="Select Physician"
+        [label]="{ text: 'Physician' }"
+        dataField="PhysicianId"
+        editorType="dxSelectBox"
+        [editorOptions]="{
+          dataSource: physianDataSource,
+          displayExpr: 'name',
+          valueExpr: 'id'
+        }"
+      >
+        <dxi-validation-rule type="required"></dxi-validation-rule>
+      </dxi-item>
+
+      <dxi-item [colSpan]="3" itemType="empty"></dxi-item>
+
+      <dxi-item [colSpan]="3" dataField="includeNotesInReport" editorType="dxCheckBox">
+      </dxi-item>
+      <dxi-item [colSpan]="3" itemType="empty"></dxi-item>
+      <dxi-item
+        [colSpan]="3"
+        dataField="assessment"
+        editorType="dxSelectBox"
+        [editorOptions]="{
+          items: assessmentListValues,
+          displayExpr: 'diagnosis',
+          valueExpr: 'id'
+        }"
+      >
+      </dxi-item>
+      <dxi-item [colSpan]="3" itemType="empty"></dxi-item>
+      <dxi-item [colSpan]="6" itemType="empty"></dxi-item>
+      <dxi-item
+        [colSpan]="3"
+        [label]="{ text: 'File Name' }"
+        dataField="fileName"
+        [editorOptions]="{ width: '100%' }"
+      >
+        <dxi-validation-rule
+          type="required"
+          message="This field is required"
+        ></dxi-validation-rule>
+      </dxi-item>
+      <dxi-item [colSpan]="3" itemType="empty"></dxi-item>
+      <dxi-item
+        [colSpan]="3"
+        [label]="{ text: 'Document Notes Subject' }"
+        dataField="subject"
+        editorType="dxSelectBox"
+        [editorOptions]="{ items: docData, displayExpr: 'value', valueExpr: 'value' }"
+      >
+        <dxi-validation-rule type="required"></dxi-validation-rule>
+      </dxi-item>
+      <dxi-item [colSpan]="3" itemType="empty"></dxi-item>
+      <dxi-item
+        [colSpan]="3"
+        [label]="{ text: 'File Type' }"
+        dataField="fileType"
+        editorType="dxSelectBox"
+        [editorOptions]="{
+          dataSource: fileTypes,
+          displayExpr: 'value',
+          valueExpr: 'value'
+        }"
+      >
+        <dxi-validation-rule
+          type="required"
+          message="This field is required"
+        ></dxi-validation-rule>
+      </dxi-item>
+      <dxi-item [colSpan]="3" itemType="empty"></dxi-item>
+      <dxi-item
+        [colSpan]="12"
+        [label]="{ text: 'Notes' }"
+        dataField="notes"
+        template="notesTemplate"
+      >
+      </dxi-item>
+      <div *dxTemplate="let data of 'notesTemplate'">
+        <div class="row">
+          <div class="col-md-8 form_editor">
+            <notes-editor
+              #notesEditor
+              [initialContent]="data.component.option('formData')[data.dataField]"
+              (contentChanged)="onDetailedContentChanged($event)"
+            >
+            </notes-editor>
+          </div>
+          <div class="col-md-4 form_button_actions">
+            <a
+              class="btn btn-sm btn-outline-secondary mr-3"
+              href=""
+              (click)="showPhrasesHelper($event)"
+            >
+              Insert Phrases
+            </a>
+            <phrase-suggestion-helper
+              #phraseHelper
+              *ngIf="isPhrasesHelperVisible"
+              class="mt-2"
+              [keepFormat]="true"
+              [typedText]="'..'"
+              [templateId]="templateId"
+              [companyId]="companyId"
+              (phraseSuggestionApplied)="onPhraseSuggestionApplied($event)"
+            >
+            </phrase-suggestion-helper>
+
+            <button
+              type="button"
+              (click)="openUploader()"
+              class="btn btn-sm btn-outline-secondary"
+            >
+              Upload Document
+            </button>
+          </div>
+        </div>
+      </div>
+    </dx-form>
+
+    <div
+      *ngIf="documentsFile.length > 0 && !isPopupUploaderVisible"
+      class="col-md-12 mt-md-1"
+    >
+      <div class="h6">
+        <strong>Attached files</strong>
+      </div>
+      <div *ngFor="let file of documentsFile">
+        <div class="selected-item">
+          <div class="doc-preview-item">
+            <span>{{ file.name }}</span
+            ><br />
+            <dx-button icon="close" (onClick)="removeFile(file)" stylingMode="text">
+            </dx-button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-12 btn-action-form">
+    <button type="button" (click)="closeForm()" class="btn btn-sm btn-outline-secondary">
+      CANCEL
+    </button>
+    <button
+      type="button"
+      (click)="createUpdateMedicalRecord()"
+      class="btn btn-sm btn-outline-secondary"
+    >
+      SAVE
+    </button>
+  </div>
+</div>
+<hr />
+<div *ngIf="!isMedicalRecordPopupOpened" class="row mt-md-3">
+  <div *ngIf="isHistoryExist" class="row mt-md-2" style="overflow: auto">
+    <div class="col-md-12">
+      <dx-data-grid
+        [selectedRowKeys]="selectedMedicalRecord"
+        [hoverStateEnabled]="true"
+        (onSelectionChanged)="onMedicalRecordSelect($event)"
+        [wordWrapEnabled]="true"
+        #medicalRecordDataGrid
+        [dataSource]="medicalRecordDataSource"
+        [showBorders]="true"
+        [showRowLines]="true"
+      >
+        <dxo-remote-operations [paging]="true" [sorting]="true"></dxo-remote-operations>
+
+        <dxo-paging [pageSize]="searchConfiguration.pageSizeCount"> </dxo-paging>
+
+        <dxo-pager
+          [showPageSizeSelector]="true"
+          [allowedPageSizes]="searchConfiguration.allowedPageSizes"
+        >
+        </dxo-pager>
+
+        <dxi-column dataField="id" dataType="string" [visible]="false"></dxi-column>
+        <dxi-column
+          dataField="patientId"
+          dataType="string"
+          [visible]="false"
+        ></dxi-column>
+        <dxi-column
+          alignment="left"
+          dataField="documentType"
+          dataType="string"
+          [allowSorting]="true"
+        ></dxi-column>
+        <dxi-column
+          alignment="left"
+          dataField="notes"
+          caption="Has Notes"
+          cellTemplate="noteTemplate"
+          dataType="string"
+          [allowSorting]="false"
+        ></dxi-column>
+        <dxi-column
+          alignment="center"
+          width="15%"
+          dataField="createDate"
+          dataType="date"
+        ></dxi-column>
+        <dxi-column dataField="diagnosis" dataType="string"></dxi-column>
+        <dxi-column
+          *ngIf="!isSignedOff"
+          alignment="center"
+          width="15%"
+          caption="Delete"
+          cellTemplate="deleteHistoryTemplate"
+        ></dxi-column>
+        <div class="text-center" *dxTemplate="let history of 'deleteHistoryTemplate'">
+          <button
+            type="button"
+            (click)="deleteHistory(history.data, $event)"
+            class="btn btn-sm btn-outline-danger"
+          >
+            DELETE
+          </button>
+        </div>
+
+        <dxo-selection mode="single"></dxo-selection>
+
+        <div class="text-left" *dxTemplate="let data of 'noteTemplate'">
+          <span
+            class="badge badge-success"
+            [ngClass]="{ 'badge-success': data.value && data.value.length > 0 }"
+          >
+            {{ data.value.length > 0 ? 'Yes' : 'No' }}
+          </span>
+          <!-- <div style="width: 100%;max-height: 60px; overflow:hidden;" [innerHtml]="data.value"></div> -->
+        </div>
+      </dx-data-grid>
+    </div>
+  </div>
+  <div *ngIf="!isHistoryExist" class="row mt-md-2">
+    <div class="col-md-2">
+      <h6>{{ defaultHistoryValue }}</h6>
+    </div>
+  </div>
+  <hr />
+  <br />
+</div>
+<!-- <dx-popup #medicalRecordPopup class="popup" [width]="1000" [height]="620" [dragEnabled]="false" [showTitle]="true"
+  title="MEDICAL RECORD" [hideOnOutsideClick]="false" [(visible)]="isMedicalRecordPopupOpened"
+  (onHidden)="onMedicalRecordPopupHidden()">
+  <div *dxTemplate="let data of 'content'">
+  </div>
+</dx-popup> -->
+<dx-popup
+  [width]="480"
+  [height]="420"
+  [hideOnOutsideClick]="true"
+  [showCloseButton]="true"
+  [(visible)]="isPopupUploaderVisible"
+  title="Upload Document"
+>
+  <div *dxTemplate="let data of 'content'">
+    <dx-scroll-view width="100%" height="100%">
+      <div class="file-uploader-block">
+        <dx-file-uploader
+          #pdfFileUploader
+          [multiple]="true"
+          [maxFileSize]="4000000"
+          [(value)]="documentsFile"
+          uploadMode="instantly"
+          [allowedFileExtensions]="['.pdf', '.tif']"
+          [showFileList]="false"
+        >
+        </dx-file-uploader>
+        <span class="note">Allowed file extensions: <strong>.pdf, .tif</strong>.</span>
+      </div>
+      <div class="content">
+        <div *ngIf="documentsFile.length > 0">
+          <div *ngFor="let file of documentsFile">
+            <div class="selected-item">
+              <div class="doc-preview">
+                <span>{{ file.name }}</span
+                ><br />
+                <dx-button icon="close" (onClick)="removeFile(file)" stylingMode="text">
+                </dx-button>
+              </div>
+            </div>
+          </div>
+          <dx-button
+            text="Accept"
+            (onClick)="openUploader()"
+            stylingMode="contained"
+            class="dx-button-accept mt-2"
+          >
+          </dx-button>
+        </div>
+      </div>
+    </dx-scroll-view>
+  </div>
+</dx-popup>

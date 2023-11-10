@@ -1,0 +1,398 @@
+<div class="row mt-md-2">
+  <div class="col-md-12">
+    <h5>Patient Orders</h5>
+    <br />
+  </div>
+
+  <div class="col-md-12">
+    <div class="mt-md-2" id="tabs">
+      <dx-tabs
+        #apiTabs
+        [dataSource]="tabs"
+        [selectedIndex]="0"
+        (onItemClick)="selectTab($event)"
+      ></dx-tabs>
+      <!--Tab 1-->
+      <div class="content" *ngIf="isTabVisible(0)">
+        <div class="container-fluid0 mt-0">
+          <div class="row">
+            <div class="col-md-12 ml-auto col-xl-12 mr-auto">
+              <!-- Nav tabs -->
+              <div class="card">
+                <div class="card-header">
+                  <ul class="nav nav-tabs justify-content-left" role="tablist">
+                    <li class="nav-item" *ngFor="let category of categories">
+                      <a class="nav-link" [class.active]="categoryId === category.value" data-toggle="tab" [href]="'#' + category.value" (click)="categoryId = category.value" role="tab">
+                          {{category.value}}
+                      </a>
+                    </li>
+                  </ul>
+                  <div class="row float-right" style="margin-right: 45px">
+                    <dx-select-box
+                      [dataSource]="overflowCategories"
+                      displayExpr="description"
+                      valueExpr="value"
+                      [disabled]="overflowCategories.length === 0"
+                      (onValueChanged)="categoryId = $event.value"
+                      [value] = "categoryId"
+                    ></dx-select-box>
+                  </div>
+                </div>
+                <div class="card-body">
+                  <!-- Tab panes -->
+                  <div class="tab-content">
+                    <ng-container *ngFor="let category of filterCategories">
+                      <div
+                        class="tap-pane"
+                        [class.active]="categoryId === category.value"
+                        *ngIf="categoryId === category.value"
+                        id="{{category.value}}"
+                        role="tabpanel"
+                      >
+                        <app-new-order
+                          #order{{category.value}}
+                          [appointmentId]="appointmentId"
+                          [categoryId]="category.value"
+                          [patientId]="patientId"
+                          [overflowCategories] = "overflowCategories"
+                        >
+                        </app-new-order>
+                      </div>
+                    </ng-container>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!--Tab 2-->
+      <div class="content" *ngIf="isTabVisible(1)">
+        <div class="stats">
+          <div>
+            <div class="sub-title">TOTAL ORDERS</div>
+            <div class="stat-value" (click)="filter('All')">{{ orderSummary.total }}</div>
+          </div>
+          <div>
+            <div class="sub-title">OPEN</div>
+            <div class="stat-value" (click)="filter('Open')">{{ orderSummary.open }}</div>
+          </div>
+          <div>
+            <div class="sub-title">COMPLETED</div>
+            <div class="stat-value" (click)="filter('Completed')">{{ orderSummary.completed }}</div>
+          </div>
+        </div>
+
+        <div class="col-md-12">
+          <div class="row mt-md-3">
+            <div
+              style="
+                background: #f8f8f8;
+                border: solid 1px #ccc;
+                padding: 20px;
+                margin: auto 0 auto 15px;
+              "
+              class="col-md-10"
+            >
+              <dx-form
+                #searchForm
+                [(formData)]="searchData"
+                (onFieldDataChanged)="onSearchFieldChanged($event)"
+                labelLocation="left"
+                [colCount]="2"
+              >
+                <dxi-item>
+                  <dx-select-box
+                    #searchCategorySelectBox
+                    [(value)]="filterCategoryId"
+                    [dataSource]="filterCategories"
+                    valueExpr="value"
+                    displayExpr="description"
+                    (onValueChanged)="onCategoryChanged($event)"
+                    [searchEnabled]="true"
+                    [showClearButton]="false"
+                  >
+                  </dx-select-box>
+                  <dxo-label text="Category"></dxo-label>
+                </dxi-item>
+              </dx-form>
+            </div>
+          </div>
+
+          <div class="row mt-md-2">
+            <div class="col-md-12">
+              <dx-data-grid
+                [selectedRowKeys]="selectedOrders"
+                [hoverStateEnabled]="true"
+                [wordWrapEnabled]="true"
+                #labOrderDataGrid
+                [dataSource]="labOrderDataSource"
+                [showBorders]="true"
+              >
+                <dxo-remote-operations
+                  [sorting]="true"
+                  [filtering]="true"
+                  [paging]="true"
+                >
+                </dxo-remote-operations>
+
+                <dxo-paging [pageSize]="searchConfiguration.pageSizeCount"></dxo-paging>
+
+                <dxo-pager
+                  [showPageSizeSelector]="true"
+                  [allowedPageSizes]="searchConfiguration.allowedPageSizes"
+                >
+                </dxo-pager>
+
+                <dxi-column
+                  dataField="id"
+                  dataType="string"
+                  [allowEditing]="false"
+                  [visible]="false"
+                >
+                </dxi-column>
+                <dxi-column
+                  caption="Order Name(s)"
+                  cellTemplate="nameTemplate"
+                ></dxi-column>
+                <dxi-column
+                  caption="Date Ordered"
+                  cellTemplate="dobTemplate"
+                ></dxi-column>
+
+                <dxi-column dataField="notes" cellTemplate="noteTemplate" caption="Notes">
+                </dxi-column>
+                <dxi-column
+                  dataField="physician"
+                  dataType="string"
+                  [allowEditing]="false"
+                ></dxi-column>
+                <dxi-column
+                  dataField="vendor"
+                  dataType="string"
+                  [allowEditing]="false"
+                ></dxi-column>
+                <dxi-column
+                  dataField="insurance"
+                  dataType="string"
+                  [allowEditing]="false"
+                ></dxi-column>
+                <!-- <dxi-column alignment="center" caption="Actions" cellTemplate="labOrderActionsTemplate">
+                            </dxi-column> -->
+                <dxi-column caption="Status" cellTemplate="statusTemplate"></dxi-column>
+                <dxi-column
+                  caption="Update"
+                  cellTemplate="EditOrderTemplate"
+                ></dxi-column>
+                <dxi-column
+                  caption="Delete Order"
+                  cellTemplate="DeleteOrderTemplate"
+                ></dxi-column>
+
+                <dxo-selection mode="single"></dxo-selection>
+
+                <div class="text-center" *dxTemplate="let data of 'noteTemplate'">
+                  <span class="badge badge-danger" *ngIf="data.data.notes === null">
+                    No</span
+                  >
+                  <span class="badge badge-success" *ngIf="data.data.notes !== null">
+                    Yes</span
+                  >
+                </div>
+                <div class="text-left" *dxTemplate="let n of 'nameTemplate'">
+                  <span> {{ n.data.itemString }}</span>
+                </div>
+                <div class="text-left" *dxTemplate="let labOrder of 'dobTemplate'">
+                  <span> {{ labOrder.data.dateOrdered | localDate }}</span>
+                </div>
+                <div class="text-left" *dxTemplate="let status of 'statusTemplate'">
+                  <span
+                    class="badge badge-danger"
+                    *ngIf="status.data.orderStatus !== 'Completed'"
+                  >
+                  {{status.data.orderStatus}}</span
+                  >
+                  <span class="badge badge-success" *ngIf="status.data.orderStatus === 'Completed'">
+                    {{status.data.orderStatus}}</span
+                  >
+                </div>
+                <div *dxTemplate="let template of 'EditOrderTemplate'">
+                  <div class="text-center mt-md-1">
+                    <button
+                      [disabled]="isSignedOff"
+                      type="button"
+                      (click)="getOrder(template.data.id)"
+                      class="btn btn-sm btn-outline-primary"
+                    >
+                      Edit
+                    </button>
+                  </div>
+                </div>
+                <div *dxTemplate="let template of 'DeleteOrderTemplate'">
+                  <div class="text-center mt-md-1">
+                    <button
+                      [disabled]="isSignedOff"
+                      type="button"
+                      (click)="deleteOrder(template.data.id)"
+                      class="btn btn-sm btn-outline-danger"
+                    >
+                      Delete
+                    </button>
+                  </div>
+                </div>
+                <dxo-filter-row [visible]="true"></dxo-filter-row>
+              </dx-data-grid>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- popup -->
+<dx-popup
+  #statusUpdatePopup
+  class="popup"
+  [width]="1050"
+  [height]="800"
+  [dragEnabled]="false"
+  [showTitle]="true"
+  title="UPDATE STATUS"
+  [hideOnOutsideClick]="false"
+  [(visible)]="isEditPopupOpened"
+>
+  <div *dxTemplate="let data of 'content'">
+    <div style="height: 170px; overflow: auto" class="row">
+      <div class="col-md-12 mt-md-2">
+        <table class="table table-condensed" width="99%">
+          <thead>
+            <tr>
+              <th>Order Name</th>
+              <th>Code</th>
+
+              <th>Quantity</th>
+              <th>Status</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let lt of previewItemData">
+              <td>{{ lt.labCodeDesc }}</td>
+              <td>{{ lt.labCode }}</td>
+
+              <td>
+                {{ lt.quantity }}
+              </td>
+              <td>
+                <dx-select-box
+                  [(value)]="lt.status"
+                  [dataSource]="orderStatusList"
+                  valueExpr="value"
+                  displayExpr="description"
+                  (onValueChanged)="onStatusChanged($event)"
+                  [searchEnabled]="true"
+                  [showClearButton]="true"
+                >
+                </dx-select-box>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <hr />
+    <div class="row mt-mb-1">
+      <div class="col-md-3">
+        <div class="dx-field">
+          <label>Date</label>
+          <dx-date-box [(value)]="dateOrdered"> </dx-date-box>
+        </div>
+      </div>
+      <div class="col-md-3">
+        <div class="dx-field">
+          <label>Physician</label>
+          <dx-select-box
+            [(value)]="physicianId"
+            [dataSource]="physicianData"
+            displayExpr="name"
+            valueExpr="id"
+            [searchEnabled]="true"
+          >
+          </dx-select-box>
+        </div>
+      </div>
+      <div class="col-md-3">
+        <div class="dx-field">
+          <label>Vendor</label>
+          <dx-select-box
+            [(value)]="vendorId"
+            [dataSource]="vendorDdl"
+            displayExpr="vendorName"
+            valueExpr="id"
+            [searchEnabled]="true"
+          >
+          </dx-select-box>
+        </div>
+      </div>
+      <div class="col-md-3">
+        <div class="dx-field">
+          <label>Reference No.</label>
+          <dx-text-box [(value)]="referenceNo"> </dx-text-box>
+        </div>
+      </div>
+    </div>
+    <div class="row mt-md-2">
+      <div class="col-md-3">
+        <div class="dx-field">
+          <label>Insurance</label>
+          <dx-select-box
+            [(value)]="insuranceId"
+            [dataSource]="insuranceCompanies"
+            displayExpr="name"
+            valueExpr="id"
+            [searchEnabled]="true"
+          >
+          </dx-select-box>
+        </div>
+      </div>
+    </div>
+    <div class="row mt-md-2">
+      <div class="col-md-9">
+        <label>Notes</label>
+        <notes-editor
+          #notesEditor
+          [height]="300"
+          (contentChanged)="onNotesContentChanged($event)"
+        >
+        </notes-editor>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-12 text-right mt-md-2">
+        <button
+          type="button"
+          (click)="updateStatus()"
+          class="btn btn-sm btn-outline-secondary"
+        >
+          Update Status
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <div class="d-flex align-items-center justify-content-between" *dxTemplate="let data of 'title'">
+    <div class="">
+      <b style="font-size: 16px;">UPDATE STATUS</b>
+    </div>
+    <div class="d-flex justify-content-end align-items-center">
+      <div class="mr-3" [innerHTML]="updateHeader"></div>
+      <button
+        type="button"
+        class="btn btn-sm btn-outline-default"
+        (click)="isEditPopupOpened=false"
+      >
+        <div><i class="dx-icon dx-icon-close"></i></div>
+      </button>
+    </div>
+  </div>
+</dx-popup>

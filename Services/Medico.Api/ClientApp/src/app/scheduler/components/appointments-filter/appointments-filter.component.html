@@ -1,0 +1,147 @@
+<div *ngIf="canRenderFillter" class="text-right">
+  <a
+    id="status-filter-trigger"
+    href=""
+    class="text-decoration-none badge badge-dark"
+    (click)="toggleAppointmentStatusPopover($event)"
+  >
+    <span class="text-uppercase">{{ filterString }}</span>
+  </a>
+</div>
+
+<dx-popover
+  target="#status-filter-trigger"
+  [width]="600"
+  position="bottom"
+  [showTitle]="false"
+  [(visible)]="isAppointmentFilterPopoverOpened"
+  [hideOnOutsideClick]="false"
+>
+  <div *dxTemplate="let data = model; of: 'content'">
+    <dx-form *ngIf="isAppointmentFilterPopoverOpened" [(formData)]="filterCopy">
+      <dxi-item
+        [label]="{ text: 'Physician' }"
+        dataField="physicianId"
+        editorType="dxSelectBox"
+        [template]="'physicianLookupTemplate'"
+      >
+      </dxi-item>
+
+      <dxi-item
+        [label]="{ text: 'Location' }"
+        dataField="locationId"
+        editorType="dxSelectBox"
+        [template]="'locationLookupTemplate'"
+      >
+      </dxi-item>
+
+      <dxi-item
+        [label]="{ text: 'Patient' }"
+        dataField="patientId"
+        editorType="dxSelectBox"
+        [template]="'patientLookupTemplate'"
+      >
+      </dxi-item>
+
+      <dxi-item
+        [label]="{ text: 'Statuses' }"
+        dataField="appointmentStatusFilter.statuses"
+        editorType="dxTagBox"
+        [editorOptions]="{ dataSource: appointmentStatuses, showClearButton: true }"
+      >
+      </dxi-item>
+
+      <dxi-item
+        [label]="{ text: 'Filter Type' }"
+        dataField="appointmentStatusFilter.filterType"
+        editorType="dxSelectBox"
+        [editorOptions]="{
+          displayExpr: 'name',
+          valueExpr: 'value',
+          dataSource: filterTypes,
+          showClearButton: true
+        }"
+      >
+      </dxi-item>
+
+      <dxi-item [colSpan]="2" [template]="'actionsTemplate'"></dxi-item>
+
+      <div *dxTemplate="let data of 'physicianLookupTemplate'">
+        <dx-select-box
+          #physicianSelectBox
+          [showClearButton]="true"
+          [(value)]="data.component.option('formData')[data.dataField]"
+          [searchEnabled]="true"
+          [dataSource]="physicianDataSource"
+          placeholder="Select Physician"
+          displayExpr="name"
+          valueExpr="id"
+          itemTemplate="item"
+          (onValueChanged)="physicianChanged($event)"
+        >
+          <div *dxTemplate="let data of 'item'">
+            <span>{{ data.name }}</span>
+          </div>
+        </dx-select-box>
+      </div>
+
+      <div *dxTemplate="let data of 'locationLookupTemplate'">
+        <dx-select-box
+          #locationSelectBox
+          [showClearButton]="true"
+          [(value)]="data.component.option('formData')[data.dataField]"
+          [searchEnabled]="true"
+          [dataSource]="locationDataSource"
+          placeholder="Select Location"
+          displayExpr="name"
+          valueExpr="id"
+          itemTemplate="item"
+          (onValueChanged)="locationChanged($event)"
+        >
+          <div *dxTemplate="let data of 'item'">
+            <span>{{ data.name }}</span>
+          </div>
+        </dx-select-box>
+      </div>
+
+      <div *dxTemplate="let data of 'patientLookupTemplate'">
+        <dx-select-box
+          #patientSelectBox
+          [showClearButton]="true"
+          [(value)]="data.component.option('formData')[data.dataField]"
+          [searchEnabled]="true"
+          [dataSource]="patientDataSource"
+          placeholder="Select Patient"
+          displayExpr="name"
+          valueExpr="id"
+          itemTemplate="item"
+          (onValueChanged)="patientChanged($event)"
+        >
+          <div *dxTemplate="let data of 'item'">
+            <span>{{ data.name }}</span>
+          </div>
+        </dx-select-box>
+      </div>
+
+      <div *dxTemplate="let data of 'actionsTemplate'">
+        <div class="text-right mt-2">
+          <button (click)="resetAppointmentFilter()" class="btn btn-outline-secondary">
+            Reset
+          </button>
+          <button
+            (click)="cancelAppointmentFilter()"
+            class="btn btn-outline-secondary ml-2"
+          >
+            Cancel
+          </button>
+          <button
+            (click)="applyAppointmentFilter()"
+            class="btn btn-outline-secondary ml-2"
+          >
+            Apply
+          </button>
+        </div>
+      </div>
+    </dx-form>
+  </div>
+</dx-popover>

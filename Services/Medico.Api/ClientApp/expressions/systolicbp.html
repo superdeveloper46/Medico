@@ -1,0 +1,58 @@
+@{
+    dynamic Resp = new System.Dynamic.ExpandoObject();
+    
+    double? CalculateBmi(double? height, double? weight) 
+    {
+        return (weight / (height * height)) * 703; 
+    }
+    
+    double? patientHeight = 0;
+    double? patientWeight = 0;
+    double? patientBMI = 0;
+
+    if(Model.BaseVitalSigns != null) {
+        patientHeight = Model.BaseVitalSigns.Height;
+        patientWeight = Model.BaseVitalSigns.Weight;
+        patientBMI = CalculateBmi(patientHeight, patientWeight);
+    }
+
+    double? patientResp = 0;
+    double? patientPulse = 0;
+    double? patientSystolic = 0;
+    double? patientDiastolic = 0;
+
+    if(Model.VitalSigns.Count() > 0) {
+        patientResp = Model.VitalSigns.First().RespirationRate;
+        patientPulse = Model.VitalSigns.First().Pulse;
+        patientSystolic = Model.VitalSigns.First().SystolicBloodPressure;
+        patientDiastolic = Model.VitalSigns.First().DiastolicBloodPressure;
+    }
+        
+    DateTime now = DateTime.Today;
+    int PatientAge = now.Year - Model.Patient.DateOfBirth.Year;
+
+    Resp.Patient = new {
+        BMI = patientBMI,
+        Resp = patientResp,
+        Pulse = patientPulse,
+        Systolic = patientSystolic,
+        Diastolic = patientDiastolic,
+        Weight = patientWeight,
+        Height = patientHeight
+    };
+
+    foreach (var row in Model.ReferenceTables["Blood Pressure"]){        
+        string VarName = "" + row["VarName"];
+        string VarModifier = "" + row["varModifier"];
+        double MinVar = double.Parse("" + row["minVar"]);
+        double MaxVar = double.Parse("" + row["maxVar"]);
+        double MinValue = double.Parse("" + row["minValue"]);
+        double MaxValue = double.Parse("" + row["maxValue"]);
+
+        if(VarName == "Systolic" && patientSystolic >= MinValue && patientSystolic <= MaxValue) {
+            Resp.Systolic = row;
+            continue;
+        }
+    }
+}
+<b>Return Values:<span class="expression-return-data">@(Newtonsoft.Json.JsonConvert.SerializeObject(Resp))</span></b>

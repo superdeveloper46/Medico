@@ -1,0 +1,40 @@
+<div class="row">
+  <div class="col-md-12 mt-md-2">
+    <dx-form #companyForm [(formData)]="data">
+      <dxi-item itemType="tabbed">
+        <dxi-tab [colCount]="12" [title]="title">
+          <table class="table" #basicTable>
+            <tbody>
+              <tr *ngFor="let data of data">
+                <table>
+                  <tr class="active">
+                    <th style="width: 66%" colspan="2">
+                      Event date: {{ data.dateTimeStamp }}
+                    </th>
+                    <th>Action type: {{ data.auditActionTypeName }}</th>
+                  </tr>
+                  <tr class="text-warning">
+                    <th style="width: 33%">Field name</th>
+                    <th>Before change</th>
+                    <th>After change</th>
+                  </tr>
+                  <tr *ngFor="let item of data.changes">
+                    <td>
+                      {{ item.fieldName }}
+                    </td>
+                    <td>
+                      {{ item.valueBefore }}
+                    </td>
+                    <td>
+                      {{ item.valueAfter }}
+                    </td>
+                  </tr>
+                </table>
+              </tr>
+            </tbody>
+          </table>
+        </dxi-tab>
+      </dxi-item>
+    </dx-form>
+  </div>
+</div>

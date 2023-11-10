@@ -1,0 +1,123 @@
+﻿#accordion {
+  height: 700px;
+}
+
+#accordion h1 {
+  font-size: 20px;
+}
+
+#accordion h1,
+#accordion p {
+  margin: 0;
+}
+
+#accordion-container {
+  margin-right: 400px;
+}
+
+.dx-theme-material #accordion .dx-accordion-item-title {
+  display: flex;
+  height: 50px;
+}
+
+.dx-theme-material #accordion h1 {
+  align-self: center;
+}
+
+.options {
+  padding: 20px;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 340px;
+  top: 0;
+  background-color: rgba(191, 191, 191, 0.15);
+}
+
+.options > .caption {
+  font-weight: 500;
+  font-size: 18px;
+}
+
+.option {
+  margin-top: 10px;
+}
+
+.option > .caption {
+  margin-top: 10px;
+  display: inline-block;
+}
+
+.ex1 {
+  overflow: auto;
+}
+.ex2 {
+  width: 680px;
+  overflow: hidden;
+}
+
+#scrollview-demo {
+  min-height: 550px;
+}
+
+#scrollview {
+  height: 380px;
+  position: relative;
+  top: 0;
+  bottom: 300px;
+  padding: 20px;
+}
+
+#scrollview-content {
+  white-space: pre-wrap;
+  min-height: 700px;
+}
+
+.options {
+  padding: 20px;
+  background-color: rgba(191, 191, 191, 0.15);
+  position: relative;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
+.caption {
+  font-size: 18px;
+  font-weight: 500;
+}
+
+.option {
+  margin-top: 10px;
+}
+
+.option > span {
+  position: relative;
+  top: 2px;
+}
+
+#small-indicator,
+#medium-indicator,
+#large-indicator {
+  vertical-align: middle;
+  margin-right: 10px;
+}
+
+#button,
+#button .dx-button-content {
+  padding: 0;
+}
+
+#button .button-indicator {
+  height: 32px;
+  width: 32px;
+  display: inline-block;
+  vertical-align: middle;
+  margin-right: 5px;
+}
+
+.indicators {
+  display: flex;
+  align-items: center;
+}
+

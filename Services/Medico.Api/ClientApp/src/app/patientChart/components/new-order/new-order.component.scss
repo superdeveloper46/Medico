@@ -1,0 +1,18 @@
+.feature-left {
+    margin: 6px auto;
+}
+
+.feature-left .feature-icon {
+    color: #4cbec5;
+    display: inline-block;
+    float: left;
+    padding-right: 30px;
+    padding-top: 1px;
+}
+
+.feature-left .feature-content {
+    font-size: 13px;
+    color: #777 !important;
+}
+
+.feature-left:last-child {}

@@ -1,0 +1,123 @@
+<dx-data-grid
+  class="mt-2"
+  #phraseUsagesGrid
+  [selectedRowKeys]="selectedPhraseUsages"
+  [showBorders]="true"
+  [dataSource]="phraseUsageDataSource"
+  [columnHidingEnabled]="false"
+  [hoverStateEnabled]="true"
+  (onSelectionChanged)="onPhraseUsageChanged($event)"
+>
+  <dxo-remote-operations [paging]="true" [filtering]="true" [sorting]="true">
+  </dxo-remote-operations>
+
+  <dxo-paging [pageSize]="searchConfiguration.pageSizeCount"> </dxo-paging>
+
+  <dxo-pager
+    [showPageSizeSelector]="true"
+    [allowedPageSizes]="searchConfiguration.allowedPageSizes"
+  >
+  </dxo-pager>
+
+  <dxo-filter-row [visible]="true"></dxo-filter-row>
+
+  <dxi-column dataField="phraseId" dataType="string" [visible]="false"> </dxi-column>
+
+  <dxi-column
+    [width]="15 + '%'"
+    caption="Phrase"
+    dataField="phraseName"
+    dataType="string"
+  >
+  </dxi-column>
+
+  <dxi-column
+    [width]="35 + '%'"
+    caption="Patient Chart Nodes"
+    cellTemplate="patientChartNodeUsePhrasesTemplate"
+  >
+  </dxi-column>
+  <div
+    class="text-left"
+    *dxTemplate="let phraseUsage of 'patientChartNodeUsePhrasesTemplate'"
+  >
+    <div
+      *ngFor="
+        let patientChartNodeUsePhrase of phraseUsage.data.patientChartNodeUsePhrases
+      "
+    >
+      {{ patientChartNodeUsePhrase.patientChartNodePath }}
+    </div>
+  </div>
+
+  <dxi-column
+    [width]="35 + '%'"
+    caption="Templates"
+    cellTemplate="templateUsePhrasesTemplate"
+  ></dxi-column>
+  <div class="text-left" *dxTemplate="let phraseUsage of 'templateUsePhrasesTemplate'">
+    <div *ngFor="let templateUsePhrase of phraseUsage.data.templateUsePhrases">
+      {{ templateUsePhrase.templateName }}
+    </div>
+  </div>
+
+  <dxi-column
+    alignment="center"
+    [width]="15 + '%'"
+    caption="Manage"
+    cellTemplate="actionsTemplate"
+  >
+  </dxi-column>
+  <div class="text-center" *dxTemplate="let phraseUsage of 'actionsTemplate'">
+    <div class="btn-group btn-group-sm" role="group">
+      <button
+        (click)="manageTemplates(phraseUsage.data, $event)"
+        class="btn btn-outline-secondary"
+      >
+        Templates
+      </button>
+      <button
+        (click)="managePatientChartNodes(phraseUsage.data, $event)"
+        class="btn btn-outline-secondary"
+      >
+        Nodes
+      </button>
+    </div>
+  </div>
+</dx-data-grid>
+<dx-popup
+  #phraseUsageManagePopup
+  class="popup"
+  [width]="900"
+  [height]="580"
+  [dragEnabled]="false"
+  [showTitle]="true"
+  title="Manage Usage"
+  [hideOnOutsideClick]="false"
+  [visible]="isManageNodesPopupOpen || isManageTemplatesPopupOpen"
+  (onHidden)="onPhraseUsageManagePopupHidden()"
+>
+  <div *dxTemplate="let data of 'content'">
+    <patient-chart-node-phrases
+      *ngIf="isManageNodesPopupOpen"
+      [companyId]="companyId"
+      [phraseId]="phraseUsage?.phraseId"
+      [phraseName]="phraseUsage?.phraseName"
+      [patientChartNodeUsePhrases]="phraseUsage?.patientChartNodeUsePhrases"
+      (cancelNodesManaging)="isManageNodesPopupOpen = false"
+      (saveNodesChanges)="saveNodesChanges($event)"
+    >
+    </patient-chart-node-phrases>
+
+    <template-phrases
+      *ngIf="isManageTemplatesPopupOpen"
+      [companyId]="companyId"
+      [phraseId]="phraseUsage?.phraseId"
+      [phraseName]="phraseUsage?.phraseName"
+      [templateUsePhrases]="phraseUsage?.templateUsePhrases"
+      (cancelTemplatesManaging)="isManageTemplatesPopupOpen = false"
+      (saveTemplatesChanges)="saveTemplatesChanges($event)"
+    >
+    </template-phrases>
+  </div>
+</dx-popup>

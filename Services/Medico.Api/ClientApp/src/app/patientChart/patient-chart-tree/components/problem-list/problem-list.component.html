@@ -1,0 +1,307 @@
+<div class="row">
+  <div *ngIf="!isSignedOff" class="col-md-2">
+    <button
+      type="button"
+      (click)="openAssessmentForm()"
+      class="btn btn-sm btn-outline-secondary"
+    >
+      ADD PROBLEM LIST
+    </button>
+  </div>
+</div>
+
+<div class="row mt-md-5" *ngIf="isAssessmentPopupOpened">
+  <div class="col-md-12">
+    <dx-form
+      [height]="610"
+      #assessmentForm
+      [colCount]="12"
+      [(formData)]="assessment"
+      (onFieldDataChanged)="onAssessmentFieldChanged($event)"
+    >
+      <!-- <dxi-item [colSpan]="12">
+        <dx-select-box #searchMedicationSelectBox [(value)]="icdCode" [dataSource]="icdCodesDataSource"
+          valueExpr="id" displayExpr="name" (onValueChanged)="onIcdCodeChanged($event)" [searchEnabled]="true"
+          [showClearButton]="true">
+        </dx-select-box>
+      </dxi-item> -->
+      <!--Row 1-->
+      <dxi-item
+        [colSpan]="3"
+        [label]="{ text: 'Order' }"
+        dataField="order"
+        editorType="dxNumberBox"
+        [editorOptions]="{
+          min: orderNumberMinAvailableValue,
+          max: orderNumberMaxAvailableValue,
+          onKeyPress: onKeyPressInOrderNumberBox
+        }"
+      >
+        <dxi-validation-rule type="required"></dxi-validation-rule>
+      </dxi-item>
+
+      <dxi-item
+        [colSpan]="6"
+        [label]="{ text: 'Search diagnosis' }"
+        dataField="icdCode"
+        editorType="dxSelectBox"
+        [editorOptions]="{
+          dataSource: icdCodesDataSource,
+          searchEnabled: true,
+          displayExpr: 'name',
+          valueExpr: 'id'
+        }"
+      >
+      </dxi-item>
+      <dxi-item [colSpan]="3" itemType="empty"></dxi-item>
+
+      <!--Row 2-->
+      <dxi-item
+        [colSpan]="6"
+        [label]="{ text: 'Diagnosis' }"
+        dataField="diagnosis"
+        editorType="dxTextArea"
+      >
+        <dxi-validation-rule type="required"></dxi-validation-rule>
+      </dxi-item>
+
+      <dxi-item
+        [colSpan]="3"
+        [label]="{ text: 'Status' }"
+        dataField="status"
+        editorType="dxSelectBox"
+        [editorOptions]="{
+          dataSource: statusList,
+          displayExpr: 'name',
+          valueExpr: 'id'
+        }"
+      >
+      </dxi-item>
+
+      <dxi-item [colSpan]="3" itemType="empty"></dxi-item>
+
+      <dxi-item
+        [colSpan]="6"
+        [label]="{ text: 'Points' }"
+        dataField="points"
+        editorType="dxSelectBox"
+        [editorOptions]="{
+          dataSource: pointsList,
+          displayExpr: 'value',
+          valueExpr: 'id'
+        }"
+      >
+      </dxi-item>
+
+      <dxi-item [colSpan]="6" itemType="empty"></dxi-item>
+
+      <!--Row 3-->
+      <!-- <dxi-item [colSpan]="3" itemType="empty"></dxi-item> -->
+      <!-- <dxi-item [colSpan]="3" [label]="{text: 'Subject'}" dataField="subject" editorType="dxSelectBox"
+        [editorOptions]="{ dataSource: subjectList, displayExpr: 'name', valueExpr: 'id' }">
+      </dxi-item> -->
+
+      <dxi-item
+        [colSpan]="3"
+        dataField="startDate"
+        editorType="dxDateBox"
+        [editorOptions]="{ width: '100%', height: '30' }"
+      >
+        <dxi-validation-rule type="required"></dxi-validation-rule>
+      </dxi-item>
+
+      <dxi-item
+        [colSpan]="3"
+        dataField="endDate"
+        editorType="dxDateBox"
+        [editorOptions]="{
+          width: '100%',
+          height: '30',
+          disabled: !endDateEnabled
+        }"
+      >
+        <!-- <dxi-validation-rule type="required"></dxi-validation-rule> -->
+      </dxi-item>
+
+      <dxi-item [colSpan]="6" itemType="empty"></dxi-item>
+
+      <dxi-item [colSpan]="12">
+        <div class="row mt-md-3">
+          <div class="col-md-8">
+            <div class="mb-2">
+              <span class="pr-5">Include Notes In Report:</span>
+              <dx-check-box [(value)]="includeNotesInReport"></dx-check-box>
+            </div>
+            <notes-editor
+              #notesEditor
+              [initialContent]="notes"
+              (contentChanged)="onDetailedContentChanged($event)"
+            >
+            </notes-editor>
+          </div>
+          <div class="col-md-4">
+            <a
+              class="btn btn-sm btn-outline-secondary mr-3"
+              href="javascript:;"
+              (click)="showPhrasesHelper($event)"
+            >
+              Insert Phrase
+            </a>
+            <phrase-suggestion-helper
+              #phraseHelper
+              *ngIf="isPhrasesHelperVisible"
+              class="mt-2"
+              [keepFormat]="true"
+              [typedText]="'..'"
+              [templateId]="templateId"
+              [companyId]="companyId"
+              (phraseSuggestionApplied)="onPhraseSuggestionApplied($event)"
+            >
+            </phrase-suggestion-helper>
+          </div>
+        </div>
+      </dxi-item>
+      <!-- <dxi-item [colSpan]="12" [label]="{text: 'Notes'}" dataField="notes" template="notesTemplate"></dxi-item> -->
+
+      <dxi-item [colSpan]="6" editorType="dxCheckBox" dataField="favorite"></dxi-item>
+    </dx-form>
+  </div>
+  <br />
+  <div class="col-md-12 text-right mt-md-3">
+    <button
+      type="button"
+      (click)="closeAssessmentForm()"
+      class="btn btn-sm btn-outline-secondary"
+    >
+      CANCEL</button
+    >&nbsp;
+    <button
+      type="button"
+      (click)="createUpdateAssessment()"
+      class="btn btn-sm btn-outline-secondary"
+    >
+      SAVE ASSESSMENT
+    </button>
+  </div>
+</div>
+
+<div style="height: 400px; overflow: auto">
+  <div class="row mt-md-2" *ngIf="!isAssessmentPopupOpened">
+    <div class="col-md-12">
+      <dx-data-grid
+        [selectedRowKeys]="selectedAssessments"
+        [hoverStateEnabled]="true"
+        (onSelectionChanged)="onAssessmentSelected($event)"
+        [wordWrapEnabled]="true"
+        #assessmentsGrid
+        [dataSource]="assessments"
+        [showBorders]="true"
+        [showRowLines]="true"
+      >
+        <dxi-column dataField="id" dataType="string" [visible]="false"></dxi-column>
+        <dxi-column [width]="5 + '%'" dataField="order" dataType="number"></dxi-column>
+
+        <dxi-column
+          dataField="diagnosis"
+          dataType="string"
+          caption="ICD10 Code"
+          cellTemplate="icdCodeTemplate"
+        ></dxi-column>
+        <dxi-column
+          dataField="diagnosis"
+          dataType="string"
+          caption="ICD10 Description"
+          cellTemplate="icdDescrtionTemplate"
+        ></dxi-column>
+
+        <dxi-column
+          dataField="startDate"
+          caption="Start Date"
+          cellTemplate="sDateTemplate"
+        ></dxi-column>
+
+        <dxi-column
+          dataField="endDate"
+          caption="End Date"
+          cellTemplate="eDateTemplate"
+        ></dxi-column>
+
+        <dxi-column dataField="status" dataType="string"></dxi-column>
+
+        <dxi-column dataField="points" dataType="string" caption="MDM"></dxi-column>
+
+        <!-- <dxi-column dataField="subject" dataType="string"></dxi-column> -->
+        <dxi-column
+          dataType="string"
+          caption="Provider"
+          cellTemplate="providerTemplate"
+        ></dxi-column>
+        <dxi-column
+          alignment="left"
+          dataField="notes"
+          caption="Note"
+          cellTemplate="cellTemplate"
+          dataType="string"
+          [allowSorting]="false"
+        ></dxi-column>
+
+        <div *dxTemplate="let data of 'icdCodeTemplate'">
+          {{ data.value.split('-')[0] }}
+        </div>
+        <div *dxTemplate="let data of 'icdDescrtionTemplate'">
+          {{ data.value.split('-')[1] }}
+        </div>
+
+        <div *dxTemplate="let data of 'cellTemplate'">
+          <!-- <div style="width: 100%;max-height: 60px; overflow:hidden;" [innerHtml]="data.value"></div> -->
+          {{ data.value.length > 0 ? 'Has Note' : 'No Note' }}
+        </div>
+
+        <div *dxTemplate="let data of 'sDateTemplate'">
+          {{ data.value | date }}
+        </div>
+
+        <div *dxTemplate="let data of 'eDateTemplate'">
+          {{ data.value | date }}
+        </div>
+
+        <div *dxTemplate="let data of 'favTemplate'">
+          <i
+            *ngIf="data.value === true"
+            class="dx-icon-favorites"
+            style="color: peru"
+          ></i>
+        </div>
+
+        <div *dxTemplate="let data of 'providerTemplate'">
+          <div *ngIf="appointment">
+            {{ appointment.physicianFirstName + ' ' + appointment.physicianLastName }}
+          </div>
+        </div>
+
+        <dxi-column
+          alignment="center"
+          width="15%"
+          caption="Delete"
+          cellTemplate="deleteHistoryTemplate"
+        ></dxi-column>
+        <div class="text-center" *dxTemplate="let history of 'deleteHistoryTemplate'">
+          <!-- <button type="button" (click)="deleteAssessment(history.data, $event)" class="btn-group btn-group-sm"><i
+              class="fas fa-trash"></i></button> -->
+          <div class="btn-group btn-group-sm" role="group">
+            <button
+              (click)="deleteAssessment(history.data, $event)"
+              class="btn btn-outline-danger"
+            >
+              <i class="fas fa-trash"></i>
+            </button>
+          </div>
+        </div>
+
+        <dxo-selection mode="single"></dxo-selection>
+      </dx-data-grid>
+    </div>
+  </div>
+</div>
+
+<br /><br />

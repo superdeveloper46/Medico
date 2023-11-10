@@ -1,0 +1,259 @@
+<div style="border-bottom: solid 1px #ccc; padding-bottom: 25px">
+  <div class="row mt-md-2 w-100">
+    <div class="col-md-12">
+      <small>FAVORITES </small>
+    </div>
+    <div class="col-md-12" style="display: flex; justify-content: space-between; width: 100%">
+      <div class="row px-3" style="width: 80%">
+        <div class="float-left mr-3 p" *ngFor="let item of mostOrdered">
+          <dx-button
+            stylingMode="outlined"
+            type="success"
+            style="min-width: 100px"
+            text="{{ item.code_Desc }}"
+          >
+          </dx-button>
+        </div>
+      </div>
+      <div class="row">
+        <button title="View Overflow Favorites"
+            [disabled] = "mostOrderedOverflow.length === 0"
+            (click)="this.openOverflowFavoriteModal()"
+            class="btn btn-sm btn-outline-primary mr-2">
+            View Overflow Favorites
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="row mt-md-3">
+  <div class="col-md-6">
+    <div class="feature-left">
+      <div class="feature-icon"><i class="fa fa-info-circle"></i></div>
+      <div class="feature-content">
+        <p>Use this option if the Lab Test does not appear in the below list.</p>
+      </div>
+      <div class="feature-icon"><i class="fa fa-info-circle"></i></div>
+      <div class="feature-content">
+        <p>Lab Tests can be updated from Administratiohn section</p>
+      </div>
+    </div>
+    <!-- /.feature-left -->
+  </div>
+  <div class="col-md-6 text-right">
+    <dx-button
+      icon="todo"
+      type="success"
+      text="Preview & Save Lab Order"
+      (onClick)="preview()"
+    >
+    </dx-button
+    ><br /><br />
+  </div>
+  <div class="col-md-12">
+    <dual-list
+      [source]="source"
+      [(destination)]="target"
+      [format]="format"
+      [filter]="true"
+      height="250px"
+    >
+    </dual-list>
+  </div>
+</div>
+
+<!--Preview Popup-->
+<dx-popup
+  #previewPopup
+  class="popup"
+  [width]="1050"
+  [height]="650"
+  [dragEnabled]="false"
+  [showTitle]="true"
+  title="PREVIEW ORDER"
+  [hideOnOutsideClick]="false"
+  [(visible)]="isPreviewPopupOpened"
+>
+  <div class="container">
+    <div class="row" style="height: 175px; overflow: auto">
+      <div class="col-md-12">
+        <table class="table table-condensed" width="99%">
+          <thead>
+            <tr>
+              <th>Order Name</th>
+              <th>Code</th>
+              <th>CodeType</th>
+              <th>Vendor</th>
+              <th>Quantity</th>
+              <th>Test fee</th>
+              <th>Total Amount</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let lt of previewList">
+              <td>{{ lt.code_Desc }}</td>
+              <td>{{ lt.code }}</td>
+              <td>{{ lt.codeType }}</td>
+              <td>
+                <dx-select-box
+                  [items]="vendorDdl"
+                  [(value)]="lt.vendorId"
+                  [readOnly]="true"
+                  [dataSource]="vendorDdl"
+                  displayExpr="vendorName"
+                  valueExpr="id"
+                ></dx-select-box>
+              </td>
+              <td>
+                <input
+                  type="number"
+                  [(ngModel)]="lt.quantity"
+                  class="dx-texteditor-input"
+                  style="width: 80px"
+                />
+              </td>
+              <td>
+                <input
+                  [(ngModel)]="lt.testFee"
+                  (blur)="updateFee($event, lt.id)"
+                  class="dx-texteditor-input"
+                  style="width: 80px"
+                />
+              </td>
+              <td>
+                {{ lt.testFee * (lt.quantity || 1) }}
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <hr />
+    <div class="row">
+      <div class="col-md-12">
+        <div class="row mt-mb-1">
+          <div class="col-md-3">
+            <div class="dx-field">
+              <label>Date</label>
+              <dx-date-box [(value)]="dateOrdered"> </dx-date-box>
+            </div>
+          </div>
+          <div class="col-md-3">
+            <div class="dx-field">
+              <label>Physician</label>
+              <dx-select-box
+                [(value)]="physicianId"
+                [dataSource]="physicianData"
+                displayExpr="name"
+                valueExpr="id"
+                [searchEnabled]="true"
+              >
+              </dx-select-box>
+              <small [hidden]="!physicianError" class="text-danger"
+                >Choose Physician</small
+              >
+            </div>
+          </div>
+          <div class="col-md-3">
+            <div class="dx-field">
+              <label>Insurance</label>
+              <dx-select-box
+                [(value)]="insuranceId"
+                [dataSource]="insuranceCompanies"
+                displayExpr="name"
+                valueExpr="id"
+                [searchEnabled]="true"
+              >
+              </dx-select-box>
+            </div>
+          </div>
+          <!-- <div class="col-md-3">
+                        <div class="dx-field">
+                            <label>Vendor</label>
+                            <dx-select-box [(value)]="vendorId" [dataSource]="vendorDdl" displayExpr="vendorName"
+                                valueExpr="id" [searchEnabled]="true">
+                            </dx-select-box>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="dx-field">
+                            <label>Reference No.</label>
+                            <dx-text-box [(value)]="referenceNo">
+                            </dx-text-box>
+                        </div>
+                    </div> -->
+        </div>
+        <div class="row mt-md-2">
+          <div class="col-md-5">
+            <div class="dx-field">
+              <label>Notify</label>
+              <dx-tag-box
+                [(value)]="userId"
+                [dataSource]="userDataSource"
+                [searchEnabled]="true"
+                displayExpr="firstName"
+                valueExpr="id"
+              >
+              </dx-tag-box>
+            </div>
+          </div>
+          <div class="col-md-1">
+            <div class="dx-field">
+              <dx-check-box style="margin-top: 30px; float: right" [(value)]="needReminderDate"></dx-check-box>
+            </div>
+          </div>
+          <div class="col-md-3">
+            <div class="dx-field">
+              <label>Reminder Date</label>
+              <dx-date-box [disabled]="!needReminderDate" [(value)]="reminderDate"> </dx-date-box>
+            </div>
+          </div>
+        </div>
+        <div class="row mt-md-2">
+          <div class="col-md-9">
+            <div class="dx-field">
+              <label>Notes</label>
+              <dx-text-area [height]="100" [maxLength]="maxLength" [(value)]="notes">
+              </dx-text-area>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row mt-md-1">
+      <div class="col-md-12 text-right">
+        <dx-button
+          icon="save"
+          type="success"
+          text="Save Lab Order"
+          (onClick)="doneClick()"
+        >
+        </dx-button>
+      </div>
+    </div>
+  </div>
+</dx-popup>
+
+<dx-popup
+  #overflowFavoritePopup
+  class="popup"
+  [width]="1050"
+  [height]="200"
+  [dragEnabled]="false"
+  [showTitle]="true"
+  title="Overflow Favorite"
+  [hideOnOutsideClick]="false"
+  [(visible)]="isOverflowFavoritePopupOpened"
+>
+  <div class="container">
+    <div class="float-left mr-3 p" *ngFor="let item of mostOrderedOverflow">
+      <dx-button
+        stylingMode="outlined"
+        type="success"
+        style="min-width: 100px"
+        text="{{ item.code_Desc }}"
+      >
+      </dx-button>
+    </div>
+  </div>
+</dx-popup>

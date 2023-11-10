@@ -1,0 +1,372 @@
+<div *ngIf="canRenderComponent" class="row">
+  <div *ngIf="!isSignedOff" class="col-md-2">
+    <button
+      type="button"
+      (click)="openDrugHistoryForm()"
+      class="btn btn-sm btn-outline-secondary"
+    >
+      ADD DRUG HISTORY
+    </button>
+  </div>
+</div>
+<!--form-->
+<div *ngIf="isDrugHistoryPopupOpened" class="row mt-md-3">
+  <div class="col-md-12">
+    <dx-form
+      #drugHistoryForm
+      [height]="460"
+      labelLocation="top"
+      [(formData)]="drugHistory"
+      (onFieldDataChanged)="onDrugHistoryFieldChanged($event)"
+    >
+      <dxi-item itemType="tabbed" [tabPanelOptions]="{ height: 450 }">
+        <dxi-tab [colCount]="12" title="Base Info">
+          <dxi-item
+            [colSpan]="9"
+            [label]="{ text: 'Status' }"
+            dataField="status"
+            editorType="dxSelectBox"
+            [editorOptions]="{ items: statusDrugUseListValues }"
+          >
+            <dxi-validation-rule type="required"></dxi-validation-rule>
+          </dxi-item>
+
+          <dxi-item
+            [colSpan]="3"
+            dataField="createDate"
+            editorType="dxDateBox"
+            [editorOptions]="{ width: '100%' }"
+          >
+          </dxi-item>
+
+          <dxi-item
+            *ngIf="!isDefaultHistoryValueSelected"
+            [colSpan]="3"
+            [label]="{ text: 'Type' }"
+            dataField="type"
+            editorType="dxSelectBox"
+            [editorOptions]="{ items: typeDrugListValues }"
+          >
+          </dxi-item>
+
+          <dxi-item
+            *ngIf="!isDefaultHistoryValueSelected"
+            [colSpan]="3"
+            [label]="{ text: 'Amount' }"
+            dataField="amount"
+            editorType="dxNumberBox"
+            [editorOptions]="{ showSpinButtons: true }"
+          >
+          </dxi-item>
+
+          <dxi-item
+            *ngIf="!isDefaultHistoryValueSelected"
+            [colSpan]="3"
+            [label]="{ text: 'Use' }"
+            dataField="use"
+            editorType="dxSelectBox"
+            [editorOptions]="{ items: useDrugListValues }"
+          >
+          </dxi-item>
+
+          <dxi-item
+            *ngIf="!isDefaultHistoryValueSelected"
+            [colSpan]="3"
+            [label]="{ text: 'Route' }"
+            dataField="route"
+            editorType="dxSelectBox"
+            [editorOptions]="{ items: useDrugRouteListValues }"
+          >
+          </dxi-item>
+
+          <dxi-item
+            *ngIf="!isDefaultHistoryValueSelected"
+            [colSpan]="3"
+            [label]="{ text: 'Frequency' }"
+            dataField="frequency"
+            editorType="dxSelectBox"
+            [editorOptions]="{ items: useFrequencyListValues }"
+          >
+          </dxi-item>
+
+          <dxi-item
+            *ngIf="!isDefaultHistoryValueSelected"
+            [colSpan]="3"
+            [label]="{ text: 'Length' }"
+            dataField="length"
+            editorType="dxNumberBox"
+            [editorOptions]="{ showSpinButtons: true }"
+          >
+          </dxi-item>
+
+          <dxi-item
+            *ngIf="!isDefaultHistoryValueSelected"
+            [colSpan]="3"
+            [label]="{ text: 'Duration' }"
+            dataField="duration"
+            editorType="dxSelectBox"
+            [editorOptions]="{ items: durationListValues }"
+          >
+          </dxi-item>
+
+          <dxi-item
+            *ngIf="!isDefaultHistoryValueSelected"
+            [colSpan]="3"
+            [label]="{ text: 'Quit' }"
+            dataField="quit"
+            editorType="dxCheckBox"
+          ></dxi-item>
+
+          <dxi-item
+            *ngIf="!isDefaultHistoryValueSelected && drugHistory.quit"
+            [colSpan]="6"
+            [label]="{ text: 'Status Length' }"
+            dataField="statusLength"
+            editorType="dxNumberBox"
+            [editorOptions]="{ showSpinButtons: true }"
+          >
+          </dxi-item>
+
+          <dxi-item
+            *ngIf="!isDefaultHistoryValueSelected && drugHistory.quit"
+            [colSpan]="6"
+            [label]="{ text: 'Status Length Type' }"
+            dataField="statusLengthType"
+            editorType="dxSelectBox"
+            [editorOptions]="{ items: durationListValues }"
+          >
+          </dxi-item>
+        </dxi-tab>
+        <dxi-tab [colCount]="12" title="Notes">
+          <dxi-item
+            [colSpan]="12"
+            [label]="{ text: 'Notes' }"
+            dataField="notes"
+            template="notesTemplate"
+          ></dxi-item>
+          <div *dxTemplate="let data of 'notesTemplate'">
+            <!-- <dx-text-area valueChangeEvent="keyup" [(value)]="drugHistory.notes" height="300">
+              </dx-text-area> -->
+
+            <div class="row">
+              <div class="col-md-8">
+                <div class="mb-2">
+                  <span class="pr-5">Include Notes In Report:</span>
+                  <dx-check-box
+                    [(value)]="drugHistory.includeNotesInReport"
+                  ></dx-check-box>
+                </div>
+                <notes-editor
+                  #notesEditor
+                  [initialContent]="drugHistory.notes"
+                  (contentChanged)="onDetailedContentChanged($event)"
+                >
+                </notes-editor>
+
+                <!-- <editor [(ngModel)]="drugHistory.notes" valueChangeEvent="keyup"
+                  apiKey="70vneflf97p4mfopd7r652uz61jy0fo0eg80vy9ctk69p9fl" [init]="{
+                    height: 300,
+                    menubar: false,
+                    plugins: [
+                      'export lists table powerpaste'
+                    ],
+                    powerpaste_allow_local_images: true,
+                    powerpaste_word_import: 'prompt',
+                    powerpaste_html_import: 'prompt',
+                    browser_spellcheck: true,
+                    fontsize_formats: '8pt 10pt 12pt 14pt 18pt 24pt',
+                    content_style: 'body { font-family: Arial; }',
+                    toolbar:
+                      'export insertfile undo redo | fontsizeselect | styleselect  | \
+                      bold italic | alignleft aligncenter alignright alignjustify | \
+                      bullist numlist outdent indent | table '
+                  }"></editor> -->
+              </div>
+              <div class="col-md-4">
+                <a
+                  class="text-decoration-none text-secondary mr-3"
+                  href=""
+                  (click)="showPhrasesHelper($event)"
+                >
+                  Insert Phrases
+                </a>
+                <phrase-suggestion-helper
+                  #phraseHelper
+                  *ngIf="isPhrasesHelperVisible"
+                  class="mt-2"
+                  [keepFormat]="true"
+                  [typedText]="'..'"
+                  [templateId]="templateId"
+                  [companyId]="companyId"
+                  (phraseSuggestionApplied)="onPhraseSuggestionApplied($event)"
+                >
+                </phrase-suggestion-helper>
+              </div>
+            </div>
+          </div>
+        </dxi-tab>
+      </dxi-item>
+    </dx-form>
+  </div>
+  <div class="col-md-12 text-right mt-md-2">
+    <button
+      type="button"
+      (click)="createUpdateDrugHistory()"
+      class="btn btn-sm btn-outline-secondary"
+    >
+      SAVE
+    </button>
+  </div>
+</div>
+<hr />
+<div *ngIf="isHistoryExist" class="row mt-md-2" style="height: 300px; overflow: auto">
+  <div class="col-md-12">
+    <dx-data-grid
+      [selectedRowKeys]="selectedDrugHistory"
+      [hoverStateEnabled]="true"
+      (onSelectionChanged)="onDrugHistorySelect($event)"
+      [wordWrapEnabled]="true"
+      #drugHistoryDataGrid
+      [dataSource]="drugHistoryDataSource"
+      [showBorders]="true"
+      [showRowLines]="true"
+    >
+      <dxo-remote-operations [paging]="true" [sorting]="true"></dxo-remote-operations>
+
+      <dxo-paging [pageSize]="searchConfiguration.pageSizeCount"> </dxo-paging>
+
+      <dxo-pager
+        [showPageSizeSelector]="true"
+        [allowedPageSizes]="searchConfiguration.allowedPageSizes"
+      >
+      </dxo-pager>
+
+      <dxi-column dataField="id" dataType="string" [visible]="false"></dxi-column>
+      <dxi-column dataField="patientId" dataType="string" [visible]="false"></dxi-column>
+      <dxi-column
+        alignment="center"
+        dataField="status"
+        dataType="string"
+        [allowSorting]="false"
+      ></dxi-column>
+      <dxi-column
+        alignment="center"
+        dataField="type"
+        cellTemplate="cellTemplate"
+        dataType="string"
+        [allowSorting]="false"
+      ></dxi-column>
+      <dxi-column
+        alignment="center"
+        dataField="amount"
+        cellTemplate="cellTemplate"
+        dataType="number"
+        [allowSorting]="false"
+      ></dxi-column>
+      <dxi-column
+        alignment="center"
+        dataField="use"
+        cellTemplate="cellTemplate"
+        dataType="string"
+        [allowSorting]="false"
+      ></dxi-column>
+      <dxi-column
+        alignment="center"
+        dataField="route"
+        cellTemplate="cellTemplate"
+        dataType="string"
+        [allowSorting]="false"
+      ></dxi-column>
+      <dxi-column
+        alignment="center"
+        dataField="frequency"
+        cellTemplate="cellTemplate"
+        dataType="string"
+        [allowSorting]="false"
+      ></dxi-column>
+      <dxi-column
+        alignment="center"
+        dataField="length"
+        cellTemplate="cellTemplate"
+        dataType="number"
+        [allowSorting]="false"
+      ></dxi-column>
+      <dxi-column
+        alignment="center"
+        dataField="duration"
+        cellTemplate="cellTemplate"
+        dataType="string"
+        [allowSorting]="false"
+      ></dxi-column>
+      <dxi-column
+        alignment="center"
+        dataField="quit"
+        cellTemplate="cellTemplate"
+        dataType="boolean"
+        [allowSorting]="false"
+      ></dxi-column>
+      <dxi-column
+        alignment="center"
+        dataField="statusLength"
+        cellTemplate="cellTemplate"
+        dataType="number"
+        [allowSorting]="false"
+      ></dxi-column>
+      <dxi-column
+        alignment="left"
+        dataField="notes"
+        cellTemplate="noteTemplate"
+        dataType="string"
+        [allowSorting]="false"
+      ></dxi-column>
+      <dxi-column alignment="center" dataField="createDate" dataType="date"></dxi-column>
+
+      <dxi-column
+        *ngIf="!isSignedOff"
+        alignment="center"
+        caption="Delete"
+        cellTemplate="deleteHistoryTemplate"
+      >
+      </dxi-column>
+      <div class="text-center" *dxTemplate="let history of 'deleteHistoryTemplate'">
+        <button
+          type="button"
+          (click)="deleteHistory(history.data, $event)"
+          class="btn btn-sm btn-outline-danger"
+        >
+          DELETE
+        </button>
+      </div>
+
+      <dxo-selection mode="single"></dxo-selection>
+      <div *dxTemplate="let data of 'noteTemplate'">
+        <!-- <div style="width: 100%;max-height: 60px; overflow:hidden;" [innerHtml]="data.value"></div> -->
+        <span
+          class="badge badge-success"
+          [ngClass]="{
+            'badge-success': data.value && data.value.length > 0,
+            'badge-danger': data.value.length === 0
+          }"
+        >
+          {{ data.value.length > 0 ? 'Yes' : 'No' }}
+        </span>
+      </div>
+      <div *dxTemplate="let data of 'cellTemplate'">
+        <div style="max-height: 60px; overflow: hidden" [innerHtml]="data.value"></div>
+      </div>
+    </dx-data-grid>
+  </div>
+</div>
+<div *ngIf="!isHistoryExist" class="row mt-md-2">
+  <div class="col-md-2">
+    <h6>{{ defaultHistoryValue }}</h6>
+  </div>
+</div>
+<hr />
+<!-- <dx-popup #drugHistoryPopup class="popup" [width]="900" [height]="580" [dragEnabled]="false" [showTitle]="true"
+    title="DRUG HISTORY" [hideOnOutsideClick]="false" [(visible)]="isDrugHistoryPopupOpened"
+    (onHidden)="onDrugHistoryPopupHidden()">
+    <div *dxTemplate="let data of 'content'">
+     
+    </div>
+  </dx-popup> -->

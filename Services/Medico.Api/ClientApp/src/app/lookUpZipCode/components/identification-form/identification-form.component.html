@@ -1,0 +1,113 @@
+<div class="row">
+  <div class="col-md-12">
+    <div class="d-flex justify-content-between align-items-center">
+      <h4 class="mb-2">
+        <span class="badge badge-dark">{{ identificationCodeString }}</span>
+      </h4>
+      <h5 class="mb-2">
+        <span *ngIf="isIdentificationCodeCreated" class="badge badge-success"
+          >Created</span
+        >
+        <span *ngIf="!isIdentificationCodeCreated" class="badge badge-danger"
+          >Is Not Created</span
+        >
+      </h5>
+    </div>
+    <hr />
+    <dx-form
+      #identificationCodeForm
+      [colCount]="12"
+      [(formData)]="identificationCodeCopy"
+      labelLocation="top"
+    >
+      <dxi-item [colSpan]="2" dataField="prefix" [disabled]="true">
+        <dxi-validation-rule
+          type="required"
+          message="Prefix is required"
+        ></dxi-validation-rule>
+        <dxi-validation-rule
+          type="stringLength"
+          [max]="10"
+          message="Prefix max length is 10"
+        ></dxi-validation-rule>
+        <dxi-validation-rule
+          type="pattern"
+          pattern="^[a-zA-Z]+$"
+          message="Prefix should contain only letters"
+        ></dxi-validation-rule>
+      </dxi-item>
+      <dxi-item [colSpan]="3" dataField="letterCode" [disabled]="DisabledFormFields1">
+        <dxi-validation-rule
+          type="stringLength"
+          [max]="10"
+          message="Letter code max length is 10"
+        ></dxi-validation-rule>
+        <dxi-validation-rule
+          type="required"
+          message="Letter code is required"
+        ></dxi-validation-rule>
+        <dxi-validation-rule
+          type="pattern"
+          pattern="^[a-zA-Z]+$"
+          message="Letter code should contain only letters"
+        ></dxi-validation-rule>
+      </dxi-item>
+      <dxi-item
+        [colSpan]="3"
+        editorType="dxNumberBox"
+        dataField="numericCode"
+        [disabled]="DisabledFormFields"
+      >
+        <dxi-validation-rule
+          type="required"
+          message="Numeric code is required"
+        ></dxi-validation-rule>
+        <dxi-validation-rule
+          type="numeric"
+          message="Numeric code should contain only digits"
+        ></dxi-validation-rule>
+        <dxi-validation-rule
+          type="range"
+          [max]="99999999"
+          [min]="patientsModuleConstants.identification.minValidNumericCodeValue"
+          message="Numeric code valid range is from 100000 to 99999999"
+        ></dxi-validation-rule>
+      </dxi-item>
+      <dxi-item
+        [colSpan]="2"
+        editorType="dxNumberBox"
+        dataField="year"
+        [disabled]="DisabledFormFields"
+      >
+        <dxi-validation-rule
+          type="range"
+          [min]="1900"
+          [max]="2100"
+          message="Year is not valid"
+        ></dxi-validation-rule>
+      </dxi-item>
+      <dxi-item
+        [colSpan]="2"
+        editorType="dxNumberBox"
+        dataField="month"
+        [disabled]="DisabledFormFields"
+      >
+        <dxi-validation-rule
+          type="range"
+          [min]="1"
+          [max]="12"
+          message="Month is not valid"
+        ></dxi-validation-rule>
+      </dxi-item>
+    </dx-form>
+    <div class="text-right mt-2">
+      <button
+        (click)="saveIdentificationCode()"
+        class="btn btn-sm btn-outline-secondary"
+        [disabled]="DisabledFormFields"
+      >
+        Save
+      </button>
+    </div>
+  </div>
+</div>

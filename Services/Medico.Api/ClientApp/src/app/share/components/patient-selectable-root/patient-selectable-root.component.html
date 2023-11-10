@@ -1,0 +1,24 @@
+<patient-selectable-list
+  #patientSelectableList
+  (selectableItemChanged)="onChildSelectableItemsValuesChanged($event)"
+  [companyId]="companyId"
+>
+</patient-selectable-list>
+
+<patient-selectable-range
+  (selectableItemChanged)="onChildSelectableItemsValuesChanged($event)"
+  #patientSelectableRange
+>
+</patient-selectable-range>
+
+<patient-selectable-date
+  (selectableItemChanged)="onChildSelectableItemsValuesChanged($event)"
+  #patientSelectableDate
+>
+</patient-selectable-date>
+
+<patient-selectable-variable
+  (selectableItemChanged)="onChildSelectableItemsValuesChanged($event)"
+  #patientSelectableVariable
+>
+</patient-selectable-variable>

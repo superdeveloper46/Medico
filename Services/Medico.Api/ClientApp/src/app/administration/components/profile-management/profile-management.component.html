@@ -1,0 +1,178 @@
+<div class="row">
+  <div class="col-md-12 mt-md-2">
+    <dx-form #profileForm [(formData)]="profile">
+      <dxi-item itemType="tabbed">
+        <dxi-tab [colCount]="12" title="Base Info">
+          <dxi-item [colSpan]="6" dataField="firstName">
+            <dxi-validation-rule
+              type="required"
+              message="First Name is required"
+            ></dxi-validation-rule>
+          </dxi-item>
+
+          <dxi-item [colSpan]="6" dataField="lastName">
+            <dxi-validation-rule
+              type="required"
+              message="Last Name is required"
+            ></dxi-validation-rule>
+          </dxi-item>
+
+          <dxi-item [colSpan]="6" dataField="dateOfBirth" editorType="dxDateBox">
+            <dxi-validation-rule
+              type="required"
+              message="Date of birth is required"
+            ></dxi-validation-rule>
+          </dxi-item>
+
+          <dxi-item
+            [colSpan]="6"
+            dataField="gender"
+            editorType="dxSelectBox"
+            [editorOptions]="{
+              width: '100%',
+              height: '30',
+              items: gender,
+              displayExpr: 'name',
+              valueExpr: 'value'
+            }"
+          >
+            <dxi-validation-rule type="required"></dxi-validation-rule>
+          </dxi-item>
+
+          <dxi-item
+            [colSpan]="6"
+            dataField="employeeType"
+            editorType="dxSelectBox"
+            [editorOptions]="{
+              width: '100%',
+              height: '30',
+              items: employeeType,
+              displayExpr: 'name',
+              valueExpr: 'value'
+            }"
+          >
+            <dxi-validation-rule type="required"></dxi-validation-rule>
+          </dxi-item>
+
+          <dxi-item
+            [colSpan]="6"
+            dataField="role"
+            editorType="dxTagBox"
+            [editorOptions]="{
+              width: '100%',
+              height: '30',
+              items: roleStatic,
+              displayExpr: 'name',
+              valueExpr: 'value'
+            }"
+          >
+            <dxi-validation-rule type="required"></dxi-validation-rule>
+          </dxi-item>
+
+          <dxi-item
+            [colSpan]="6"
+            [editorOptions]="{ height: '70' }"
+            dataField="address"
+            editorType="dxTextArea"
+          >
+            <dxi-validation-rule
+              type="required"
+              message="Address is required"
+            ></dxi-validation-rule>
+          </dxi-item>
+
+          <dxi-item
+            [colSpan]="6"
+            [editorOptions]="{ height: '70' }"
+            dataField="secondaryAddress"
+            editorType="dxTextArea"
+          >
+          </dxi-item>
+
+          <dxi-item [colSpan]="6" dataField="city">
+            <dxi-validation-rule
+              type="required"
+              message="City is required"
+            ></dxi-validation-rule>
+          </dxi-item>
+
+          <dxi-item
+            [colSpan]="6"
+            dataField="state"
+            editorType="dxSelectBox"
+            [editorOptions]="{
+              displayExpr: 'name',
+              valueExpr: 'value',
+              dataSource: states
+            }"
+          >
+            <dxi-validation-rule
+              type="required"
+              message="State is required"
+            ></dxi-validation-rule>
+          </dxi-item>
+
+          <dxi-item
+            [colSpan]="3"
+            dataField="zipCodeType"
+            editorType="dxSelectBox"
+            [editorOptions]="{
+              width: '100%',
+              height: '30',
+              items: zipCodeTypes,
+              displayExpr: 'name',
+              valueExpr: 'value'
+            }"
+          >
+            <dxi-validation-rule type="required"></dxi-validation-rule>
+          </dxi-item>
+
+          <dxi-item
+            [colSpan]="3"
+            dataField="zip"
+            [editorOptions]="{
+              useMaskedValue: false,
+              width: '100%',
+              height: '30',
+              mask: zipMask
+            }"
+          >
+            <dxi-validation-rule type="required"></dxi-validation-rule>
+          </dxi-item>
+
+          <dxi-item [colSpan]="6" dataField="primaryPhone">
+            <dxi-validation-rule
+              type="required"
+              message="Phone is required"
+            ></dxi-validation-rule>
+          </dxi-item>
+
+          <dxi-item [colSpan]="6" dataField="secondaryPhone"> </dxi-item>
+
+          <dxi-item [colSpan]="6" dataField="email">
+            <dxi-validation-rule
+              type="required"
+              message="Email is required"
+            ></dxi-validation-rule>
+          </dxi-item>
+
+          <!-- <dxi-item [colSpan]="6" dataField="ssn">
+                        <dxi-validation-rule type="required" message="SSN is required"></dxi-validation-rule>
+                    </dxi-item>  -->
+        </dxi-tab>
+      </dxi-item>
+    </dx-form>
+  </div>
+</div>
+<div class="row">
+  <div class="col-md-12 text-right mt-md-1">
+    <button
+      *ngIf="profile.email !== 'superadmin@mail.com'"
+      type="button"
+      (click)="updateprofile()"
+      class="btn btn-outline-secondary"
+    >
+      SAVE
+    </button>
+  </div>
+</div>

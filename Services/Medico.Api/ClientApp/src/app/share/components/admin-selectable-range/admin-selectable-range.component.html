@@ -1,0 +1,41 @@
+<div class="row mt-md-2">
+  <div class="col-md-6">
+    <table class="table">
+      <tbody>
+        <tr>
+          <td>
+            <dx-number-box
+              [width]="100"
+              [showSpinButtons]="true"
+              [(value)]="minRangeValue"
+            ></dx-number-box>
+          </td>
+          <td>
+            <dx-number-box
+              [width]="100"
+              [showSpinButtons]="true"
+              [(value)]="maxRangeValue"
+            ></dx-number-box>
+          </td>
+          <td>
+            <button
+              type="button"
+              (click)="addSelectableItemGeneratedValue()"
+              class="btn btn-sm btn-outline-secondary"
+            >
+              Add
+            </button>
+          </td>
+        </tr>
+        <tr>
+          <td colspan="3">
+            <dx-check-box
+              [(value)]="default"
+              text="Default Value Max Value"
+            ></dx-check-box>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

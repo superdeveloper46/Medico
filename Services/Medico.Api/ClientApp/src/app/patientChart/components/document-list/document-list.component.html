@@ -1,0 +1,32 @@
+<dx-select-box
+  #documentNodeSelectBox
+  valueExpr="id"
+  (onItemClick)="onDocumentNodeAdded($event)"
+  placeholder="Select document"
+  displayExpr="name"
+  [dataSource]="documentNodesDataSource"
+  [searchEnabled]="true"
+>
+  <div *dxTemplate="let item of 'item'">
+    <h6>{{ item.name }}</h6>
+  </div>
+</dx-select-box>
+<dx-list
+  class="mt-2"
+  #documentNodeList
+  height="330"
+  selectionMode="none"
+  [items]="actualDocumentNodes"
+  displayExpr="name"
+>
+  <dxo-item-dragging [allowReordering]="true"></dxo-item-dragging>
+
+  <div *dxTemplate="let item of 'item'">
+    <div class="d-flex align-items-center">
+      <span (click)="removeDocumentNodeFromChart(item.id)"
+        ><i class="far fa-window-close"></i
+      ></span>
+      <span class="ml-2">{{ item.name }}</span>
+    </div>
+  </div>
+</dx-list>

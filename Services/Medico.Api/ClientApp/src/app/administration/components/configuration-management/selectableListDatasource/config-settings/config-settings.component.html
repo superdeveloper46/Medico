@@ -1,0 +1,43 @@
+<div class="col-md-6 py-2">
+    <div class="col-md-12 p-2">
+        <dx-form #configSettingsForm [(formData)]="formData">
+            <dxi-item
+                [label]="{ text: 'Notification Tech Support Message number' }"
+                dataField="notificationNumber"
+                editorType="dxNumberBox"
+                [editorOptions]="{ width: '100%' }"
+                >
+                <dxi-validation-rule type="required" message="This field is required">
+                </dxi-validation-rule>
+            </dxi-item>
+            <dxi-item
+                [label]="{ text: 'Archive Max Records' }"
+                dataField="archiveMaxRecords"
+                editorType="dxNumberBox"
+                [editorOptions]="{ width: '100%' }"
+                >
+                <dxi-validation-rule type="required" message="This field is required">
+                </dxi-validation-rule>
+            </dxi-item>
+            <dxi-item
+                [label]="{ text: 'Archive Location' }"
+                dataField="archiveLocation"
+                [editorOptions]="{ width: '100%' }"
+                >
+                <dxi-validation-rule type="required" message="This field is required">
+                </dxi-validation-rule>
+            </dxi-item>
+        </dx-form>
+    </div>
+    <div class="col-md-12 p-2">
+        <div class="dx-field-value">
+            <dx-button
+                class="Save"
+                icon="fas fa-save"
+                text="Save"
+                (onClick)="save()"
+            >
+            </dx-button>
+        </div>
+    </div>
+</div>

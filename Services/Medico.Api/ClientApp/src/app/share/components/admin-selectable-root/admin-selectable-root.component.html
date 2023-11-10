@@ -1,0 +1,25 @@
+<div class="row">
+  <div class="col-md-12">
+    <admin-selectable-list
+      #selectableList
+      [companyId]="companyId"
+      (selectableHtmlElementGenerated)="onSelectableHtmlElementGenerated($event)"
+    >
+    </admin-selectable-list>
+    <admin-selectable-range
+      #selectableRange
+      (selectableHtmlElementGenerated)="onSelectableHtmlElementGenerated($event)"
+    >
+    </admin-selectable-range>
+    <admin-selectable-date
+      #selectableDate
+      (selectableHtmlElementGenerated)="onSelectableHtmlElementGenerated($event)"
+    >
+    </admin-selectable-date>
+    <admin-selectable-variable
+      #selectableVariable
+      (selectableHtmlElementGenerated)="onSelectableHtmlElementGenerated($event)"
+    >
+    </admin-selectable-variable>
+  </div>
+</div>

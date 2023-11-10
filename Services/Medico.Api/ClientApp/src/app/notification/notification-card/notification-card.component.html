@@ -1,0 +1,512 @@
+<div>
+  <div class="left">
+    <!-- <dx-form #searchForm [(formData)]="searchData" (onFieldDataChanged)="onSearchFieldChanged($event)"
+            labelLocation="left" [colCount]="1">
+            <dxi-item>
+                <dx-select-box #searchSelectBox [(value)]="notificationTypeId" [dataSource]="notificationTypeData"
+                    valueExpr="id" displayExpr="typeName" (onValueChanged)="onChanged($event)" [searchEnabled]="true"
+                    [showClearButton]="false">
+                </dx-select-box>
+            </dxi-item>
+        </dx-form> -->
+
+    <div id="status-filter-trigger-container" class="mt-2 text-right">
+      <div style="display: flex; align-items: center; justify-content: space-between; ">
+        <div style="display: flex; cursor: pointer; align-items: center;">
+          <input type="checkbox" [checked]="filterArchive" id="archiveCheckbox" (click)="setFilterWithArchive()" >
+          <label for="archiveCheckbox" style="cursor: pointer; margin: 0px !important">&nbsp;Archive</label>
+        </div>
+        <div>
+          <a
+            id="status-filter-trigger"
+            href=""
+            class="text-decoration-none badge badge-dark"
+            (click)="togglePopover($event)"
+          >
+    
+            <span id="status-filter" class="text-uppercase">{{ filterString }}</span>
+          </a>
+        </div>
+      </div>
+      <dx-popover
+        target="#status-filter-trigger"
+        [width]="600"
+        position="bottom"
+        [showTitle]="false"
+        [(visible)]="isFilterPopoverOpened"
+        [hideOnOutsideClick]="false"
+      >
+        <div *dxTemplate="let data = model; of: 'content'">
+          <dx-form #searchForm *ngIf="isFilterPopoverOpened" [(formData)]="filterCopy">
+            <!-- <dxi-item [label]="{text: 'Physician'}" dataField="physicianId" editorType="dxSelectBox"
+                            [editorOptions]="{
+                            displayExpr: 'firstName',
+                            valueExpr: 'id',
+                            searchEnabled: true,
+                            dataSource: userDataSource,showClearButton: true}">
+                        </dxi-item> -->
+
+            
+            <dxi-item
+              [label]="{ text: 'Message Type' }"
+              dataField="messageTypeId"
+              editorType="dxSelectBox"
+              [editorOptions]="{
+                displayExpr: 'description',
+                valueExpr: 'value',
+                dataSource: messageTypes,
+                showClearButton: true
+              }"
+            >
+            </dxi-item>
+            <dxi-item
+              [label]="{ text: 'Name' }"
+              dataField="nameValue"
+              editorType="dxTextBox"
+              [editorOptions]="{
+                showClearButton: true
+              }"
+            >
+            </dxi-item>
+            <dxi-item 
+              [label]="{ text: 'Subject' }"
+              dataField="title"
+            >
+              <dxi-validation-rule type="required" message="Message is required"></dxi-validation-rule>
+              <dx-select-box
+                [dataSource]="subjectsDataSource"
+                [acceptCustomValue]="true"
+                displayExpr="value"
+                valueExpr="value"
+                searchMode="contains"
+                searchExpr="value"
+                [searchTimeout]=200
+                [minSearchLength]=0
+                [searchEnabled]="true"
+                [showDataBeforeSearch]="false"
+                [(value)]="replyData.title"
+                (onCustomItemCreating)="addCustomItem($event)"
+                [showClearButton]="true"
+              ></dx-select-box>
+            </dxi-item>
+            
+            <dxi-item
+              [label]="{ text: 'Statuses' }"
+              dataField="statusId"
+              editorType="dxSelectBox"
+              [editorOptions]="{
+                displayExpr: 'value',
+                valueExpr: 'value',
+                dataSource: statusList,
+                showClearButton: true
+              }"
+            >
+            </dxi-item>
+            <dxi-item
+              [label]="{ text: 'Priority' }"
+              dataField="priority"
+              editorType="dxSelectBox"
+              [editorOptions]="{
+                displayExpr: 'name',
+                valueExpr: 'value',
+                dataSource: priorityList,
+                showClearButton: true
+              }"
+            >
+            </dxi-item>
+            <dxi-item
+              [label]="{ text: 'Phone' }"
+              dataField="phoneValue"
+              editorType="dxTextBox"
+              [editorOptions]="{
+                showClearButton: true,
+                mask: '+1 (X00) 000-0000',
+                maskRules: phoneRules,
+                maskInvalidMessage: 'The phone must have a correct USA phone format'
+              }"
+            >
+              <dxi-validation-rule
+                type="pattern"
+                [pattern]="phonePattern"
+                message="The phone must have a correct USA phone format"
+              >
+              </dxi-validation-rule>
+            </dxi-item>
+            <dxi-item
+              [label]="{ text: 'Email' }"
+              dataField="emailValue"
+              editorType="dxTextBox"
+              [editorOptions]="{
+                showClearButton: true
+              }"
+            >
+              <dxi-validation-rule type="email" message="Email is invalid">
+              </dxi-validation-rule>
+            </dxi-item>
+            <dxi-item
+              [label]="{ text: 'From' }"
+              dataField="dateFrom"
+              editorType="dxDateBox"
+              [editorOptions]="{
+                showClearButton: true,
+                invalidDateMessage: 'The date must have the following format: MM/DD/YYYY'
+              }"
+            >
+            </dxi-item>
+            <dxi-item
+              [label]="{ text: 'To' }"
+              dataField="dateTo"
+              editorType="dxDateBox"
+              [editorOptions]="{
+                showClearButton: true,
+                invalidDateMessage: 'The date must have the following format: MM/DD/YYYY'
+              }"
+            >
+            </dxi-item>
+
+            <dxi-item
+              [label]="{ text: 'Content' }"
+              dataField="description"
+              editorType="dxTextArea"
+              [editorOptions]="{
+                height:120,
+                showClearButton: true
+              }"
+            >
+            </dxi-item>
+
+            <dxi-item [colSpan]="2" [template]="'actionsTemplate'"></dxi-item>
+
+            <div *dxTemplate="let data of 'actionsTemplate'">
+              <div class="text-right mt-2">
+                <!-- <button (click)="resetAppointmentFilter()"
+                                    class="btn btn-outline-secondary">Reset</button> -->
+                <button
+                  (click)="cancelAppointmentFilter()"
+                  class="btn btn-outline-secondary ml-2"
+                >
+                  Cancel
+                </button>
+                <button
+                  (click)="applyAppointmentFilter()"
+                  class="btn btn-outline-secondary ml-2"
+                >
+                  Apply
+                </button>
+              </div>
+            </div>
+          </dx-form>
+        </div>
+      </dx-popover>
+    </div>
+
+    <dx-list
+      class="list"
+      [dataSource]="dataSource"
+      [grouped]="true"
+      [searchEnabled]="true"
+      selectionMode="single"
+      [(searchValue)]="listSearchStr"
+      [selectedItemKeys]="[currentNotification?.id]"
+      (onSelectionChanged)="listSelectionChanged($event, 0)"
+    >
+      <div *dxTemplate="let item of 'item'">
+        <div style="float: right">
+          <span *ngIf="item.isRead === false && item.priority === 'High'" class="text-danger fas fa-envelope"></span>
+          <span *ngIf="item.isRead === false && item.priority !== 'High'" class="text-warning fas fa-envelope"></span>
+          <span *ngIf="item.isRead === true" class="text-primary fas fa-envelope"></span>
+        </div>
+        <div>
+          <div class="">
+            <div class="name" [innerHtml]="item.title"></div>
+            <div class="message" [innerHtml]="commonText(item.description)"></div>
+          </div>
+          <div class="mt-2">
+            <div class="date text-right">{{ item?.link }}</div>
+            <div class="text-right">
+              <span class="date">{{ item?.createdOn | datex: 'DD MMM YY HH:mm:ss' }}</span>
+              &nbsp;|&nbsp;
+              <span class="date ">{{ item?.creatorName }}</span>
+            </div>
+          </div>
+        </div>
+        
+      </div>
+    </dx-list>
+  </div>
+  <div class="right">
+
+    <div [hidden]="data.length === 0">
+      <div class="header">
+        <div class="row">
+          <div class="col-md-6">
+            <div>
+              <span class="lbl text-muted">
+                Recipients:
+                <span *ngFor="let r of currentNotification?.userModels">
+                  {{ r.firstName }} {{ r.lastName }},
+                </span>
+              </span>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="price-container">
+              <div style="margin-right: 10px;">
+                <button *ngIf="!currentNotification?.archive" class="btn btn-sm btn-outline-primary" (click)="setArchive()"><i class="fa fa-archive"></i> Archive</button>
+                <button *ngIf="currentNotification?.archive" disabled class="btn btn-sm btn-outline-default" (click)="setArchive()"><i class="fa fa-archive"></i> Archive</button>
+              </div>
+              <div class="price">
+                Date : {{ currentNotification?.createdOn | datex: 'DD MMM YY HH:mm:ss' }}
+              </div>
+              &nbsp;|&nbsp;
+              <div class="caption">Author : {{ currentNotification?.creatorName }}</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div>
+        <span class="lbl text-muted">Title:&nbsp;</span
+        ><a [routerLink]="[currentNotification?.link]">
+          <span [innerHtml]="currentNotification?.title"> </span>
+        </a>
+      </div>
+      <div style="display: flex;">
+        <div class="text-muted">Message:&nbsp;</div>
+        <div class="description" [innerHtml]="currentNotification?.description"></div>
+      </div>
+      <span class="text-muted lbl"> Status:&nbsp;</span>
+      {{ currentNotification?.entityStatus }}<br />
+      <hr />
+      <!--Reply-->
+      <div class="card" style="max-height: 300px; overflow: auto">
+        <div class="card-header font-weight-bold">
+          <div class="float-left">REPLY</div>
+          <div class="float-right">
+            <button
+              type="button"
+              class="btn btn-sm btn-outline-primary"
+              (click)="reply()"
+            >
+              Reply
+            </button>
+            <button
+              *ngIf="currentNotification?.isRead === false"
+              type="button"
+              class="btn btn-sm btn-outline-secondary ml-2"
+              (click)="updateNotification(currentNotification?.id)"
+            >
+              Mark as Read
+            </button>
+          </div>
+        </div>
+        <div *ngFor="let data of notificationdata" class="not-data">
+          <div class="hotel">
+            <small class="text-muted">Subject:</small>
+            <span class="mb-1 ml-2"> {{ data.title }}</span
+            ><br />
+            <div style="display: flex;">
+              <small class="text-muted">Message: </small>
+              <div class="description ml-2" [innerHtml]="data?.description"></div>
+            </div>
+          </div>
+          <div class="price-container">
+            <div class="price text-muted">
+              {{ data.createdOn | datex: 'DD MMM YY HH:mm:ss' }}
+              |
+              {{ data.creatorName }}
+            </div>
+            <!-- <div class="caption">{{data.creatorName}}</div> -->
+          </div>
+        </div>
+      </div>
+
+      <!--Sub tasks-->
+      <div *ngIf="currentNotification">
+        <sub-tasks #subTask [notificationId]="currentNotification.id" [patientId]="currentNotification.patientId"></sub-tasks>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-12">
+    <dx-speed-dial-action
+      icon="comment"
+      label="New Message"
+      id="link1"
+      (mouseenter)="toggleDefault()"
+      (mouseleave)="toggleDefault()"
+      (onClick)="message()"
+    >
+    </dx-speed-dial-action>
+  </div>
+</div>
+
+<!--pop over-->
+<dx-popover target="#link1" position="top" [width]="200" [(visible)]="defaultVisible">
+  <div *dxTemplate="let data = model; of: 'content'">New Message</div>
+</dx-popover>
+
+<!--Message popup-->
+<dx-popup
+  #messagePopup
+  class="popup"
+  [width]="1100"
+  [height]="700"
+  [dragEnabled]="false"
+  [showTitle]="true"
+  [hideOnOutsideClick]="false"
+  [(visible)]="isDrawerOpen1"
+>
+  <div *dxTemplate="let data of 'content'">
+    <div *ngIf="isDrawerOpen1" class="row">
+      <div class="col-md-12">
+        <dx-form #messageForm [(formData)]="replyData">
+          <dxi-item itemType="group" [colCount]="2" >
+            <dxi-item [label]="{ text: 'To' }" dataField="to" editorType="dxTagBox" colSpan="1">
+              <dxi-validation-rule type="required" message="Recipients is required"></dxi-validation-rule>
+              <dx-tag-box
+                [(value)]="replyData.userIds"
+                [dataSource]="userDataSource"
+                [searchEnabled]="true"
+                displayExpr="firstName"
+                valueExpr="id"
+              >
+              </dx-tag-box>
+            </dxi-item>
+            <dxi-item
+              dataField="createDate"
+              editorType="dxDateBox"
+              [editorOptions]="{ width: '100%', height: '36' }"
+            >
+              <dxi-validation-rule type="required"></dxi-validation-rule>
+            </dxi-item>
+          </dxi-item>
+  
+          <dxi-item itemType="group" [colCount]="2" >
+            <dxi-item [label]="{text: 'Message Type'}" colSpan="1">
+              <dxi-validation-rule type="required" message="MessageType is required"></dxi-validation-rule>
+              <dx-select-box
+                [dataSource]="messageTypes"
+                displayExpr="value"
+                valueExpr="value"
+                [(value)]="replyData.messageTypeId"
+              ></dx-select-box>
+            </dxi-item>
+
+            <dxi-item [label]="{text: 'Patient'}">
+              <dxi-validation-rule type="required" message="Patient is required"></dxi-validation-rule>
+              <dx-select-box
+                [dataSource]="patientSource"
+                [displayExpr]="formatPatientDropdownItem"
+                valueExpr="id"
+                [searchExpr]="customPatientSearch"
+                [searchTimeout]=200
+                [searchEnabled]="true"
+                [showDataBeforeSearch]="false"
+                [(value)]="replyData.patientId"
+              ></dx-select-box>
+            </dxi-item>
+            
+          </dxi-item>
+
+          <dxi-item itemType="group" [colCount]="2">
+            <dxi-item 
+              [label]="{ text: 'Subject' }"
+              dataField="title"
+              colSpan="1"
+            >
+              <dxi-validation-rule type="required" message="Message is required"></dxi-validation-rule>
+              <dx-select-box
+                [dataSource]="subjectsDataSource"
+                [acceptCustomValue]="true"
+                displayExpr="value"
+                valueExpr="value"
+                searchMode="contains"
+                searchExpr="value"
+                [searchTimeout]=200
+                [minSearchLength]=0
+                [searchEnabled]="true"
+                [showDataBeforeSearch]="false"
+                [(value)]="replyData.title"
+                (onCustomItemCreating)="addCustomItem($event)"
+              ></dx-select-box>
+            </dxi-item>
+
+            <dxi-item
+              dataField="priority"
+              editorType="dxSelectBox"
+            >
+              <dxi-validation-rule type="required"></dxi-validation-rule>
+              <dx-select-box
+                [dataSource]="priorityList"
+                displayExpr="name"
+                valueExpr="value"
+                [(value)]="replyData.priority"
+              ></dx-select-box>
+            </dxi-item>
+          </dxi-item>
+
+          <dxi-item itemType="group" [colCount]="5" >
+            <dxi-item [label]="{text: 'Message'}" colSpan="4" >
+              <dxi-validation-rule type="required" message="MessageType is required"></dxi-validation-rule>
+              <admin-rich-text-editor
+                #newMessageRichTextEditor
+                initialContent=""
+                [height]="420"
+              >
+              </admin-rich-text-editor>
+            </dxi-item>
+            <dxi-item>
+              <div class="">
+                <dx-button
+                  class="mt-2"
+                  icon="fa fa-arrow-left"
+                  text="Insert Phrases"
+                  (click)="showPhrasesHelper($event)"
+                >
+                </dx-button>
+                <phrase-suggestion-helper
+                  #phraseHelper
+                  *ngIf="isPhrasesHelperVisible"
+                  [keepFormat]="true"
+                  [typedText]="'..'"
+                  [templateId]="templateId"
+                  [companyId]="companyId"
+                  (phraseSuggestionApplied)="onPhraseSuggestionApplied($event)"
+                >
+                </phrase-suggestion-helper>
+              </div>
+            </dxi-item>
+          </dxi-item>
+
+        </dx-form>
+      </div>
+      <div class="newMessageFooter">
+        <div class="" [innerHTML]="author"></div>
+        <div class="dx-field-value">
+          <dx-button
+            class="send"
+            icon="fas fa-envelope"
+            text="Send"
+            (onClick)="postMessage()"
+          >
+          </dx-button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="d-flex align-items-center justify-content-between" *dxTemplate="let data of 'title'">
+    <div class="">
+      <span style="font-size: 16px;">{{messageTitle}}</span>
+    </div>
+    <div class="d-flex justify-content-end align-items-center">
+      <div class="mr-3" [innerHTML]="userName"></div>
+      <button
+        type="button"
+        class="btn btn-sm btn-outline-default"
+        (click)="isDrawerOpen1=false"
+      >
+        <div><i class="dx-icon dx-icon-close"></i></div>
+      </button>
+    </div>
+  </div>
+</dx-popup>

@@ -1,0 +1,128 @@
+<div class="row mt-md-2">
+  <div class="col-md-3">
+    <button
+      type="button"
+      (click)="openVendorForm()"
+      class="btn btn-sm btn-outline-secondary"
+    >
+      ADD VENDOR
+    </button>
+  </div>
+</div>
+<div class="row mt-md-2">
+  <div class="col-md-10">
+    <dx-data-grid
+      [hoverStateEnabled]="true"
+      [wordWrapEnabled]="true"
+      #vendorFormDataGrid
+      [dataSource]="vendorDataSource"
+      (onSelectionChanged)="onVendorSelected($event)"
+      [showBorders]="true"
+      [showRowLines]="true"
+    >
+      <dxo-remote-operations
+        [filtering]="true"
+        [paging]="true"
+        [sorting]="true"
+      ></dxo-remote-operations>
+
+      <dxo-paging [pageSize]="searchConfiguration.pageSizeCount"></dxo-paging>
+
+      <dxo-pager
+        [showPageSizeSelector]="true"
+        [allowedPageSizes]="searchConfiguration.allowedPageSizes"
+      >
+      </dxo-pager>
+      <dxi-column dataField="id" dataType="number" [visible]="false"></dxi-column>
+      <dxi-column alignment="left" dataField="vendorName"></dxi-column>
+      <dxi-column alignment="left" dataField="address"></dxi-column>
+      
+
+      <dxi-column
+        alignment="center"
+        caption="Edit"
+        cellTemplate="EditVendorTemplate"
+      ></dxi-column>
+      <dxi-column
+        [width]="10 + '%'"
+        alignment="center"
+        caption="Actions"
+        cellTemplate="VendorActionsTemplate"
+      >
+      </dxi-column>
+      <div class="text-center" *dxTemplate="let template of 'EditVendorTemplate'">
+        <div class="text-center mt-md-1">
+          <button
+            type="button"
+            (click)="editVendor(template.data)"
+            class="btn btn-sm btn-outline-primary"
+          >
+            Edit
+          </button>
+        </div>
+      </div>
+      <div class="text-center" *dxTemplate="let template of 'VendorActionsTemplate'">
+        <div class="btn-group btn-group-sm" role="group">
+          <button (click)="deleteVendor(template.data.id)" class="btn btn-outline-danger">
+            <i class="fas fa-trash"></i>
+          </button>
+        </div>
+      </div>
+      <dxo-selection mode="single"></dxo-selection>
+      <dxo-filter-row [visible]="true"></dxo-filter-row>
+    </dx-data-grid>
+  </div>
+</div>
+<dx-popup
+  #vendorAddPopup
+  class="popup"
+  [width]="700"
+  [height]="400"
+  [dragEnabled]="false"
+  [showTitle]="true"
+  [title]="title"
+  [hideOnOutsideClick]="false"
+  [(visible)]="isVendorFormOpened"
+>
+  <div *dxTemplate="let data of 'content'">
+    <div *ngIf="isVendorFormOpened" class="row">
+      <div class="col-md-12">
+        <dx-form #vendorForm [(formData)]="vendorData" [colCount]="2">
+          <dxi-item dataField="vendorName" [editorOptions]="{ width: '100%' }">
+            <dxi-validation-rule type="required" message="Vendor Name is required">
+            </dxi-validation-rule>
+          </dxi-item>
+          <dxi-item
+            dataField="address"
+            editorType="dxTextArea"
+            [editorOptions]="{ width: '100%', height: '70' }"
+          >
+            <dxi-validation-rule type="required" message="Address is required">
+            </dxi-validation-rule>
+          </dxi-item>
+        </dx-form>
+      </div>
+      <div class="col-md-12 text-right mt-md-2">
+        <button
+          *ngIf="isNewVendor === true"
+          type="button"
+          (click)="createVendor()"
+          class="btn btn-sm btn-outline-secondary mr-2"
+        >
+          SAVE
+        </button>
+        <button
+          *ngIf="isNewVendor === false"
+          type="button"
+          (click)="updateVendor()"
+          class="btn btn-sm btn-outline-secondary mr-2"
+        >
+          UPDATE
+        </button>
+
+        <!-- <button *ngIf="labTestId" type="button" (click)="deleteConfirm()"
+                    class="btn btn-sm btn-outline-danger">DELETE</button> -->
+      </div>
+    </div>
+  </div>
+</dx-popup>

@@ -1,0 +1,59 @@
+<h6>
+  Phrase: <strong>{{ phraseName }}</strong>
+</h6>
+
+<div class="p-3 border border-secondary mt-2">
+  <dx-select-box
+    [(value)]="selectedTemplate"
+    [dataSource]="templateDataSource"
+    displayExpr="name"
+    [searchEnabled]="true"
+  >
+  </dx-select-box>
+
+  <div class="text-right mt-2">
+    <button
+      type="button"
+      (click)="addTemplate()"
+      class="btn btn-sm btn-outline-secondary"
+    >
+      Add
+    </button>
+  </div>
+</div>
+
+<div class="mt-4">Templates</div>
+
+<div class="p-3 border border-secondary mt-2">
+  <dx-list [dataSource]="templateUsePhrasesCopy" [height]="240">
+    <div *dxTemplate="let data of 'item'">
+      <div class="d-flex justify-content-between align-items-center">
+        <div>{{ data.templateName }}</div>
+        <button
+          type="button"
+          (click)="deleteTemplate(data.templateId)"
+          class="btn btn-sm btn-outline-danger"
+        >
+          DELETE
+        </button>
+      </div>
+    </div>
+  </dx-list>
+</div>
+
+<div class="d-flex justify-content-between mt-2">
+  <button
+    type="button"
+    (click)="cancelSavingTemplates()"
+    class="btn btn-sm btn-outline-danger"
+  >
+    Cancel
+  </button>
+  <button
+    type="button"
+    (click)="saveTemplates()"
+    class="btn btn-sm btn-outline-secondary"
+  >
+    Save Changes
+  </button>
+</div>

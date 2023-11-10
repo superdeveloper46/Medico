@@ -1,0 +1,43 @@
+<dx-tab-panel
+  *ngIf="canRenderComponent"
+  #tabPanel
+  [dataSource]="vitalSignTabs"
+  [selectedIndex]="0"
+>
+  <div class="p-3" *dxTemplate="let baseVitalSigns of 'baseVitalSignsTemplate'">
+    <base-vital-signs
+      [isSignedOff]="isSignedOff"
+      [companyId]="companyId"
+      [patientId]="patientId"
+      [vitalSignsConfig]="vitalSignsConfig"
+    >
+    </base-vital-signs>
+  </div>
+  <div class="p-3" *dxTemplate="let patientVitalSigns of 'vitalSignsTemplate'">
+    <vital-signs-panel
+      [isSignedOff]="isSignedOff"
+      [companyId]="companyId"
+      [patientId]="patientId"
+      [admissionId]="admissionId"
+      [vitalSignsConfig]="vitalSignsConfig"
+    >
+    </vital-signs-panel>
+  </div>
+  <div class="p-3" *dxTemplate="let vision of 'visionTemplate'">
+    <vision-vital-signs
+      [isSignedOff]="isSignedOff"
+      [patientId]="patientId"
+    ></vision-vital-signs>
+  </div>
+  <div class="p-3" *dxTemplate="let notes of 'notesTemplate'">
+    <vital-signs-notes
+      [isSignedOff]="isSignedOff"
+      [companyId]="companyId"
+      [admissionId]="admissionId"
+    >
+    </vital-signs-notes>
+  </div>
+  <div class="p-3" *dxTemplate="let config of 'configTemplate'">
+    <vital-signs-config [vitalSignsConfig]="vitalSignsConfig"></vital-signs-config>
+  </div>
+</dx-tab-panel>

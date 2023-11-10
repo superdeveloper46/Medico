@@ -1,0 +1,11 @@
+<div *ngIf="visible" class="d-flex justify-content-between">
+  <dx-text-box [(value)]="date" class="w-50"></dx-text-box>
+  <button
+    *ngIf="!isPreviewMode"
+    type="button"
+    (click)="saveSelectbleItemChanges()"
+    class="btn btn-sm btn-outline-secondary"
+  >
+    APPLY
+  </button>
+</div>

@@ -1,0 +1,15 @@
+<div class="row mt-md-3">
+  <div class="col-md-12">
+    <h5>Reports</h5>
+  </div>
+</div>
+<hr />
+<div class="row mt-md-3">
+  <div class="col-md-2 border-right">
+    <dx-tree-view [dataSource]="adminModelTree" (onItemClick)="selectReport($event)">
+    </dx-tree-view>
+  </div>
+  <div class="col-md-10">
+    <router-outlet></router-outlet>
+  </div>
+</div>

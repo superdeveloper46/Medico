@@ -1,0 +1,82 @@
+<div class="row mt-md-2">
+  <!-- <div class="col-md-12">
+        <b>APPLICATION AVAILABLE ROLES</b>
+    </div> -->
+  <div class="col-md-3">
+    <button
+      type="button"
+      (click)="openroleForm()"
+      class="btn btn-sm btn-outline-secondary"
+    >
+      NEW ROLE
+    </button>
+  </div>
+</div>
+<div class="row mt-md-2">
+  <div class="col-md-12">
+    <dx-data-grid
+      [dataSource]="roleDataSource"
+      [showBorders]="true"
+      (onSelectionChanged)="onRoleChanged($event)"
+    >
+      <dxo-paging [pageSize]="searchConfiguration.pageSizeCount"></dxo-paging>
+
+      <dxo-selection mode="single"></dxo-selection>
+
+      <dxo-pager
+        [showPageSizeSelector]="true"
+        [allowedPageSizes]="searchConfiguration.allowedPageSizes"
+      >
+      </dxo-pager>
+
+      <dxo-filter-row [visible]="true"></dxo-filter-row>
+
+      <dxi-column dataField="id" dataType="string" [visible]="false"></dxi-column>
+
+      <dxi-column
+        alignment="left"
+        dataField="name"
+        dataType="string"
+        [filterOperations]="searchConfiguration.availableFilters"
+      ></dxi-column>
+    </dx-data-grid>
+  </div>
+</div>
+
+<!--rolePopup-->
+<dx-popup
+  #rolePopup
+  class="popup"
+  [width]="900"
+  [height]="400"
+  [dragEnabled]="false"
+  [showTitle]="true"
+  title="ROLE"
+  [hideOnOutsideClick]="false"
+  [(visible)]="isrolePopupOpened"
+  (onHidden)="onrolePopupHidden()"
+>
+  <div id="template-type-form-popup" *dxTemplate="let data of 'content'">
+    <div *ngIf="isrolePopupOpened" class="row">
+      <div class="col-md-12">
+        <dx-form [colCount]="4" [height]="260" #roleForm [(formData)]="role">
+          <dxi-item [colSpan]="3" dataField="name">
+            <dxi-validation-rule
+              type="required"
+              message="Name is required"
+            ></dxi-validation-rule>
+          </dxi-item>
+        </dx-form>
+      </div>
+      <div class="col-md-12 text-right mt-md-2">
+        <button
+          type="button"
+          (click)="createUpdaterole()"
+          class="btn btn-sm btn-outline-secondary"
+        >
+          SAVE
+        </button>
+      </div>
+    </div>
+  </div>
+</dx-popup>

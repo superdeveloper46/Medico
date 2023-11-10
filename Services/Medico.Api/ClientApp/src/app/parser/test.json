@@ -1,0 +1,60 @@
+[
+    {
+        "Id": "bd36ec336d30318c9d0897e85fd0e446",
+        "DocumentId": "65fc6c8f5f9828b980d30b9110857741",
+        "RemoteId": "",
+        "FileName": "Test.pdf",
+        "MediaLink": "https:\/\/api.docparser.com\/v1\/document\/media\/z952qX-Vvln0U1VdHW85a3mVndkB5Jh9uUMXdlaVb9ev6bJsyvCMlmvq__AcPWKTRYQC8_WN1cUs1G5pideZM8cUX81RdWljtDyla3eYltA",
+        "MediaLinkOriginal": "https:\/\/api.docparser.com\/v1\/document\/media\/z952qX-Vvln0U1VdHW85a3mVndkB5Jh9uUMXdlaVb9ev6bJsyvCMlmvq__AcPWKTRYQC8_WN1cUs1G5pideZM8cUX81RdWljtDyla3eYltA\/original",
+        "MediaLinkData": "https:\/\/api.docparser.com\/v1\/document\/media\/z952qX-Vvln0U1VdHW85a3mVndkB5Jh9uUMXdlaVb9ev6bJsyvCMlmvq__AcPWKTRYQC8_WN1cUs1G5pideZM8cUX81RdWljtDyla3eYltA\/data",
+        "PageCount": 25,
+        "UploadedAt": "2021-04-14T19:37:28+00:00",
+        "ProcessedAt": "2021-04-14T23:15:17+00:00",
+        "MedicoInfo": "GLENN R KUNSMAN,DO (GLENDALE)\n3507 NORTH CENTRAL AVE STE 403\nPHOENIX AZ 85012",
+        "ClaimantCaseInformation": [
+            {
+                "key_0": "Max Paul Montano"
+            },
+            {
+                "key_0": "7403 N 55TH AVE"
+            },
+            {
+                "key_0": "GLENDALE, AZ"
+            },
+            {
+                "key_0": "85301-2514"
+            },
+            {
+                "key_0": "(623) 522-2486"
+            }
+        ],
+        "ClaimantAddress": {
+            "street_number": "7403",
+            "street": "N 55th Ave",
+            "extra": "   ",
+            "city": "Glendale",
+            "state": "AZ",
+            "state_full": "Arizona",
+            "zipcode": "85301",
+            "country": "United States"
+        },
+        "ApptDate": {
+            "key_0": "April 30th, 2021"
+        },
+        "Service": "Services Authorized\nCode: 99205-MUSC-SKEL\nProcedure Type Code: E\nDesc: Comprehensive musculoskeletal exam with history.\nTypically 60 min exam.\n\nFee: $124.00",
+        "ClaimantSSN": "SSN\n527-85-0917",
+        "Birthday": {
+            "formatted": "06-11-80"
+        },
+        "RQIDbytext": "DCC458138",
+        "AllegationsbyText": "RHEUMATOID ATHRITITS; BAD HIP; RIGHT KNEE SWOLLEN AND HASTO USE CA",
+        "VariableHPI": null,
+        "SpecialInstructions": null,
+        "physicianbylocation": "GLENN R KUNSMAN,",
+        "ClaimantName": "MAX PAUL MONTAN",
+        "PhoneNumber": {
+            "formatted": "+16235222486"
+        },
+        "AppointmentTime": "11:20 AM"
+    }
+]

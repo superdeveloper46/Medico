@@ -1,0 +1,55 @@
+<div class="row mt-md-1">
+  <div class="col-md-2">
+    <dx-tree-view [dataSource]="adminModelTree" (onItemClick)="selectAdminSection($event)">
+    </dx-tree-view>
+  </div>
+  <div *ngIf="isAdminSectionOpened(adminSectionNames[0])" class="col-md-10">
+    <company-management></company-management>
+  </div>
+  <div *ngIf="isAdminSectionOpened(adminSectionNames[1])" class="col-md-10">
+    <template-management></template-management>
+  </div>
+  <div *ngIf="isAdminSectionOpened(adminSectionNames[2])" class="col-md-10">
+    <medication-management></medication-management>
+  </div>
+  <div *ngIf="isAdminSectionOpened(adminSectionNames[3])" class="col-md-10">
+    <patient-chart-management [isLibraryManagement]="false"> </patient-chart-management>
+  </div>
+  <div *ngIf="isAdminSectionOpened(adminSectionNames[4])" class="col-md-10">
+    <expressions></expressions>
+  </div>
+  <div *ngIf="isAdminSectionOpened(adminSectionNames[5])" class="col-md-10">
+    <app-insurance-company></app-insurance-company>
+  </div>
+  <div *ngIf="isAdminSectionOpened(adminSectionNames[6])" class="col-md-10">
+    <app-lab-tests-management></app-lab-tests-management>
+  </div>
+  <div *ngIf="isAdminSectionOpened(adminSectionNames[7])" class="col-md-10">
+    <!-- <app-editor-config></app-editor-config> -->
+    <vital-signs-lookup></vital-signs-lookup>
+  </div>
+  <div *ngIf="isAdminSectionOpened(adminSectionNames[8])" class="col-md-10">
+    <app-profile-management></app-profile-management>
+  </div>
+  <div *ngIf="isAdminSectionOpened(adminSectionNames[9])" class="col-md-10">
+    <app-vendor-management></app-vendor-management>
+  </div>
+  <div *ngIf="isAdminSectionOpened(adminSectionNames[10])" class="col-md-10">
+    <app-pre-auth-management></app-pre-auth-management>
+  </div>
+  <!-- <div *ngIf="isAdminSectionOpened(adminSectionNames[11])" class="col-md-10">
+    <care-team-mamnagement></care-team-mamnagement>
+  </div> -->
+  <div *ngIf="isAdminSectionOpened(adminSectionNames[12])" class="col-md-10">
+    <business-hours-management></business-hours-management>
+  </div>
+  <div *ngIf="isAdminSectionOpened(adminSectionNames[13])" class="col-md-10">
+    <appointment-status-color-management></appointment-status-color-management>
+  </div>
+  <div *ngIf="isAdminSectionOpened(adminSectionNames[14])" class="col-md-10">
+    <configuration-management></configuration-management>
+  </div>
+  <!-- <div *ngIf="isAdminSectionOpened(adminSectionNames[5])" class="col-md-10">
+        <extra-field-management></extra-field-management>
+    </div> -->
+</div>

@@ -1,0 +1,43 @@
+<div class="row">
+  <div class="col-md-8">
+    <dx-form #vitalSignsNotesForm [(formData)]="vitalSignsNotes">
+      <dxi-item template="notesTemplate"></dxi-item>
+      <div *dxTemplate="let data of 'notesTemplate'">
+        <div class="mb-2">
+          <span class="pr-5">Include Notes In Report:</span
+          ><dx-check-box
+            [readOnly]="isSignedOff"
+            [(value)]="vitalSignsNotes.includeNotesInReport"
+          ></dx-check-box>
+        </div>
+
+        <dx-text-area
+          [readOnly]="isSignedOff"
+          valueChangeEvent="keyup"
+          [(value)]="vitalSignsNotes.notes"
+          height="300"
+        ></dx-text-area>
+
+        <phrase-suggestion-helper
+          class="mt-2"
+          [typedText]="vitalSignsNotes.notes"
+          [companyId]="companyId"
+          [patientChartNodeId]="patientChartNodeId"
+          (phraseSuggestionApplied)="onPhraseSuggestionApplied($event)"
+        >
+        </phrase-suggestion-helper>
+      </div>
+    </dx-form>
+  </div>
+</div>
+<div *ngIf="!isSignedOff" class="row">
+  <div class="col-md-8 text-right mt-md-2">
+    <button
+      type="button"
+      (click)="saveVitalSignsNotes()"
+      class="btn btn-sm btn-outline-secondary"
+    >
+      SAVE NOTES
+    </button>
+  </div>
+</div>
